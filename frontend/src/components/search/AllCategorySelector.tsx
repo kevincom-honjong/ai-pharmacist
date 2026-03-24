@@ -24,6 +24,9 @@ const ICONS: Record<string, string> = {
   nausea: "🤮", musclePain: "💪", backPain: "🦴", allergy: "🤲",
   skinRash: "🩹", menstrualPain: "🩸", toothache: "🦷", eyeStrain: "👁️",
   heartburn: "🔥", constipation: "😫", insomnia: "😴", jointPain: "🦵",
+  dizziness: "💫", tinnitus: "👂", nosebleed: "🩸", mouthUlcer: "👄",
+  burn: "🔥", wound: "🩹", swelling: "🦶", acne: "😖",
+  athletesFoot: "🦶", stye: "👁️",
 };
 
 const NAMES: Record<string, Record<string, string>> = {
@@ -47,6 +50,16 @@ const NAMES: Record<string, Record<string, string>> = {
   constipation: { ko: "변비", en: "Constipation", vi: "Táo bón" },
   insomnia: { ko: "불면증", en: "Insomnia", vi: "Mất ngủ" },
   jointPain: { ko: "관절통", en: "Joint Pain", vi: "Đau khớp" },
+  dizziness: { ko: "어지러움", en: "Dizziness", vi: "Chóng mặt" },
+  tinnitus: { ko: "이명", en: "Tinnitus", vi: "Ù tai" },
+  nosebleed: { ko: "코피", en: "Nosebleed", vi: "Chảy máu mũi" },
+  mouthUlcer: { ko: "구내염", en: "Mouth Ulcer", vi: "Nhiệt miệng" },
+  burn: { ko: "화상", en: "Burn", vi: "Bỏng" },
+  wound: { ko: "상처/찰과상", en: "Wound/Cut", vi: "Vết thương" },
+  swelling: { ko: "부종", en: "Swelling", vi: "Sưng phù" },
+  acne: { ko: "여드름", en: "Acne", vi: "Mụn trứng cá" },
+  athletesFoot: { ko: "무좀", en: "Athlete's Foot", vi: "Nấm chân" },
+  stye: { ko: "다래끼", en: "Stye", vi: "Lẹo mắt" },
 };
 
 const DESC: Record<string, Record<string, string>> = {
@@ -70,6 +83,16 @@ const DESC: Record<string, Record<string, string>> = {
   constipation: { ko: "배변이 어려운 상태", en: "Hard to pass stool", vi: "Khó đi cầu" },
   insomnia: { ko: "잠이 안 오는 상태", en: "Can't sleep", vi: "Khó ngủ" },
   jointPain: { ko: "관절이 아픈 증상", en: "Joint aches", vi: "Nhức khớp" },
+  dizziness: { ko: "빙빙 도는 느낌, 균형 어려움", en: "Spinning or balance issues", vi: "Cảm giác quay cuồng" },
+  tinnitus: { ko: "귀에서 소리가 나는 증상", en: "Ringing in ears", vi: "Tiếng ù trong tai" },
+  nosebleed: { ko: "코에서 피가 나는 상태", en: "Bleeding from nose", vi: "Chảy máu từ mũi" },
+  mouthUlcer: { ko: "입안이 헐어서 아픈 상태", en: "Sores inside mouth", vi: "Loét trong miệng" },
+  burn: { ko: "뜨거운 것에 데인 상태", en: "Injury from heat", vi: "Tổn thương do nhiệt" },
+  wound: { ko: "피부가 긁히거나 베인 상태", en: "Cuts or scrapes", vi: "Vết cắt, trầy xước" },
+  swelling: { ko: "발이나 다리가 붓는 상태", en: "Swollen feet or legs", vi: "Sưng chân, bàn chân" },
+  acne: { ko: "피부에 뾰루지가 나는 상태", en: "Pimples or breakouts", vi: "Nổi mụn trên da" },
+  athletesFoot: { ko: "발에 곰팡이 감염, 가려움", en: "Fungal foot infection", vi: "Nhiễm nấm ở chân" },
+  stye: { ko: "눈꺼풀에 염증이 생긴 상태", en: "Eyelid bump/infection", vi: "Sưng viêm mí mắt" },
 };
 
 export default function AllCategorySelector({ onSelect, onBack }: AllCategorySelectorProps) {
