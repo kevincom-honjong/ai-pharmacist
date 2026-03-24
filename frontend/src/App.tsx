@@ -32,16 +32,20 @@ const DISCLAIMER_KEY = "otc_disclaimer_agreed";
 
 type Screen = "home" | "flow" | "allCategories";
 
-// Check if onboarding is complete (all 3 steps done)
-function isOnboardingComplete(): boolean {
-  return !!(getSavedLanguage() && getSavedCountry() && localStorage.getItem(DISCLAIMER_KEY) === "true");
-}
+// TODO: 개발 완료 후 localStorage 기반 온보딩 스킵 복원
+// function getOnboardingStep(): "language" | "country" | "disclaimer" | "done" {
+//   if (!getSavedLanguage()) return "language";
+//   if (!getSavedCountry()) return "country";
+//   if (localStorage.getItem(DISCLAIMER_KEY) !== "true") return "disclaimer";
+//   return "done";
+// }
 
+// 개발 중: 매번 언어 선택부터 시작 + localStorage 초기화
 function getOnboardingStep(): "language" | "country" | "disclaimer" | "done" {
-  if (!getSavedLanguage()) return "language";
-  if (!getSavedCountry()) return "country";
-  if (localStorage.getItem(DISCLAIMER_KEY) !== "true") return "disclaimer";
-  return "done";
+  localStorage.removeItem("otc_selected_language");
+  localStorage.removeItem("otc_selected_country");
+  localStorage.removeItem(DISCLAIMER_KEY);
+  return "language";
 }
 
 function App() {
