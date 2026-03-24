@@ -295,6 +295,58 @@ export const DRUGS: Record<string, DrugEntry> = {
   aspercreme_us: { id: "aspercreme_us", nameKR: "아스퍼크림", nameVN: "Aspercreme", nameUS: "Aspercreme", ingredient: "Lidocaine 4% cream", dosageKR: "아픈 부위에 도포, 하루 3~4회", dosageVN: "Thoa vào vùng đau, 3-4 lần/ngày", dosageUS: "Apply to affected area, 3-4 times/day", precautionKR: "국소 마취 효과", precautionVN: "Tác dụng gây tê cục bộ", precautionUS: "Topical numbing effect" },
   movefree_us: { id: "movefree_us", nameKR: "무브프리", nameVN: "Move Free", nameUS: "Move Free Advanced", ingredient: "Glucosamine + Chondroitin + MSM", dosageKR: "2정, 하루 1회", dosageVN: "2 viên, 1 lần/ngày", dosageUS: "2 tablets, once daily", precautionKR: "효과 4~8주, 관절 건강 보조", precautionVN: "Cần 4-8 tuần, hỗ trợ sức khỏe khớp", precautionUS: "Takes 4-8 weeks, joint health supplement" },
   aleve_vn: { id: "aleve_vn", nameKR: "탁센", nameVN: "Anaprox 220mg", nameUS: "Aleve", ingredient: "Naproxen Sodium 220mg", dosageKR: "1정, 8~12시간 간격", dosageVN: "1 viên, cách 8-12 giờ", dosageUS: "1 tablet, every 8-12 hours", precautionKR: "위장 주의", precautionVN: "Cẩn thận dạ dày", precautionUS: "Stomach caution" },
+
+  // === Dizziness drugs (21) ===
+  meniere_kr: { id: "meniere_kr", nameKR: "메니에르정", nameVN: "Betaserc", nameUS: "Betahistine", ingredient: "Betahistine 8mg", dosageKR: "1정, 하루 3회", dosageVN: "1 viên, 3 lần/ngày", dosageUS: "1 tablet, 3 times/day", precautionKR: "식후 복용", precautionVN: "Uống sau ăn", precautionUS: "Take after meals" },
+  betaserc_vn: { id: "betaserc_vn", nameKR: "메니에르정", nameVN: "Betaserc 16mg", nameUS: "Betahistine", ingredient: "Betahistine 16mg", dosageKR: "1정, 하루 2~3회", dosageVN: "1 viên, 2-3 lần/ngày", dosageUS: "1 tablet, 2-3 times/day", precautionKR: "위궤양 환자 주의", precautionVN: "Cẩn thận loét dạ dày", precautionUS: "Caution with peptic ulcer" },
+  stugeron_vn: { id: "stugeron_vn", nameKR: "스튜제론", nameVN: "Stugeron", nameUS: "Stugeron", ingredient: "Cinnarizine 25mg", dosageKR: "1정, 하루 3회", dosageVN: "1 viên, 3 lần/ngày", dosageUS: "1 tablet, 3 times/day", precautionKR: "졸음 유발", precautionVN: "Gây buồn ngủ", precautionUS: "May cause drowsiness" },
+
+  // === Tinnitus drugs (22) ===
+  ginkgo_kr: { id: "ginkgo_kr", nameKR: "진코밀정", nameVN: "Tanakan", nameUS: "Ginkgo Biloba", ingredient: "Ginkgo biloba extract", dosageKR: "1정, 하루 2~3회", dosageVN: "1 viên, 3 lần/ngày", dosageUS: "1 capsule, 1-2 times/day", precautionKR: "혈액 희석제 복용 시 주의", precautionVN: "Cẩn thận khi dùng thuốc chống đông", precautionUS: "Caution with blood thinners" },
+  tanakan_vn: { id: "tanakan_vn", nameKR: "진코밀정", nameVN: "Tanakan", nameUS: "Ginkgo Biloba", ingredient: "Ginkgo biloba extract", dosageKR: "1정, 하루 3회", dosageVN: "1 viên, 3 lần/ngày", dosageUS: "1 capsule, 1-2 times/day", precautionKR: "식후 복용", precautionVN: "Uống sau ăn", precautionUS: "Take after meals" },
+  lipoflavonoid_us: { id: "lipoflavonoid_us", nameKR: "리포플라보노이드", nameVN: "Lipo-Flavonoid", nameUS: "Lipo-Flavonoid Plus", ingredient: "Vitamin B + Bioflavonoid complex", dosageKR: "2캡슐, 하루 3회", dosageVN: "2 viên, 3 lần/ngày", dosageUS: "2 caplets, 3 times/day", precautionKR: "이명 전용 보충제", precautionVN: "Thực phẩm chức năng cho ù tai", precautionUS: "Tinnitus supplement, not a drug" },
+
+  // === Nosebleed drugs (23) ===
+  vaseline_kr: { id: "vaseline_kr", nameKR: "바셀린", nameVN: "Vaseline", nameUS: "Vaseline", ingredient: "Petroleum jelly", dosageKR: "코 안쪽에 소량 도포", dosageVN: "Thoa một ít vào bên trong mũi", dosageUS: "Apply small amount inside nostrils", precautionKR: "건조 방지", precautionVN: "Ngăn khô mũi", precautionUS: "Prevents dryness" },
+  saline_spray_kr: { id: "saline_spray_kr", nameKR: "식염수 스프레이", nameVN: "NaCl 0.9% spray", nameUS: "Ayr Saline Spray", ingredient: "Normal saline 0.9%", dosageKR: "코에 1~2회 분사, 수시로", dosageVN: "Xịt 1-2 lần vào mũi, thường xuyên", dosageUS: "Spray 2-3 times in nostrils as needed", precautionKR: "부작용 없음", precautionVN: "Không tác dụng phụ", precautionUS: "No side effects" },
+
+  // === Mouth ulcer drugs (24) ===
+  oramedi_kr: { id: "oramedi_kr", nameKR: "오라메디 연고", nameVN: "Kamistad gel", nameUS: "Orajel Mouth Sore gel", ingredient: "Triamcinolone acetonide", dosageKR: "환부에 소량 도포, 하루 2~3회", dosageVN: "Thoa lên vết loét, 3 lần/ngày", dosageUS: "Apply to sore, up to 4 times/day", precautionKR: "스테로이드 성분", precautionVN: "Thành phần gây tê cục bộ", precautionUS: "Contains benzocaine" },
+  albocil_kr: { id: "albocil_kr", nameKR: "알보칠", nameVN: "Zytee gel", nameUS: "Kanka Mouth Pain Liquid", ingredient: "Policresulen / Choline salicylate", dosageKR: "면봉에 묻혀 환부에 도포", dosageVN: "Thoa lên vết loét", dosageUS: "Apply to sore", precautionKR: "따가움", precautionVN: "Có thể gây rát", precautionUS: "Forms protective coating" },
+  kamistad_vn: { id: "kamistad_vn", nameKR: "카미스타드 젤", nameVN: "Kamistad gel", nameUS: "Orajel", ingredient: "Lidocaine + Chamomile", dosageKR: "환부에 도포, 하루 3회", dosageVN: "Thoa lên vết loét, 3 lần/ngày", dosageUS: "Apply to sore, 3 times/day", precautionKR: "국소마취 성분", precautionVN: "Thành phần gây tê", precautionUS: "Contains lidocaine" },
+  orajel_mouth_us: { id: "orajel_mouth_us", nameKR: "오라젤 구내염", nameVN: "Orajel Mouth Sore", nameUS: "Orajel Mouth Sore gel", ingredient: "Benzocaine 20%", dosageKR: "환부에 도포, 하루 4회", dosageVN: "Thoa lên vết loét, 4 lần/ngày", dosageUS: "Apply to sore, up to 4 times/day", precautionKR: "국소마취", precautionVN: "Gây tê cục bộ", precautionUS: "Topical anesthetic" },
+
+  // === Burn drugs (25) ===
+  fucidin_kr: { id: "fucidin_kr", nameKR: "후시딘", nameVN: "Biafine", nameUS: "Neosporin Burn Relief", ingredient: "Fusidic acid / Trolamine / Neomycin+Pramoxine", dosageKR: "환부에 얇게 도포, 하루 2~3회", dosageVN: "Thoa dày lên vùng bỏng", dosageUS: "Apply to burn, 1-3 times/day", precautionKR: "감염 방지", precautionVN: "Không tác dụng phụ", precautionUS: "Includes pain relief" },
+  silvadene_kr: { id: "silvadene_kr", nameKR: "실바덴 크림", nameVN: "Silvirin cream", nameUS: "Aloe Vera gel", ingredient: "Silver sulfadiazine 1% / Aloe vera", dosageKR: "환부에 도포", dosageVN: "Thoa lên vùng bỏng, 1-2 lần/ngày", dosageUS: "Apply to burn as needed", precautionKR: "설파제 알레르기 주의", precautionVN: "Dị ứng sulfa cẩn thận", precautionUS: "Use pure aloe product" },
+  biafine_vn: { id: "biafine_vn", nameKR: "비아핀", nameVN: "Biafine", nameUS: "Biafine", ingredient: "Trolamine emulsion", dosageKR: "화상 부위에 두껍게 도포", dosageVN: "Thoa dày lên vùng bỏng", dosageUS: "Apply thickly to burn area", precautionKR: "없음", precautionVN: "Không", precautionUS: "None" },
+  neosporin_burn_us: { id: "neosporin_burn_us", nameKR: "네오스포린 번 릴리프", nameVN: "Neosporin Burn", nameUS: "Neosporin Burn Relief", ingredient: "Neomycin + Pramoxine", dosageKR: "환부에 도포, 하루 1~3회", dosageVN: "Thoa 1-3 lần/ngày", dosageUS: "Apply 1-3 times/day", precautionKR: "통증 완화 포함", precautionVN: "Có giảm đau", precautionUS: "Includes pain relief" },
+
+  // === Wound drugs (26) ===
+  madecassol_kr: { id: "madecassol_kr", nameKR: "마데카솔 연고", nameVN: "Betadine dung dịch", nameUS: "Neosporin", ingredient: "Centella asiatica / Povidone-iodine / Neomycin+Polymyxin+Bacitracin", dosageKR: "상처에 도포, 하루 1~2회", dosageVN: "Sát trùng vết thương rồi băng", dosageUS: "Apply to wound, 1-3 times/day", precautionKR: "상처 재생", precautionVN: "Dị ứng iodine cẩn thận", precautionUS: "No special precautions" },
+  betadine_vn: { id: "betadine_vn", nameKR: "베타딘", nameVN: "Betadine dung dịch", nameUS: "Betadine", ingredient: "Povidone-iodine 10%", dosageKR: "상처 소독 후 거즈", dosageVN: "Sát trùng vết thương", dosageUS: "Disinfect wound", precautionKR: "요오드 알레르기 주의", precautionVN: "Dị ứng iodine cẩn thận", precautionUS: "Iodine allergy caution" },
+  fucidin_vn: { id: "fucidin_vn", nameKR: "후시딘 크림", nameVN: "Fucidin cream", nameUS: "Polysporin", ingredient: "Fusidic acid 2%", dosageKR: "상처에 도포, 하루 2~3회", dosageVN: "Thoa lên vết thương, 2-3 lần/ngày", dosageUS: "Apply 2-3 times/day", precautionKR: "감염 방지 항생제", precautionVN: "Kháng sinh ngăn nhiễm trùng", precautionUS: "Antibiotic ointment" },
+  neosporin_us2: { id: "neosporin_us2", nameKR: "네오스포린", nameVN: "Neosporin", nameUS: "Neosporin Original", ingredient: "Neomycin + Polymyxin B + Bacitracin", dosageKR: "상처에 도포, 하루 1~3회", dosageVN: "Thoa 1-3 lần/ngày", dosageUS: "Apply 1-3 times/day", precautionKR: "없음", precautionVN: "Không", precautionUS: "None" },
+  bandaid_us: { id: "bandaid_us", nameKR: "밴드에이드 + 폴리스포린", nameVN: "Băng cá nhân + Fucidin", nameUS: "Band-Aid + Polysporin", ingredient: "Adhesive bandage + Bacitracin+Polymyxin B", dosageKR: "소독 후 도포 + 밴드", dosageVN: "Sát trùng, thoa thuốc, băng lại", dosageUS: "Clean, apply, bandage", precautionKR: "없음", precautionVN: "Không", precautionUS: "None" },
+
+  // === Swelling drugs (27) ===
+  daflon_vn: { id: "daflon_vn", nameKR: "다플론", nameVN: "Daflon", nameUS: "Daflon", ingredient: "Diosmin 900mg + Hesperidin 100mg", dosageKR: "2정, 하루 1회", dosageVN: "2 viên, 1 lần/ngày", dosageUS: "2 tablets, once daily", precautionKR: "정맥순환 개선", precautionVN: "Cải thiện tuần hoàn tĩnh mạch", precautionUS: "Improves venous circulation" },
+  antistax_vn: { id: "antistax_vn", nameKR: "안티스탁스", nameVN: "Antistax", nameUS: "Antistax", ingredient: "Red vine leaf extract 360mg", dosageKR: "2캡슐, 아침", dosageVN: "2 viên, buổi sáng", dosageUS: "2 capsules, morning", precautionKR: "자연 성분", precautionVN: "Thành phần tự nhiên", precautionUS: "Natural ingredient" },
+
+  // === Acne drugs (28) ===
+  noscarna_kr: { id: "noscarna_kr", nameKR: "노스카나 겔", nameVN: "Benzac AC 2.5%", nameUS: "Neutrogena BP 2.5%", ingredient: "Allantoin+Heparin / Benzoyl peroxide 2.5%", dosageKR: "환부에 도포, 하루 2~3회", dosageVN: "Thoa sau rửa mặt, 1-2 lần/ngày", dosageUS: "Apply after wash, 1-2 times/day", precautionKR: "없음", precautionVN: "Khô/kích ứng, bắt đầu ít", precautionUS: "May cause dryness, start small" },
+  pairacne_kr: { id: "pairacne_kr", nameKR: "페어아크네 크림", nameVN: "Dalacin T gel", nameUS: "Differin gel", ingredient: "Ibuprofen piconol / Clindamycin 1% / Adapalene 0.1%", dosageKR: "여드름 부위에 도포, 하루 2~3회", dosageVN: "Thoa lên mụn, 2 lần/ngày", dosageUS: "Apply at bedtime, once daily", precautionKR: "없음", precautionVN: "Kháng sinh", precautionUS: "Sun sensitivity, takes 4-8 weeks" },
+  benzac_vn: { id: "benzac_vn", nameKR: "벤작 AC", nameVN: "Benzac AC 2.5%", nameUS: "Neutrogena BP", ingredient: "Benzoyl peroxide 2.5%", dosageKR: "세안 후 도포, 하루 1~2회", dosageVN: "Thoa sau rửa mặt, 1-2 lần/ngày", dosageUS: "Apply 1-2 times/day", precautionKR: "건조/자극 가능, 소량부터", precautionVN: "Có thể khô/kích ứng", precautionUS: "May cause dryness" },
+  differin_us: { id: "differin_us", nameKR: "디페린 젤", nameVN: "Differin gel", nameUS: "Differin gel", ingredient: "Adapalene 0.1%", dosageKR: "취침 전 도포, 하루 1회", dosageVN: "Thoa trước khi ngủ, 1 lần/ngày", dosageUS: "Apply at bedtime, once daily", precautionKR: "햇빛 주의, 효과 4~8주", precautionVN: "Tránh nắng, cần 4-8 tuần", precautionUS: "Sun sensitivity, takes 4-8 weeks" },
+
+  // === Athlete's foot drugs (29) ===
+  lamisil_kr: { id: "lamisil_kr", nameKR: "라미실 크림", nameVN: "Lamisil cream", nameUS: "Lamisil AT", ingredient: "Terbinafine 1%", dosageKR: "환부에 도포, 하루 1~2회, 2~4주", dosageVN: "Thoa lên vùng bị, 1-2 lần/ngày, 2-4 tuần", dosageUS: "Apply 1-2 times/day, 1-4 weeks", precautionKR: "꾸준히 사용해야 효과", precautionVN: "Phải dùng đều đặn", precautionUS: "Continue even if symptoms improve" },
+  canesten_kr: { id: "canesten_kr", nameKR: "카네스텐 크림", nameVN: "Canesten cream", nameUS: "Lotrimin AF", ingredient: "Clotrimazole 1%", dosageKR: "환부에 도포, 하루 2~3회, 4주", dosageVN: "Thoa 2-3 lần/ngày, 4 tuần", dosageUS: "Apply 2 times/day, 4 weeks", precautionKR: "중단 없이 사용", precautionVN: "Không ngừng dùng sớm", precautionUS: "Don't stop early" },
+
+  // === Stye drugs (30) ===
+  terramycin_kr: { id: "terramycin_kr", nameKR: "테라마이신 안연고", nameVN: "Tobrex eye drops", nameUS: "Stye Eye Ointment", ingredient: "Oxytetracycline+Polymyxin B / Tobramycin / OTC stye formula", dosageKR: "눈꺼풀에 소량 도포, 하루 2~3회", dosageVN: "1-2 giọt, 4-6 lần/ngày", dosageUS: "Apply to eyelid, 1-2 times/day", precautionKR: "눈 안에 넣지 말 것", precautionVN: "Thuốc kháng sinh nhỏ mắt", precautionUS: "OTC use only" },
+  warm_compress: { id: "warm_compress", nameKR: "온찜질", nameVN: "Chườm ấm", nameUS: "Warm compress", ingredient: "Warm towel / Warm compress", dosageKR: "따뜻한 수건으로 10~15분, 하루 3~4회", dosageVN: "Khăn ấm 10-15 phút, 3-4 lần/ngày", dosageUS: "Warm towel 10-15 min, 4 times/day", precautionKR: "가장 효과적인 초기 치료", precautionVN: "Phương pháp hiệu quả nhất", precautionUS: "Most effective initial treatment" },
+  tobrex_vn: { id: "tobrex_vn", nameKR: "토브렉스 안약", nameVN: "Tobrex eye drops", nameUS: "Tobrex", ingredient: "Tobramycin 0.3%", dosageKR: "1~2방울, 하루 4~6회", dosageVN: "1-2 giọt, 4-6 lần/ngày", dosageUS: "1-2 drops, 4-6 times/day", precautionKR: "항생제 안약", precautionVN: "Thuốc kháng sinh nhỏ mắt", precautionUS: "Antibiotic eye drops" },
 };
 
 // === Symptom Categories ===
@@ -1382,6 +1434,239 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       { comboKey: "swellingRedness", hospitalWarning: true, warningKR: "관절이 붓고 빨갛게 변한 경우 통풍이나 관절염의 가능성이 있습니다. 정형외과 또는 류마티스내과를 방문하세요.", warningEN: "Swollen, red joints may indicate gout or arthritis. Please visit an orthopedic or rheumatology clinic.", warningVI: "Khớp sưng đỏ có thể là gout hoặc viêm khớp. Vui lòng đến khoa chỉnh hình hoặc thấp khớp.", drugMatches: {} },
       { comboKey: "fever", hospitalWarning: true, warningKR: "관절통과 발열이 함께 나타나면 감염성 관절염의 가능성이 있습니다. 즉시 병원을 방문하세요.", warningEN: "Joint pain with fever may indicate septic arthritis. Please visit a hospital immediately.", warningVI: "Đau khớp kèm sốt có thể là viêm khớp nhiễm khuẩn. Vui lòng đến bệnh viện ngay.", drugMatches: {} },
       { comboKey: "_fallback", drugMatches: { "default": { KR: ["ibuprofen_200_kr", "ketotop_kr"], VN: ["ibuprofen_400_vn", "voltaren_vn"], US: ["advil_200_us", "voltaren_us"] } } },
+    ],
+  },
+  // === 21. Dizziness ===
+  {
+    id: "dizziness",
+    nameKey: "dizziness",
+    descKey: "빙빙 도는 느낌이나 균형 잡기 어려운 상태",
+    companions: [
+      { key: "headache", labelKey: "두통" },
+      { key: "nauseaVomit", labelKey: "구역/구토", desc: "메스껍고 토할 것 같은 느낌" },
+      { key: "tinnitus", labelKey: "이명", desc: "귀에서 삐~ 소리가 나는 증상" },
+      { key: "palpitation", labelKey: "가슴 두근거림", desc: "심장이 빨리 뛰는 느낌" },
+      { key: "none", labelKey: "없음" },
+    ],
+    questions: [
+      { questionKey: "어떤 어지러움인가요?", options: [{ key: "spinning", labelKey: "빙빙 도는 느낌" }, { key: "swaying", labelKey: "흔들리는 느낌" }, { key: "blackout", labelKey: "눈앞이 깜깜" }] },
+      { questionKey: "언제 심한가요?", options: [{ key: "standing", labelKey: "일어설 때" }, { key: "turning", labelKey: "고개 돌릴 때" }, { key: "always", labelKey: "항상" }] },
+      { questionKey: "얼마나 됐나요?", options: [{ key: "today", labelKey: "오늘" }, { key: "days", labelKey: "며칠" }, { key: "recurring", labelKey: "반복적" }] },
+    ],
+    combos: [
+      { comboKey: "none", drugMatch: { KR: ["meniere_kr", "bonaring_kr"], VN: ["betaserc_vn", "stugeron_vn"], US: ["dramamine_us", "bonine_us"] } },
+      { comboKey: "nauseaVomit", drugMatch: { KR: ["bonaring_kr", "kimite_kr"], VN: ["stugeron_vn", "nautamine_vn"], US: ["dramamine_us", "bonine_us"] } },
+      { comboKey: "headache", drugMatch: { KR: ["bonaring_kr", "tylenol_500_kr"], VN: ["stugeron_vn", "panadol_500_vn"], US: ["bonine_us", "tylenol_500_us"] } },
+      { comboKey: "palpitation", isHospital: true, hospitalMessage: "어지러움과 가슴 두근거림이 함께 나타나면 심장 또는 혈압 관련 문제의 가능성이 있습니다. 내과 또는 심장내과를 방문하세요.", specialty: "cardiology", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "tinnitus", isHospital: true, hospitalMessage: "어지러움과 이명이 함께 나타나면 메니에르병 등 귀 관련 질환의 가능성이 있습니다. 이비인후과를 방문하세요.", specialty: "ent", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "_fallback", drugMatch: { KR: ["meniere_kr", "bonaring_kr"], VN: ["betaserc_vn", "stugeron_vn"], US: ["dramamine_us", "bonine_us"] } },
+    ],
+  },
+  // === 22. Tinnitus ===
+  {
+    id: "tinnitus",
+    nameKey: "tinnitus",
+    descKey: "귀에서 삐~ 또는 웅~ 소리가 계속 나는 상태",
+    companions: [
+      { key: "dizziness", labelKey: "어지러움" },
+      { key: "hearingLoss", labelKey: "청력 저하", desc: "소리가 잘 안 들리는 느낌" },
+      { key: "headache", labelKey: "두통" },
+      { key: "none", labelKey: "없음" },
+    ],
+    questions: [
+      { questionKey: "어떤 소리인가요?", options: [{ key: "highPitch", labelKey: "삐~ 고음" }, { key: "lowPitch", labelKey: "웅~ 저음" }, { key: "pulse", labelKey: "맥박 따라 뛰는 소리" }] },
+      { questionKey: "한쪽인가요?", options: [{ key: "one", labelKey: "한쪽" }, { key: "both", labelKey: "양쪽" }] },
+      { questionKey: "얼마나 됐나요?", options: [{ key: "today", labelKey: "오늘" }, { key: "days", labelKey: "며칠" }, { key: "chronic", labelKey: "만성" }] },
+    ],
+    combos: [
+      { comboKey: "none", drugMatch: { KR: ["ginkgo_kr", "meniere_kr"], VN: ["tanakan_vn", "betaserc_vn"], US: ["lipoflavonoid_us", "dramamine_us"] } },
+      { comboKey: "dizziness", isHospital: true, hospitalMessage: "이명과 어지러움이 함께 나타나면 메니에르병의 가능성이 있습니다. 이비인후과를 방문하세요.", specialty: "ent", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "hearingLoss", isHospital: true, hospitalMessage: "이명과 청력 저하가 함께 나타나면 돌발성 난청의 가능성이 있습니다. 즉시 이비인후과를 방문하세요. 돌발성 난청은 빠른 치료가 중요합니다.", specialty: "ent", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "_fallback", drugMatch: { KR: ["ginkgo_kr", "meniere_kr"], VN: ["tanakan_vn", "betaserc_vn"], US: ["lipoflavonoid_us", "dramamine_us"] } },
+    ],
+  },
+  // === 23. Nosebleed ===
+  {
+    id: "nosebleed",
+    nameKey: "nosebleed",
+    descKey: "코에서 피가 나는 상태",
+    companions: [
+      { key: "headacheHBP", labelKey: "두통 + 고혈압", desc: "혈압이 높을 수 있어요" },
+      { key: "fever", labelKey: "발열" },
+      { key: "frequent", labelKey: "잦은 반복", desc: "코피가 자주 나는 경우" },
+      { key: "none", labelKey: "없음" },
+    ],
+    questions: [
+      { questionKey: "어느 쪽인가요?", options: [{ key: "one", labelKey: "한쪽" }, { key: "both", labelKey: "양쪽" }] },
+      { questionKey: "얼마나 나나요?", options: [{ key: "short", labelKey: "금방 멈춤(5분 이내)" }, { key: "long", labelKey: "오래 지속" }] },
+      { questionKey: "원인 추정", options: [{ key: "picking", labelKey: "코 후빔" }, { key: "dry", labelKey: "건조한 날씨" }, { key: "unknown", labelKey: "모름" }] },
+    ],
+    combos: [
+      { comboKey: "none", drugMatch: { KR: ["vaseline_kr", "saline_spray_kr"], VN: ["vaseline_kr", "saline_spray_kr"], US: ["saline_spray_kr", "vaseline_kr"] } },
+      { comboKey: "headacheHBP", isHospital: true, hospitalMessage: "코피와 두통이 함께 나타나면 고혈압의 가능성이 있습니다. 내과를 방문하여 혈압을 확인하세요.", specialty: "internal", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "frequent", isHospital: true, hospitalMessage: "코피가 자주 반복되면 혈관 문제나 혈액 질환의 가능성이 있습니다. 이비인후과 또는 내과를 방문하세요.", specialty: "ent", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "_fallback", drugMatch: { KR: ["vaseline_kr", "saline_spray_kr"], VN: ["vaseline_kr", "saline_spray_kr"], US: ["saline_spray_kr", "vaseline_kr"] } },
+    ],
+  },
+  // === 24. Mouth ulcer ===
+  {
+    id: "mouthUlcer",
+    nameKey: "mouthUlcer",
+    descKey: "입안이 헐어서 아픈 상태",
+    companions: [
+      { key: "fever", labelKey: "발열" },
+      { key: "soreThroat", labelKey: "인후통" },
+      { key: "gumBleeding", labelKey: "잇몸 출혈" },
+      { key: "none", labelKey: "없음" },
+    ],
+    questions: [
+      { questionKey: "몇 개인가요?", options: [{ key: "few", labelKey: "1~2개" }, { key: "many", labelKey: "여러 개" }, { key: "whole", labelKey: "입 전체" }] },
+      { questionKey: "어디에 있나요?", options: [{ key: "tongue", labelKey: "혀" }, { key: "cheek", labelKey: "볼 안쪽" }, { key: "gum", labelKey: "잇몸" }, { key: "lip", labelKey: "입술 안쪽" }] },
+      { questionKey: "얼마나 됐나요?", options: [{ key: "days", labelKey: "2~3일" }, { key: "week", labelKey: "일주일" }, { key: "twoWeeks", labelKey: "2주 이상" }] },
+    ],
+    combos: [
+      { comboKey: "none", drugMatch: { KR: ["oramedi_kr", "albocil_kr"], VN: ["kamistad_vn", "albocil_kr"], US: ["orajel_mouth_us", "albocil_kr"] } },
+      { comboKey: "fever", isHospital: true, hospitalMessage: "구내염과 발열이 함께 나타나면 바이러스 감염의 가능성이 있습니다. 내과 또는 이비인후과를 방문하세요.", specialty: "internal", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "_fallback", drugMatch: { KR: ["oramedi_kr", "albocil_kr"], VN: ["kamistad_vn", "albocil_kr"], US: ["orajel_mouth_us", "albocil_kr"] } },
+    ],
+  },
+  // === 25. Burn ===
+  {
+    id: "burn",
+    nameKey: "burn",
+    descKey: "뜨거운 것에 데인 상태",
+    companions: [
+      { key: "blister", labelKey: "물집", desc: "피부에 물이 찬 동그란 것" },
+      { key: "wideArea", labelKey: "넓은 범위", desc: "손바닥 크기 이상" },
+      { key: "faceJoint", labelKey: "얼굴/관절 부위" },
+      { key: "none", labelKey: "없음" },
+    ],
+    questions: [
+      { questionKey: "정도는?", options: [{ key: "red", labelKey: "빨갛기만 함" }, { key: "blister", labelKey: "물집 생김" }, { key: "white", labelKey: "피부 하얗게 변함" }] },
+      { questionKey: "범위는?", options: [{ key: "coin", labelKey: "동전 크기" }, { key: "palm", labelKey: "손바닥 크기" }, { key: "larger", labelKey: "그 이상" }] },
+      { questionKey: "원인은?", options: [{ key: "water", labelKey: "뜨거운 물" }, { key: "oil", labelKey: "기름" }, { key: "chemical", labelKey: "화학물질" }, { key: "sun", labelKey: "햇볕" }] },
+    ],
+    combos: [
+      { comboKey: "none", drugMatch: { KR: ["fucidin_kr", "silvadene_kr"], VN: ["biafine_vn", "silvadene_kr"], US: ["neosporin_burn_us", "silvadene_kr"] } },
+      { comboKey: "blister", drugMatch: { KR: ["silvadene_kr", "fucidin_kr"], VN: ["silvadene_kr", "biafine_vn"], US: ["neosporin_burn_us", "silvadene_kr"] }, warningMessage: "물집을 터뜨리지 마세요. 감염 위험이 있습니다." },
+      { comboKey: "wideArea", isHospital: true, hospitalMessage: "화상 범위가 넓거나 얼굴, 관절 부위면 즉시 응급실을 방문하세요.", specialty: "emergency", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "faceJoint", isHospital: true, hospitalMessage: "얼굴이나 관절 부위의 화상은 즉시 응급실을 방문하세요.", specialty: "emergency", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "_fallback", drugMatch: { KR: ["fucidin_kr", "silvadene_kr"], VN: ["biafine_vn", "silvadene_kr"], US: ["neosporin_burn_us", "silvadene_kr"] } },
+    ],
+  },
+  // === 26. Wound ===
+  {
+    id: "wound",
+    nameKey: "wound",
+    descKey: "피부가 긁히거나 베인 상태",
+    companions: [
+      { key: "heavyBleeding", labelKey: "출혈 많음", desc: "피가 많이 나는 상태" },
+      { key: "deepWound", labelKey: "깊은 상처", desc: "살이 벌어진 상태" },
+      { key: "rusty", labelKey: "녹슨 물체에 의한 상처" },
+      { key: "none", labelKey: "없음" },
+    ],
+    questions: [
+      { questionKey: "어떤 상처인가요?", options: [{ key: "scratch", labelKey: "긁힘" }, { key: "cut", labelKey: "베임" }, { key: "stab", labelKey: "찔림" }] },
+      { questionKey: "출혈은?", options: [{ key: "slight", labelKey: "약간" }, { key: "moderate", labelKey: "적당" }, { key: "heavy", labelKey: "많음" }] },
+      { questionKey: "깨끗한가요?", options: [{ key: "clean", labelKey: "깨끗함" }, { key: "dirty", labelKey: "이물질 있음" }, { key: "unknown", labelKey: "모름" }] },
+    ],
+    combos: [
+      { comboKey: "none", drugMatch: { KR: ["fucidin_kr", "madecassol_kr"], VN: ["betadine_vn", "fucidin_vn"], US: ["neosporin_us2", "bandaid_us"] } },
+      { comboKey: "heavyBleeding", isHospital: true, hospitalMessage: "출혈이 많거나 상처가 깊으면 봉합이 필요할 수 있습니다. 깨끗한 천으로 압박하고 응급실을 방문하세요.", specialty: "emergency", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "deepWound", isHospital: true, hospitalMessage: "깊은 상처는 봉합이 필요할 수 있습니다. 응급실을 방문하세요.", specialty: "emergency", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "rusty", isHospital: true, hospitalMessage: "녹슨 물체에 의한 상처는 파상풍 위험이 있습니다. 병원에서 파상풍 주사 여부를 확인하세요.", specialty: "emergency", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "_fallback", drugMatch: { KR: ["fucidin_kr", "madecassol_kr"], VN: ["betadine_vn", "fucidin_vn"], US: ["neosporin_us2", "bandaid_us"] } },
+    ],
+  },
+  // === 27. Swelling ===
+  {
+    id: "swelling",
+    nameKey: "swelling",
+    descKey: "발이나 다리가 붓는 상태",
+    companions: [
+      { key: "pain", labelKey: "통증 동반" },
+      { key: "oneSide", labelKey: "한쪽만 부음", desc: "한쪽 다리만 붓는 경우" },
+      { key: "breathChest", labelKey: "숨참/가슴통증" },
+      { key: "none", labelKey: "없음" },
+    ],
+    questions: [
+      { questionKey: "어디가 부었나요?", options: [{ key: "ankle", labelKey: "발목" }, { key: "calf", labelKey: "종아리" }, { key: "wholeLeg", labelKey: "전체 다리" }, { key: "both", labelKey: "양쪽" }] },
+      { questionKey: "언제 심한가요?", options: [{ key: "evening", labelKey: "저녁에" }, { key: "morning", labelKey: "아침에" }, { key: "allday", labelKey: "하루종일" }] },
+      { questionKey: "원인 추정", options: [{ key: "standing", labelKey: "오래 서있음" }, { key: "flight", labelKey: "비행기 탑승 후" }, { key: "unknown", labelKey: "모름" }] },
+    ],
+    combos: [
+      { comboKey: "none", drugMatch: { KR: ["brufen_200_kr", "brufen_200_kr"], VN: ["daflon_vn", "antistax_vn"], US: ["advil_200_us", "advil_200_us"] } },
+      { comboKey: "oneSide", isHospital: true, hospitalMessage: "한쪽 다리만 붓는 경우 심부정맥혈전증(DVT)의 가능성이 있습니다. 즉시 병원을 방문하세요. 특히 비행기 탑승 후라면 더 긴급합니다.", specialty: "emergency", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "breathChest", isHospital: true, hospitalMessage: "부종과 숨참이 함께 나타나면 심장 또는 폐 관련 응급상황일 수 있습니다. 즉시 응급실을 방문하세요.", specialty: "emergency", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "_fallback", drugMatch: { KR: ["brufen_200_kr", "brufen_200_kr"], VN: ["daflon_vn", "antistax_vn"], US: ["advil_200_us", "advil_200_us"] } },
+    ],
+  },
+  // === 28. Acne ===
+  {
+    id: "acne",
+    nameKey: "acne",
+    descKey: "피부에 뾰루지가 나는 상태",
+    companions: [
+      { key: "inflamed", labelKey: "통증/염증", desc: "빨갛고 아픈 여드름" },
+      { key: "wideArea", labelKey: "넓은 범위", desc: "얼굴 전체 또는 등까지" },
+      { key: "none", labelKey: "없음" },
+    ],
+    questions: [
+      { questionKey: "어디에 있나요?", options: [{ key: "face", labelKey: "얼굴" }, { key: "back", labelKey: "등" }, { key: "chest", labelKey: "가슴" }] },
+      { questionKey: "어떤 형태인가요?", options: [{ key: "whitehead", labelKey: "좁쌀 여드름" }, { key: "red", labelKey: "빨간 여드름" }, { key: "pus", labelKey: "곪은 여드름" }] },
+      { questionKey: "얼마나 됐나요?", options: [{ key: "recent", labelKey: "최근" }, { key: "months", labelKey: "몇 달" }, { key: "chronic", labelKey: "만성" }] },
+    ],
+    combos: [
+      { comboKey: "none", drugMatch: { KR: ["noscarna_kr", "pairacne_kr"], VN: ["benzac_vn", "pairacne_kr"], US: ["differin_us", "noscarna_kr"] } },
+      { comboKey: "inflamed", drugMatch: { KR: ["pairacne_kr", "fucidin_kr"], VN: ["pairacne_kr", "benzac_vn"], US: ["differin_us", "noscarna_kr"] } },
+      { comboKey: "wideArea", isHospital: true, hospitalMessage: "여드름이 넓은 범위에 걸쳐있거나 만성적이면 피부과 전문 치료가 필요할 수 있습니다. 피부과를 방문하세요.", specialty: "dermatology", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "_fallback", drugMatch: { KR: ["noscarna_kr", "pairacne_kr"], VN: ["benzac_vn", "pairacne_kr"], US: ["differin_us", "noscarna_kr"] } },
+    ],
+  },
+  // === 29. Athlete's foot ===
+  {
+    id: "athletesFoot",
+    nameKey: "athletesFoot",
+    descKey: "발에 곰팡이가 감염된 상태, 가렵고 피부가 벗겨짐",
+    companions: [
+      { key: "toenail", labelKey: "발톱 변색", desc: "발톱이 노랗거나 두꺼워진 상태" },
+      { key: "odor", labelKey: "냄새" },
+      { key: "cracking", labelKey: "갈라짐/출혈" },
+      { key: "none", labelKey: "없음" },
+    ],
+    questions: [
+      { questionKey: "어디에 있나요?", options: [{ key: "between", labelKey: "발가락 사이" }, { key: "sole", labelKey: "발바닥" }, { key: "side", labelKey: "발 옆면" }] },
+      { questionKey: "증상은?", options: [{ key: "itch", labelKey: "가려움" }, { key: "flake", labelKey: "각질" }, { key: "blister", labelKey: "물집" }, { key: "crack", labelKey: "갈라짐" }] },
+      { questionKey: "얼마나 됐나요?", options: [{ key: "recent", labelKey: "최근" }, { key: "weeks", labelKey: "몇 주" }, { key: "chronic", labelKey: "만성" }] },
+    ],
+    combos: [
+      { comboKey: "none", drugMatch: { KR: ["lamisil_kr", "canesten_kr"], VN: ["lamisil_kr", "canesten_kr"], US: ["lamisil_kr", "canesten_kr"] } },
+      { comboKey: "toenail", isHospital: true, hospitalMessage: "발톱까지 감염된 경우 OTC 약으로는 치료가 어렵습니다. 피부과에서 경구 항진균제를 처방받으세요.", specialty: "dermatology", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "_fallback", drugMatch: { KR: ["lamisil_kr", "canesten_kr"], VN: ["lamisil_kr", "canesten_kr"], US: ["lamisil_kr", "canesten_kr"] } },
+    ],
+  },
+  // === 30. Stye ===
+  {
+    id: "stye",
+    nameKey: "stye",
+    descKey: "눈꺼풀에 작은 혹처럼 염증이 생긴 상태",
+    companions: [
+      { key: "visionChange", labelKey: "시력 변화" },
+      { key: "eyeRedPain", labelKey: "눈 전체 충혈/통증" },
+      { key: "fever", labelKey: "발열" },
+      { key: "none", labelKey: "없음" },
+    ],
+    questions: [
+      { questionKey: "어디에 있나요?", options: [{ key: "upper", labelKey: "윗눈꺼풀" }, { key: "lower", labelKey: "아래눈꺼풀" }] },
+      { questionKey: "크기는?", options: [{ key: "small", labelKey: "작음(좁쌀)" }, { key: "medium", labelKey: "중간" }, { key: "large", labelKey: "큼" }] },
+      { questionKey: "고름이 보이나요?", options: [{ key: "yes", labelKey: "예" }, { key: "no", labelKey: "아니오" }] },
+    ],
+    combos: [
+      { comboKey: "none", drugMatch: { KR: ["terramycin_kr", "warm_compress"], VN: ["tobrex_vn", "warm_compress"], US: ["terramycin_kr", "warm_compress"] } },
+      { comboKey: "visionChange", isHospital: true, hospitalMessage: "다래끼와 시력 변화가 함께 나타나면 안과를 즉시 방문하세요.", specialty: "ophthalmology", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "fever", isHospital: true, hospitalMessage: "다래끼와 발열이 함께 나타나면 감염이 퍼졌을 가능성이 있습니다. 안과를 방문하세요.", specialty: "ophthalmology", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "eyeRedPain", isHospital: true, hospitalMessage: "눈 전체 충혈과 통증은 안과 진료가 필요합니다.", specialty: "ophthalmology", drugMatch: { KR: [], VN: [], US: [] } },
+      { comboKey: "_fallback", drugMatch: { KR: ["terramycin_kr", "warm_compress"], VN: ["tobrex_vn", "warm_compress"], US: ["terramycin_kr", "warm_compress"] } },
     ],
   },
 ];

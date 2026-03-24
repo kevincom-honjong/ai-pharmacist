@@ -35,7 +35,17 @@
     "heartburn2": "속쓰림",
     "constipation": "변비",
     "insomnia": "불면증",
-    "jointPain": "관절통"
+    "jointPain": "관절통",
+    "dizziness": "어지러움",
+    "tinnitus": "이명",
+    "nosebleed": "코피",
+    "mouthUlcer": "구내염",
+    "burn": "화상",
+    "wound": "상처",
+    "swelling": "부종",
+    "acne": "여드름",
+    "athletesFoot": "무좀",
+    "stye": "다래끼"
   },
   "flow": {
     "headache": {

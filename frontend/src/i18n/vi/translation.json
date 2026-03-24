@@ -35,7 +35,17 @@
     "heartburn2": "Ợ nóng",
     "constipation": "Táo bón",
     "insomnia": "Mất ngủ",
-    "jointPain": "Đau khớp"
+    "jointPain": "Đau khớp",
+    "dizziness": "Chóng mặt",
+    "tinnitus": "Ù tai",
+    "nosebleed": "Chảy máu mũi",
+    "mouthUlcer": "Nhiệt miệng",
+    "burn": "Bỏng",
+    "wound": "Vết thương",
+    "swelling": "Sưng phù",
+    "acne": "Mụn trứng cá",
+    "athletesFoot": "Nấm chân",
+    "stye": "Lẹo mắt"
   },
   "flow": {
     "headache": {

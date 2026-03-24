@@ -9,6 +9,8 @@ const SECONDARY_SYMPTOMS = [
   "cough", "runnyNose", "soreThroat", "indigestion", "diarrhea", "nausea",
   "backPain", "skinRash", "menstrualPain", "toothache", "eyeStrain",
   "heartburn2", "constipation", "insomnia", "jointPain",
+  "dizziness", "tinnitus", "nosebleed", "mouthUlcer", "burn",
+  "wound", "swelling", "acne", "athletesFoot", "stye",
 ] as const;
 
 const TAG_ICONS: Record<string, string> = {
@@ -18,6 +20,9 @@ const TAG_ICONS: Record<string, string> = {
   backPain: "🦴", skinRash: "🩹", menstrualPain: "🩸", toothache: "🦷",
   eyeStrain: "👁️", heartburn2: "🔥", constipation: "😫", insomnia: "😴",
   jointPain: "🦵",
+  dizziness: "💫", tinnitus: "👂", nosebleed: "🩸", mouthUlcer: "👄",
+  burn: "🔥", wound: "🩹", swelling: "🦶", acne: "😖",
+  athletesFoot: "🦶", stye: "👁️",
 };
 
 const PASTEL_COLORS: Record<string, string> = {
@@ -42,6 +47,16 @@ const PASTEL_COLORS: Record<string, string> = {
   constipation: "bg-amber-50 hover:bg-amber-100 text-amber-700",
   insomnia: "bg-purple-50 hover:bg-purple-100 text-purple-700",
   jointPain: "bg-teal-50 hover:bg-teal-100 text-teal-700",
+  dizziness: "bg-indigo-50 hover:bg-indigo-100 text-indigo-700",
+  tinnitus: "bg-violet-50 hover:bg-violet-100 text-violet-700",
+  nosebleed: "bg-red-50 hover:bg-red-100 text-red-700",
+  mouthUlcer: "bg-pink-50 hover:bg-pink-100 text-pink-700",
+  burn: "bg-orange-50 hover:bg-orange-100 text-orange-700",
+  wound: "bg-rose-50 hover:bg-rose-100 text-rose-700",
+  swelling: "bg-cyan-50 hover:bg-cyan-100 text-cyan-700",
+  acne: "bg-fuchsia-50 hover:bg-fuchsia-100 text-fuchsia-700",
+  athletesFoot: "bg-lime-50 hover:bg-lime-100 text-lime-700",
+  stye: "bg-sky-50 hover:bg-sky-100 text-sky-700",
 };
 
 interface SymptomTagsProps {

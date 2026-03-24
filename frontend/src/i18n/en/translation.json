@@ -35,7 +35,17 @@
     "heartburn2": "Heartburn",
     "constipation": "Constipation",
     "insomnia": "Insomnia",
-    "jointPain": "Joint Pain"
+    "jointPain": "Joint Pain",
+    "dizziness": "Dizziness",
+    "tinnitus": "Tinnitus",
+    "nosebleed": "Nosebleed",
+    "mouthUlcer": "Mouth Ulcer",
+    "burn": "Burn",
+    "wound": "Wound",
+    "swelling": "Swelling",
+    "acne": "Acne",
+    "athletesFoot": "Athlete's Foot",
+    "stye": "Stye"
   },
   "flow": {
     "headache": {
