@@ -257,9 +257,9 @@ function App() {
       </div>
 
       <main className="px-5 pb-16">
-        <div className="pt-8 pb-2 text-center">
+        <div className="pt-3 pb-2 text-center">
           <PharmacyIllustration />
-          <h1 className="text-2xl font-bold text-gray-800 mb-1">
+          <h1 className="text-2xl font-bold text-gray-800 mb-1 -mt-2">
             {t("home.greeting")}
           </h1>
           <p className="text-sm text-gray-400">{t("app.slogan")}</p>
