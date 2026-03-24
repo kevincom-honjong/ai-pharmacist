@@ -147,40 +147,33 @@ export default function CountrySelectScreen({ lang, onSelect, onBack }: CountryS
             {DETECTING[l] || DETECTING.en}
           </p>
         ) : (
-          <div className="space-y-2.5">
+          <div className="space-y-2">
             {sorted.map((country) => {
               const isRecommended = country.code === detectedCode;
               return (
                 <button
                   key={country.code}
                   onClick={() => onSelect(country.code)}
-                  className={`w-full flex items-center gap-3.5 px-4 py-3.5 rounded-[20px] transition-all active:scale-[0.98] ${
+                  className={`w-full h-14 flex items-center px-4 rounded-[20px] transition-all active:scale-[0.98] ${
                     isRecommended
                       ? "bg-emerald-50 ring-2 ring-emerald-400 shadow-md"
                       : "bg-white shadow-sm hover:shadow-md"
                   }`}
                 >
-                  {/* Flag */}
-                  <span className="text-[28px] leading-none">{country.flag}</span>
-
-                  {/* Country code badge */}
-                  <span className={`px-2 py-0.5 rounded-lg text-[11px] font-bold text-white ${CODE_COLORS[country.code] || "bg-gray-500"}`}>
+                  <span className="text-[32px] leading-none w-10 flex-shrink-0">{country.flag}</span>
+                  <span className={`ml-3 w-8 py-0.5 rounded-md text-[10px] font-bold text-white text-center flex-shrink-0 ${CODE_COLORS[country.code] || "bg-gray-500"}`}>
                     {country.code}
                   </span>
-
-                  {/* Country name */}
-                  <span className={`flex-1 text-[15px] font-semibold text-left ${isRecommended ? "text-emerald-700" : "text-gray-700"}`}>
+                  <span className={`ml-3 flex-1 text-[15px] font-semibold text-left truncate ${isRecommended ? "text-emerald-700" : "text-gray-700"}`}>
                     {getName(country)}
                   </span>
-
-                  {/* Badges */}
                   {isRecommended && (
-                    <span className="px-2.5 py-1 bg-teal-500 text-white text-[10px] font-bold rounded-full">
+                    <span className="ml-2 px-2.5 py-1 bg-teal-500 text-white text-[10px] font-bold rounded-full flex-shrink-0">
                       {RECOMMENDED[l] || RECOMMENDED.en}
                     </span>
                   )}
-                  {!country.hasDB && (
-                    <span className="px-2.5 py-1 bg-gray-400 text-white text-[10px] font-bold rounded-full">
+                  {!country.hasDB && !isRecommended && (
+                    <span className="ml-2 px-2.5 py-1 bg-gray-400 text-white text-[10px] font-bold rounded-full flex-shrink-0">
                       {PREPARING[l] || PREPARING.en}
                     </span>
                   )}

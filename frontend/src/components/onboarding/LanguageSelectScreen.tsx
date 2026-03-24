@@ -52,15 +52,15 @@ export default function LanguageSelectScreen({ onSelect }: LanguageSelectScreenP
 
       {/* Language list */}
       <div className="flex-1 px-6 pb-8 overflow-y-auto">
-        <div className="space-y-2.5">
+        <div className="space-y-2">
           {filtered.map((lang) => (
             <button
               key={lang.code}
               onClick={() => onSelect(lang.code)}
-              className="w-full flex items-center gap-3.5 px-5 py-4 bg-white rounded-2xl shadow-sm hover:shadow-md active:scale-[0.98] transition-all"
+              className="w-full h-14 flex items-center px-4 bg-white rounded-[20px] shadow-sm hover:shadow-md active:scale-[0.98] transition-all"
             >
-              <span className="text-[28px] leading-none">{lang.flag}</span>
-              <span className="text-base font-semibold text-gray-700">{lang.label}</span>
+              <span className="text-[32px] leading-none w-10 flex-shrink-0">{lang.flag}</span>
+              <span className="ml-3 text-[15px] font-semibold text-gray-700">{lang.label}</span>
             </button>
           ))}
         </div>
