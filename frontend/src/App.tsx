@@ -24,6 +24,7 @@ import {
   saveLanguage,
   getCountryInfo,
   getDrugCountryCode,
+  getI18nLang,
   type CountryInfo,
 } from "./services/countryDetect";
 
@@ -80,8 +81,9 @@ function App() {
   // === Onboarding handlers ===
 
   const handleLanguageSelect = (langCode: string) => {
-    i18n.changeLanguage(langCode);
-    saveLanguage(langCode);
+    const i18nCode = getI18nLang(langCode);
+    i18n.changeLanguage(i18nCode);
+    saveLanguage(langCode); // save original code for display
     setOnboardingStep("country");
   };
 
@@ -173,11 +175,22 @@ function App() {
   }
 
   if (onboardingStep === "country") {
-    return <CountrySelectScreen lang={i18n.language} onSelect={handleCountrySelect} />;
+    return (
+      <CountrySelectScreen
+        lang={getSavedLanguage() || i18n.language}
+        onSelect={handleCountrySelect}
+        onBack={() => setOnboardingStep("language")}
+      />
+    );
   }
 
   if (onboardingStep === "disclaimer") {
-    return <DisclaimerAgreement onAgree={handleAgree} />;
+    return (
+      <DisclaimerAgreement
+        onAgree={handleAgree}
+        onBack={() => setOnboardingStep("country")}
+      />
+    );
   }
 
   // === Render: Main app ===

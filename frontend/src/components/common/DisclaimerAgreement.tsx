@@ -3,10 +3,12 @@ import { useTranslation } from "react-i18next";
 
 interface DisclaimerAgreementProps {
   onAgree: () => void;
+  onBack?: () => void;
 }
 
 export default function DisclaimerAgreement({
   onAgree,
+  onBack,
 }: DisclaimerAgreementProps) {
   const { t } = useTranslation();
   const [checked, setChecked] = useState(false);
@@ -15,8 +17,18 @@ export default function DisclaimerAgreement({
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] max-w-[480px] mx-auto flex flex-col">
+      {/* Back button */}
+      {onBack && (
+        <div className="px-4 pt-4">
+          <button onClick={onBack} className="w-9 h-9 flex items-center justify-center rounded-2xl hover:bg-gray-100 transition-colors">
+            <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+        </div>
+      )}
       {/* Intro */}
-      <div className="px-6 pt-14 pb-6 text-center">
+      <div className={`px-6 ${onBack ? "pt-2" : "pt-14"} pb-6 text-center`}>
         <div className="w-18 h-18 rounded-3xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center mx-auto mb-5 w-[72px] h-[72px] shadow-md">
           <svg
             className="w-10 h-10 text-white"

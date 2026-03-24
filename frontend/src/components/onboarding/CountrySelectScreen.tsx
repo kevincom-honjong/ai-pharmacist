@@ -8,6 +8,7 @@ import {
 interface CountrySelectScreenProps {
   lang: string;
   onSelect: (countryCode: string) => void;
+  onBack: () => void;
 }
 
 const TITLE: Record<string, string> = {
@@ -23,27 +24,19 @@ const SUBTITLE: Record<string, string> = {
 };
 
 const DETECTING: Record<string, string> = {
-  ko: "위치 감지 중...",
-  en: "Detecting location...",
-  vi: "Đang xác định vị trí...",
+  ko: "위치 감지 중...", en: "Detecting location...", vi: "Đang xác định vị trí...",
 };
 
 const RECOMMENDED: Record<string, string> = {
-  ko: "추천",
-  en: "Recommended",
-  vi: "Đề xuất",
-};
-
-const SEARCH_PLACEHOLDER: Record<string, string> = {
-  ko: "국가 검색...",
-  en: "Search country...",
-  vi: "Tìm quốc gia...",
+  ko: "추천", en: "Recommended", vi: "Đề xuất",
 };
 
 const PREPARING: Record<string, string> = {
-  ko: "준비 중",
-  en: "Coming soon",
-  vi: "Sắp ra mắt",
+  ko: "준비중", en: "Coming soon", vi: "Sắp có",
+};
+
+const SEARCH_PH: Record<string, string> = {
+  ko: "국가 검색...", en: "Search country...", vi: "Tìm quốc gia...",
 };
 
 const COUNTRY_NAMES: Record<string, Record<string, string>> = {
@@ -62,7 +55,16 @@ const COUNTRY_NAMES: Record<string, Record<string, string>> = {
   ES: { ko: "스페인", en: "Spain", vi: "Tây Ban Nha" },
 };
 
-export default function CountrySelectScreen({ lang, onSelect }: CountrySelectScreenProps) {
+// Country code badge colors
+const CODE_COLORS: Record<string, string> = {
+  KR: "bg-rose-500", VN: "bg-red-500", US: "bg-blue-500",
+  JP: "bg-pink-500", TH: "bg-indigo-500", PH: "bg-sky-500",
+  ID: "bg-red-600", GB: "bg-blue-700", AU: "bg-emerald-600",
+  DE: "bg-yellow-600", IN: "bg-orange-500", CN: "bg-red-700",
+  ES: "bg-amber-500",
+};
+
+export default function CountrySelectScreen({ lang, onSelect, onBack }: CountrySelectScreenProps) {
   const [detectedCode, setDetectedCode] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -74,43 +76,51 @@ export default function CountrySelectScreen({ lang, onSelect }: CountrySelectScr
     });
   }, []);
 
-  const getCountryName = (country: CountryInfo) => {
-    return COUNTRY_NAMES[country.code]?.[lang] || country.nameLocal;
-  };
+  const l = lang.startsWith("en") ? "en" : lang;
+
+  const getName = (c: CountryInfo) =>
+    COUNTRY_NAMES[c.code]?.[l] || COUNTRY_NAMES[c.code]?.en || c.nameLocal;
 
   const filtered = useMemo(() => {
     if (!search.trim()) return SUPPORTED_COUNTRIES;
     const q = search.toLowerCase();
     return SUPPORTED_COUNTRIES.filter((c) => {
-      const name = getCountryName(c).toLowerCase();
-      const nameEn = c.nameEn.toLowerCase();
-      const nameLocal = c.nameLocal.toLowerCase();
-      return name.includes(q) || nameEn.includes(q) || nameLocal.includes(q) || c.code.toLowerCase().includes(q);
+      const name = getName(c).toLowerCase();
+      return name.includes(q) || c.nameEn.toLowerCase().includes(q) || c.nameLocal.toLowerCase().includes(q) || c.code.toLowerCase().includes(q);
     });
-  }, [search, lang]);
+  }, [search, l]);
 
-  // Sort: recommended first, then hasDB, then alphabetical
   const sorted = useMemo(() => {
     return [...filtered].sort((a, b) => {
       if (a.code === detectedCode) return -1;
       if (b.code === detectedCode) return 1;
       if (a.hasDB && !b.hasDB) return -1;
       if (!a.hasDB && b.hasDB) return 1;
-      return getCountryName(a).localeCompare(getCountryName(b));
+      return getName(a).localeCompare(getName(b));
     });
-  }, [filtered, detectedCode, lang]);
+  }, [filtered, detectedCode, l]);
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] flex flex-col max-w-[480px] mx-auto">
-      <div className="px-6 pt-12 pb-4 text-center">
+      {/* Back button */}
+      <div className="px-4 pt-4">
+        <button onClick={onBack} className="w-9 h-9 flex items-center justify-center rounded-2xl hover:bg-gray-100 transition-colors">
+          <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Header */}
+      <div className="px-6 pt-2 pb-4 text-center">
         <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-md">
           <span className="text-2xl">📍</span>
         </div>
         <h1 className="text-xl font-bold text-gray-800 mb-2">
-          {TITLE[lang] || TITLE.en}
+          {TITLE[l] || TITLE.en}
         </h1>
         <p className="text-sm text-gray-400">
-          {SUBTITLE[lang] || SUBTITLE.en}
+          {SUBTITLE[l] || SUBTITLE.en}
         </p>
       </div>
 
@@ -124,7 +134,7 @@ export default function CountrySelectScreen({ lang, onSelect }: CountrySelectScr
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder={SEARCH_PLACEHOLDER[lang] || SEARCH_PLACEHOLDER.en}
+            placeholder={SEARCH_PH[l] || SEARCH_PH.en}
             className="flex-1 text-sm text-gray-700 placeholder-gray-300 outline-none bg-transparent"
           />
         </div>
@@ -134,7 +144,7 @@ export default function CountrySelectScreen({ lang, onSelect }: CountrySelectScr
       <div className="flex-1 px-6 pb-8 overflow-y-auto">
         {loading ? (
           <p className="text-sm text-gray-300 animate-pulse text-center py-8">
-            {DETECTING[lang] || DETECTING.en}
+            {DETECTING[l] || DETECTING.en}
           </p>
         ) : (
           <div className="space-y-2.5">
@@ -144,30 +154,36 @@ export default function CountrySelectScreen({ lang, onSelect }: CountrySelectScr
                 <button
                   key={country.code}
                   onClick={() => onSelect(country.code)}
-                  className={`w-full flex items-center gap-3.5 px-5 py-4 rounded-2xl transition-all active:scale-[0.98] ${
+                  className={`w-full flex items-center gap-3.5 px-4 py-3.5 rounded-[20px] transition-all active:scale-[0.98] ${
                     isRecommended
                       ? "bg-emerald-50 ring-2 ring-emerald-400 shadow-md"
                       : "bg-white shadow-sm hover:shadow-md"
                   }`}
                 >
-                  <span className="text-3xl">{country.flag}</span>
-                  <div className="flex-1 text-left">
-                    <span className={`text-base font-semibold ${isRecommended ? "text-emerald-700" : "text-gray-700"}`}>
-                      {getCountryName(country)}
+                  {/* Flag */}
+                  <span className="text-[28px] leading-none">{country.flag}</span>
+
+                  {/* Country code badge */}
+                  <span className={`px-2 py-0.5 rounded-lg text-[11px] font-bold text-white ${CODE_COLORS[country.code] || "bg-gray-500"}`}>
+                    {country.code}
+                  </span>
+
+                  {/* Country name */}
+                  <span className={`flex-1 text-[15px] font-semibold text-left ${isRecommended ? "text-emerald-700" : "text-gray-700"}`}>
+                    {getName(country)}
+                  </span>
+
+                  {/* Badges */}
+                  {isRecommended && (
+                    <span className="px-2.5 py-1 bg-teal-500 text-white text-[10px] font-bold rounded-full">
+                      {RECOMMENDED[l] || RECOMMENDED.en}
                     </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    {!country.hasDB && (
-                      <span className="px-2 py-0.5 bg-gray-100 text-gray-400 text-[10px] font-medium rounded-full">
-                        {PREPARING[lang] || PREPARING.en}
-                      </span>
-                    )}
-                    {isRecommended && (
-                      <span className="px-2.5 py-0.5 bg-emerald-100 text-emerald-600 text-[10px] font-medium rounded-full">
-                        {RECOMMENDED[lang] || RECOMMENDED.en}
-                      </span>
-                    )}
-                  </div>
+                  )}
+                  {!country.hasDB && (
+                    <span className="px-2.5 py-1 bg-gray-400 text-white text-[10px] font-bold rounded-full">
+                      {PREPARING[l] || PREPARING.en}
+                    </span>
+                  )}
                 </button>
               );
             })}
