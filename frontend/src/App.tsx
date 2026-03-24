@@ -82,6 +82,9 @@ function App() {
     emergencyNumber: "115",
   };
 
+  // Scroll to top on every screen transition
+  const scrollTop = () => window.scrollTo(0, 0);
+
   // === Onboarding handlers ===
 
   const handleLanguageSelect = (langCode: string) => {
@@ -90,6 +93,7 @@ function App() {
     // TODO: 개발 완료 후 localStorage 저장 복원
     // saveLanguage(langCode);
     setOnboardingStep("country");
+    scrollTop();
   };
 
   const handleCountrySelect = (code: string) => {
@@ -97,12 +101,14 @@ function App() {
     // TODO: 개발 완료 후 localStorage 저장 복원
     // saveCountry(code);
     setOnboardingStep("disclaimer");
+    scrollTop();
   };
 
   const handleAgree = () => {
     // TODO: 개발 완료 후 localStorage 저장 복원
     // localStorage.setItem(DISCLAIMER_KEY, "true");
     setOnboardingStep("done");
+    scrollTop();
   };
 
   // === Main app handlers ===
@@ -132,6 +138,7 @@ function App() {
       setScreen("flow");
       setNoMatch(false);
       setShowCandidates(false);
+      scrollTop();
     } else {
       setCandidates(topCandidates);
       setShowCandidates(true);
@@ -145,6 +152,7 @@ function App() {
     setShowCandidates(false);
     setCandidates([]);
     setNoMatch(false);
+    scrollTop();
   };
 
   const handleTagSelect = (symptom: string) => {
@@ -155,6 +163,7 @@ function App() {
       setScreen("flow");
       setNoMatch(false);
       setShowCandidates(false);
+      scrollTop();
     }
   };
 
@@ -164,6 +173,7 @@ function App() {
     setNoMatch(false);
     setShowCandidates(false);
     setCandidates([]);
+    scrollTop();
   };
 
   const handleReset = () => {
@@ -173,6 +183,7 @@ function App() {
     setNoMatch(false);
     setShowCandidates(false);
     setCandidates([]);
+    scrollTop();
   };
 
   // === Render: Onboarding flow ===
@@ -186,7 +197,7 @@ function App() {
       <CountrySelectScreen
         lang={getSavedLanguage() || i18n.language}
         onSelect={handleCountrySelect}
-        onBack={() => setOnboardingStep("language")}
+        onBack={() => { setOnboardingStep("language"); scrollTop(); }}
       />
     );
   }
@@ -195,7 +206,7 @@ function App() {
     return (
       <DisclaimerAgreement
         onAgree={handleAgree}
-        onBack={() => setOnboardingStep("country")}
+        onBack={() => { setOnboardingStep("country"); scrollTop(); }}
       />
     );
   }
@@ -206,7 +217,7 @@ function App() {
     return (
       <AllCategorySelector
         onSelect={handleDirectCategorySelect}
-        onBack={() => setScreen("home")}
+        onBack={() => { setScreen("home"); scrollTop(); }}
       />
     );
   }
@@ -269,7 +280,7 @@ function App() {
             <MatchCandidates
               candidates={candidates}
               onSelect={handleCandidateSelect}
-              onShowAll={() => setScreen("allCategories")}
+              onShowAll={() => { setScreen("allCategories"); scrollTop(); }}
             />
           )}
 
@@ -283,7 +294,7 @@ function App() {
                   : "Please select the closest symptom below"}
               </p>
               <button
-                onClick={() => setScreen("allCategories")}
+                onClick={() => { setScreen("allCategories"); scrollTop(); }}
                 className="w-full py-3.5 rounded-2xl text-sm font-semibold bg-gradient-to-r from-emerald-400 to-teal-500 text-white hover:shadow-md active:scale-[0.98] transition-all shadow-sm"
               >
                 {i18n.language === "ko"

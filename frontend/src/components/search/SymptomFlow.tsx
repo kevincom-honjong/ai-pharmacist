@@ -73,6 +73,7 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
   }
 
   const categoryName = getCategoryName(cat, lang);
+  const scrollTop = () => window.scrollTo(0, 0);
 
   // Step 1: Companion symptom check
   const handleCompanionSubmit = (selected: string[]) => {
@@ -81,6 +82,7 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
 
     if (foundCombo.hospitalWarning) {
       setStep("hospital");
+      scrollTop();
       return;
     }
 
@@ -88,6 +90,7 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
       setFollowUpIndex(0);
       setFollowUpAnswers([]);
       setStep("followUp");
+      scrollTop();
     } else {
       resolveDrugs(foundCombo, []);
     }
@@ -102,6 +105,7 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
 
     if (followUpIndex + 1 < combo.followUpQuestions.length) {
       setFollowUpIndex(followUpIndex + 1);
+      scrollTop();
     } else {
       resolveDrugs(combo, newAnswers);
     }
@@ -109,7 +113,6 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
 
   // Resolve drugs based on combo and answers
   const resolveDrugs = (c: SymptomComboResult, answers: number[]) => {
-    // Check if last answer indicates "severe" (index 2 on severity question)
     const lastAnswer = answers[answers.length - 1];
     const matchKey = lastAnswer === 2 ? "severe" : "default";
     const drugMatch = c.drugMatches[matchKey] || c.drugMatches["default"];
@@ -119,6 +122,7 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
       setDrugs(entries);
     }
     setStep("result");
+    scrollTop();
   };
 
   const handleFollowUpBack = () => {
@@ -129,6 +133,7 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
       setStep("companion");
       setCombo(null);
     }
+    scrollTop();
   };
 
   // === Render ===
