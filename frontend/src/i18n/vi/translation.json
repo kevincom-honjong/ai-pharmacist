@@ -1,0 +1,118 @@
+{
+  "app": {
+    "title": "AI Pharmacist",
+    "subtitle": "Your AI-Powered Pharmacist",
+    "slogan": "Luôn quan tâm đến sức khỏe của bạn"
+  },
+  "home": {
+    "greeting": "Bạn cảm thấy khó chịu ở đâu?",
+    "searchPlaceholder": "Mô tả triệu chứng của bạn",
+    "examples": "VD: Tôi bị đau đầu, Tôi bị ho",
+    "popularSymptoms": "Triệu chứng phổ biến",
+    "showMore": "Xem thêm",
+    "showLess": "Thu gọn",
+    "noMatch": "Không tìm thấy triệu chứng. Vui lòng thử từ khác."
+  },
+  "symptoms": {
+    "headache": "Đau đầu",
+    "cold": "Cảm lạnh",
+    "stomachache": "Đau bụng",
+    "fever": "Sốt",
+    "allergy": "Dị ứng",
+    "musclePain": "Đau cơ",
+    "cough": "Ho",
+    "runnyNose": "Sổ mũi",
+    "soreThroat": "Đau họng",
+    "indigestion": "Khó tiêu",
+    "diarrhea": "Tiêu chảy",
+    "nausea": "Buồn nôn",
+    "backPain": "Đau lưng",
+    "allergy2": "Dị ứng",
+    "skinRash": "Phát ban",
+    "menstrualPain": "Đau bụng kinh",
+    "toothache": "Đau răng",
+    "eyeStrain": "Mỏi mắt",
+    "heartburn2": "Ợ nóng",
+    "constipation": "Táo bón",
+    "insomnia": "Mất ngủ",
+    "jointPain": "Đau khớp"
+  },
+  "flow": {
+    "headache": {
+      "q1": "Bạn bị đau đầu kiểu nào?",
+      "q1_a1": "Nhức nhối (đau theo nhịp mạch)",
+      "q1_a2": "Đau nhói (đau sắc nhọn)",
+      "q1_a3": "Đau âm ỉ (cảm giác nặng đầu)",
+      "q1_a4": "Đau toàn bộ đầu",
+      "q2_throbbing": "Đau chủ yếu ở đâu?",
+      "q2_t_a1": "Một bên (đau nửa đầu)",
+      "q2_t_a2": "Trán / phía trước",
+      "q2_t_a3": "Sau đầu / gáy",
+      "q3_severity": "Mức độ đau như thế nào?",
+      "q3_s_a1": "Nhẹ (vẫn sinh hoạt bình thường)",
+      "q3_s_a2": "Trung bình (khó tập trung)",
+      "q3_s_a3": "Nặng (khó sinh hoạt)",
+      "q2_sharp": "Thường đau khi nào?",
+      "q2_sh_a1": "Khi bị căng thẳng",
+      "q2_sh_a2": "Khi ngồi lâu",
+      "q2_sh_a3": "Khi thiếu ngủ",
+      "q2_dull": "Đau đầu bao lâu rồi?",
+      "q2_d_a1": "Mới bắt đầu (trong 1 giờ)",
+      "q2_d_a2": "Cả ngày hôm nay",
+      "q2_d_a3": "Nhiều ngày liền"
+    },
+    "cold": {
+      "q1": "Triệu chứng nào khó chịu nhất?",
+      "q1_a1": "Sốt và đau nhức người",
+      "q1_a2": "Ho nặng",
+      "q1_a3": "Nghẹt mũi và sổ mũi",
+      "q1_a4": "Đau họng"
+    },
+    "stomach": {
+      "q1": "Bạn có triệu chứng gì?",
+      "q1_a1": "Ợ nóng và đầy bụng",
+      "q1_a2": "Tiêu chảy",
+      "q1_a3": "Khó tiêu"
+    }
+  },
+  "result": {
+    "title": "Kết quả thông tin thuốc",
+    "subtitle": "Thông tin này chỉ mang tính tham khảo. Hãy hỏi dược sĩ trước khi dùng thuốc.",
+    "matchedCategory": "Triệu chứng xác định",
+    "details": "Xem chi tiết",
+    "precautions": "Lưu ý",
+    "sideEffects": "Tác dụng phụ",
+    "searchAgain": "Tìm lại",
+    "consultPharmacist": "Hỏi dược sĩ",
+    "otcAvailable": "Thuốc này có thể mua không cần đơn tại {{country}}",
+    "ingredientFallback": "Không tìm thấy thương hiệu đăng ký tại quốc gia này. Hãy hỏi dược sĩ về sản phẩm chứa thành phần này."
+  },
+  "country": {
+    "current": "Vị trí",
+    "change": "Đổi",
+    "detecting": "Đang xác định vị trí..."
+  },
+  "onboarding": {
+    "intro": "Tìm nhanh thông tin thuốc OTC phù hợp với triệu chứng của bạn.",
+    "introSub": "Thông tin thuốc an toàn, mọi lúc mọi nơi.",
+    "disclaimerTitle": "Điều khoản sử dụng",
+    "items": [
+      "Dịch vụ này cung cấp thông tin thuốc không kê đơn (OTC), không phải chẩn đoán hoặc kê đơn y tế.",
+      "Thông tin được cung cấp chỉ mang tính chất tham khảo. Vui lòng tham khảo ý kiến dược sĩ hoặc chuyên gia y tế trước khi dùng thuốc.",
+      "Nhà cung cấp dịch vụ không chịu trách nhiệm pháp lý cho bất kỳ hậu quả nào phát sinh từ việc sử dụng thông tin của dịch vụ này.",
+      "Dịch vụ này không cung cấp tư vấn cho các tình huống khẩn cấp. Trong trường hợp khẩn cấp, vui lòng gọi 115 hoặc số khẩn cấp địa phương ngay lập tức."
+    ],
+    "agreeCheck": "Tôi đã đọc và đồng ý với nội dung trên",
+    "agreeButton": "Đồng ý và bắt đầu"
+  },
+  "disclaimer": {
+    "short": "Dịch vụ này cung cấp thông tin thuốc OTC, không phải chẩn đoán y tế.",
+    "full": "Dịch vụ này không cung cấp chẩn đoán hoặc kê đơn y tế. Thông tin được cung cấp là thông tin chung về thuốc OTC. Vui lòng tham khảo ý kiến bác sĩ hoặc dược sĩ để được chẩn đoán và điều trị chính xác."
+  },
+  "common": {
+    "search": "Tìm kiếm",
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi",
+    "noResults": "Không tìm thấy kết quả"
+  }
+}

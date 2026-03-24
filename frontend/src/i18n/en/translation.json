@@ -1,0 +1,118 @@
+{
+  "app": {
+    "title": "AI Pharmacist",
+    "subtitle": "Your AI-Powered Pharmacist",
+    "slogan": "Always caring for your health"
+  },
+  "home": {
+    "greeting": "What's bothering you?",
+    "searchPlaceholder": "Describe your symptoms freely",
+    "examples": "e.g. I have a headache, I'm coughing",
+    "popularSymptoms": "Popular Symptoms",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "noMatch": "Couldn't identify your symptom. Please try different words."
+  },
+  "symptoms": {
+    "headache": "Headache",
+    "cold": "Cold",
+    "stomachache": "Stomachache",
+    "fever": "Fever",
+    "allergy": "Allergy",
+    "musclePain": "Muscle Pain",
+    "cough": "Cough",
+    "runnyNose": "Runny Nose",
+    "soreThroat": "Sore Throat",
+    "indigestion": "Indigestion",
+    "diarrhea": "Diarrhea",
+    "nausea": "Nausea",
+    "backPain": "Back Pain",
+    "allergy2": "Allergy",
+    "skinRash": "Skin Rash",
+    "menstrualPain": "Period Pain",
+    "toothache": "Toothache",
+    "eyeStrain": "Eye Strain",
+    "heartburn2": "Heartburn",
+    "constipation": "Constipation",
+    "insomnia": "Insomnia",
+    "jointPain": "Joint Pain"
+  },
+  "flow": {
+    "headache": {
+      "q1": "What kind of headache do you have?",
+      "q1_a1": "Throbbing (pulsating pain)",
+      "q1_a2": "Sharp (stabbing pain)",
+      "q1_a3": "Dull (pressing sensation)",
+      "q1_a4": "All-over pain",
+      "q2_throbbing": "Where does it hurt the most?",
+      "q2_t_a1": "One side only (migraine)",
+      "q2_t_a2": "Forehead / front",
+      "q2_t_a3": "Back of head / neck",
+      "q3_severity": "How severe is the pain?",
+      "q3_s_a1": "Mild (can carry on daily activities)",
+      "q3_s_a2": "Moderate (hard to concentrate)",
+      "q3_s_a3": "Severe (difficult to function)",
+      "q2_sharp": "When does it usually hurt?",
+      "q2_sh_a1": "When I'm stressed",
+      "q2_sh_a2": "After sitting for a long time",
+      "q2_sh_a3": "When I haven't slept well",
+      "q2_dull": "How long have you had this headache?",
+      "q2_d_a1": "Just started (within 1 hour)",
+      "q2_d_a2": "All day today",
+      "q2_d_a3": "Several days"
+    },
+    "cold": {
+      "q1": "What's your most bothersome symptom?",
+      "q1_a1": "Fever and body aches",
+      "q1_a2": "Bad cough",
+      "q1_a3": "Stuffy nose and runny nose",
+      "q1_a4": "Sore throat"
+    },
+    "stomach": {
+      "q1": "What are your symptoms?",
+      "q1_a1": "Heartburn and bloating",
+      "q1_a2": "Diarrhea",
+      "q1_a3": "Indigestion"
+    }
+  },
+  "result": {
+    "title": "Drug Information Results",
+    "subtitle": "This information is for reference only. Consult a pharmacist before taking medication.",
+    "matchedCategory": "Identified symptom",
+    "details": "View details",
+    "precautions": "Precautions",
+    "sideEffects": "Side Effects",
+    "searchAgain": "Search Again",
+    "consultPharmacist": "Consult Pharmacist",
+    "otcAvailable": "This drug is available over-the-counter without prescription in {{country}}",
+    "ingredientFallback": "No registered brand found for this country. Ask your pharmacist for a product containing this ingredient."
+  },
+  "country": {
+    "current": "Location",
+    "change": "Change",
+    "detecting": "Detecting location..."
+  },
+  "onboarding": {
+    "intro": "Quickly find the right OTC drug information for your symptoms.",
+    "introSub": "Safe drug information, anytime, anywhere.",
+    "disclaimerTitle": "Terms of Use",
+    "items": [
+      "This service provides over-the-counter (OTC) drug information, not medical diagnosis or prescriptions.",
+      "The information provided is for reference only. Please consult a pharmacist or medical professional before taking any medication.",
+      "The service provider assumes no legal liability for any consequences arising from the use of information provided by this service.",
+      "This service does not provide advice for emergency situations. In case of emergency, please call 119 or your local emergency number immediately."
+    ],
+    "agreeCheck": "I have read and agree to the above",
+    "agreeButton": "Agree and Start"
+  },
+  "disclaimer": {
+    "short": "This service provides OTC drug information, not medical diagnosis.",
+    "full": "This service does not provide medical diagnosis or prescriptions. The information provided is general OTC drug information. Please consult a doctor or pharmacist for accurate diagnosis and treatment."
+  },
+  "common": {
+    "search": "Search",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "noResults": "No results found"
+  }
+}
