@@ -5,6 +5,24 @@ interface LanguageSelectScreenProps {
   onSelect: (langCode: string) => void;
 }
 
+const BADGE_COLORS: Record<string, string> = {
+  KR: "bg-rose-500", VN: "bg-red-600", US: "bg-blue-600",
+  JP: "bg-red-500", TH: "bg-blue-700", PH: "bg-blue-500",
+  ID: "bg-red-600", GB: "bg-blue-800", AU: "bg-blue-700",
+  DE: "bg-yellow-500", IN: "bg-orange-500", CN: "bg-red-600",
+  ES: "bg-yellow-500",
+};
+
+// Twemoji CDN for cross-platform flag rendering
+function getFlagUrl(countryCode: string): string {
+  const codePoints = countryCode
+    .toUpperCase()
+    .split("")
+    .map((c) => (0x1f1e6 + c.charCodeAt(0) - 65).toString(16))
+    .join("-");
+  return `https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/${codePoints}.png`;
+}
+
 export default function LanguageSelectScreen({ onSelect }: LanguageSelectScreenProps) {
   const [search, setSearch] = useState("");
 
@@ -12,7 +30,7 @@ export default function LanguageSelectScreen({ onSelect }: LanguageSelectScreenP
     if (!search.trim()) return SUPPORTED_LANGUAGES;
     const q = search.toLowerCase();
     return SUPPORTED_LANGUAGES.filter(
-      (l) => l.label.toLowerCase().includes(q) || l.code.toLowerCase().includes(q)
+      (l) => l.label.toLowerCase().includes(q) || l.code.toLowerCase().includes(q) || l.countryHint.toLowerCase().includes(q)
     );
   }, [search]);
 
@@ -53,16 +71,31 @@ export default function LanguageSelectScreen({ onSelect }: LanguageSelectScreenP
       {/* Language list */}
       <div className="flex-1 px-6 pb-8 overflow-y-auto">
         <div className="space-y-2">
-          {filtered.map((lang) => (
-            <button
-              key={lang.code}
-              onClick={() => onSelect(lang.code)}
-              className="w-full h-14 flex items-center px-4 bg-white rounded-[20px] shadow-sm hover:shadow-md active:scale-[0.98] transition-all"
-            >
-              <span className="text-[32px] leading-none w-10 flex-shrink-0">{lang.flag}</span>
-              <span className="ml-3 text-[15px] font-semibold text-gray-700">{lang.label}</span>
-            </button>
-          ))}
+          {filtered.map((lang) => {
+            const cc = lang.countryHint;
+            const badgeColor = BADGE_COLORS[cc] || "bg-gray-500";
+            return (
+              <button
+                key={lang.code}
+                onClick={() => onSelect(lang.code)}
+                className="w-full h-14 flex items-center px-4 bg-white rounded-[20px] shadow-sm hover:shadow-md active:scale-[0.98] transition-all"
+              >
+                {/* Flag image (Twemoji) */}
+                <img
+                  src={getFlagUrl(cc)}
+                  alt={cc}
+                  className="w-8 h-8 flex-shrink-0 rounded-sm object-contain"
+                  loading="lazy"
+                />
+                {/* Country code badge */}
+                <span className={`ml-3 flex-shrink-0 w-9 h-6 flex items-center justify-center rounded-md text-[11px] font-bold text-white ${badgeColor}`}>
+                  {cc}
+                </span>
+                {/* Language name */}
+                <span className="ml-3 text-[15px] font-semibold text-gray-700">{lang.label}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
 

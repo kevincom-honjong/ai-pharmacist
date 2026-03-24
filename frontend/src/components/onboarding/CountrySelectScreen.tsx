@@ -5,6 +5,15 @@ import {
 } from "../../services/countryDetect";
 import BackButton from "../common/BackButton";
 
+function getFlagUrl(countryCode: string): string {
+  const codePoints = countryCode
+    .toUpperCase()
+    .split("")
+    .map((c) => (0x1f1e6 + c.charCodeAt(0) - 65).toString(16))
+    .join("-");
+  return `https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/${codePoints}.png`;
+}
+
 interface CountrySelectScreenProps {
   lang: string;
   onSelect: (countryCode: string) => void;
@@ -121,7 +130,7 @@ export default function CountrySelectScreen({ lang, onSelect, onBack }: CountryS
               onClick={() => onSelect(country.code)}
               className="w-full h-14 flex items-center px-4 rounded-[20px] bg-white shadow-sm hover:shadow-md active:scale-[0.98] transition-all"
             >
-              <span className="text-[32px] leading-none w-10 flex-shrink-0">{country.flag}</span>
+              <img src={getFlagUrl(country.code)} alt={country.code} className="w-8 h-8 flex-shrink-0 rounded-sm object-contain" loading="lazy" />
               <span className={`ml-3 w-8 py-0.5 rounded-md text-[10px] font-bold text-white text-center flex-shrink-0 ${CODE_COLORS[country.code] || "bg-gray-500"}`}>
                 {country.code}
               </span>
