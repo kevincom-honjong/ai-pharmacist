@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import {
   getCategory,
@@ -12,6 +12,7 @@ import { getCountryInfo } from "../../services/countryDetect";
 import CompanionCheckStep from "./CompanionCheckStep";
 import NewDrugCard from "../drug/NewDrugCard";
 import HospitalWarning from "../common/HospitalWarning";
+import AnalyzingScreen from "./AnalyzingScreen";
 
 interface SymptomFlowProps {
   category: string;
@@ -19,7 +20,33 @@ interface SymptomFlowProps {
   onReset: () => void;
 }
 
-type FlowStep = "companion" | "followUp" | "result" | "hospital";
+type FlowStep = "companion" | "followUp" | "commonQ" | "analyzing" | "result" | "hospital";
+
+// Common follow-up questions (asked after combo or specific follow-ups)
+const COMMON_QUESTIONS: FollowUpQuestion[] = [
+  {
+    id: "common_duration",
+    questionKR: "증상이 시작된 지 얼마나 됐나요?",
+    questionEN: "How long have you had these symptoms?",
+    questionVI: "Bạn có triệu chứng này bao lâu rồi?",
+    options: [
+      { labelKR: "오늘 시작", labelEN: "Started today", labelVI: "Bắt đầu hôm nay" },
+      { labelKR: "2~3일 됐어요", labelEN: "2-3 days", labelVI: "2-3 ngày" },
+      { labelKR: "일주일 이상", labelEN: "Over a week", labelVI: "Hơn 1 tuần" },
+    ],
+  },
+  {
+    id: "common_severity",
+    questionKR: "증상의 정도는 어떤가요?",
+    questionEN: "How severe are your symptoms?",
+    questionVI: "Mức độ triệu chứng của bạn?",
+    options: [
+      { labelKR: "가벼움 (일상생활 가능)", labelEN: "Mild (can carry on)", labelVI: "Nhẹ (sinh hoạt bình thường)" },
+      { labelKR: "중간 (불편하지만 견딜만함)", labelEN: "Moderate (uncomfortable but bearable)", labelVI: "Trung bình (khó chịu nhưng chịu được)" },
+      { labelKR: "심함 (일상생활 어려움)", labelEN: "Severe (hard to function)", labelVI: "Nặng (khó sinh hoạt)" },
+    ],
+  },
+];
 
 function getQuestionLabel(q: FollowUpQuestion, lang: string) {
   if (lang === "vi") return q.questionVI;
@@ -62,6 +89,7 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
   const [combo, setCombo] = useState<SymptomComboResult | null>(null);
   const [followUpIndex, setFollowUpIndex] = useState(0);
   const [followUpAnswers, setFollowUpAnswers] = useState<number[]>([]);
+  const [commonQIndex, setCommonQIndex] = useState(0);
   const [drugs, setDrugs] = useState<[DrugEntry, DrugEntry] | null>(null);
 
   if (!cat) {
@@ -92,11 +120,14 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
       setStep("followUp");
       scrollTop();
     } else {
-      resolveDrugs(foundCombo, []);
+      // No specific follow-ups → go to common questions
+      setCommonQIndex(0);
+      setStep("commonQ");
+      scrollTop();
     }
   };
 
-  // Step 2: Follow-up questions
+  // Step 2: Specific follow-up questions
   const handleFollowUpAnswer = (answerIndex: number) => {
     if (!combo?.followUpQuestions) return;
 
@@ -107,22 +138,33 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
       setFollowUpIndex(followUpIndex + 1);
       scrollTop();
     } else {
-      resolveDrugs(combo, newAnswers);
+      // Done with specific follow-ups → go to common questions
+      setCommonQIndex(0);
+      setStep("commonQ");
+      scrollTop();
     }
   };
 
-  // Resolve drugs based on combo and answers
-  const resolveDrugs = (c: SymptomComboResult, answers: number[]) => {
-    const lastAnswer = answers[answers.length - 1];
-    const matchKey = lastAnswer === 2 ? "severe" : "default";
-    const drugMatch = c.drugMatches[matchKey] || c.drugMatches["default"];
-
-    if (drugMatch) {
-      const entries = getDrugEntries(drugMatch, countryCode);
-      setDrugs(entries);
+  // Step 3: Common questions (duration + severity)
+  const handleCommonAnswer = (answerIndex: number) => {
+    if (commonQIndex + 1 < COMMON_QUESTIONS.length) {
+      setCommonQIndex(commonQIndex + 1);
+      scrollTop();
+    } else {
+      // All questions done → resolve drugs and show loading
+      if (combo) {
+        const lastAnswer = followUpAnswers[followUpAnswers.length - 1];
+        const severityAnswer = answerIndex; // last common Q is severity
+        const matchKey = (lastAnswer === 2 || severityAnswer === 2) ? "severe" : "default";
+        const drugMatch = combo.drugMatches[matchKey] || combo.drugMatches["default"];
+        if (drugMatch) {
+          const entries = getDrugEntries(drugMatch, countryCode);
+          setDrugs(entries);
+        }
+      }
+      setStep("analyzing");
+      scrollTop();
     }
-    setStep("result");
-    scrollTop();
   };
 
   const handleFollowUpBack = () => {
@@ -135,6 +177,28 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
     }
     scrollTop();
   };
+
+  const handleCommonBack = () => {
+    if (commonQIndex > 0) {
+      setCommonQIndex(commonQIndex - 1);
+    } else {
+      // Go back to follow-ups or companion
+      if (combo?.followUpQuestions && combo.followUpQuestions.length > 0) {
+        setFollowUpIndex(combo.followUpQuestions.length - 1);
+        setFollowUpAnswers((prev) => prev.slice(0, -1));
+        setStep("followUp");
+      } else {
+        setStep("companion");
+        setCombo(null);
+      }
+    }
+    scrollTop();
+  };
+
+  const handleAnalyzingComplete = useCallback(() => {
+    setStep("result");
+    scrollTop();
+  }, []);
 
   // === Render ===
 
@@ -162,8 +226,9 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
 
   if (step === "followUp" && combo?.followUpQuestions) {
     const question = combo.followUpQuestions[followUpIndex];
-    const totalSteps = combo.followUpQuestions.length;
-    const progress = ((followUpIndex + 1) / totalSteps) * 100;
+    const totalSteps = combo.followUpQuestions.length + COMMON_QUESTIONS.length;
+    const currentStep = followUpIndex + 1;
+    const progress = (currentStep / totalSteps) * 100;
 
     return (
       <div className="min-h-screen bg-[#FAFAF8] max-w-[480px] mx-auto flex flex-col">
@@ -172,12 +237,12 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
             onClick={handleFollowUpBack}
             className="w-9 h-9 flex items-center justify-center rounded-2xl hover:bg-gray-100 transition-colors"
           >
-            <svg className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className="w-5 h-5 text-[#333]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
           </button>
           <span className="text-sm text-gray-400 font-medium">
-            {followUpIndex + 1} / {totalSteps}
+            {currentStep} / {totalSteps}
           </span>
         </header>
 
@@ -212,6 +277,64 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
     );
   }
 
+  if (step === "commonQ") {
+    const question = COMMON_QUESTIONS[commonQIndex];
+    const specificCount = combo?.followUpQuestions?.length || 0;
+    const totalSteps = specificCount + COMMON_QUESTIONS.length;
+    const currentStep = specificCount + commonQIndex + 1;
+    const progress = (currentStep / totalSteps) * 100;
+
+    return (
+      <div className="min-h-screen bg-[#FAFAF8] max-w-[480px] mx-auto flex flex-col">
+        <header className="flex items-center gap-3 px-5 py-3.5 bg-white/80 backdrop-blur-sm">
+          <button
+            onClick={handleCommonBack}
+            className="w-9 h-9 flex items-center justify-center rounded-2xl hover:bg-gray-100 transition-colors"
+          >
+            <svg className="w-5 h-5 text-[#333]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          <span className="text-sm text-gray-400 font-medium">
+            {currentStep} / {totalSteps}
+          </span>
+        </header>
+
+        <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full transition-all duration-500 ease-out"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+
+        <main className="flex-1 px-5 pt-10">
+          <h2 className="text-xl font-bold text-gray-800 mb-8 leading-snug">
+            {getQuestionLabel(question, lang)}
+          </h2>
+          <div className="space-y-3">
+            {question.options.map((opt, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleCommonAnswer(idx)}
+                className="w-full text-left px-5 py-4 bg-white rounded-2xl text-base text-gray-700 hover:shadow-md active:scale-[0.98] transition-all shadow-sm"
+              >
+                {getOptionLabel(opt, lang)}
+              </button>
+            ))}
+          </div>
+        </main>
+
+        <footer className="px-4 py-2.5">
+          <p className="text-center text-xs text-gray-300">{t("disclaimer.short")}</p>
+        </footer>
+      </div>
+    );
+  }
+
+  if (step === "analyzing") {
+    return <AnalyzingScreen lang={lang} onComplete={handleAnalyzingComplete} />;
+  }
+
   // Result screen
   const categoryDesc = getCategoryDesc(cat, lang);
   return (
@@ -221,7 +344,7 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
           onClick={onReset}
           className="w-9 h-9 flex items-center justify-center rounded-2xl hover:bg-gray-100 transition-colors"
         >
-          <svg className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <svg className="w-5 h-5 text-[#333]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
           </svg>
         </button>
