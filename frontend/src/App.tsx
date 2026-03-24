@@ -83,18 +83,21 @@ function App() {
   const handleLanguageSelect = (langCode: string) => {
     const i18nCode = getI18nLang(langCode);
     i18n.changeLanguage(i18nCode);
-    saveLanguage(langCode); // save original code for display
+    // TODO: 개발 완료 후 localStorage 저장 복원
+    // saveLanguage(langCode);
     setOnboardingStep("country");
   };
 
   const handleCountrySelect = (code: string) => {
     setCountryCode(code);
-    saveCountry(code);
+    // TODO: 개발 완료 후 localStorage 저장 복원
+    // saveCountry(code);
     setOnboardingStep("disclaimer");
   };
 
   const handleAgree = () => {
-    localStorage.setItem(DISCLAIMER_KEY, "true");
+    // TODO: 개발 완료 후 localStorage 저장 복원
+    // localStorage.setItem(DISCLAIMER_KEY, "true");
     setOnboardingStep("done");
   };
 
