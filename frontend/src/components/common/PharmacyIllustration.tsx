@@ -1,17 +1,39 @@
 export default function PharmacyIllustration() {
   return (
-    <div className="flex items-center justify-center gap-3 mb-4">
-      <div className="w-14 h-14 rounded-3xl bg-emerald-50 flex items-center justify-center text-2xl shadow-sm">
-        💊
-      </div>
-      <div className="w-16 h-16 rounded-3xl bg-gradient-to-br from-emerald-100 to-teal-100 flex items-center justify-center shadow-sm">
-        <svg className="w-9 h-9 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.5v3m-1.5-1.5h3" />
+    <div className="flex items-center justify-center gap-6 mb-4">
+      {/* Pharmacy store */}
+      <div className="w-16 h-16 rounded-3xl bg-emerald-50 flex items-center justify-center shadow-sm">
+        <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Roof */}
+          <path d="M8 20L24 10L40 20" stroke="#34d399" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="#d1fae5" />
+          {/* Building */}
+          <rect x="12" y="20" width="24" height="18" rx="2" fill="#a7f3d0" stroke="#34d399" strokeWidth="1.5" />
+          {/* Door */}
+          <rect x="20" y="28" width="8" height="10" rx="1.5" fill="#6ee7b7" stroke="#34d399" strokeWidth="1" />
+          {/* Cross */}
+          <rect x="22" y="21.5" width="4" height="1.5" rx="0.5" fill="#059669" />
+          <rect x="23.25" y="20.5" width="1.5" height="4" rx="0.5" fill="#059669" />
         </svg>
       </div>
-      <div className="w-14 h-14 rounded-3xl bg-blue-50 flex items-center justify-center text-2xl shadow-sm">
-        🩺
+
+      {/* Pharmacist person */}
+      <div className="w-16 h-16 rounded-3xl bg-blue-50 flex items-center justify-center shadow-sm">
+        <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Head */}
+          <circle cx="24" cy="14" r="6" fill="#fcd34d" stroke="#f59e0b" strokeWidth="1" />
+          {/* Body / white coat */}
+          <path d="M14 26C14 22.686 16.686 20 20 20H28C31.314 20 34 22.686 34 26V38H14V26Z" fill="white" stroke="#93c5fd" strokeWidth="1.5" />
+          {/* Coat lapels */}
+          <path d="M20 20L24 26L28 20" stroke="#93c5fd" strokeWidth="1" strokeLinecap="round" />
+          {/* Pill in hand */}
+          <ellipse cx="36" cy="30" rx="3.5" ry="2" fill="#fca5a5" stroke="#f87171" strokeWidth="0.8" />
+          <line x1="36" y1="28" x2="36" y2="32" stroke="#f87171" strokeWidth="0.6" />
+          {/* Smile */}
+          <path d="M22 15C22.5 16.5 25.5 16.5 26 15" stroke="#f59e0b" strokeWidth="0.8" strokeLinecap="round" />
+          {/* Eyes */}
+          <circle cx="22" cy="13" r="0.8" fill="#374151" />
+          <circle cx="26" cy="13" r="0.8" fill="#374151" />
+        </svg>
       </div>
     </div>
   );

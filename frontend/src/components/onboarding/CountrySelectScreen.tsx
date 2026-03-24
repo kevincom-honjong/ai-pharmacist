@@ -1,7 +1,6 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import {
   SUPPORTED_COUNTRIES,
-  detectCountryByIP,
   type CountryInfo,
 } from "../../services/countryDetect";
 import BackButton from "../common/BackButton";
@@ -22,14 +21,6 @@ const SUBTITLE: Record<string, string> = {
   ko: "해당 국가에서 판매되는 약을 안내합니다",
   en: "We'll show drugs available in your selected country",
   vi: "Chúng tôi sẽ hiển thị thuốc có bán tại quốc gia bạn chọn",
-};
-
-const DETECTING: Record<string, string> = {
-  ko: "위치 감지 중...", en: "Detecting location...", vi: "Đang xác định vị trí...",
-};
-
-const RECOMMENDED: Record<string, string> = {
-  ko: "추천", en: "Recommended", vi: "Đề xuất",
 };
 
 const PREPARING: Record<string, string> = {
@@ -56,7 +47,6 @@ const COUNTRY_NAMES: Record<string, Record<string, string>> = {
   ES: { ko: "스페인", en: "Spain", vi: "Tây Ban Nha" },
 };
 
-// Country code badge colors
 const CODE_COLORS: Record<string, string> = {
   KR: "bg-rose-500", VN: "bg-red-500", US: "bg-blue-500",
   JP: "bg-pink-500", TH: "bg-indigo-500", PH: "bg-sky-500",
@@ -66,17 +56,7 @@ const CODE_COLORS: Record<string, string> = {
 };
 
 export default function CountrySelectScreen({ lang, onSelect, onBack }: CountrySelectScreenProps) {
-  const [detectedCode, setDetectedCode] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    detectCountryByIP().then((code) => {
-      setDetectedCode(code);
-      setLoading(false);
-    });
-  }, []);
-
   const l = lang.startsWith("en") ? "en" : lang;
 
   const getName = (c: CountryInfo) =>
@@ -91,15 +71,14 @@ export default function CountrySelectScreen({ lang, onSelect, onBack }: CountryS
     });
   }, [search, l]);
 
+  // Sort: DB available first, then alphabetical by name
   const sorted = useMemo(() => {
     return [...filtered].sort((a, b) => {
-      if (a.code === detectedCode) return -1;
-      if (b.code === detectedCode) return 1;
       if (a.hasDB && !b.hasDB) return -1;
       if (!a.hasDB && b.hasDB) return 1;
       return getName(a).localeCompare(getName(b));
     });
-  }, [filtered, detectedCode, l]);
+  }, [filtered, l]);
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] flex flex-col max-w-[480px] mx-auto">
@@ -107,7 +86,6 @@ export default function CountrySelectScreen({ lang, onSelect, onBack }: CountryS
         <BackButton onClick={onBack} lang={lang} />
       </div>
 
-      {/* Header */}
       <div className="px-6 pt-2 pb-4 text-center">
         <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-md">
           <span className="text-2xl">📍</span>
@@ -120,10 +98,9 @@ export default function CountrySelectScreen({ lang, onSelect, onBack }: CountryS
         </p>
       </div>
 
-      {/* Search */}
       <div className="px-6 pb-3">
         <div className="flex items-center bg-white rounded-2xl shadow-sm px-4 py-3">
-          <svg className="w-4 h-4 text-gray-300 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <svg className="w-4 h-4 text-gray-400 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
           </svg>
           <input
@@ -136,48 +113,29 @@ export default function CountrySelectScreen({ lang, onSelect, onBack }: CountryS
         </div>
       </div>
 
-      {/* Country list */}
       <div className="flex-1 px-6 pb-8 overflow-y-auto">
-        {loading ? (
-          <p className="text-sm text-gray-300 animate-pulse text-center py-8">
-            {DETECTING[l] || DETECTING.en}
-          </p>
-        ) : (
-          <div className="space-y-2">
-            {sorted.map((country) => {
-              const isRecommended = country.code === detectedCode;
-              return (
-                <button
-                  key={country.code}
-                  onClick={() => onSelect(country.code)}
-                  className={`w-full h-14 flex items-center px-4 rounded-[20px] transition-all active:scale-[0.98] ${
-                    isRecommended
-                      ? "bg-emerald-50 ring-2 ring-emerald-400 shadow-md"
-                      : "bg-white shadow-sm hover:shadow-md"
-                  }`}
-                >
-                  <span className="text-[32px] leading-none w-10 flex-shrink-0">{country.flag}</span>
-                  <span className={`ml-3 w-8 py-0.5 rounded-md text-[10px] font-bold text-white text-center flex-shrink-0 ${CODE_COLORS[country.code] || "bg-gray-500"}`}>
-                    {country.code}
-                  </span>
-                  <span className={`ml-3 flex-1 text-[15px] font-semibold text-left truncate ${isRecommended ? "text-emerald-700" : "text-gray-700"}`}>
-                    {getName(country)}
-                  </span>
-                  {isRecommended && (
-                    <span className="ml-2 px-2.5 py-1 bg-teal-500 text-white text-[10px] font-bold rounded-full flex-shrink-0">
-                      {RECOMMENDED[l] || RECOMMENDED.en}
-                    </span>
-                  )}
-                  {!country.hasDB && !isRecommended && (
-                    <span className="ml-2 px-2.5 py-1 bg-gray-400 text-white text-[10px] font-bold rounded-full flex-shrink-0">
-                      {PREPARING[l] || PREPARING.en}
-                    </span>
-                  )}
-                </button>
-              );
-            })}
-          </div>
-        )}
+        <div className="space-y-2">
+          {sorted.map((country) => (
+            <button
+              key={country.code}
+              onClick={() => onSelect(country.code)}
+              className="w-full h-14 flex items-center px-4 rounded-[20px] bg-white shadow-sm hover:shadow-md active:scale-[0.98] transition-all"
+            >
+              <span className="text-[32px] leading-none w-10 flex-shrink-0">{country.flag}</span>
+              <span className={`ml-3 w-8 py-0.5 rounded-md text-[10px] font-bold text-white text-center flex-shrink-0 ${CODE_COLORS[country.code] || "bg-gray-500"}`}>
+                {country.code}
+              </span>
+              <span className="ml-3 flex-1 text-[15px] font-semibold text-gray-700 text-left truncate">
+                {getName(country)}
+              </span>
+              {!country.hasDB && (
+                <span className="ml-2 px-2.5 py-1 bg-gray-400 text-white text-[10px] font-bold rounded-full flex-shrink-0">
+                  {PREPARING[l] || PREPARING.en}
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
