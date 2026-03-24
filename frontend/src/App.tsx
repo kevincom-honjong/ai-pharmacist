@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Header from "./components/layout/Header";
 import SearchInput from "./components/search/SearchInput";
@@ -10,13 +10,14 @@ import CountrySelector from "./components/common/CountrySelector";
 import PharmacyIllustration from "./components/common/PharmacyIllustration";
 import MatchCandidates from "./components/search/MatchCandidates";
 import AllCategorySelector from "./components/search/AllCategorySelector";
+import LanguageSelectScreen from "./components/onboarding/LanguageSelectScreen";
+import CountrySelectScreen from "./components/onboarding/CountrySelectScreen";
 import {
   matchSymptomScored,
   getMatchCandidates,
   type MatchResult,
 } from "./services/symptomTree";
 import {
-  detectCountryByIP,
   getSavedCountry,
   saveCountry,
   getSavedLanguage,
@@ -25,18 +26,31 @@ import {
   type CountryInfo,
 } from "./services/countryDetect";
 
-const STORAGE_KEY = "otc_disclaimer_agreed";
-const FALLBACK_LANG_MAP: Record<string, string> = {
-  ko: "ko", vi: "vi", en: "en", ja: "en", th: "en",
-};
+const DISCLAIMER_KEY = "otc_disclaimer_agreed";
 
 type Screen = "home" | "flow" | "allCategories";
 
+// Check if onboarding is complete (all 3 steps done)
+function isOnboardingComplete(): boolean {
+  return !!(getSavedLanguage() && getSavedCountry() && localStorage.getItem(DISCLAIMER_KEY) === "true");
+}
+
+function getOnboardingStep(): "language" | "country" | "disclaimer" | "done" {
+  if (!getSavedLanguage()) return "language";
+  if (!getSavedCountry()) return "country";
+  if (localStorage.getItem(DISCLAIMER_KEY) !== "true") return "disclaimer";
+  return "done";
+}
+
 function App() {
   const { t, i18n } = useTranslation();
-  const [agreed, setAgreed] = useState(
-    () => localStorage.getItem(STORAGE_KEY) === "true"
+
+  // Onboarding state
+  const [onboardingStep, setOnboardingStep] = useState<"language" | "country" | "disclaimer" | "done">(
+    () => getOnboardingStep()
   );
+
+  // Main app state
   const [screen, setScreen] = useState<Screen>("home");
   const [searchValue, setSearchValue] = useState("");
   const [matchedCategory, setMatchedCategory] = useState<string | null>(null);
@@ -44,44 +58,17 @@ function App() {
   const [showCandidates, setShowCandidates] = useState(false);
   const [noMatch, setNoMatch] = useState(false);
 
-  // Country = drug DB filter, Language = UI text (independent)
   const [countryCode, setCountryCode] = useState<string>(
     () => getSavedCountry() || "VN"
   );
-  const [countryLoading, setCountryLoading] = useState(!getSavedCountry());
 
-  // Initialize language and country on first load
-  useEffect(() => {
+  // Restore language on mount if saved
+  if (onboardingStep === "done" || onboardingStep === "country" || onboardingStep === "disclaimer") {
     const savedLang = getSavedLanguage();
-    const savedCountry = getSavedCountry();
-
-    if (savedCountry && savedLang) {
-      // Both saved: restore independently
+    if (savedLang && i18n.language !== savedLang) {
       i18n.changeLanguage(savedLang);
-      return;
     }
-
-    if (savedCountry && !savedLang) {
-      // Country saved but no language: derive from country
-      const country = getCountryInfo(savedCountry);
-      const lang = FALLBACK_LANG_MAP[country?.language || "en"] || "en";
-      i18n.changeLanguage(lang);
-      saveLanguage(lang);
-      return;
-    }
-
-    // Nothing saved: detect by IP
-    setCountryLoading(true);
-    detectCountryByIP().then((code) => {
-      setCountryCode(code);
-      saveCountry(code);
-      const country = getCountryInfo(code);
-      const lang = FALLBACK_LANG_MAP[country?.language || "en"] || "en";
-      i18n.changeLanguage(lang);
-      saveLanguage(lang);
-      setCountryLoading(false);
-    });
-  }, []);
+  }
 
   const currentCountry: CountryInfo = getCountryInfo(countryCode) || {
     code: "VN", nameLocal: "Việt Nam", nameEn: "Vietnam",
@@ -89,52 +76,53 @@ function App() {
     emergencyNumber: "115",
   };
 
-  // Country change: only affects drug DB, language stays the same
+  // === Onboarding handlers ===
+
+  const handleLanguageSelect = (langCode: string) => {
+    i18n.changeLanguage(langCode);
+    saveLanguage(langCode);
+    setOnboardingStep("country");
+  };
+
+  const handleCountrySelect = (code: string) => {
+    setCountryCode(code);
+    saveCountry(code);
+    setOnboardingStep("disclaimer");
+  };
+
+  const handleAgree = () => {
+    localStorage.setItem(DISCLAIMER_KEY, "true");
+    setOnboardingStep("done");
+  };
+
+  // === Main app handlers ===
+
   const handleCountryChange = (code: string) => {
     setCountryCode(code);
     saveCountry(code);
   };
 
-  // Language change: only affects UI text, country stays the same
   const handleLanguageChange = (lang: string) => {
     i18n.changeLanguage(lang);
     saveLanguage(lang);
   };
 
-  const handleAgree = () => {
-    localStorage.setItem(STORAGE_KEY, "true");
-    setAgreed(true);
-  };
-
   const handleSearch = () => {
     if (!searchValue.trim()) return;
-
     const results = matchSymptomScored(searchValue);
-
     if (results.length === 0) {
-      // No match at all → show fallback
       setNoMatch(true);
       setShowCandidates(false);
       setCandidates([]);
       return;
     }
-
     const topCandidates = getMatchCandidates(searchValue);
-
-    if (topCandidates.length === 1 && topCandidates[0].score >= 80) {
-      // Strong single match → go directly
-      setMatchedCategory(topCandidates[0].category);
-      setScreen("flow");
-      setNoMatch(false);
-      setShowCandidates(false);
-    } else if (topCandidates.length === 1) {
-      // Weak single match → still go directly but could show candidates
+    if (topCandidates.length <= 1) {
       setMatchedCategory(topCandidates[0].category);
       setScreen("flow");
       setNoMatch(false);
       setShowCandidates(false);
     } else {
-      // Multiple close matches → show candidates
       setCandidates(topCandidates);
       setShowCandidates(true);
       setNoMatch(false);
@@ -177,9 +165,21 @@ function App() {
     setCandidates([]);
   };
 
-  if (!agreed) {
+  // === Render: Onboarding flow ===
+
+  if (onboardingStep === "language") {
+    return <LanguageSelectScreen onSelect={handleLanguageSelect} />;
+  }
+
+  if (onboardingStep === "country") {
+    return <CountrySelectScreen lang={i18n.language} onSelect={handleCountrySelect} />;
+  }
+
+  if (onboardingStep === "disclaimer") {
     return <DisclaimerAgreement onAgree={handleAgree} />;
   }
+
+  // === Render: Main app ===
 
   if (screen === "allCategories") {
     return (
@@ -205,16 +205,12 @@ function App() {
       <Header />
 
       <div className="px-5 pt-2">
-        {countryLoading ? (
-          <span className="text-xs text-gray-300">{t("country.detecting")}</span>
-        ) : (
-          <CountrySelector
-            currentCountry={currentCountry}
-            currentLang={i18n.language}
-            onSelectCountry={handleCountryChange}
-            onSelectLanguage={handleLanguageChange}
-          />
-        )}
+        <CountrySelector
+          currentCountry={currentCountry}
+          currentLang={i18n.language}
+          onSelectCountry={handleCountryChange}
+          onSelectLanguage={handleLanguageChange}
+        />
       </div>
 
       <main className="px-5 pb-16">
@@ -237,7 +233,6 @@ function App() {
             onSubmit={handleSearch}
           />
 
-          {/* Multiple candidates */}
           {showCandidates && candidates.length > 1 && (
             <MatchCandidates
               candidates={candidates}
@@ -246,7 +241,6 @@ function App() {
             />
           )}
 
-          {/* No match → show all categories */}
           {noMatch && (
             <div className="mt-4 text-center">
               <p className="text-sm text-gray-500 mb-3">
