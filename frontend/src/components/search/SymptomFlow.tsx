@@ -468,9 +468,15 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
             >
               {t("result.searchAgain")}
             </button>
-            <button className="flex-1 py-3.5 rounded-2xl text-sm font-semibold bg-gradient-to-r from-emerald-400 to-teal-500 text-white hover:shadow-md active:scale-[0.98] transition-all shadow-sm">
-              {t("result.consultPharmacist")}
-            </button>
+            <a
+              href="https://www.google.com/maps/search/pharmacy+near+me"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-1.5 py-3.5 rounded-2xl text-sm font-semibold bg-gradient-to-r from-emerald-400 to-teal-500 text-white hover:shadow-md active:scale-[0.98] transition-all shadow-sm no-underline"
+            >
+              <span>💊</span>
+              <span>{t("result.findPharmacy")}</span>
+            </a>
           </div>
         </div>
       </div>
