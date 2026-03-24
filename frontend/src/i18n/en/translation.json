@@ -106,19 +106,22 @@
   "onboarding": {
     "intro": "Quickly find the right OTC drug information for your symptoms.",
     "introSub": "Safe drug information, anytime, anywhere.",
-    "disclaimerTitle": "Terms of Use",
+    "disclaimerTitle": "⚠️ Important Notice",
     "items": [
-      "This service provides over-the-counter (OTC) drug information, not medical diagnosis or prescriptions.",
-      "The information provided is for reference only. Please consult a pharmacist or medical professional before taking any medication.",
+      "This service does not provide medical diagnosis or prescriptions.",
+      "The information provided is general OTC drug information and may not be suitable for your individual health condition.",
+      "Please consult a pharmacist or medical professional before taking any medication.",
+      "If you are currently taking other medications or have chronic conditions, please consult a professional.",
+      "If symptoms persist for more than 3 days or worsen, visit a hospital immediately.",
       "The service provider assumes no legal liability for any consequences arising from the use of information provided by this service.",
-      "This service does not provide advice for emergency situations. In case of emergency, please call 119 or your local emergency number immediately."
+      "In case of emergency, call {{emergencyNumber}} immediately."
     ],
     "agreeCheck": "I have read and agree to the above",
     "agreeButton": "Agree and Start"
   },
   "disclaimer": {
     "short": "This service provides OTC drug information, not medical diagnosis.",
-    "full": "This service does not provide medical diagnosis or prescriptions. The information provided is general OTC drug information. Please consult a doctor or pharmacist for accurate diagnosis and treatment."
+    "full": "⚠️ This service does not provide medical diagnosis or prescriptions. Consult a pharmacist before taking medication. If taking other medications or have chronic conditions, consult a professional. If symptoms persist for 3+ days, visit a hospital. In emergency, call {{emergencyNumber}}."
   },
   "common": {
     "search": "Search",

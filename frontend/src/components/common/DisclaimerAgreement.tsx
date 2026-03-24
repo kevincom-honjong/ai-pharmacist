@@ -1,20 +1,27 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import BackButton from "./BackButton";
+import { getEmergencyNumber } from "../../services/countryDetect";
 
 interface DisclaimerAgreementProps {
   onAgree: () => void;
   onBack?: () => void;
+  countryCode: string;
 }
 
 export default function DisclaimerAgreement({
   onAgree,
   onBack,
+  countryCode,
 }: DisclaimerAgreementProps) {
   const { t, i18n } = useTranslation();
   const [checked, setChecked] = useState(false);
 
+  const emergencyNumber = getEmergencyNumber(countryCode);
   const items = t("onboarding.items", { returnObjects: true }) as string[];
+  const processedItems = items.map((item) =>
+    item.replace("{{emergencyNumber}}", emergencyNumber)
+  );
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] max-w-[480px] mx-auto flex flex-col">
@@ -57,9 +64,9 @@ export default function DisclaimerAgreement({
         <h2 className="text-sm font-semibold text-gray-600 mb-3">
           {t("onboarding.disclaimerTitle")}
         </h2>
-        <div className="bg-white rounded-3xl p-5 max-h-[240px] overflow-y-auto shadow-sm">
+        <div className="bg-white rounded-3xl p-5 max-h-[280px] overflow-y-auto shadow-sm">
           <ol className="space-y-4">
-            {items.map((item, idx) => (
+            {processedItems.map((item, idx) => (
               <li key={idx} className="flex gap-3 text-sm text-gray-600 leading-relaxed">
                 <span className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">
                   {idx + 1}

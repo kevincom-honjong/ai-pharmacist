@@ -8,7 +8,7 @@ import {
   type FollowUpQuestion,
   type DrugEntry,
 } from "../../services/symptomData";
-import { getCountryInfo } from "../../services/countryDetect";
+import { getCountryInfo, getEmergencyNumber } from "../../services/countryDetect";
 import { getCategorySpecialty, getSpecialtyName, getMapsUrl } from "../../services/hospitalData";
 import CompanionCheckStep from "./CompanionCheckStep";
 import NewDrugCard from "../drug/NewDrugCard";
@@ -459,7 +459,7 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
       <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm">
         <div className="max-w-[480px] mx-auto px-5 pt-3 pb-3">
           <div className="bg-amber-50/80 rounded-2xl px-4 py-2.5 mb-3">
-            <p className="text-xs text-amber-700 leading-relaxed">{t("disclaimer.full")}</p>
+            <p className="text-xs text-amber-700 leading-relaxed">{t("disclaimer.full", { emergencyNumber: getEmergencyNumber(countryCode) })}</p>
           </div>
           <div className="flex gap-3">
             <button

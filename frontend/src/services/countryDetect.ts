@@ -80,6 +80,11 @@ export function getCountryInfo(code: string): CountryInfo | undefined {
   return SUPPORTED_COUNTRIES.find((c) => c.code === code);
 }
 
+export function getEmergencyNumber(code: string): string {
+  const country = SUPPORTED_COUNTRIES.find((c) => c.code === code);
+  return country?.emergencyNumber || "112";
+}
+
 export function getDrugCountryCode(code: string): string {
   if (DB_COUNTRY_CODES.includes(code)) return code;
   return "US";

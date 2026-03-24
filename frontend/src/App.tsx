@@ -271,6 +271,7 @@ function App() {
       <DisclaimerAgreement
         onAgree={handleAgree}
         onBack={() => { setOnboardingStep("country"); scrollTop(); }}
+        countryCode={countryCode}
       />
     );
   }

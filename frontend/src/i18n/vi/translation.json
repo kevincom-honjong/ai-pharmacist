@@ -106,19 +106,22 @@
   "onboarding": {
     "intro": "Tìm nhanh thông tin thuốc OTC phù hợp với triệu chứng của bạn.",
     "introSub": "Thông tin thuốc an toàn, mọi lúc mọi nơi.",
-    "disclaimerTitle": "Điều khoản sử dụng",
+    "disclaimerTitle": "⚠️ Lưu ý quan trọng",
     "items": [
-      "Dịch vụ này cung cấp thông tin thuốc không kê đơn (OTC), không phải chẩn đoán hoặc kê đơn y tế.",
-      "Thông tin được cung cấp chỉ mang tính chất tham khảo. Vui lòng tham khảo ý kiến dược sĩ hoặc chuyên gia y tế trước khi dùng thuốc.",
-      "Nhà cung cấp dịch vụ không chịu trách nhiệm pháp lý cho bất kỳ hậu quả nào phát sinh từ việc sử dụng thông tin của dịch vụ này.",
-      "Dịch vụ này không cung cấp tư vấn cho các tình huống khẩn cấp. Trong trường hợp khẩn cấp, vui lòng gọi 115 hoặc số khẩn cấp địa phương ngay lập tức."
+      "Dịch vụ này không cung cấp chẩn đoán hoặc kê đơn y tế.",
+      "Thông tin được cung cấp là thông tin chung về thuốc OTC và có thể không phù hợp với tình trạng sức khỏe cá nhân của bạn.",
+      "Vui lòng tham khảo ý kiến dược sĩ hoặc chuyên gia y tế trước khi dùng thuốc.",
+      "Nếu bạn đang dùng thuốc khác hoặc có bệnh mãn tính, hãy tham khảo ý kiến chuyên gia.",
+      "Nếu triệu chứng kéo dài hơn 3 ngày hoặc nặng hơn, hãy đến bệnh viện ngay.",
+      "Nhà cung cấp dịch vụ không chịu trách nhiệm pháp lý cho bất kỳ hậu quả nào phát sinh từ việc sử dụng thông tin.",
+      "Trong trường hợp khẩn cấp, gọi {{emergencyNumber}} ngay lập tức."
     ],
     "agreeCheck": "Tôi đã đọc và đồng ý với nội dung trên",
     "agreeButton": "Đồng ý và bắt đầu"
   },
   "disclaimer": {
     "short": "Dịch vụ này cung cấp thông tin thuốc OTC, không phải chẩn đoán y tế.",
-    "full": "Dịch vụ này không cung cấp chẩn đoán hoặc kê đơn y tế. Thông tin được cung cấp là thông tin chung về thuốc OTC. Vui lòng tham khảo ý kiến bác sĩ hoặc dược sĩ để được chẩn đoán và điều trị chính xác."
+    "full": "⚠️ Dịch vụ này không cung cấp chẩn đoán hoặc kê đơn y tế. Hãy hỏi dược sĩ trước khi dùng thuốc. Nếu đang dùng thuốc khác hoặc có bệnh mãn tính, hãy tham khảo chuyên gia. Triệu chứng kéo dài hơn 3 ngày thì đến bệnh viện. Khẩn cấp gọi {{emergencyNumber}}."
   },
   "common": {
     "search": "Tìm kiếm",
