@@ -23,6 +23,7 @@ import {
   getSavedLanguage,
   saveLanguage,
   getCountryInfo,
+  getDrugCountryCode,
   type CountryInfo,
 } from "./services/countryDetect";
 
@@ -194,7 +195,7 @@ function App() {
     return (
       <SymptomFlow
         category={matchedCategory}
-        countryCode={countryCode}
+        countryCode={getDrugCountryCode(countryCode)}
         onReset={handleReset}
       />
     );
@@ -211,6 +212,17 @@ function App() {
           onSelectCountry={handleCountryChange}
           onSelectLanguage={handleLanguageChange}
         />
+        {!currentCountry.hasDB && (
+          <div className="mt-2 px-4 py-2.5 bg-amber-50/80 rounded-2xl">
+            <p className="text-xs text-amber-600 leading-relaxed">
+              {i18n.language === "ko"
+                ? `${currentCountry.nameLocal}의 약 DB는 준비 중입니다. 성분명 기반으로 안내해드립니다.`
+                : i18n.language === "vi"
+                ? `Cơ sở dữ liệu thuốc của ${currentCountry.nameLocal} đang được chuẩn bị. Chúng tôi sẽ hướng dẫn theo tên thành phần.`
+                : `Drug database for ${currentCountry.nameEn} is being prepared. We'll guide you by ingredient name.`}
+            </p>
+          </div>
+        )}
       </div>
 
       <main className="px-5 pb-16">

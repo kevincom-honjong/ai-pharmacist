@@ -42,8 +42,8 @@ export default function CountrySelector({
         {openCountry && (
           <>
             <div className="fixed inset-0 z-10" onClick={() => setOpenCountry(false)} />
-            <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-2xl shadow-lg z-20 overflow-hidden border border-gray-100/50 py-1">
-              <div className="px-4 py-2 border-b border-gray-50">
+            <div className="absolute top-full left-0 mt-2 w-60 bg-white rounded-2xl shadow-lg z-20 overflow-hidden border border-gray-100/50 py-1 max-h-80 overflow-y-auto">
+              <div className="px-4 py-2 border-b border-gray-50 sticky top-0 bg-white">
                 <p className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
                   {currentLang === "ko" ? "약 추천 기준 국가" : currentLang === "vi" ? "Quốc gia cho thuốc" : "Country for drug info"}
                 </p>
@@ -60,6 +60,11 @@ export default function CountrySelector({
                   <span className={`flex-1 font-medium text-xs ${country.code === currentCountry.code ? "text-emerald-700" : "text-gray-700"}`}>
                     {country.nameLocal}
                   </span>
+                  {!country.hasDB && (
+                    <span className="text-[9px] text-gray-300 px-1.5 py-0.5 bg-gray-50 rounded-full">
+                      {currentLang === "ko" ? "준비중" : "soon"}
+                    </span>
+                  )}
                   {country.code === currentCountry.code && (
                     <svg className="w-3.5 h-3.5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
