@@ -1439,234 +1439,609 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
   // === 21. Dizziness ===
   {
     id: "dizziness",
-    nameKey: "dizziness",
-    descKey: "빙빙 도는 느낌이나 균형 잡기 어려운 상태",
+    nameKR: "어지러움", nameEN: "Dizziness", nameVI: "Chóng mặt",
+    descKR: "빙빙 도는 느낌이나 균형 잡기 어려운 상태", descEN: "A spinning sensation or difficulty keeping balance", descVI: "Cảm giác quay cuồng hoặc khó giữ thăng bằng",
     companions: [
-      { key: "headache", labelKey: "두통" },
-      { key: "nauseaVomit", labelKey: "구역/구토", desc: "메스껍고 토할 것 같은 느낌" },
-      { key: "tinnitus", labelKey: "이명", desc: "귀에서 삐~ 소리가 나는 증상" },
-      { key: "palpitation", labelKey: "가슴 두근거림", desc: "심장이 빨리 뛰는 느낌" },
-      { key: "none", labelKey: "없음" },
-    ],
-    questions: [
-      { questionKey: "어떤 어지러움인가요?", options: [{ key: "spinning", labelKey: "빙빙 도는 느낌" }, { key: "swaying", labelKey: "흔들리는 느낌" }, { key: "blackout", labelKey: "눈앞이 깜깜" }] },
-      { questionKey: "언제 심한가요?", options: [{ key: "standing", labelKey: "일어설 때" }, { key: "turning", labelKey: "고개 돌릴 때" }, { key: "always", labelKey: "항상" }] },
-      { questionKey: "얼마나 됐나요?", options: [{ key: "today", labelKey: "오늘" }, { key: "days", labelKey: "며칠" }, { key: "recurring", labelKey: "반복적" }] },
+      { key: "headache", labelKR: "두통", labelEN: "Headache", labelVI: "Đau đầu" },
+      { key: "nauseaVomit", labelKR: "구역/구토", labelEN: "Nausea/vomiting", labelVI: "Buồn nôn/nôn", descKR: "메스껍고 토할 것 같은 느낌", descEN: "Feeling sick to stomach", descVI: "Cảm giác muốn nôn" },
+      { key: "tinnitus", labelKR: "이명", labelEN: "Tinnitus", labelVI: "Ù tai", descKR: "귀에서 삐~ 소리가 나는 증상", descEN: "Ringing sound in the ear", descVI: "Triệu chứng nghe tiếng kêu trong tai" },
+      { key: "palpitation", labelKR: "가슴 두근거림", labelEN: "Palpitations", labelVI: "Tim đập nhanh", descKR: "심장이 빨리 뛰는 느낌", descEN: "Feeling of rapid heartbeat", descVI: "Cảm giác tim đập nhanh" },
+      { key: "none", labelKR: "없음 (어지러움만)", labelEN: "None (dizziness only)", labelVI: "Không có (chỉ chóng mặt)" },
     ],
     combos: [
-      { comboKey: "none", drugMatch: { KR: ["meniere_kr", "bonaring_kr"], VN: ["betaserc_vn", "stugeron_vn"], US: ["dramamine_us", "bonine_us"] } },
-      { comboKey: "nauseaVomit", drugMatch: { KR: ["bonaring_kr", "kimite_kr"], VN: ["stugeron_vn", "nautamine_vn"], US: ["dramamine_us", "bonine_us"] } },
-      { comboKey: "headache", drugMatch: { KR: ["bonaring_kr", "tylenol_500_kr"], VN: ["stugeron_vn", "panadol_500_vn"], US: ["bonine_us", "tylenol_500_us"] } },
-      { comboKey: "palpitation", isHospital: true, hospitalMessage: "어지러움과 가슴 두근거림이 함께 나타나면 심장 또는 혈압 관련 문제의 가능성이 있습니다. 내과 또는 심장내과를 방문하세요.", specialty: "cardiology", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "tinnitus", isHospital: true, hospitalMessage: "어지러움과 이명이 함께 나타나면 메니에르병 등 귀 관련 질환의 가능성이 있습니다. 이비인후과를 방문하세요.", specialty: "ent", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "_fallback", drugMatch: { KR: ["meniere_kr", "bonaring_kr"], VN: ["betaserc_vn", "stugeron_vn"], US: ["dramamine_us", "bonine_us"] } },
+      {
+        comboKey: "none",
+        followUpQuestions: [
+          { id: "dz_type", questionKR: "어떤 어지러움인가요?", questionEN: "What kind of dizziness?", questionVI: "Bạn bị chóng mặt kiểu nào?", options: [
+            { labelKR: "빙빙 도는 느낌", labelEN: "Spinning sensation", labelVI: "Cảm giác quay cuồng" },
+            { labelKR: "흔들리는 느낌", labelEN: "Swaying sensation", labelVI: "Cảm giác lắc lư" },
+            { labelKR: "눈앞이 깜깜", labelEN: "Blacking out", labelVI: "Tối sầm mắt" },
+          ]},
+          { id: "dz_when", questionKR: "언제 심한가요?", questionEN: "When is it worse?", questionVI: "Khi nào nặng hơn?", options: [
+            { labelKR: "일어설 때", labelEN: "When standing up", labelVI: "Khi đứng dậy" },
+            { labelKR: "고개 돌릴 때", labelEN: "When turning head", labelVI: "Khi quay đầu" },
+            { labelKR: "항상", labelEN: "All the time", labelVI: "Luôn luôn" },
+          ]},
+          { id: "dz_duration", questionKR: "얼마나 됐나요?", questionEN: "How long has it been?", questionVI: "Đã bao lâu rồi?", options: [
+            { labelKR: "오늘", labelEN: "Today", labelVI: "Hôm nay" },
+            { labelKR: "며칠", labelEN: "A few days", labelVI: "Vài ngày" },
+            { labelKR: "반복적", labelEN: "Recurring", labelVI: "Tái phát" },
+          ]},
+        ],
+        drugMatches: {
+          "default": { KR: ["meniere_kr", "bonaring_kr"], VN: ["betaserc_vn", "stugeron_vn"], US: ["dramamine_us", "bonine_us"] },
+        },
+      },
+      {
+        comboKey: "nauseaVomit",
+        drugMatches: {
+          "default": { KR: ["bonaring_kr", "kimite_kr"], VN: ["stugeron_vn", "nautamine_vn"], US: ["dramamine_us", "bonine_us"] },
+        },
+      },
+      {
+        comboKey: "headache",
+        drugMatches: {
+          "default": { KR: ["bonaring_kr", "tylenol_500_kr"], VN: ["stugeron_vn", "panadol_500_vn"], US: ["bonine_us", "tylenol_500_us"] },
+        },
+      },
+      {
+        comboKey: "palpitation",
+        hospitalWarning: true,
+        warningKR: "어지러움과 가슴 두근거림이 함께 나타나면 심장 또는 혈압 관련 문제의 가능성이 있습니다. 내과 또는 심장내과를 방문하세요.",
+        warningEN: "Dizziness with palpitations may indicate a heart or blood pressure issue. Please visit an internist or cardiologist.",
+        warningVI: "Chóng mặt kèm tim đập nhanh có thể là dấu hiệu vấn đề tim mạch hoặc huyết áp. Vui lòng đến khoa nội hoặc tim mạch.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "tinnitus",
+        hospitalWarning: true,
+        warningKR: "어지러움과 이명이 함께 나타나면 메니에르병 등 귀 관련 질환의 가능성이 있습니다. 이비인후과를 방문하세요.",
+        warningEN: "Dizziness with tinnitus may indicate Meniere's disease or other ear conditions. Please visit an ENT specialist.",
+        warningVI: "Chóng mặt kèm ù tai có thể là dấu hiệu bệnh Meniere hoặc các bệnh lý tai khác. Vui lòng đến khoa tai mũi họng.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "_fallback",
+        drugMatches: {
+          "default": { KR: ["meniere_kr", "bonaring_kr"], VN: ["betaserc_vn", "stugeron_vn"], US: ["dramamine_us", "bonine_us"] },
+        },
+      },
     ],
   },
   // === 22. Tinnitus ===
   {
     id: "tinnitus",
-    nameKey: "tinnitus",
-    descKey: "귀에서 삐~ 또는 웅~ 소리가 계속 나는 상태",
+    nameKR: "이명", nameEN: "Tinnitus", nameVI: "Ù tai",
+    descKR: "귀에서 삐~ 또는 웅~ 소리가 계속 나는 상태", descEN: "Persistent ringing or buzzing sound in the ear", descVI: "Tình trạng nghe tiếng kêu liên tục trong tai",
     companions: [
-      { key: "dizziness", labelKey: "어지러움" },
-      { key: "hearingLoss", labelKey: "청력 저하", desc: "소리가 잘 안 들리는 느낌" },
-      { key: "headache", labelKey: "두통" },
-      { key: "none", labelKey: "없음" },
-    ],
-    questions: [
-      { questionKey: "어떤 소리인가요?", options: [{ key: "highPitch", labelKey: "삐~ 고음" }, { key: "lowPitch", labelKey: "웅~ 저음" }, { key: "pulse", labelKey: "맥박 따라 뛰는 소리" }] },
-      { questionKey: "한쪽인가요?", options: [{ key: "one", labelKey: "한쪽" }, { key: "both", labelKey: "양쪽" }] },
-      { questionKey: "얼마나 됐나요?", options: [{ key: "today", labelKey: "오늘" }, { key: "days", labelKey: "며칠" }, { key: "chronic", labelKey: "만성" }] },
+      { key: "dizziness", labelKR: "어지러움", labelEN: "Dizziness", labelVI: "Chóng mặt" },
+      { key: "hearingLoss", labelKR: "청력 저하", labelEN: "Hearing loss", labelVI: "Giảm thính lực", descKR: "소리가 잘 안 들리는 느낌", descEN: "Difficulty hearing sounds", descVI: "Cảm giác nghe không rõ" },
+      { key: "headache", labelKR: "두통", labelEN: "Headache", labelVI: "Đau đầu" },
+      { key: "none", labelKR: "없음 (이명만)", labelEN: "None (tinnitus only)", labelVI: "Không có (chỉ ù tai)" },
     ],
     combos: [
-      { comboKey: "none", drugMatch: { KR: ["ginkgo_kr", "meniere_kr"], VN: ["tanakan_vn", "betaserc_vn"], US: ["lipoflavonoid_us", "dramamine_us"] } },
-      { comboKey: "dizziness", isHospital: true, hospitalMessage: "이명과 어지러움이 함께 나타나면 메니에르병의 가능성이 있습니다. 이비인후과를 방문하세요.", specialty: "ent", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "hearingLoss", isHospital: true, hospitalMessage: "이명과 청력 저하가 함께 나타나면 돌발성 난청의 가능성이 있습니다. 즉시 이비인후과를 방문하세요. 돌발성 난청은 빠른 치료가 중요합니다.", specialty: "ent", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "_fallback", drugMatch: { KR: ["ginkgo_kr", "meniere_kr"], VN: ["tanakan_vn", "betaserc_vn"], US: ["lipoflavonoid_us", "dramamine_us"] } },
+      {
+        comboKey: "none",
+        followUpQuestions: [
+          { id: "tn_type", questionKR: "어떤 소리인가요?", questionEN: "What kind of sound?", questionVI: "Bạn nghe thấy âm thanh gì?", options: [
+            { labelKR: "삐~ 고음", labelEN: "High-pitched ringing", labelVI: "Tiếng kêu cao" },
+            { labelKR: "웅~ 저음", labelEN: "Low-pitched buzzing", labelVI: "Tiếng ù trầm" },
+            { labelKR: "맥박 따라 뛰는 소리", labelEN: "Pulsating sound", labelVI: "Tiếng theo nhịp mạch" },
+          ]},
+          { id: "tn_side", questionKR: "한쪽인가요?", questionEN: "Which side?", questionVI: "Bên nào?", options: [
+            { labelKR: "한쪽", labelEN: "One side", labelVI: "Một bên" },
+            { labelKR: "양쪽", labelEN: "Both sides", labelVI: "Cả hai bên" },
+          ]},
+          { id: "tn_duration", questionKR: "얼마나 됐나요?", questionEN: "How long has it been?", questionVI: "Đã bao lâu rồi?", options: [
+            { labelKR: "오늘", labelEN: "Today", labelVI: "Hôm nay" },
+            { labelKR: "며칠", labelEN: "A few days", labelVI: "Vài ngày" },
+            { labelKR: "만성", labelEN: "Chronic", labelVI: "Mạn tính" },
+          ]},
+        ],
+        drugMatches: {
+          "default": { KR: ["ginkgo_kr", "meniere_kr"], VN: ["tanakan_vn", "betaserc_vn"], US: ["lipoflavonoid_us", "dramamine_us"] },
+        },
+      },
+      {
+        comboKey: "dizziness",
+        hospitalWarning: true,
+        warningKR: "이명과 어지러움이 함께 나타나면 메니에르병의 가능성이 있습니다. 이비인후과를 방문하세요.",
+        warningEN: "Tinnitus with dizziness may indicate Meniere's disease. Please visit an ENT specialist.",
+        warningVI: "Ù tai kèm chóng mặt có thể là dấu hiệu bệnh Meniere. Vui lòng đến khoa tai mũi họng.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "hearingLoss",
+        hospitalWarning: true,
+        warningKR: "이명과 청력 저하가 함께 나타나면 돌발성 난청의 가능성이 있습니다. 즉시 이비인후과를 방문하세요. 돌발성 난청은 빠른 치료가 중요합니다.",
+        warningEN: "Tinnitus with hearing loss may indicate sudden sensorineural hearing loss. Visit an ENT specialist immediately. Early treatment is critical.",
+        warningVI: "Ù tai kèm giảm thính lực có thể là dấu hiệu điếc đột ngột. Vui lòng đến khoa tai mũi họng ngay. Điều trị sớm rất quan trọng.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "_fallback",
+        drugMatches: {
+          "default": { KR: ["ginkgo_kr", "meniere_kr"], VN: ["tanakan_vn", "betaserc_vn"], US: ["lipoflavonoid_us", "dramamine_us"] },
+        },
+      },
     ],
   },
   // === 23. Nosebleed ===
   {
     id: "nosebleed",
-    nameKey: "nosebleed",
-    descKey: "코에서 피가 나는 상태",
+    nameKR: "코피", nameEN: "Nosebleed", nameVI: "Chảy máu mũi",
+    descKR: "코에서 피가 나는 상태", descEN: "Bleeding from the nose", descVI: "Tình trạng chảy máu từ mũi",
     companions: [
-      { key: "headacheHBP", labelKey: "두통 + 고혈압", desc: "혈압이 높을 수 있어요" },
-      { key: "fever", labelKey: "발열" },
-      { key: "frequent", labelKey: "잦은 반복", desc: "코피가 자주 나는 경우" },
-      { key: "none", labelKey: "없음" },
-    ],
-    questions: [
-      { questionKey: "어느 쪽인가요?", options: [{ key: "one", labelKey: "한쪽" }, { key: "both", labelKey: "양쪽" }] },
-      { questionKey: "얼마나 나나요?", options: [{ key: "short", labelKey: "금방 멈춤(5분 이내)" }, { key: "long", labelKey: "오래 지속" }] },
-      { questionKey: "원인 추정", options: [{ key: "picking", labelKey: "코 후빔" }, { key: "dry", labelKey: "건조한 날씨" }, { key: "unknown", labelKey: "모름" }] },
+      { key: "headacheHBP", labelKR: "두통 + 고혈압", labelEN: "Headache + high blood pressure", labelVI: "Đau đầu + cao huyết áp", descKR: "혈압이 높을 수 있어요", descEN: "Blood pressure may be elevated", descVI: "Huyết áp có thể cao" },
+      { key: "fever", labelKR: "발열", labelEN: "Fever", labelVI: "Sốt" },
+      { key: "frequent", labelKR: "잦은 반복", labelEN: "Frequent recurrence", labelVI: "Tái phát thường xuyên", descKR: "코피가 자주 나는 경우", descEN: "Nosebleeds occur frequently", descVI: "Chảy máu mũi xảy ra thường xuyên" },
+      { key: "none", labelKR: "없음 (코피만)", labelEN: "None (nosebleed only)", labelVI: "Không có (chỉ chảy máu mũi)" },
     ],
     combos: [
-      { comboKey: "none", drugMatch: { KR: ["vaseline_kr", "saline_spray_kr"], VN: ["vaseline_kr", "saline_spray_kr"], US: ["saline_spray_kr", "vaseline_kr"] } },
-      { comboKey: "headacheHBP", isHospital: true, hospitalMessage: "코피와 두통이 함께 나타나면 고혈압의 가능성이 있습니다. 내과를 방문하여 혈압을 확인하세요.", specialty: "internal", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "frequent", isHospital: true, hospitalMessage: "코피가 자주 반복되면 혈관 문제나 혈액 질환의 가능성이 있습니다. 이비인후과 또는 내과를 방문하세요.", specialty: "ent", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "_fallback", drugMatch: { KR: ["vaseline_kr", "saline_spray_kr"], VN: ["vaseline_kr", "saline_spray_kr"], US: ["saline_spray_kr", "vaseline_kr"] } },
+      {
+        comboKey: "none",
+        followUpQuestions: [
+          { id: "nb_side", questionKR: "어느 쪽인가요?", questionEN: "Which side?", questionVI: "Bên nào?", options: [
+            { labelKR: "한쪽", labelEN: "One side", labelVI: "Một bên" },
+            { labelKR: "양쪽", labelEN: "Both sides", labelVI: "Cả hai bên" },
+          ]},
+          { id: "nb_duration", questionKR: "얼마나 나나요?", questionEN: "How long does it last?", questionVI: "Chảy bao lâu?", options: [
+            { labelKR: "금방 멈춤(5분 이내)", labelEN: "Stops quickly (within 5 min)", labelVI: "Ngừng nhanh (trong 5 phút)" },
+            { labelKR: "오래 지속", labelEN: "Lasts a long time", labelVI: "Kéo dài" },
+          ]},
+          { id: "nb_cause", questionKR: "원인 추정", questionEN: "Suspected cause?", questionVI: "Nguyên nhân nghi ngờ?", options: [
+            { labelKR: "코 후빔", labelEN: "Nose picking", labelVI: "Ngoáy mũi" },
+            { labelKR: "건조한 날씨", labelEN: "Dry weather", labelVI: "Thời tiết khô" },
+            { labelKR: "모름", labelEN: "Unknown", labelVI: "Không rõ" },
+          ]},
+        ],
+        drugMatches: {
+          "default": { KR: ["vaseline_kr", "saline_spray_kr"], VN: ["vaseline_kr", "saline_spray_kr"], US: ["saline_spray_kr", "vaseline_kr"] },
+        },
+      },
+      {
+        comboKey: "headacheHBP",
+        hospitalWarning: true,
+        warningKR: "코피와 두통이 함께 나타나면 고혈압의 가능성이 있습니다. 내과를 방문하여 혈압을 확인하세요.",
+        warningEN: "Nosebleed with headache may indicate high blood pressure. Please visit an internist to check your blood pressure.",
+        warningVI: "Chảy máu mũi kèm đau đầu có thể là dấu hiệu cao huyết áp. Vui lòng đến khoa nội để kiểm tra huyết áp.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "frequent",
+        hospitalWarning: true,
+        warningKR: "코피가 자주 반복되면 혈관 문제나 혈액 질환의 가능성이 있습니다. 이비인후과 또는 내과를 방문하세요.",
+        warningEN: "Frequent nosebleeds may indicate a vascular or blood disorder. Please visit an ENT specialist or internist.",
+        warningVI: "Chảy máu mũi thường xuyên có thể là dấu hiệu bệnh lý mạch máu hoặc bệnh về máu. Vui lòng đến khoa tai mũi họng hoặc khoa nội.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "_fallback",
+        drugMatches: {
+          "default": { KR: ["vaseline_kr", "saline_spray_kr"], VN: ["vaseline_kr", "saline_spray_kr"], US: ["saline_spray_kr", "vaseline_kr"] },
+        },
+      },
     ],
   },
   // === 24. Mouth ulcer ===
   {
     id: "mouthUlcer",
-    nameKey: "mouthUlcer",
-    descKey: "입안이 헐어서 아픈 상태",
+    nameKR: "구내염", nameEN: "Mouth ulcer", nameVI: "Loét miệng",
+    descKR: "입안이 헐어서 아픈 상태", descEN: "Painful sores inside the mouth", descVI: "Tình trạng lở loét đau trong miệng",
     companions: [
-      { key: "fever", labelKey: "발열" },
-      { key: "soreThroat", labelKey: "인후통" },
-      { key: "gumBleeding", labelKey: "잇몸 출혈" },
-      { key: "none", labelKey: "없음" },
-    ],
-    questions: [
-      { questionKey: "몇 개인가요?", options: [{ key: "few", labelKey: "1~2개" }, { key: "many", labelKey: "여러 개" }, { key: "whole", labelKey: "입 전체" }] },
-      { questionKey: "어디에 있나요?", options: [{ key: "tongue", labelKey: "혀" }, { key: "cheek", labelKey: "볼 안쪽" }, { key: "gum", labelKey: "잇몸" }, { key: "lip", labelKey: "입술 안쪽" }] },
-      { questionKey: "얼마나 됐나요?", options: [{ key: "days", labelKey: "2~3일" }, { key: "week", labelKey: "일주일" }, { key: "twoWeeks", labelKey: "2주 이상" }] },
+      { key: "fever", labelKR: "발열", labelEN: "Fever", labelVI: "Sốt" },
+      { key: "soreThroat", labelKR: "인후통", labelEN: "Sore throat", labelVI: "Đau họng" },
+      { key: "gumBleeding", labelKR: "잇몸 출혈", labelEN: "Gum bleeding", labelVI: "Chảy máu nướu" },
+      { key: "none", labelKR: "없음 (구내염만)", labelEN: "None (mouth ulcer only)", labelVI: "Không có (chỉ loét miệng)" },
     ],
     combos: [
-      { comboKey: "none", drugMatch: { KR: ["oramedi_kr", "albocil_kr"], VN: ["kamistad_vn", "albocil_kr"], US: ["orajel_mouth_us", "albocil_kr"] } },
-      { comboKey: "fever", isHospital: true, hospitalMessage: "구내염과 발열이 함께 나타나면 바이러스 감염의 가능성이 있습니다. 내과 또는 이비인후과를 방문하세요.", specialty: "internal", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "_fallback", drugMatch: { KR: ["oramedi_kr", "albocil_kr"], VN: ["kamistad_vn", "albocil_kr"], US: ["orajel_mouth_us", "albocil_kr"] } },
+      {
+        comboKey: "none",
+        followUpQuestions: [
+          { id: "mu_count", questionKR: "몇 개인가요?", questionEN: "How many?", questionVI: "Bao nhiêu vết?", options: [
+            { labelKR: "1~2개", labelEN: "1-2", labelVI: "1-2 vết" },
+            { labelKR: "여러 개", labelEN: "Several", labelVI: "Nhiều vết" },
+            { labelKR: "입 전체", labelEN: "Whole mouth", labelVI: "Toàn bộ miệng" },
+          ]},
+          { id: "mu_location", questionKR: "어디에 있나요?", questionEN: "Where is it?", questionVI: "Ở đâu?", options: [
+            { labelKR: "혀", labelEN: "Tongue", labelVI: "Lưỡi" },
+            { labelKR: "볼 안쪽", labelEN: "Inner cheek", labelVI: "Trong má" },
+            { labelKR: "잇몸", labelEN: "Gum", labelVI: "Nướu" },
+            { labelKR: "입술 안쪽", labelEN: "Inner lip", labelVI: "Trong môi" },
+          ]},
+          { id: "mu_duration", questionKR: "얼마나 됐나요?", questionEN: "How long has it been?", questionVI: "Đã bao lâu rồi?", options: [
+            { labelKR: "2~3일", labelEN: "2-3 days", labelVI: "2-3 ngày" },
+            { labelKR: "일주일", labelEN: "One week", labelVI: "Một tuần" },
+            { labelKR: "2주 이상", labelEN: "Over 2 weeks", labelVI: "Hơn 2 tuần" },
+          ]},
+        ],
+        drugMatches: {
+          "default": { KR: ["oramedi_kr", "albocil_kr"], VN: ["kamistad_vn", "albocil_kr"], US: ["orajel_mouth_us", "albocil_kr"] },
+        },
+      },
+      {
+        comboKey: "fever",
+        hospitalWarning: true,
+        warningKR: "구내염과 발열이 함께 나타나면 바이러스 감염의 가능성이 있습니다. 내과 또는 이비인후과를 방문하세요.",
+        warningEN: "Mouth ulcers with fever may indicate a viral infection. Please visit an internist or ENT specialist.",
+        warningVI: "Loét miệng kèm sốt có thể là dấu hiệu nhiễm virus. Vui lòng đến khoa nội hoặc khoa tai mũi họng.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "_fallback",
+        drugMatches: {
+          "default": { KR: ["oramedi_kr", "albocil_kr"], VN: ["kamistad_vn", "albocil_kr"], US: ["orajel_mouth_us", "albocil_kr"] },
+        },
+      },
     ],
   },
   // === 25. Burn ===
   {
     id: "burn",
-    nameKey: "burn",
-    descKey: "뜨거운 것에 데인 상태",
+    nameKR: "화상", nameEN: "Burn", nameVI: "Bỏng",
+    descKR: "뜨거운 것에 데인 상태", descEN: "Injury caused by heat or hot substances", descVI: "Tình trạng tổn thương do nhiệt hoặc chất nóng",
     companions: [
-      { key: "blister", labelKey: "물집", desc: "피부에 물이 찬 동그란 것" },
-      { key: "wideArea", labelKey: "넓은 범위", desc: "손바닥 크기 이상" },
-      { key: "faceJoint", labelKey: "얼굴/관절 부위" },
-      { key: "none", labelKey: "없음" },
-    ],
-    questions: [
-      { questionKey: "정도는?", options: [{ key: "red", labelKey: "빨갛기만 함" }, { key: "blister", labelKey: "물집 생김" }, { key: "white", labelKey: "피부 하얗게 변함" }] },
-      { questionKey: "범위는?", options: [{ key: "coin", labelKey: "동전 크기" }, { key: "palm", labelKey: "손바닥 크기" }, { key: "larger", labelKey: "그 이상" }] },
-      { questionKey: "원인은?", options: [{ key: "water", labelKey: "뜨거운 물" }, { key: "oil", labelKey: "기름" }, { key: "chemical", labelKey: "화학물질" }, { key: "sun", labelKey: "햇볕" }] },
+      { key: "blister", labelKR: "물집", labelEN: "Blister", labelVI: "Phỏng nước", descKR: "피부에 물이 찬 동그란 것", descEN: "Fluid-filled bubble on skin", descVI: "Bọng nước trên da" },
+      { key: "wideArea", labelKR: "넓은 범위", labelEN: "Wide area", labelVI: "Diện tích rộng", descKR: "손바닥 크기 이상", descEN: "Larger than palm size", descVI: "Lớn hơn lòng bàn tay" },
+      { key: "faceJoint", labelKR: "얼굴/관절 부위", labelEN: "Face/joint area", labelVI: "Vùng mặt/khớp" },
+      { key: "none", labelKR: "없음 (화상만)", labelEN: "None (burn only)", labelVI: "Không có (chỉ bỏng)" },
     ],
     combos: [
-      { comboKey: "none", drugMatch: { KR: ["fucidin_kr", "silvadene_kr"], VN: ["biafine_vn", "silvadene_kr"], US: ["neosporin_burn_us", "silvadene_kr"] } },
-      { comboKey: "blister", drugMatch: { KR: ["silvadene_kr", "fucidin_kr"], VN: ["silvadene_kr", "biafine_vn"], US: ["neosporin_burn_us", "silvadene_kr"] }, warningMessage: "물집을 터뜨리지 마세요. 감염 위험이 있습니다." },
-      { comboKey: "wideArea", isHospital: true, hospitalMessage: "화상 범위가 넓거나 얼굴, 관절 부위면 즉시 응급실을 방문하세요.", specialty: "emergency", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "faceJoint", isHospital: true, hospitalMessage: "얼굴이나 관절 부위의 화상은 즉시 응급실을 방문하세요.", specialty: "emergency", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "_fallback", drugMatch: { KR: ["fucidin_kr", "silvadene_kr"], VN: ["biafine_vn", "silvadene_kr"], US: ["neosporin_burn_us", "silvadene_kr"] } },
+      {
+        comboKey: "none",
+        followUpQuestions: [
+          { id: "bn_severity", questionKR: "정도는?", questionEN: "How severe?", questionVI: "Mức độ?", options: [
+            { labelKR: "빨갛기만 함", labelEN: "Redness only", labelVI: "Chỉ đỏ da" },
+            { labelKR: "물집 생김", labelEN: "Blisters formed", labelVI: "Có phỏng nước" },
+            { labelKR: "피부 하얗게 변함", labelEN: "Skin turned white", labelVI: "Da chuyển trắng" },
+          ]},
+          { id: "bn_area", questionKR: "범위는?", questionEN: "How large?", questionVI: "Diện tích?", options: [
+            { labelKR: "동전 크기", labelEN: "Coin-sized", labelVI: "Cỡ đồng xu" },
+            { labelKR: "손바닥 크기", labelEN: "Palm-sized", labelVI: "Cỡ lòng bàn tay" },
+            { labelKR: "그 이상", labelEN: "Larger", labelVI: "Lớn hơn" },
+          ]},
+          { id: "bn_cause", questionKR: "원인은?", questionEN: "What caused it?", questionVI: "Nguyên nhân?", options: [
+            { labelKR: "뜨거운 물", labelEN: "Hot water", labelVI: "Nước nóng" },
+            { labelKR: "기름", labelEN: "Oil", labelVI: "Dầu mỡ" },
+            { labelKR: "화학물질", labelEN: "Chemical", labelVI: "Hóa chất" },
+            { labelKR: "햇볕", labelEN: "Sunburn", labelVI: "Nắng" },
+          ]},
+        ],
+        drugMatches: {
+          "default": { KR: ["fucidin_kr", "silvadene_kr"], VN: ["biafine_vn", "silvadene_kr"], US: ["neosporin_burn_us", "silvadene_kr"] },
+        },
+      },
+      {
+        comboKey: "blister",
+        warningKR: "물집을 터뜨리지 마세요. 감염 위험이 있습니다.",
+        warningEN: "Do not pop the blister. There is a risk of infection.",
+        warningVI: "Không được chọc vỡ phỏng nước. Có nguy cơ nhiễm trùng.",
+        drugMatches: {
+          "default": { KR: ["silvadene_kr", "fucidin_kr"], VN: ["silvadene_kr", "biafine_vn"], US: ["neosporin_burn_us", "silvadene_kr"] },
+        },
+      },
+      {
+        comboKey: "wideArea",
+        hospitalWarning: true,
+        warningKR: "화상 범위가 넓거나 얼굴, 관절 부위면 즉시 응급실을 방문하세요.",
+        warningEN: "If the burn covers a wide area or affects the face/joints, visit the emergency room immediately.",
+        warningVI: "Nếu bỏng diện tích rộng hoặc ở vùng mặt/khớp, hãy đến phòng cấp cứu ngay.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "faceJoint",
+        hospitalWarning: true,
+        warningKR: "얼굴이나 관절 부위의 화상은 즉시 응급실을 방문하세요.",
+        warningEN: "Burns on the face or joint areas require immediate emergency room visit.",
+        warningVI: "Bỏng ở vùng mặt hoặc khớp cần đến phòng cấp cứu ngay.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "_fallback",
+        drugMatches: {
+          "default": { KR: ["fucidin_kr", "silvadene_kr"], VN: ["biafine_vn", "silvadene_kr"], US: ["neosporin_burn_us", "silvadene_kr"] },
+        },
+      },
     ],
   },
   // === 26. Wound ===
   {
     id: "wound",
-    nameKey: "wound",
-    descKey: "피부가 긁히거나 베인 상태",
+    nameKR: "상처", nameEN: "Wound", nameVI: "Vết thương",
+    descKR: "피부가 긁히거나 베인 상태", descEN: "Skin that is scratched or cut", descVI: "Tình trạng da bị trầy xước hoặc đứt",
     companions: [
-      { key: "heavyBleeding", labelKey: "출혈 많음", desc: "피가 많이 나는 상태" },
-      { key: "deepWound", labelKey: "깊은 상처", desc: "살이 벌어진 상태" },
-      { key: "rusty", labelKey: "녹슨 물체에 의한 상처" },
-      { key: "none", labelKey: "없음" },
-    ],
-    questions: [
-      { questionKey: "어떤 상처인가요?", options: [{ key: "scratch", labelKey: "긁힘" }, { key: "cut", labelKey: "베임" }, { key: "stab", labelKey: "찔림" }] },
-      { questionKey: "출혈은?", options: [{ key: "slight", labelKey: "약간" }, { key: "moderate", labelKey: "적당" }, { key: "heavy", labelKey: "많음" }] },
-      { questionKey: "깨끗한가요?", options: [{ key: "clean", labelKey: "깨끗함" }, { key: "dirty", labelKey: "이물질 있음" }, { key: "unknown", labelKey: "모름" }] },
+      { key: "heavyBleeding", labelKR: "출혈 많음", labelEN: "Heavy bleeding", labelVI: "Chảy máu nhiều", descKR: "피가 많이 나는 상태", descEN: "Significant bleeding", descVI: "Tình trạng chảy máu nhiều" },
+      { key: "deepWound", labelKR: "깊은 상처", labelEN: "Deep wound", labelVI: "Vết thương sâu", descKR: "살이 벌어진 상태", descEN: "Wound with gaping skin", descVI: "Vết thương hở miệng" },
+      { key: "rusty", labelKR: "녹슨 물체에 의한 상처", labelEN: "Wound from rusty object", labelVI: "Vết thương do vật rỉ sét" },
+      { key: "none", labelKR: "없음 (상처만)", labelEN: "None (wound only)", labelVI: "Không có (chỉ vết thương)" },
     ],
     combos: [
-      { comboKey: "none", drugMatch: { KR: ["fucidin_kr", "madecassol_kr"], VN: ["betadine_vn", "fucidin_vn"], US: ["neosporin_us2", "bandaid_us"] } },
-      { comboKey: "heavyBleeding", isHospital: true, hospitalMessage: "출혈이 많거나 상처가 깊으면 봉합이 필요할 수 있습니다. 깨끗한 천으로 압박하고 응급실을 방문하세요.", specialty: "emergency", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "deepWound", isHospital: true, hospitalMessage: "깊은 상처는 봉합이 필요할 수 있습니다. 응급실을 방문하세요.", specialty: "emergency", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "rusty", isHospital: true, hospitalMessage: "녹슨 물체에 의한 상처는 파상풍 위험이 있습니다. 병원에서 파상풍 주사 여부를 확인하세요.", specialty: "emergency", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "_fallback", drugMatch: { KR: ["fucidin_kr", "madecassol_kr"], VN: ["betadine_vn", "fucidin_vn"], US: ["neosporin_us2", "bandaid_us"] } },
+      {
+        comboKey: "none",
+        followUpQuestions: [
+          { id: "wd_type", questionKR: "어떤 상처인가요?", questionEN: "What kind of wound?", questionVI: "Loại vết thương nào?", options: [
+            { labelKR: "긁힘", labelEN: "Scratch", labelVI: "Trầy xước" },
+            { labelKR: "베임", labelEN: "Cut", labelVI: "Đứt" },
+            { labelKR: "찔림", labelEN: "Puncture", labelVI: "Bị đâm" },
+          ]},
+          { id: "wd_bleeding", questionKR: "출혈은?", questionEN: "How much bleeding?", questionVI: "Mức độ chảy máu?", options: [
+            { labelKR: "약간", labelEN: "Slight", labelVI: "Ít" },
+            { labelKR: "적당", labelEN: "Moderate", labelVI: "Vừa" },
+            { labelKR: "많음", labelEN: "Heavy", labelVI: "Nhiều" },
+          ]},
+          { id: "wd_clean", questionKR: "깨끗한가요?", questionEN: "Is the wound clean?", questionVI: "Vết thương có sạch không?", options: [
+            { labelKR: "깨끗함", labelEN: "Clean", labelVI: "Sạch" },
+            { labelKR: "이물질 있음", labelEN: "Has debris", labelVI: "Có dị vật" },
+            { labelKR: "모름", labelEN: "Unknown", labelVI: "Không rõ" },
+          ]},
+        ],
+        drugMatches: {
+          "default": { KR: ["fucidin_kr", "madecassol_kr"], VN: ["betadine_vn", "fucidin_vn"], US: ["neosporin_us2", "bandaid_us"] },
+        },
+      },
+      {
+        comboKey: "heavyBleeding",
+        hospitalWarning: true,
+        warningKR: "출혈이 많거나 상처가 깊으면 봉합이 필요할 수 있습니다. 깨끗한 천으로 압박하고 응급실을 방문하세요.",
+        warningEN: "Heavy bleeding or deep wounds may need stitches. Apply pressure with a clean cloth and visit the emergency room.",
+        warningVI: "Chảy máu nhiều hoặc vết thương sâu có thể cần khâu. Dùng vải sạch ấn chặt và đến phòng cấp cứu.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "deepWound",
+        hospitalWarning: true,
+        warningKR: "깊은 상처는 봉합이 필요할 수 있습니다. 응급실을 방문하세요.",
+        warningEN: "Deep wounds may require stitches. Please visit the emergency room.",
+        warningVI: "Vết thương sâu có thể cần khâu. Vui lòng đến phòng cấp cứu.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "rusty",
+        hospitalWarning: true,
+        warningKR: "녹슨 물체에 의한 상처는 파상풍 위험이 있습니다. 병원에서 파상풍 주사 여부를 확인하세요.",
+        warningEN: "Wounds from rusty objects carry a risk of tetanus. Please visit a hospital to check if a tetanus shot is needed.",
+        warningVI: "Vết thương do vật rỉ sét có nguy cơ uốn ván. Vui lòng đến bệnh viện để kiểm tra tiêm phòng uốn ván.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "_fallback",
+        drugMatches: {
+          "default": { KR: ["fucidin_kr", "madecassol_kr"], VN: ["betadine_vn", "fucidin_vn"], US: ["neosporin_us2", "bandaid_us"] },
+        },
+      },
     ],
   },
   // === 27. Swelling ===
   {
     id: "swelling",
-    nameKey: "swelling",
-    descKey: "발이나 다리가 붓는 상태",
+    nameKR: "부종", nameEN: "Swelling", nameVI: "Phù nề",
+    descKR: "발이나 다리가 붓는 상태", descEN: "Swelling of the feet or legs", descVI: "Tình trạng sưng phù ở chân",
     companions: [
-      { key: "pain", labelKey: "통증 동반" },
-      { key: "oneSide", labelKey: "한쪽만 부음", desc: "한쪽 다리만 붓는 경우" },
-      { key: "breathChest", labelKey: "숨참/가슴통증" },
-      { key: "none", labelKey: "없음" },
-    ],
-    questions: [
-      { questionKey: "어디가 부었나요?", options: [{ key: "ankle", labelKey: "발목" }, { key: "calf", labelKey: "종아리" }, { key: "wholeLeg", labelKey: "전체 다리" }, { key: "both", labelKey: "양쪽" }] },
-      { questionKey: "언제 심한가요?", options: [{ key: "evening", labelKey: "저녁에" }, { key: "morning", labelKey: "아침에" }, { key: "allday", labelKey: "하루종일" }] },
-      { questionKey: "원인 추정", options: [{ key: "standing", labelKey: "오래 서있음" }, { key: "flight", labelKey: "비행기 탑승 후" }, { key: "unknown", labelKey: "모름" }] },
+      { key: "pain", labelKR: "통증 동반", labelEN: "Pain", labelVI: "Đau kèm theo" },
+      { key: "oneSide", labelKR: "한쪽만 부음", labelEN: "One-sided swelling", labelVI: "Sưng một bên", descKR: "한쪽 다리만 붓는 경우", descEN: "Swelling in only one leg", descVI: "Chỉ sưng một bên chân" },
+      { key: "breathChest", labelKR: "숨참/가슴통증", labelEN: "Shortness of breath/chest pain", labelVI: "Khó thở/đau ngực" },
+      { key: "none", labelKR: "없음 (부종만)", labelEN: "None (swelling only)", labelVI: "Không có (chỉ phù)" },
     ],
     combos: [
-      { comboKey: "none", drugMatch: { KR: ["brufen_200_kr", "brufen_200_kr"], VN: ["daflon_vn", "antistax_vn"], US: ["advil_200_us", "advil_200_us"] } },
-      { comboKey: "oneSide", isHospital: true, hospitalMessage: "한쪽 다리만 붓는 경우 심부정맥혈전증(DVT)의 가능성이 있습니다. 즉시 병원을 방문하세요. 특히 비행기 탑승 후라면 더 긴급합니다.", specialty: "emergency", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "breathChest", isHospital: true, hospitalMessage: "부종과 숨참이 함께 나타나면 심장 또는 폐 관련 응급상황일 수 있습니다. 즉시 응급실을 방문하세요.", specialty: "emergency", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "_fallback", drugMatch: { KR: ["brufen_200_kr", "brufen_200_kr"], VN: ["daflon_vn", "antistax_vn"], US: ["advil_200_us", "advil_200_us"] } },
+      {
+        comboKey: "none",
+        followUpQuestions: [
+          { id: "sw_location", questionKR: "어디가 부었나요?", questionEN: "Where is the swelling?", questionVI: "Sưng ở đâu?", options: [
+            { labelKR: "발목", labelEN: "Ankle", labelVI: "Mắt cá chân" },
+            { labelKR: "종아리", labelEN: "Calf", labelVI: "Bắp chân" },
+            { labelKR: "전체 다리", labelEN: "Whole leg", labelVI: "Toàn bộ chân" },
+            { labelKR: "양쪽", labelEN: "Both sides", labelVI: "Cả hai bên" },
+          ]},
+          { id: "sw_when", questionKR: "언제 심한가요?", questionEN: "When is it worse?", questionVI: "Khi nào nặng hơn?", options: [
+            { labelKR: "저녁에", labelEN: "In the evening", labelVI: "Buổi tối" },
+            { labelKR: "아침에", labelEN: "In the morning", labelVI: "Buổi sáng" },
+            { labelKR: "하루종일", labelEN: "All day", labelVI: "Cả ngày" },
+          ]},
+          { id: "sw_cause", questionKR: "원인 추정", questionEN: "Suspected cause?", questionVI: "Nguyên nhân nghi ngờ?", options: [
+            { labelKR: "오래 서있음", labelEN: "Prolonged standing", labelVI: "Đứng lâu" },
+            { labelKR: "비행기 탑승 후", labelEN: "After a flight", labelVI: "Sau chuyến bay" },
+            { labelKR: "모름", labelEN: "Unknown", labelVI: "Không rõ" },
+          ]},
+        ],
+        drugMatches: {
+          "default": { KR: ["brufen_200_kr", "brufen_200_kr"], VN: ["daflon_vn", "antistax_vn"], US: ["advil_200_us", "advil_200_us"] },
+        },
+      },
+      {
+        comboKey: "oneSide",
+        hospitalWarning: true,
+        warningKR: "한쪽 다리만 붓는 경우 심부정맥혈전증(DVT)의 가능성이 있습니다. 즉시 병원을 방문하세요. 특히 비행기 탑승 후라면 더 긴급합니다.",
+        warningEN: "One-sided leg swelling may indicate deep vein thrombosis (DVT). Visit a hospital immediately, especially after a flight.",
+        warningVI: "Sưng một bên chân có thể là dấu hiệu huyết khối tĩnh mạch sâu (DVT). Hãy đến bệnh viện ngay, đặc biệt nếu vừa đi máy bay.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "breathChest",
+        hospitalWarning: true,
+        warningKR: "부종과 숨참이 함께 나타나면 심장 또는 폐 관련 응급상황일 수 있습니다. 즉시 응급실을 방문하세요.",
+        warningEN: "Swelling with shortness of breath may indicate a cardiac or pulmonary emergency. Visit the emergency room immediately.",
+        warningVI: "Phù nề kèm khó thở có thể là tình trạng cấp cứu tim hoặc phổi. Hãy đến phòng cấp cứu ngay.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "_fallback",
+        drugMatches: {
+          "default": { KR: ["brufen_200_kr", "brufen_200_kr"], VN: ["daflon_vn", "antistax_vn"], US: ["advil_200_us", "advil_200_us"] },
+        },
+      },
     ],
   },
   // === 28. Acne ===
   {
     id: "acne",
-    nameKey: "acne",
-    descKey: "피부에 뾰루지가 나는 상태",
+    nameKR: "여드름", nameEN: "Acne", nameVI: "Mụn trứng cá",
+    descKR: "피부에 뾰루지가 나는 상태", descEN: "Skin breakouts or pimples", descVI: "Tình trạng nổi mụn trên da",
     companions: [
-      { key: "inflamed", labelKey: "통증/염증", desc: "빨갛고 아픈 여드름" },
-      { key: "wideArea", labelKey: "넓은 범위", desc: "얼굴 전체 또는 등까지" },
-      { key: "none", labelKey: "없음" },
-    ],
-    questions: [
-      { questionKey: "어디에 있나요?", options: [{ key: "face", labelKey: "얼굴" }, { key: "back", labelKey: "등" }, { key: "chest", labelKey: "가슴" }] },
-      { questionKey: "어떤 형태인가요?", options: [{ key: "whitehead", labelKey: "좁쌀 여드름" }, { key: "red", labelKey: "빨간 여드름" }, { key: "pus", labelKey: "곪은 여드름" }] },
-      { questionKey: "얼마나 됐나요?", options: [{ key: "recent", labelKey: "최근" }, { key: "months", labelKey: "몇 달" }, { key: "chronic", labelKey: "만성" }] },
+      { key: "inflamed", labelKR: "통증/염증", labelEN: "Pain/inflammation", labelVI: "Đau/viêm", descKR: "빨갛고 아픈 여드름", descEN: "Red, painful acne", descVI: "Mụn đỏ và đau" },
+      { key: "wideArea", labelKR: "넓은 범위", labelEN: "Wide area", labelVI: "Diện tích rộng", descKR: "얼굴 전체 또는 등까지", descEN: "Whole face or extending to back", descVI: "Toàn bộ mặt hoặc lan đến lưng" },
+      { key: "none", labelKR: "없음 (여드름만)", labelEN: "None (acne only)", labelVI: "Không có (chỉ mụn)" },
     ],
     combos: [
-      { comboKey: "none", drugMatch: { KR: ["noscarna_kr", "pairacne_kr"], VN: ["benzac_vn", "pairacne_kr"], US: ["differin_us", "noscarna_kr"] } },
-      { comboKey: "inflamed", drugMatch: { KR: ["pairacne_kr", "fucidin_kr"], VN: ["pairacne_kr", "benzac_vn"], US: ["differin_us", "noscarna_kr"] } },
-      { comboKey: "wideArea", isHospital: true, hospitalMessage: "여드름이 넓은 범위에 걸쳐있거나 만성적이면 피부과 전문 치료가 필요할 수 있습니다. 피부과를 방문하세요.", specialty: "dermatology", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "_fallback", drugMatch: { KR: ["noscarna_kr", "pairacne_kr"], VN: ["benzac_vn", "pairacne_kr"], US: ["differin_us", "noscarna_kr"] } },
+      {
+        comboKey: "none",
+        followUpQuestions: [
+          { id: "ac_location", questionKR: "어디에 있나요?", questionEN: "Where is it?", questionVI: "Ở đâu?", options: [
+            { labelKR: "얼굴", labelEN: "Face", labelVI: "Mặt" },
+            { labelKR: "등", labelEN: "Back", labelVI: "Lưng" },
+            { labelKR: "가슴", labelEN: "Chest", labelVI: "Ngực" },
+          ]},
+          { id: "ac_type", questionKR: "어떤 형태인가요?", questionEN: "What type?", questionVI: "Loại nào?", options: [
+            { labelKR: "좁쌀 여드름", labelEN: "Whiteheads", labelVI: "Mụn đầu trắng" },
+            { labelKR: "빨간 여드름", labelEN: "Red pimples", labelVI: "Mụn đỏ" },
+            { labelKR: "곪은 여드름", labelEN: "Pus-filled pimples", labelVI: "Mụn mủ" },
+          ]},
+          { id: "ac_duration", questionKR: "얼마나 됐나요?", questionEN: "How long has it been?", questionVI: "Đã bao lâu rồi?", options: [
+            { labelKR: "최근", labelEN: "Recent", labelVI: "Gần đây" },
+            { labelKR: "몇 달", labelEN: "A few months", labelVI: "Vài tháng" },
+            { labelKR: "만성", labelEN: "Chronic", labelVI: "Mạn tính" },
+          ]},
+        ],
+        drugMatches: {
+          "default": { KR: ["noscarna_kr", "pairacne_kr"], VN: ["benzac_vn", "pairacne_kr"], US: ["differin_us", "noscarna_kr"] },
+        },
+      },
+      {
+        comboKey: "inflamed",
+        drugMatches: {
+          "default": { KR: ["pairacne_kr", "fucidin_kr"], VN: ["pairacne_kr", "benzac_vn"], US: ["differin_us", "noscarna_kr"] },
+        },
+      },
+      {
+        comboKey: "wideArea",
+        hospitalWarning: true,
+        warningKR: "여드름이 넓은 범위에 걸쳐있거나 만성적이면 피부과 전문 치료가 필요할 수 있습니다. 피부과를 방문하세요.",
+        warningEN: "If acne covers a wide area or is chronic, dermatological treatment may be needed. Please visit a dermatologist.",
+        warningVI: "Nếu mụn lan rộng hoặc mạn tính, có thể cần điều trị chuyên khoa da liễu. Vui lòng đến bác sĩ da liễu.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "_fallback",
+        drugMatches: {
+          "default": { KR: ["noscarna_kr", "pairacne_kr"], VN: ["benzac_vn", "pairacne_kr"], US: ["differin_us", "noscarna_kr"] },
+        },
+      },
     ],
   },
   // === 29. Athlete's foot ===
   {
     id: "athletesFoot",
-    nameKey: "athletesFoot",
-    descKey: "발에 곰팡이가 감염된 상태, 가렵고 피부가 벗겨짐",
+    nameKR: "무좀", nameEN: "Athlete's foot", nameVI: "Nấm chân",
+    descKR: "발에 곰팡이가 감염된 상태, 가렵고 피부가 벗겨짐", descEN: "Fungal infection of the foot causing itching and peeling skin", descVI: "Tình trạng nhiễm nấm ở chân, ngứa và bong da",
     companions: [
-      { key: "toenail", labelKey: "발톱 변색", desc: "발톱이 노랗거나 두꺼워진 상태" },
-      { key: "odor", labelKey: "냄새" },
-      { key: "cracking", labelKey: "갈라짐/출혈" },
-      { key: "none", labelKey: "없음" },
-    ],
-    questions: [
-      { questionKey: "어디에 있나요?", options: [{ key: "between", labelKey: "발가락 사이" }, { key: "sole", labelKey: "발바닥" }, { key: "side", labelKey: "발 옆면" }] },
-      { questionKey: "증상은?", options: [{ key: "itch", labelKey: "가려움" }, { key: "flake", labelKey: "각질" }, { key: "blister", labelKey: "물집" }, { key: "crack", labelKey: "갈라짐" }] },
-      { questionKey: "얼마나 됐나요?", options: [{ key: "recent", labelKey: "최근" }, { key: "weeks", labelKey: "몇 주" }, { key: "chronic", labelKey: "만성" }] },
+      { key: "toenail", labelKR: "발톱 변색", labelEN: "Toenail discoloration", labelVI: "Móng chân đổi màu", descKR: "발톱이 노랗거나 두꺼워진 상태", descEN: "Toenails turned yellow or thickened", descVI: "Móng chân vàng hoặc dày lên" },
+      { key: "odor", labelKR: "냄새", labelEN: "Odor", labelVI: "Mùi hôi" },
+      { key: "cracking", labelKR: "갈라짐/출혈", labelEN: "Cracking/bleeding", labelVI: "Nứt nẻ/chảy máu" },
+      { key: "none", labelKR: "없음 (무좀만)", labelEN: "None (athlete's foot only)", labelVI: "Không có (chỉ nấm chân)" },
     ],
     combos: [
-      { comboKey: "none", drugMatch: { KR: ["lamisil_kr", "canesten_kr"], VN: ["lamisil_kr", "canesten_kr"], US: ["lamisil_kr", "canesten_kr"] } },
-      { comboKey: "toenail", isHospital: true, hospitalMessage: "발톱까지 감염된 경우 OTC 약으로는 치료가 어렵습니다. 피부과에서 경구 항진균제를 처방받으세요.", specialty: "dermatology", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "_fallback", drugMatch: { KR: ["lamisil_kr", "canesten_kr"], VN: ["lamisil_kr", "canesten_kr"], US: ["lamisil_kr", "canesten_kr"] } },
+      {
+        comboKey: "none",
+        followUpQuestions: [
+          { id: "af_location", questionKR: "어디에 있나요?", questionEN: "Where is it?", questionVI: "Ở đâu?", options: [
+            { labelKR: "발가락 사이", labelEN: "Between toes", labelVI: "Giữa các ngón chân" },
+            { labelKR: "발바닥", labelEN: "Sole", labelVI: "Lòng bàn chân" },
+            { labelKR: "발 옆면", labelEN: "Side of foot", labelVI: "Cạnh bàn chân" },
+          ]},
+          { id: "af_symptom", questionKR: "증상은?", questionEN: "What symptoms?", questionVI: "Triệu chứng?", options: [
+            { labelKR: "가려움", labelEN: "Itching", labelVI: "Ngứa" },
+            { labelKR: "각질", labelEN: "Flaking", labelVI: "Bong vảy" },
+            { labelKR: "물집", labelEN: "Blisters", labelVI: "Phỏng nước" },
+            { labelKR: "갈라짐", labelEN: "Cracking", labelVI: "Nứt nẻ" },
+          ]},
+          { id: "af_duration", questionKR: "얼마나 됐나요?", questionEN: "How long has it been?", questionVI: "Đã bao lâu rồi?", options: [
+            { labelKR: "최근", labelEN: "Recent", labelVI: "Gần đây" },
+            { labelKR: "몇 주", labelEN: "A few weeks", labelVI: "Vài tuần" },
+            { labelKR: "만성", labelEN: "Chronic", labelVI: "Mạn tính" },
+          ]},
+        ],
+        drugMatches: {
+          "default": { KR: ["lamisil_kr", "canesten_kr"], VN: ["lamisil_kr", "canesten_kr"], US: ["lamisil_kr", "canesten_kr"] },
+        },
+      },
+      {
+        comboKey: "toenail",
+        hospitalWarning: true,
+        warningKR: "발톱까지 감염된 경우 OTC 약으로는 치료가 어렵습니다. 피부과에서 경구 항진균제를 처방받으세요.",
+        warningEN: "If the infection has spread to the toenails, OTC medication is insufficient. Please visit a dermatologist for oral antifungal treatment.",
+        warningVI: "Nếu nấm đã lan đến móng chân, thuốc không kê đơn không đủ hiệu quả. Vui lòng đến bác sĩ da liễu để được kê thuốc kháng nấm đường uống.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "_fallback",
+        drugMatches: {
+          "default": { KR: ["lamisil_kr", "canesten_kr"], VN: ["lamisil_kr", "canesten_kr"], US: ["lamisil_kr", "canesten_kr"] },
+        },
+      },
     ],
   },
   // === 30. Stye ===
   {
     id: "stye",
-    nameKey: "stye",
-    descKey: "눈꺼풀에 작은 혹처럼 염증이 생긴 상태",
+    nameKR: "다래끼", nameEN: "Stye", nameVI: "Lẹo mắt",
+    descKR: "눈꺼풀에 작은 혹처럼 염증이 생긴 상태", descEN: "A small inflamed bump on the eyelid", descVI: "Tình trạng viêm nổi cục nhỏ trên mí mắt",
     companions: [
-      { key: "visionChange", labelKey: "시력 변화" },
-      { key: "eyeRedPain", labelKey: "눈 전체 충혈/통증" },
-      { key: "fever", labelKey: "발열" },
-      { key: "none", labelKey: "없음" },
-    ],
-    questions: [
-      { questionKey: "어디에 있나요?", options: [{ key: "upper", labelKey: "윗눈꺼풀" }, { key: "lower", labelKey: "아래눈꺼풀" }] },
-      { questionKey: "크기는?", options: [{ key: "small", labelKey: "작음(좁쌀)" }, { key: "medium", labelKey: "중간" }, { key: "large", labelKey: "큼" }] },
-      { questionKey: "고름이 보이나요?", options: [{ key: "yes", labelKey: "예" }, { key: "no", labelKey: "아니오" }] },
+      { key: "visionChange", labelKR: "시력 변화", labelEN: "Vision change", labelVI: "Thay đổi thị lực" },
+      { key: "eyeRedPain", labelKR: "눈 전체 충혈/통증", labelEN: "Eye redness/pain", labelVI: "Đỏ mắt/đau mắt toàn bộ" },
+      { key: "fever", labelKR: "발열", labelEN: "Fever", labelVI: "Sốt" },
+      { key: "none", labelKR: "없음 (다래끼만)", labelEN: "None (stye only)", labelVI: "Không có (chỉ lẹo mắt)" },
     ],
     combos: [
-      { comboKey: "none", drugMatch: { KR: ["terramycin_kr", "warm_compress"], VN: ["tobrex_vn", "warm_compress"], US: ["terramycin_kr", "warm_compress"] } },
-      { comboKey: "visionChange", isHospital: true, hospitalMessage: "다래끼와 시력 변화가 함께 나타나면 안과를 즉시 방문하세요.", specialty: "ophthalmology", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "fever", isHospital: true, hospitalMessage: "다래끼와 발열이 함께 나타나면 감염이 퍼졌을 가능성이 있습니다. 안과를 방문하세요.", specialty: "ophthalmology", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "eyeRedPain", isHospital: true, hospitalMessage: "눈 전체 충혈과 통증은 안과 진료가 필요합니다.", specialty: "ophthalmology", drugMatch: { KR: [], VN: [], US: [] } },
-      { comboKey: "_fallback", drugMatch: { KR: ["terramycin_kr", "warm_compress"], VN: ["tobrex_vn", "warm_compress"], US: ["terramycin_kr", "warm_compress"] } },
+      {
+        comboKey: "none",
+        followUpQuestions: [
+          { id: "st_location", questionKR: "어디에 있나요?", questionEN: "Where is it?", questionVI: "Ở đâu?", options: [
+            { labelKR: "윗눈꺼풀", labelEN: "Upper eyelid", labelVI: "Mí mắt trên" },
+            { labelKR: "아래눈꺼풀", labelEN: "Lower eyelid", labelVI: "Mí mắt dưới" },
+          ]},
+          { id: "st_size", questionKR: "크기는?", questionEN: "How large?", questionVI: "Kích thước?", options: [
+            { labelKR: "작음(좁쌀)", labelEN: "Small (grain-sized)", labelVI: "Nhỏ (hạt kê)" },
+            { labelKR: "중간", labelEN: "Medium", labelVI: "Vừa" },
+            { labelKR: "큼", labelEN: "Large", labelVI: "Lớn" },
+          ]},
+          { id: "st_pus", questionKR: "고름이 보이나요?", questionEN: "Is pus visible?", questionVI: "Có thấy mủ không?", options: [
+            { labelKR: "예", labelEN: "Yes", labelVI: "Có" },
+            { labelKR: "아니오", labelEN: "No", labelVI: "Không" },
+          ]},
+        ],
+        drugMatches: {
+          "default": { KR: ["terramycin_kr", "warm_compress"], VN: ["tobrex_vn", "warm_compress"], US: ["terramycin_kr", "warm_compress"] },
+        },
+      },
+      {
+        comboKey: "visionChange",
+        hospitalWarning: true,
+        warningKR: "다래끼와 시력 변화가 함께 나타나면 안과를 즉시 방문하세요.",
+        warningEN: "A stye with vision changes requires an immediate visit to an ophthalmologist.",
+        warningVI: "Lẹo mắt kèm thay đổi thị lực cần đến bác sĩ nhãn khoa ngay.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "fever",
+        hospitalWarning: true,
+        warningKR: "다래끼와 발열이 함께 나타나면 감염이 퍼졌을 가능성이 있습니다. 안과를 방문하세요.",
+        warningEN: "A stye with fever may indicate the infection has spread. Please visit an ophthalmologist.",
+        warningVI: "Lẹo mắt kèm sốt có thể là dấu hiệu nhiễm trùng lan rộng. Vui lòng đến bác sĩ nhãn khoa.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "eyeRedPain",
+        hospitalWarning: true,
+        warningKR: "눈 전체 충혈과 통증은 안과 진료가 필요합니다.",
+        warningEN: "Full eye redness and pain require an ophthalmologist examination.",
+        warningVI: "Đỏ và đau toàn bộ mắt cần được bác sĩ nhãn khoa khám.",
+        drugMatches: {},
+      },
+      {
+        comboKey: "_fallback",
+        drugMatches: {
+          "default": { KR: ["terramycin_kr", "warm_compress"], VN: ["tobrex_vn", "warm_compress"], US: ["terramycin_kr", "warm_compress"] },
+        },
+      },
     ],
   },
 ];
