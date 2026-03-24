@@ -4,6 +4,7 @@ import {
   detectCountryByIP,
   type CountryInfo,
 } from "../../services/countryDetect";
+import BackButton from "../common/BackButton";
 
 interface CountrySelectScreenProps {
   lang: string;
@@ -102,13 +103,8 @@ export default function CountrySelectScreen({ lang, onSelect, onBack }: CountryS
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] flex flex-col max-w-[480px] mx-auto">
-      {/* Back button */}
-      <div className="px-4 pt-4">
-        <button onClick={onBack} className="w-9 h-9 flex items-center justify-center rounded-2xl hover:bg-gray-100 transition-colors">
-          <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-          </svg>
-        </button>
+      <div className="px-3 pt-3">
+        <BackButton onClick={onBack} lang={lang} />
       </div>
 
       {/* Header */}
