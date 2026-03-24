@@ -84,6 +84,7 @@
     "sideEffects": "부작용",
     "searchAgain": "다시 검색",
     "consultPharmacist": "약사와 상담",
+    "findPharmacy": "주변 약국 찾기",
     "otcAvailable": "이 약은 {{country}}에서 처방전 없이 구매 가능한 일반의약품입니다",
     "ingredientFallback": "해당 국가에 등록된 브랜드가 없습니다. 이 성분이 포함된 약을 약국에서 문의하세요."
   },

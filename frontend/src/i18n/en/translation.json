@@ -84,6 +84,7 @@
     "sideEffects": "Side Effects",
     "searchAgain": "Search Again",
     "consultPharmacist": "Consult Pharmacist",
+    "findPharmacy": "Find nearby pharmacy",
     "otcAvailable": "This drug is available over-the-counter without prescription in {{country}}",
     "ingredientFallback": "No registered brand found for this country. Ask your pharmacist for a product containing this ingredient."
   },

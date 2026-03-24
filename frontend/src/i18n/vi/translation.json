@@ -84,6 +84,7 @@
     "sideEffects": "Tác dụng phụ",
     "searchAgain": "Tìm lại",
     "consultPharmacist": "Hỏi dược sĩ",
+    "findPharmacy": "Tìm nhà thuốc gần đây",
     "otcAvailable": "Thuốc này có thể mua không cần đơn tại {{country}}",
     "ingredientFallback": "Không tìm thấy thương hiệu đăng ký tại quốc gia này. Hãy hỏi dược sĩ về sản phẩm chứa thành phần này."
   },
