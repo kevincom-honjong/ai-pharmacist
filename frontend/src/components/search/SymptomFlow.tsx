@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import {
   getCategory,
@@ -103,6 +103,46 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
 
   const categoryName = getCategoryName(cat, lang);
   const scrollTop = () => window.scrollTo(0, 0);
+  const pushState = (name: string) => window.history.pushState({ screen: name }, "");
+
+  // Browser back button handler for SymptomFlow internal steps
+  useEffect(() => {
+    const handlePopState = () => {
+      if (step === "result" || step === "analyzing") {
+        // Go back from result → reset to home (handled by App)
+        onReset();
+      } else if (step === "commonQ") {
+        if (commonQIndex > 0) {
+          setCommonQIndex(commonQIndex - 1);
+        } else if (combo?.followUpQuestions && combo.followUpQuestions.length > 0) {
+          setFollowUpIndex(combo.followUpQuestions.length - 1);
+          setFollowUpAnswers((prev) => prev.slice(0, -1));
+          setStep("followUp");
+        } else {
+          setStep("companion");
+          setCombo(null);
+        }
+        scrollTop();
+      } else if (step === "followUp") {
+        if (followUpIndex > 0) {
+          setFollowUpIndex(followUpIndex - 1);
+          setFollowUpAnswers((prev) => prev.slice(0, -1));
+        } else {
+          setStep("companion");
+          setCombo(null);
+        }
+        scrollTop();
+      } else if (step === "hospital") {
+        onReset();
+      } else {
+        // companion step → go back to home (handled by App)
+        onReset();
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [step, followUpIndex, commonQIndex, combo, onReset]);
 
   // Step 1: Companion symptom check
   const handleCompanionSubmit = (selected: string[]) => {
@@ -111,6 +151,7 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
 
     if (foundCombo.hospitalWarning) {
       setStep("hospital");
+      pushState("hospital");
       scrollTop();
       return;
     }
@@ -119,11 +160,12 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
       setFollowUpIndex(0);
       setFollowUpAnswers([]);
       setStep("followUp");
+      pushState("followUp-0");
       scrollTop();
     } else {
-      // No specific follow-ups → go to common questions
       setCommonQIndex(0);
       setStep("commonQ");
+      pushState("commonQ-0");
       scrollTop();
     }
   };
@@ -137,11 +179,12 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
 
     if (followUpIndex + 1 < combo.followUpQuestions.length) {
       setFollowUpIndex(followUpIndex + 1);
+      pushState(`followUp-${followUpIndex + 1}`);
       scrollTop();
     } else {
-      // Done with specific follow-ups → go to common questions
       setCommonQIndex(0);
       setStep("commonQ");
+      pushState("commonQ-0");
       scrollTop();
     }
   };
@@ -150,6 +193,7 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
   const handleCommonAnswer = (answerIndex: number) => {
     if (commonQIndex + 1 < COMMON_QUESTIONS.length) {
       setCommonQIndex(commonQIndex + 1);
+      pushState(`commonQ-${commonQIndex + 1}`);
       scrollTop();
     } else {
       // All questions done → resolve drugs and show loading
@@ -164,6 +208,7 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
         }
       }
       setStep("analyzing");
+      pushState("analyzing");
       scrollTop();
     }
   };
@@ -198,6 +243,7 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
 
   const handleAnalyzingComplete = useCallback(() => {
     setStep("result");
+    window.history.pushState({ screen: "result" }, "");
     scrollTop();
   }, []);
 

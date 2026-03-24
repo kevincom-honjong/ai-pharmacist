@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import Header from "./components/layout/Header";
 import SearchInput from "./components/search/SearchInput";
@@ -31,9 +31,10 @@ import {
 const DISCLAIMER_KEY = "otc_disclaimer_agreed";
 
 type Screen = "home" | "flow" | "allCategories";
+type OnboardingStep = "language" | "country" | "disclaimer" | "done";
 
 // TODO: 개발 완료 후 localStorage 기반 온보딩 스킵 복원
-// function getOnboardingStep(): "language" | "country" | "disclaimer" | "done" {
+// function getOnboardingStep(): OnboardingStep {
 //   if (!getSavedLanguage()) return "language";
 //   if (!getSavedCountry()) return "country";
 //   if (localStorage.getItem(DISCLAIMER_KEY) !== "true") return "disclaimer";
@@ -41,7 +42,7 @@ type Screen = "home" | "flow" | "allCategories";
 // }
 
 // 개발 중: 매번 언어 선택부터 시작 + localStorage 초기화
-function getOnboardingStep(): "language" | "country" | "disclaimer" | "done" {
+function getOnboardingStep(): OnboardingStep {
   localStorage.removeItem("otc_selected_language");
   localStorage.removeItem("otc_selected_country");
   localStorage.removeItem(DISCLAIMER_KEY);
@@ -51,24 +52,16 @@ function getOnboardingStep(): "language" | "country" | "disclaimer" | "done" {
 function App() {
   const { t, i18n } = useTranslation();
 
-  // Onboarding state
-  const [onboardingStep, setOnboardingStep] = useState<"language" | "country" | "disclaimer" | "done">(
-    () => getOnboardingStep()
-  );
-
-  // Main app state
+  const [onboardingStep, setOnboardingStep] = useState<OnboardingStep>(getOnboardingStep);
   const [screen, setScreen] = useState<Screen>("home");
   const [searchValue, setSearchValue] = useState("");
   const [matchedCategory, setMatchedCategory] = useState<string | null>(null);
   const [candidates, setCandidates] = useState<MatchResult[]>([]);
   const [showCandidates, setShowCandidates] = useState(false);
   const [noMatch, setNoMatch] = useState(false);
+  const [countryCode, setCountryCode] = useState<string>(() => getSavedCountry() || "VN");
 
-  const [countryCode, setCountryCode] = useState<string>(
-    () => getSavedCountry() || "VN"
-  );
-
-  // Restore language on mount if saved
+  // Restore language
   if (onboardingStep === "done" || onboardingStep === "country" || onboardingStep === "disclaimer") {
     const savedLang = getSavedLanguage();
     if (savedLang && i18n.language !== savedLang) {
@@ -82,8 +75,70 @@ function App() {
     emergencyNumber: "115",
   };
 
-  // Scroll to top on every screen transition
   const scrollTop = () => window.scrollTo(0, 0);
+
+  // === History API for browser back button ===
+
+  // Push history entry on screen changes
+  const pushState = useCallback((name: string) => {
+    window.history.pushState({ screen: name }, "");
+  }, []);
+
+  // Get current app state name for history
+  const getCurrentStateName = useCallback((): string => {
+    if (onboardingStep !== "done") return `onboarding-${onboardingStep}`;
+    return screen;
+  }, [onboardingStep, screen]);
+
+  // Push initial history entry
+  useEffect(() => {
+    window.history.replaceState({ screen: "language" }, "");
+  }, []);
+
+  // Handle browser back button
+  useEffect(() => {
+    const handlePopState = (e: PopStateEvent) => {
+      // Determine what to go back to based on current state
+      if (onboardingStep === "country") {
+        setOnboardingStep("language");
+        scrollTop();
+        return;
+      }
+      if (onboardingStep === "disclaimer") {
+        setOnboardingStep("country");
+        scrollTop();
+        return;
+      }
+
+      // Main app screens
+      if (screen === "flow") {
+        // SymptomFlow handles its own internal back via its own popstate
+        // If we reach here, go to home
+        setScreen("home");
+        setSearchValue("");
+        setMatchedCategory(null);
+        setNoMatch(false);
+        setShowCandidates(false);
+        setCandidates([]);
+        scrollTop();
+        return;
+      }
+      if (screen === "allCategories") {
+        setScreen("home");
+        scrollTop();
+        return;
+      }
+
+      // On home screen → push state again to prevent exit
+      // (double-back to exit)
+      if (screen === "home" && onboardingStep === "done") {
+        window.history.pushState({ screen: "home" }, "");
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [onboardingStep, screen]);
 
   // === Onboarding handlers ===
 
@@ -93,6 +148,7 @@ function App() {
     // TODO: 개발 완료 후 localStorage 저장 복원
     // saveLanguage(langCode);
     setOnboardingStep("country");
+    pushState("country");
     scrollTop();
   };
 
@@ -101,6 +157,7 @@ function App() {
     // TODO: 개발 완료 후 localStorage 저장 복원
     // saveCountry(code);
     setOnboardingStep("disclaimer");
+    pushState("disclaimer");
     scrollTop();
   };
 
@@ -108,6 +165,7 @@ function App() {
     // TODO: 개발 완료 후 localStorage 저장 복원
     // localStorage.setItem(DISCLAIMER_KEY, "true");
     setOnboardingStep("done");
+    pushState("home");
     scrollTop();
   };
 
@@ -138,6 +196,7 @@ function App() {
       setScreen("flow");
       setNoMatch(false);
       setShowCandidates(false);
+      pushState("flow");
       scrollTop();
     } else {
       setCandidates(topCandidates);
@@ -152,6 +211,7 @@ function App() {
     setShowCandidates(false);
     setCandidates([]);
     setNoMatch(false);
+    pushState("flow");
     scrollTop();
   };
 
@@ -163,6 +223,7 @@ function App() {
       setScreen("flow");
       setNoMatch(false);
       setShowCandidates(false);
+      pushState("flow");
       scrollTop();
     }
   };
@@ -173,6 +234,7 @@ function App() {
     setNoMatch(false);
     setShowCandidates(false);
     setCandidates([]);
+    pushState("flow");
     scrollTop();
   };
 
@@ -183,6 +245,7 @@ function App() {
     setNoMatch(false);
     setShowCandidates(false);
     setCandidates([]);
+    pushState("home");
     scrollTop();
   };
 
@@ -217,7 +280,7 @@ function App() {
     return (
       <AllCategorySelector
         onSelect={handleDirectCategorySelect}
-        onBack={() => { setScreen("home"); scrollTop(); }}
+        onBack={() => { setScreen("home"); pushState("home"); scrollTop(); }}
       />
     );
   }
@@ -280,7 +343,7 @@ function App() {
             <MatchCandidates
               candidates={candidates}
               onSelect={handleCandidateSelect}
-              onShowAll={() => { setScreen("allCategories"); scrollTop(); }}
+              onShowAll={() => { setScreen("allCategories"); pushState("allCategories"); scrollTop(); }}
             />
           )}
 
@@ -294,7 +357,7 @@ function App() {
                   : "Please select the closest symptom below"}
               </p>
               <button
-                onClick={() => { setScreen("allCategories"); scrollTop(); }}
+                onClick={() => { setScreen("allCategories"); pushState("allCategories"); scrollTop(); }}
                 className="w-full py-3.5 rounded-2xl text-sm font-semibold bg-gradient-to-r from-emerald-400 to-teal-500 text-white hover:shadow-md active:scale-[0.98] transition-all shadow-sm"
               >
                 {i18n.language === "ko"
