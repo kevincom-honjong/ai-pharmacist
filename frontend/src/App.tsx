@@ -60,6 +60,7 @@ function App() {
   const [showCandidates, setShowCandidates] = useState(false);
   const [noMatch, setNoMatch] = useState(false);
   const [countryCode, setCountryCode] = useState<string>(() => getSavedCountry() || "VN");
+  const [searchFocused, setSearchFocused] = useState(false);
 
   // Restore language
   if (onboardingStep === "done" || onboardingStep === "country" || onboardingStep === "disclaimer") {
@@ -297,7 +298,9 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] max-w-[480px] mx-auto relative">
-      <Header />
+      <div className={`transition-all duration-300 ease-in-out ${searchFocused ? "max-h-0 overflow-hidden opacity-0" : "max-h-[200px] opacity-100"}`}>
+        <Header />
+      </div>
 
       <div className="px-5 pt-2">
         <CountrySelector
@@ -320,15 +323,15 @@ function App() {
       </div>
 
       <main className="px-5 pb-16">
-        <div className="pt-3 pb-2 text-center">
+        <div className={`text-center transition-all duration-300 ease-in-out ${searchFocused ? "max-h-0 overflow-hidden opacity-0 pt-0 pb-0" : "max-h-[400px] opacity-100 pt-3 pb-2"}`}>
           <PharmacyIllustration />
-          <h1 className="text-2xl font-bold text-gray-800 mb-1 -mt-2">
+          <h1 className="text-2xl font-bold text-gray-800 mb-1 -mt-4">
             {t("home.greeting")}
           </h1>
           <p className="text-sm text-gray-400">{t("app.slogan")}</p>
         </div>
 
-        <div className="mt-6 mb-8">
+        <div className={`mb-8 ${searchFocused ? "mt-2" : "mt-6"}`}>
           <SearchInput
             value={searchValue}
             onChange={(v) => {
@@ -337,6 +340,7 @@ function App() {
               setShowCandidates(false);
             }}
             onSubmit={handleSearch}
+            onFocusChange={setSearchFocused}
           />
 
           {showCandidates && candidates.length > 1 && (

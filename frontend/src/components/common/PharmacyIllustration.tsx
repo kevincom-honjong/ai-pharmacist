@@ -1,7 +1,7 @@
 export default function PharmacyIllustration() {
   return (
-    <div className="flex items-center justify-center mb-1">
-      <div className="w-44 h-44 rounded-3xl overflow-hidden flex items-center justify-center bg-[#FAFAF8]">
+    <div className="flex items-center justify-center -mb-1">
+      <div className="w-40 h-40 rounded-3xl overflow-hidden flex items-center justify-center bg-[#FAFAF8]">
         <img
           src="/pharmacy-illustration.png"
           alt="AI Pharmacist"
