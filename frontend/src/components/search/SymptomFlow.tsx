@@ -9,6 +9,7 @@ import {
   type DrugEntry,
 } from "../../services/symptomData";
 import { getCountryInfo } from "../../services/countryDetect";
+import { getCategorySpecialty, getSpecialtyName, getMapsUrl } from "../../services/hospitalData";
 import CompanionCheckStep from "./CompanionCheckStep";
 import NewDrugCard from "../drug/NewDrugCard";
 import HospitalWarning from "../common/HospitalWarning";
@@ -218,6 +219,8 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
     return (
       <HospitalWarning
         message={getWarning(combo, lang)}
+        comboKey={combo.comboKey}
+        countryCode={countryCode}
         onReset={onReset}
         lang={lang}
       />
@@ -371,6 +374,40 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
             <p className="text-gray-400">{t("common.noResults")}</p>
           </div>
         )}
+
+        {/* Find hospital section */}
+        {(() => {
+          const catSpecialty = getCategorySpecialty(category);
+          const specName = getSpecialtyName(catSpecialty, lang);
+          const specUrl = getMapsUrl(catSpecialty);
+          const worseLabelMap: Record<string, string> = {
+            ko: "증상이 심해지면",
+            en: "If symptoms worsen",
+            vi: "Nếu triệu chứng nặng hơn",
+          };
+          const findLabelMap: Record<string, string> = {
+            ko: `가까운 ${specName} 찾기`,
+            en: `Find ${specName} nearby`,
+            vi: `Tìm ${specName} gần đây`,
+          };
+          const ll = lang.startsWith("en") ? "en" : (["ko", "vi"].includes(lang) ? lang : "en");
+          return (
+            <div className="mt-6 bg-gray-50 rounded-2xl p-4">
+              <p className="text-xs font-semibold text-gray-500 mb-2">
+                {worseLabelMap[ll] || worseLabelMap.en}
+              </p>
+              <a
+                href={specUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl text-xs font-semibold text-teal-600 bg-white shadow-sm hover:shadow-md active:scale-[0.98] transition-all"
+              >
+                <span>📍</span>
+                <span>{findLabelMap[ll] || findLabelMap.en}</span>
+              </a>
+            </div>
+          );
+        })()}
       </main>
 
       <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm">
