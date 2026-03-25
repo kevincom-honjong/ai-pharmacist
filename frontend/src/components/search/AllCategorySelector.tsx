@@ -26,7 +26,7 @@ const ICONS: Record<string, string> = {
   heartburn: "🔥", constipation: "😫", insomnia: "😴", jointPain: "🦵",
   dizziness: "💫", tinnitus: "👂", nosebleed: "🩸", mouthUlcer: "👄",
   burn: "🔥", wound: "🩹", swelling: "🦶", acne: "😖",
-  athletesFoot: "🦶", stye: "👁️",
+  athletesFoot: "🦶", stye: "👁️", hangover: "🍺",
 };
 
 const NAMES: Record<string, Record<string, string>> = {
@@ -60,6 +60,7 @@ const NAMES: Record<string, Record<string, string>> = {
   acne: { ko: "여드름", en: "Acne", vi: "Mụn trứng cá" },
   athletesFoot: { ko: "무좀", en: "Athlete's Foot", vi: "Nấm chân" },
   stye: { ko: "다래끼", en: "Stye", vi: "Lẹo mắt" },
+  hangover: { ko: "숙취", en: "Hangover", vi: "Say rượu" },
 };
 
 const DESC: Record<string, Record<string, string>> = {
@@ -93,6 +94,7 @@ const DESC: Record<string, Record<string, string>> = {
   acne: { ko: "피부에 뾰루지가 나는 상태", en: "Pimples or breakouts", vi: "Nổi mụn trên da" },
   athletesFoot: { ko: "발에 곰팡이 감염, 가려움", en: "Fungal foot infection", vi: "Nhiễm nấm ở chân" },
   stye: { ko: "눈꺼풀에 염증이 생긴 상태", en: "Eyelid bump/infection", vi: "Sưng viêm mí mắt" },
+  hangover: { ko: "술 마신 다음 날 속이 안 좋은 상태", en: "Feeling sick after drinking", vi: "Khó chịu sau khi uống rượu" },
 };
 
 export default function AllCategorySelector({ onSelect, onBack }: AllCategorySelectorProps) {

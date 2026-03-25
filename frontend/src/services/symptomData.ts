@@ -358,6 +358,13 @@ export const DRUGS: Record<string, DrugEntry> = {
   child_smecta_kr: { id: "child_smecta_kr", nameKR: "스멕타 (반포)", nameVN: "Smecta (trẻ em)", nameUS: "Pepto Kids", ingredient: "Diosmectite(KR,VN) / Calcium carbonate(US)", dosageKR: "1포의 절반, 하루 3회 (물에 녹여)", dosageVN: "Nửa gói, 3 lần/ngày", dosageUS: "1 tablet chewed, by age", precautionKR: "수분 보충 병행", precautionVN: "Kèm bổ sung nước", precautionUS: "Stay hydrated" },
   child_zyrtec_kr: { id: "child_zyrtec_kr", nameKR: "지르텍 시럽 (소아용)", nameVN: "Cetirizine syrup (trẻ em)", nameUS: "Children's Zyrtec Syrup", ingredient: "Cetirizine 1mg/ml syrup", dosageKR: "2.5ml, 하루 1회 (2~5세) / 5ml (6세 이상)", dosageVN: "2.5ml, 1 lần/ngày (2-5 tuổi)", dosageUS: "2.5ml once daily (2-5yr) / 5ml (6+)", precautionKR: "졸음 가능, 취침 전 권장", precautionVN: "Có thể gây buồn ngủ", precautionUS: "May cause drowsiness" },
   child_claritin_kr: { id: "child_claritin_kr", nameKR: "클라리틴 시럽 (소아용)", nameVN: "Loratadine syrup (trẻ em)", nameUS: "Children's Claritin", ingredient: "Loratadine 1mg/ml syrup", dosageKR: "5ml, 하루 1회 (6세 이상)", dosageVN: "5ml, 1 lần/ngày (từ 6 tuổi)", dosageUS: "5ml once daily (6+)", precautionKR: "졸음 적음", precautionVN: "Ít gây buồn ngủ", precautionUS: "Non-drowsy" },
+
+  // === Hangover drugs (31) ===
+  condition_kr: { id: "condition_kr", nameKR: "컨디션 헛개수", nameVN: "RG Hải (giải rượu)", nameUS: "Pedialyte", ingredient: "헛개나무 추출물(KR) / Herbal(VN) / Electrolytes(US)", dosageKR: "1병, 음주 전후", dosageVN: "1 chai, trước/sau uống rượu", dosageUS: "500ml, sip frequently", precautionKR: "해장 음료", precautionVN: "Nước giải rượu", precautionUS: "Rehydration is priority" },
+  brufen_hangover_kr: { id: "brufen_hangover_kr", nameKR: "부루펜 200mg", nameVN: "Gofen 400mg", nameUS: "Advil 200mg", ingredient: "Ibuprofen 200mg(KR) / 400mg(VN) / 200mg(US)", dosageKR: "1정, 식후 복용", dosageVN: "1 viên, sau ăn", dosageUS: "1-2 tablets, with food", precautionKR: "⚠️ 타이레놀보다 간에 안전. 위장 자극 가능", precautionVN: "⚠️ An toàn cho gan hơn Paracetamol. Có thể kích ứng dạ dày", precautionUS: "⚠️ Safer for liver than Tylenol. May irritate stomach" },
+  hangover_ors_kr: { id: "hangover_ors_kr", nameKR: "ORS 경구수액", nameVN: "Oresol", nameUS: "Pedialyte", ingredient: "전해질 복합(KR) / Electrolytes(VN,US)", dosageKR: "1포, 물에 타서 수시로", dosageVN: "1 gói pha 1L nước, uống thường xuyên", dosageUS: "Sip frequently throughout the day", precautionKR: "숙취 해소 핵심은 수분 보충", precautionVN: "Bù nước là quan trọng nhất", precautionUS: "Rehydration is the #1 hangover cure" },
+  hangover_pocari_kr: { id: "hangover_pocari_kr", nameKR: "포카리스웨트", nameVN: "Pocari Sweat", nameUS: "Gatorade", ingredient: "전해질 음료", dosageKR: "수시로", dosageVN: "Uống thường xuyên", dosageUS: "Sip throughout day", precautionKR: "당분 함량 있음", precautionVN: "Có đường", precautionUS: "Contains sugar" },
+  hangover_combo_kr: { id: "hangover_combo_kr", nameKR: "컨디션 + 부루펜 + ORS", nameVN: "RG Hải + Gofen + Oresol", nameUS: "Pedialyte + Advil", ingredient: "해장음료 + Ibuprofen + 전해질", dosageKR: "해장음료 + 진통제(식후) + 수분보충", dosageVN: "Giải rượu + giảm đau(sau ăn) + bù nước", dosageUS: "Rehydrate + pain relief(with food)", precautionKR: "⚠️ 타이레놀 대신 이부프로펜 사용", precautionVN: "⚠️ Dùng Ibuprofen thay vì Paracetamol", precautionUS: "⚠️ Use Ibuprofen, NOT Tylenol" },
 };
 
 // === Symptom Categories ===
@@ -2054,6 +2061,77 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
         comboKey: "_fallback",
         drugMatches: {
           "default": { KR: ["terramycin_kr", "warm_compress"], VN: ["tobrex_vn", "warm_compress"], US: ["terramycin_kr", "warm_compress"] },
+        },
+      },
+    ],
+  },
+  // === 31. Hangover ===
+  {
+    id: "hangover",
+    nameKR: "숙취", nameEN: "Hangover", nameVI: "Say rượu",
+    descKR: "술을 마신 다음 날 머리 아프고 속이 안 좋은 상태", descEN: "Feeling sick after drinking alcohol", descVI: "Cảm giác khó chịu sau khi uống rượu",
+    companions: [
+      { key: "headache", labelKR: "두통", labelEN: "Headache", labelVI: "Đau đầu" },
+      { key: "nausea", labelKR: "구역/구토", labelEN: "Nausea/Vomiting", labelVI: "Buồn nôn", descKR: "메스껍고 토할 것 같은 느낌", descEN: "Feeling nauseous or vomiting", descVI: "Buồn nôn hoặc nôn" },
+      { key: "diarrhea", labelKR: "설사", labelEN: "Diarrhea", labelVI: "Tiêu chảy" },
+      { key: "thirst", labelKR: "극심한 갈증", labelEN: "Extreme thirst", labelVI: "Khát nước dữ dội", descKR: "입이 마르고 물이 당기는 상태", descEN: "Dry mouth and craving water", descVI: "Khô miệng và thèm nước" },
+      { key: "none", labelKR: "없음 (숙취만)", labelEN: "None (hangover only)", labelVI: "Không (chỉ say rượu)" },
+    ],
+    combos: [
+      // Hangover only
+      {
+        comboKey: "none",
+        followUpQuestions: [
+          { id: "hg_main", questionKR: "가장 불편한 증상은?", questionEN: "What bothers you most?", questionVI: "Triệu chứng khó chịu nhất?", options: [
+            { labelKR: "머리 아픔", labelEN: "Headache", labelVI: "Đau đầu" },
+            { labelKR: "속 메스꺼움", labelEN: "Nausea", labelVI: "Buồn nôn" },
+            { labelKR: "어지러움", labelEN: "Dizziness", labelVI: "Chóng mặt" },
+            { labelKR: "전부 다", labelEN: "Everything", labelVI: "Tất cả" },
+          ]},
+          { id: "hg_amount", questionKR: "어젯밤 음주량은?", questionEN: "How much did you drink?", questionVI: "Bạn đã uống bao nhiêu?", options: [
+            { labelKR: "소량 (1~2잔)", labelEN: "Light (1-2 drinks)", labelVI: "Ít (1-2 ly)" },
+            { labelKR: "보통 (3~5잔)", labelEN: "Moderate (3-5 drinks)", labelVI: "Vừa (3-5 ly)" },
+            { labelKR: "과음 (6잔 이상)", labelEN: "Heavy (6+ drinks)", labelVI: "Nhiều (6+ ly)" },
+          ]},
+        ],
+        drugMatches: {
+          "default": { KR: ["condition_kr", "brufen_hangover_kr"], VN: ["condition_kr", "brufen_hangover_kr"], US: ["hangover_ors_kr", "brufen_hangover_kr"] },
+          "severe": { KR: ["hangover_combo_kr", "hangover_ors_kr"], VN: ["hangover_combo_kr", "hangover_ors_kr"], US: ["hangover_combo_kr", "hangover_ors_kr"] },
+        },
+      },
+      // Hangover + headache
+      {
+        comboKey: "headache",
+        drugMatches: {
+          "default": { KR: ["brufen_hangover_kr", "condition_kr"], VN: ["brufen_hangover_kr", "condition_kr"], US: ["brufen_hangover_kr", "hangover_ors_kr"] },
+        },
+      },
+      // Hangover + nausea
+      {
+        comboKey: "nausea",
+        drugMatches: {
+          "default": { KR: ["gashualmyeongsu_kr", "domperidone_kr"], VN: ["motilium_vn", "condition_kr"], US: ["pepto_us", "dramamine_us"] },
+        },
+      },
+      // Hangover + thirst (dehydration)
+      {
+        comboKey: "thirst",
+        drugMatches: {
+          "default": { KR: ["hangover_ors_kr", "hangover_pocari_kr"], VN: ["hangover_ors_kr", "hangover_pocari_kr"], US: ["hangover_ors_kr", "hangover_pocari_kr"] },
+        },
+      },
+      // Hangover + diarrhea
+      {
+        comboKey: "diarrhea",
+        drugMatches: {
+          "default": { KR: ["jungrowhan_kr", "hangover_ors_kr"], VN: ["berberin_vn", "hangover_ors_kr"], US: ["pepto_us", "hangover_ors_kr"] },
+        },
+      },
+      // Fallback
+      {
+        comboKey: "_fallback",
+        drugMatches: {
+          "default": { KR: ["hangover_combo_kr", "hangover_ors_kr"], VN: ["hangover_combo_kr", "hangover_ors_kr"], US: ["hangover_combo_kr", "hangover_ors_kr"] },
         },
       },
     ],

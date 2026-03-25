@@ -401,6 +401,22 @@ const SYNONYMS: Record<string, string[]> = {
     "mí mắt sưng", "mụn ở mí mắt", "u mí mắt",
     "mắt bị sưng", "viêm mí mắt", "nổi hạt ở mí mắt",
   ],
+  hangover: [
+    "숙취", "술먹고", "음주후", "해장", "술병", "과음",
+    "어젯밤술", "술마신후", "머리깨질것같", "술마시고",
+    "술먹고속안좋", "술마시고토할것같", "숙취해소",
+    "술먹은다음날", "술깸", "아침에술깸", "폭음후",
+    "해장하고싶", "술때문에", "음주다음날",
+    "hangover", "drank too much", "after drinking",
+    "morning after", "booze", "wasted", "drunk",
+    "too much alcohol", "heavy drinking", "hungover",
+    "hung over", "next day drinking", "post drinking",
+    "alcohol headache", "drinking headache",
+    "say rượu", "nhậu xong", "đau đầu sau nhậu",
+    "uống rượu", "say bia", "giải rượu",
+    "sau khi nhậu", "buồn nôn sau nhậu", "nhậu say",
+    "giải say", "khó chịu sau uống rượu",
+  ],
 };
 
 // Korean particles to strip
@@ -536,5 +552,5 @@ export const ALL_CATEGORIES = [
   "backPain", "allergy", "skinRash", "menstrualPain", "toothache",
   "eyeStrain", "heartburn", "constipation", "insomnia", "jointPain",
   "dizziness", "tinnitus", "nosebleed", "mouthUlcer", "burn",
-  "wound", "swelling", "acne", "athletesFoot", "stye",
+  "wound", "swelling", "acne", "athletesFoot", "stye", "hangover",
 ] as const;
