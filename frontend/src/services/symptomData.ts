@@ -670,6 +670,80 @@ export const DRUGS: Record<string, DrugEntry> = {
   
   benzac_au: { id: "benzac_au", nameKR: "벤작 AC", nameVN: "Benzac AC", nameUS: "Benzac AC", nameAU: "Benzac AC", ingredient: "Benzoyl Peroxide 2.5% or 5%", dosageKR: "세안 후 하루 1~2회 도포", dosageVN: "Thoa sau rửa mặt, 1~2 lần/ngày", dosageUS: "Apply after cleansing, 1-2 times/day", dosageAU: "Apply after cleansing, 1-2 times daily. S3 Pharmacist Only Medicine", precautionKR: "S3 약사 상담 필수. 옷 탈색 주의. 눈·입술 금지. 소량 테스트 후 사용", precautionVN: "S3 phải hỏi dược sĩ. Tẩy màu quần áo. Tránh mắt/môi", precautionUS: "S3 pharmacist only. Bleaches fabrics. No eyes/lips. Patch test first", precautionAU: "S3 Pharmacist Only. Bleaches fabrics/towels. Avoid eyes/lips/mucous membranes. Start with 2.5% and small area" },
 
+  // === Germany (DE) Drugs ===
+  ibuprofen_400_de: { id: "ibuprofen_400_de", nameKR: "이부프로펜 400mg", nameVN: "Ibuprofen 400mg", nameUS: "Ibuprofen 400mg", nameDE: "Ibuprofen 400 ratiopharm", ingredient: "Ibuprofen 400mg", dosageKR: "1정, 식후, 하루 최대 3회(1200mg)", dosageVN: "1 viên, sau ăn, tối đa 3 lần/ngày", dosageUS: "1 tab, with food, max 3 times/day (1200mg)", dosageDE: "1 Tablette, nach dem Essen, max. 3x täglich (1200mg). Apothekenpflichtig", precautionKR: "공복 금지. 임신 20주 이후 금기. 위궤양·위장출혈 금기", precautionVN: "Không uống lúc đói. Cấm sau 20 tuần thai", precautionUS: "Not on empty stomach. No after 20wks pregnancy", precautionDE: "Nicht auf nüchternen Magen. Kontraindiziert ab 20. SSW. Magen-Darm-Blutung Risiko" },
+  
+  aspirin_de: { id: "aspirin_de", nameKR: "아스피린", nameVN: "Aspirin", nameUS: "Aspirin", nameDE: "Aspirin 500mg", nameLocal: "Aspirin", ingredient: "Acetylsalicylsäure (ASS) 500mg", dosageKR: "1~2정, 4~6시간 간격", dosageVN: "1~2 viên, cách 4~6 giờ", dosageUS: "1-2 tabs, every 4-6hrs", dosageDE: "1-2 Tabletten, alle 4-6 Stunden. Apothekenpflichtig", precautionKR: "12세 미만 금기(Reye 증후군). 위장 출혈 주의. 항응고제 병용 주의", precautionVN: "Cấm dưới 12 tuổi (Reye). Chảy máu dạ dày cẩn thận", precautionUS: "No under 12 (Reye). GI bleeding risk. Anticoagulant interaction", precautionDE: "Unter 12 Jahren kontraindiziert (Reye-Syndrom). GI-Blutungsrisiko. Antikoagulanzien-Wechselwirkung" },
+  
+  paracetamol_de: { id: "paracetamol_de", nameKR: "파라세타몰 (벤유론)", nameVN: "Paracetamol (ben-u-ron)", nameUS: "Paracetamol (ben-u-ron)", nameDE: "Paracetamol 500mg ratiopharm / ben-u-ron", nameLocal: "ben-u-ron", pronKR: "벤유론", pronEN: "ben-u-ron", ingredient: "Paracetamol 500mg", dosageKR: "1~2정, 4~6시간 간격, 하루 최대 8정(4g)", dosageVN: "1~2 viên, cách 4~6 giờ, tối đa 8 viên/ngày", dosageUS: "1-2 tabs, every 4-6hrs, max 8/day (4g)", dosageDE: "1-2 Tabletten, alle 4-6 Stunden, max. 8/Tag (4g). Apothekenpflichtig", precautionKR: "간독성, 음주자 주의. 다른 파라세타몰 약 중복 금지", precautionVN: "Nguy cơ gan, người uống rượu cẩn thận. Không dùng chung paracetamol khác", precautionUS: "Liver toxicity, alcohol users caution. No other paracetamol products", precautionDE: "Lebertoxizität, Alkohol-Vorsicht. Keine anderen Paracetamol-Produkte gleichzeitig" },
+  
+  thomapyrin_de: { id: "thomapyrin_de", nameKR: "토마피린 클라식", nameVN: "Thomapyrin Classic", nameUS: "Thomapyrin Classic", nameDE: "Thomapyrin CLASSIC", nameLocal: "Thomapyrin CLASSIC", pronKR: "토마피린 클라식", pronEN: "to-ma-py-rin clas-sic", ingredient: "ASS 250mg + Paracetamol 200mg + Coffein 50mg", dosageKR: "1~2정, 4~8시간 간격, 하루 최대 6정", dosageVN: "1~2 viên, cách 4~8 giờ, tối đa 6 viên/ngày", dosageUS: "1-2 tabs, every 4-8hrs, max 6/day", dosageDE: "1-2 Tabletten, alle 4-8 Stunden, max. 6 Tabletten/Tag. Ab 12 Jahren", precautionKR: "12세 미만 금기(ASS→Reye). 다른 파라세타몰/ASS 약 병용 금지. 임신 3분기 금기. 장기복용→약물남용성 두통", precautionVN: "Cấm dưới 12 tuổi. Không dùng chung paracetamol/ASS khác. Cấm 3 tháng cuối thai kỳ", precautionUS: "No under 12 (Reye). No other paracetamol/ASS. No in 3rd trimester. Long-term→MOH risk", precautionDE: "Unter 12 Jahren kontraindiziert (Reye). Keine anderen Paracetamol/ASS-Produkte. 3. Trimenon kontraindiziert. Langfristig→Medikamenten-Übergebrauchskopfschmerz" },
+  
+  grippostad_de: { id: "grippostad_de", nameKR: "그리포스타트 C", nameVN: "Grippostad C", nameUS: "Grippostad C", nameDE: "Grippostad C", nameLocal: "Grippostad C", pronKR: "그리포스타트 체", pronEN: "grip-po-stat tsay", ingredient: "Paracetamol 200mg + Vitamin C 150mg + Coffein 25mg + Chlorphenamin 2.5mg (per capsule)", dosageKR: "2캡슐, 하루 3회, 12세 이상", dosageVN: "2 viên, 3 lần/ngày, từ 12 tuổi", dosageUS: "2 capsules, 3 times/day, 12+ years", dosageDE: "2 Kapseln, 3x täglich. Ab 12 Jahren. Apothekenpflichtig", precautionKR: "졸음→운전 금지. 다른 파라세타몰 약 병용 금지. 임산부·수유부 금기. 3일 이상 금지", precautionVN: "Buồn ngủ→không lái xe. Không dùng chung paracetamol khác. Thai phụ cấm", precautionUS: "Drowsy→no driving. No other paracetamol. Pregnancy/breastfeeding contraindicated. Max 3 days", precautionDE: "Schläfrigkeit→nicht fahren. Keine anderen Paracetamol-Produkte. Schwangerschaft/Stillzeit kontraindiziert. Max. 3 Tage" },
+  
+  aspirin_complex_de: { id: "aspirin_complex_de", nameKR: "아스피린 콤플렉스", nameVN: "Aspirin Complex", nameUS: "Aspirin Complex", nameDE: "Aspirin Complex", nameLocal: "Aspirin Complex", pronKR: "아스피린 콤플렉스", pronEN: "as-pi-rin com-plex", ingredient: "ASS 500mg + Pseudoephedrin HCl 30mg", dosageKR: "1포, 물에 녹여, 하루 3~4회", dosageVN: "1 gói pha nước, 3~4 lần/ngày", dosageUS: "1 sachet dissolved, 3-4 times/day", dosageDE: "1 Beutel in Wasser lösen, 3-4x täglich. Ab 16 Jahren", precautionKR: "16세 미만 금기. 고혈압·심장·갑상선 금기. MAO 억제제 금기. 위장 출혈 위험", precautionVN: "Cấm dưới 16 tuổi. Cao huyết áp/tim/giáp cấm", precautionUS: "No under 16. Hypertension/heart/thyroid contraindicated. No MAOIs", precautionDE: "Unter 16 Jahren kontraindiziert. Hypertonie/Herz/Schilddrüse kontraindiziert. Keine MAO-Hemmer" },
+  
+  wick_daymed_de: { id: "wick_daymed_de", nameKR: "빅 데이메드", nameVN: "WICK DayMed", nameUS: "WICK DayMed", nameDE: "WICK DayMed", nameLocal: "WICK DayMed", pronKR: "빅 데이메드", pronEN: "vik day-med", ingredient: "Paracetamol 500mg + Phenylephrin 10mg + DXM 10mg", dosageKR: "1캡슐, 하루 3~4회", dosageVN: "1 viên, 3~4 lần/ngày", dosageUS: "1 capsule, 3-4 times/day", dosageDE: "1 Kapsel, 3-4x täglich. Apothekenpflichtig", precautionKR: "다른 파라세타몰 약 병용 금지. MAO 억제제 금기", precautionVN: "Không dùng chung paracetamol khác. MAOI cấm", precautionUS: "No other paracetamol. No MAOIs", precautionDE: "Keine anderen Paracetamol-Produkte. Keine MAO-Hemmer" },
+  
+  sinupret_de: { id: "sinupret_de", nameKR: "시누프렛 포르테", nameVN: "Sinupret forte", nameUS: "Sinupret forte", nameDE: "Sinupret forte", nameLocal: "Sinupret forte", pronKR: "지누프렛 포르테", pronEN: "zi-nu-pret for-te", ingredient: "Gentian+Primrose+Verbena+Elderflower+Sorrel (Phytopharmaka)", dosageKR: "1정, 하루 3회, 식후", dosageVN: "1 viên, 3 lần/ngày, sau ăn", dosageUS: "1 tab, 3 times/day, after meals", dosageDE: "1 Tablette, 3x täglich, nach dem Essen. Pflanzliches Arzneimittel", precautionKR: "부비동염·코막힘 식물성 의약품. 임산부 의사 상담", precautionVN: "Thuốc thảo dược viêm xoang. Thai phụ hỏi bác sĩ", precautionUS: "Herbal sinusitis medicine. Pregnancy: consult doctor", precautionDE: "Pflanzliches Sinusitis-Mittel. Schwangerschaft: Arzt konsultieren" },
+  
+  mucosolvan_de: { id: "mucosolvan_de", nameKR: "무코솔반", nameVN: "Mucosolvan", nameUS: "Mucosolvan", nameDE: "Mucosolvan", nameLocal: "Mucosolvan", pronKR: "무코솔반", pronEN: "mu-ko-sol-van", ingredient: "Ambroxol HCl 30mg", dosageKR: "1정, 하루 2~3회", dosageVN: "1 viên, 2~3 lần/ngày", dosageUS: "1 tab, 2-3 times/day", dosageDE: "1 Tablette, 2-3x täglich. Ausreichend trinken", precautionKR: "충분한 수분 섭취. 소화성 궤양 주의", precautionVN: "Uống nhiều nước. Loét dạ dày cẩn thận", precautionUS: "Drink plenty of water. Peptic ulcer caution", precautionDE: "Ausreichend Flüssigkeit trinken. Magengeschwür Vorsicht" },
+  
+  acc_600_de: { id: "acc_600_de", nameKR: "ACC 아쿠트 600", nameVN: "ACC Akut 600", nameUS: "ACC Akut 600", nameDE: "ACC akut 600 Brausetabletten", nameLocal: "ACC akut 600", pronKR: "아체체 아쿠트", pronEN: "ah-tse-tse a-koot", ingredient: "Acetylcystein 600mg", dosageKR: "1포(발포정), 물에 녹여, 하루 1회", dosageVN: "1 viên sủi pha nước, 1 lần/ngày", dosageUS: "1 effervescent tab in water, once daily", dosageDE: "1 Brausetablette in Wasser lösen, 1x täglich", precautionKR: "소화성 궤양 주의. 천식 환자 기관지 경련 가능", precautionVN: "Loét dạ dày cẩn thận. Hen suyễn: co thắt phế quản có thể xảy ra", precautionUS: "Peptic ulcer caution. Asthma: bronchospasm possible", precautionDE: "Magengeschwür Vorsicht. Asthma: Bronchospasmus möglich" },
+  
+  gelomyrtol_de: { id: "gelomyrtol_de", nameKR: "겔로미르톨 포르테", nameVN: "Gelomyrtol forte", nameUS: "Gelomyrtol forte", nameDE: "GeloMyrtol forte", nameLocal: "GeloMyrtol forte", pronKR: "겔로뮈르톨 포르테", pronEN: "ge-lo-myr-tol for-te", ingredient: "Myrtol standardized extract (Eucalyptus+Orange+Myrtle+Lemon oils)", dosageKR: "1캡슐, 식전 30분, 하루 3~4회", dosageVN: "1 viên, 30 phút trước ăn, 3~4 lần/ngày", dosageUS: "1 capsule, 30min before meals, 3-4 times/day", dosageDE: "1 Kapsel, 30 Min. vor dem Essen, 3-4x täglich. Pflanzliches Arzneimittel", precautionKR: "반드시 식전 복용! 5세 이상 소아용(GeloMyrtol 300) 별도", precautionVN: "Phải uống trước ăn! Trẻ 5+ dùng GeloMyrtol 300", precautionUS: "Must take before meals! Children 5+: use GeloMyrtol 300", precautionDE: "Unbedingt vor dem Essen einnehmen! Kinder ab 5: GeloMyrtol 300 verwenden" },
+  
+  doloDobendan_de: { id: "doloDobendan_de", nameKR: "돌로도벤단", nameVN: "Dolo-Dobendan", nameUS: "Dolo-Dobendan", nameDE: "Dolo-Dobendan", nameLocal: "Dolo-Dobendan", pronKR: "돌로도벤단", pronEN: "do-lo-do-ben-dan", ingredient: "Benzocaine 1.5mg + Cetylpyridiniumchlorid 0.3mg", dosageKR: "1정, 2~3시간 간격, 하루 최대 8정", dosageVN: "1 viên, cách 2~3 giờ, tối đa 8 viên/ngày", dosageUS: "1 lozenge, every 2-3hrs, max 8/day", dosageDE: "1 Lutschtablette, alle 2-3 Stunden, max. 8/Tag", precautionKR: "Benzocaine→메트헤모글로빈혈증 위험(드묾). 2세 미만 금지", precautionVN: "Benzocaine→nguy cơ methemoglobin (hiếm). Cấm dưới 2 tuổi", precautionUS: "Benzocaine→methemoglobinemia risk (rare). No under 2", precautionDE: "Benzocain→Methämoglobinämie-Risiko (selten). Unter 2 Jahren kontraindiziert" },
+  
+  neoAngin_de: { id: "neoAngin_de", nameKR: "네오앙긴", nameVN: "Neo-Angin", nameUS: "Neo-Angin", nameDE: "Neo-Angin", nameLocal: "Neo-Angin", pronKR: "네오앙긴", pronEN: "ne-o-an-gin", ingredient: "Amylmetacresol + Dichlorobenzylalkohol + Menthol", dosageKR: "1정, 2~3시간 간격", dosageVN: "1 viên, cách 2~3 giờ", dosageUS: "1 lozenge, every 2-3hrs", dosageDE: "1 Lutschtablette, alle 2-3 Stunden", precautionKR: "6세 미만 금지", precautionVN: "Cấm dưới 6 tuổi", precautionUS: "No under 6", precautionDE: "Unter 6 Jahren kontraindiziert" },
+  
+  xylometazoline_de: { id: "xylometazoline_de", nameKR: "코 스프레이 (자일로메타졸린)", nameVN: "Nasenspray Xylometazoline", nameUS: "Nasal Spray Xylometazoline", nameDE: "Nasenspray ratiopharm Erwachsene", ingredient: "Xylometazolin HCl 0.1%", dosageKR: "1~2회 분사, 하루 2~3회", dosageVN: "1~2 lần xịt, 2~3 lần/ngày", dosageUS: "1-2 sprays, 2-3 times/day", dosageDE: "1-2 Sprühstöße je Nasenloch, 2-3x täglich. Max. 7 Tage", precautionKR: "7일 초과 금지(반동성 코막힘). 6세 미만 소아용 0.05% 사용", precautionVN: "Không dùng quá 7 ngày. Trẻ dưới 6 tuổi dùng 0.05%", precautionUS: "No more than 7 days. Under 6: use 0.05% children's", precautionDE: "Nicht länger als 7 Tage (Rhinitis medicamentosa). Unter 6 Jahren: 0,05% Kinderversion" },
+  
+  cetirizin_de: { id: "cetirizin_de", nameKR: "세티리진", nameVN: "Cetirizin", nameUS: "Cetirizine", nameDE: "Cetirizin ratiopharm 10mg", ingredient: "Cetirizin HCl 10mg", dosageKR: "1정, 하루 1회(취침 전)", dosageVN: "1 viên, 1 lần/ngày (trước ngủ)", dosageUS: "1 tab, once daily (bedtime)", dosageDE: "1 Tablette, 1x täglich (abends). Apothekenpflichtig", precautionKR: "졸음 가능. 신장질환 시 용량 조절", precautionVN: "Có thể buồn ngủ. Bệnh thận điều chỉnh liều", precautionUS: "May cause drowsiness. Kidney disease: dose adjustment", precautionDE: "Kann Schläfrigkeit verursachen. Nierenerkrankung: Dosisanpassung" },
+  
+  loratadin_de: { id: "loratadin_de", nameKR: "로라타딘", nameVN: "Loratadin", nameUS: "Loratadine", nameDE: "Loratadin ratiopharm 10mg", ingredient: "Loratadin 10mg", dosageKR: "1정, 하루 1회", dosageVN: "1 viên, 1 lần/ngày", dosageUS: "1 tab, once daily", dosageDE: "1 Tablette, 1x täglich. Apothekenpflichtig", precautionKR: "졸음 매우 적음. 간질환 시 격일 복용", precautionVN: "Ít gây buồn ngủ. Bệnh gan uống cách ngày", precautionUS: "Very low drowsiness. Liver disease: every other day", precautionDE: "Sehr geringe Schläfrigkeit. Lebererkrankung: jeden 2. Tag" },
+  
+  iberogast_de: { id: "iberogast_de", nameKR: "이베로가스트", nameVN: "Iberogast", nameUS: "Iberogast", nameDE: "Iberogast", nameLocal: "Iberogast", pronKR: "이베로가스트", pronEN: "ee-be-ro-gast", ingredient: "9 Pflanzenextrakte (Iberis amara + 8 weitere)", dosageKR: "20방울, 식전/식간, 하루 3회", dosageVN: "20 giọt, trước/giữa bữa ăn, 3 lần/ngày", dosageUS: "20 drops, before/between meals, 3 times/day", dosageDE: "20 Tropfen, vor/zwischen den Mahlzeiten, 3x täglich", precautionKR: "⚠️ 간독성 위험! Schöllkraut(애기똥풀) 함유→BfArM 경고(2018). 간질환자·임산부 금기. 알코올 31% 함유", precautionVN: "⚠️ Nguy cơ gan! Chứa Schöllkraut→cảnh báo BfArM. Bệnh gan/thai phụ cấm. Cồn 31%", precautionUS: "⚠️ Liver toxicity risk! Contains Chelidonium→BfArM warning(2018). Liver disease/pregnancy contraindicated. 31% alcohol", precautionDE: "⚠️ Lebertoxizitätsrisiko! Enthält Schöllkraut→BfArM-Warnung (2018). Lebererkrankung/Schwangerschaft kontraindiziert. 31 Vol.-% Alkohol" },
+  
+  maaloxan_de: { id: "maaloxan_de", nameKR: "말록산", nameVN: "Maaloxan", nameUS: "Maaloxan", nameDE: "Maaloxan 25mVal", nameLocal: "Maaloxan", pronKR: "말록산", pronEN: "ma-lox-an", ingredient: "Aluminium hydroxide + Magnesium hydroxide", dosageKR: "1~2정 씹어먹기, 식후 1시간", dosageVN: "1~2 viên nhai, 1 giờ sau ăn", dosageUS: "1-2 chewable tabs, 1hr after meals", dosageDE: "1-2 Kautabletten, 1 Stunde nach dem Essen", precautionKR: "신장질환 금기(Al·Mg 축적). 항생제와 2시간 간격. 14일 이상 시 의사", precautionVN: "Bệnh thận cấm. Cách kháng sinh 2 giờ", precautionUS: "Kidney disease contraindicated. Space antibiotics 2hrs. Over 14 days→doctor", precautionDE: "Niereninsuffizienz kontraindiziert. 2 Stunden Abstand zu Antibiotika. Über 14 Tage→Arzt" },
+  
+  omeprazol_de: { id: "omeprazol_de", nameKR: "오메프라졸", nameVN: "Omeprazol", nameUS: "Omeprazole", nameDE: "Omeprazol ratiopharm 20mg", ingredient: "Omeprazol 20mg", dosageKR: "1정, 아침 식전, 14일 코스", dosageVN: "1 viên, trước bữa sáng, 14 ngày", dosageUS: "1 tab, before breakfast, 14-day course", dosageDE: "1 Tablette, vor dem Frühstück, 14 Tage. Apothekenpflichtig", precautionKR: "14일 초과 자가 복용 금지. 클로피도그렐 병용 금기", precautionVN: "Không quá 14 ngày tự dùng. Clopidogrel cấm dùng chung", precautionUS: "No more than 14 days self-treatment. Clopidogrel contraindicated", precautionDE: "Max. 14 Tage Selbstmedikation. Clopidogrel kontraindiziert" },
+  
+  imodium_de: { id: "imodium_de", nameKR: "이모디움 아쿠트", nameVN: "Imodium akut", nameUS: "Imodium akut", nameDE: "Imodium akut", ingredient: "Loperamid HCl 2mg", dosageKR: "초회 2정, 이후 설사마다 1정, 하루 최대 8정", dosageVN: "Đầu tiên 2 viên, sau mỗi lần 1 viên, tối đa 8/ngày", dosageUS: "First 2 tabs, then 1 per stool, max 8/day", dosageDE: "Anfangs 2 Tabletten, dann 1 nach jedem Stuhl, max. 8/Tag", precautionKR: "12세 미만 금지. 혈변·발열 시 금지. 48시간 이내 개선 없으면 의사", precautionVN: "Cấm dưới 12 tuổi. Máu/sốt cấm. 48 giờ→bác sĩ", precautionUS: "No under 12. No bloody stool/fever. 48hrs→doctor", precautionDE: "Unter 12 Jahren kontraindiziert. Kein Blut im Stuhl/Fieber. 48 Stunden→Arzt" },
+  
+  perenterol_de: { id: "perenterol_de", nameKR: "페렌테롤", nameVN: "Perenterol", nameUS: "Perenterol", nameDE: "Perenterol forte 250mg", nameLocal: "Perenterol", pronKR: "페렌테롤", pronEN: "pe-ren-te-rol", ingredient: "Saccharomyces cerevisiae HANSEN CBS 5926 (medizinische Hefe)", dosageKR: "1~2캡슐, 하루 1~2회", dosageVN: "1~2 viên, 1~2 lần/ngày", dosageUS: "1-2 capsules, 1-2 times/day", dosageDE: "1-2 Kapseln, 1-2x täglich. Apothekenpflichtig", precautionKR: "면역저하 환자 진균 혈증 위험→의사 상담. 중앙정맥 카테터 환자 금기", precautionVN: "Người suy giảm miễn dịch→hỏi bác sĩ. Catheter tĩnh mạch trung tâm cấm", precautionUS: "Immunocompromised: fungemia risk→consult doctor. Central venous catheter contraindicated", precautionDE: "Immunsupprimierte: Fungämie-Risiko→Arzt konsultieren. Zentralvenöser Katheter kontraindiziert" },
+  
+  elotrans_de: { id: "elotrans_de", nameKR: "엘로트란스 (ORS)", nameVN: "Elotrans (ORS)", nameUS: "Elotrans (ORS)", nameDE: "Elotrans Pulver", nameLocal: "Elotrans", pronKR: "엘로트란스", pronEN: "e-lo-trans", ingredient: "Elektrolyte (Na, K, Cl, Citrat, Glucose)", dosageKR: "1포, 물에 타서 소량씩", dosageVN: "1 gói pha nước, uống từng chút", dosageUS: "1 sachet in water, sip frequently", dosageDE: "1 Beutel in Wasser auflösen, schluckweise trinken. Auch beliebt als Kater-Mittel!", precautionKR: "끓인 후 식힌 물. 24시간 내 사용. 독일인 숙취 해소 인기 제품!", precautionVN: "Nước đun sôi để nguội. Dùng trong 24 giờ. Người Đức hay dùng trị hangover!", precautionUS: "Boiled cooled water. Use within 24hrs. Popular hangover remedy in Germany!", precautionDE: "Abgekochtes, abgekühltes Wasser. Innerhalb 24 Stunden verbrauchen. Beliebtes Kater-Mittel!" },
+  
+  vomex_de: { id: "vomex_de", nameKR: "보멕스 A", nameVN: "Vomex A", nameUS: "Vomex A", nameDE: "Vomex A", nameLocal: "Vomex A", pronKR: "보멕스 아", pronEN: "vo-meks ah", ingredient: "Dimenhydrinat 50mg", dosageKR: "1정, 출발 30분 전, 하루 최대 8정", dosageVN: "1 viên, 30 phút trước đi, tối đa 8 viên/ngày", dosageUS: "1 tab, 30min before travel, max 8/day", dosageDE: "1 Tablette, 30 Min. vor der Reise, max. 8/Tag (400mg). Apothekenpflichtig", precautionKR: "졸음→운전 금지. 녹내장·전립선비대 금기. 음주 금지", precautionVN: "Buồn ngủ→không lái xe. Glôcôm/tiền liệt tuyến cấm. Không uống rượu", precautionUS: "Drowsy→no driving. Glaucoma/prostate contraindicated. No alcohol", precautionDE: "Schläfrigkeit→nicht fahren. Glaukom/Prostatahyperplasie kontraindiziert. Kein Alkohol" },
+  
+  voltaren_de: { id: "voltaren_de", nameKR: "볼타렌 슈메르츠겔", nameVN: "Voltaren Schmerzgel", nameUS: "Voltaren Schmerzgel", nameDE: "Voltaren Schmerzgel", nameLocal: "Voltaren Schmerzgel", pronKR: "볼타렌 슈메르츠겔", pronEN: "vol-ta-ren shmertz-gel", ingredient: "Diclofenac Diethylammonium (1% Diclofenac-Na)", dosageKR: "하루 3~4회 도포, 최대 2주", dosageVN: "Thoa 3~4 lần/ngày, tối đa 2 tuần", dosageUS: "Apply 3-4 times/day, max 2 weeks", dosageDE: "3-4x täglich auftragen, max. 2 Wochen. Apothekenpflichtig", precautionKR: "광과민성→도포 부위 햇빛 주의. 임신 30주 이후 금기", precautionVN: "Tránh nắng vùng thoa. Cấm sau 30 tuần thai", precautionUS: "Photosensitivity. No after 30wks pregnancy", precautionDE: "Photosensitivität→behandelte Stelle vor Sonne schützen. Ab 30. SSW kontraindiziert" },
+  
+  fenistil_de: { id: "fenistil_de", nameKR: "페니스틸 겔", nameVN: "Fenistil Gel", nameUS: "Fenistil Gel", nameDE: "Fenistil Gel", nameLocal: "Fenistil", pronKR: "페니스틸", pronEN: "fe-nis-til", ingredient: "Dimetindenmaleat 0.1%", dosageKR: "환부에 하루 2~4회 도포", dosageVN: "Thoa 2~4 lần/ngày", dosageUS: "Apply 2-4 times/day", dosageDE: "2-4x täglich auftragen. Apothekenpflichtig", precautionKR: "2세 미만 의사 상담. 눈·점막 금지", precautionVN: "Dưới 2 tuổi hỏi bác sĩ. Tránh mắt/niêm mạc", precautionUS: "Under 2: consult doctor. No eyes/mucous", precautionDE: "Unter 2 Jahren: Arzt konsultieren. Nicht an Augen/Schleimhäuten" },
+  
+  bepanthen_eye_de: { id: "bepanthen_eye_de", nameKR: "베판텐 안약", nameVN: "Bepanthen Augentropfen", nameUS: "Bepanthen Eye Drops", nameDE: "Bepanthen Augentropfen", nameLocal: "Bepanthen Augentropfen", pronKR: "베판텐 아우겐트롭펜", pronEN: "be-pan-ten ow-gen-trop-fen", ingredient: "Dexpanthenol 50mg/ml (5%)", dosageKR: "1방울, 하루 수회", dosageVN: "1 giọt, nhiều lần/ngày", dosageUS: "1 drop, several times/day", dosageDE: "1 Tropfen, mehrmals täglich. Apothekenpflichtig", precautionKR: "렌즈 빼고 사용, 15분 후 재착용", precautionVN: "Tháo kính áp tròng, đeo lại sau 15 phút", precautionUS: "Remove contacts, reinsert after 15min", precautionDE: "Kontaktlinsen entfernen, nach 15 Min. wieder einsetzen" },
+  
+  kamistad_de: { id: "kamistad_de", nameKR: "카미스타트 겔", nameVN: "Kamistad Gel", nameUS: "Kamistad Gel", nameDE: "Kamistad Gel", nameLocal: "Kamistad", pronKR: "카미스타트", pronEN: "ka-mi-stat", ingredient: "Lidocain HCl + Kamillenblüten-Extrakt", dosageKR: "환부에 소량 도포, 하루 3회", dosageVN: "Thoa ít lên vết loét, 3 lần/ngày", dosageUS: "Apply small amount, 3 times/day", dosageDE: "Erbsengroße Menge auftragen, 3x täglich", precautionKR: "국화과 알레르기 주의(캐모마일)", precautionVN: "Dị ứng họ cúc cẩn thận (hoa cúc)", precautionUS: "Asteraceae allergy caution (chamomile)", precautionDE: "Korbblütler-Allergie beachten (Kamille)" },
+  
+  dulcolax_de: { id: "dulcolax_de", nameKR: "둘코락스", nameVN: "Dulcolax", nameUS: "Dulcolax", nameDE: "Dulcolax Dragées", ingredient: "Bisacodyl 5mg", dosageKR: "1~2정, 취침 전", dosageVN: "1~2 viên, trước ngủ", dosageUS: "1-2 tabs, at bedtime", dosageDE: "1-2 Dragées, abends vor dem Schlafengehen", precautionKR: "장기 복용 금지. 우유·제산제와 1시간 간격. 6세 미만 금지", precautionVN: "Không dùng lâu dài. Cách sữa/antacid 1 giờ. Dưới 6 tuổi cấm", precautionUS: "No long-term use. Space milk/antacids 1hr. No under 6", precautionDE: "Nicht dauerhaft einnehmen. 1 Stunde Abstand zu Milch/Antazida. Unter 6 Jahren kontraindiziert" },
+  
+  movicol_de: { id: "movicol_de", nameKR: "모비콜", nameVN: "Movicol", nameUS: "Movicol", nameDE: "Movicol", nameLocal: "Movicol", pronKR: "모비콜", pronEN: "mo-vi-col", ingredient: "Macrogol 3350 13.125g + Elektrolyte", dosageKR: "1포, 물 125ml에, 하루 1~3회", dosageVN: "1 gói pha 125ml nước, 1~3 lần/ngày", dosageUS: "1 sachet in 125ml water, 1-3 times/day", dosageDE: "1 Beutel in 125ml Wasser, 1-3x täglich. Keine Gewöhnung", precautionKR: "충분한 수분. 장폐색 금기. 의존성 없음", precautionVN: "Uống đủ nước. Tắc ruột cấm. Không gây lệ thuộc", precautionUS: "Adequate fluids. Bowel obstruction contraindicated. No dependency", precautionDE: "Ausreichend trinken. Darmverschluss kontraindiziert. Keine Gewöhnung" },
+  
+  bepanthen_de: { id: "bepanthen_de", nameKR: "베판텐 상처연고", nameVN: "Bepanthen Wundsalbe", nameUS: "Bepanthen Wound Ointment", nameDE: "Bepanthen Wund- und Heilsalbe", nameLocal: "Bepanthen", pronKR: "베판텐", pronEN: "be-pan-ten", ingredient: "Dexpanthenol 5% (50mg/g)", dosageKR: "환부에 하루 수회 도포", dosageVN: "Thoa nhiều lần/ngày", dosageUS: "Apply several times/day", dosageDE: "Mehrmals täglich dünn auftragen. Deutschlands beliebteste Wundsalbe", precautionKR: "감염 상처는 먼저 소독 필요", precautionVN: "Vết thương nhiễm trùng cần sát trùng trước", precautionUS: "Infected wounds need disinfection first", precautionDE: "Infizierte Wunden zuerst desinfizieren" },
+  
+  betaisodona_de: { id: "betaisodona_de", nameKR: "베타이소도나", nameVN: "Betaisodona", nameUS: "Betaisodona", nameDE: "Betaisodona Salbe/Lösung", nameLocal: "Betaisodona", pronKR: "베타이소도나", pronEN: "be-ta-ee-so-do-na", ingredient: "Povidon-Iod 10%", dosageKR: "상처 소독, 도포", dosageVN: "Sát trùng vết thương, thoa", dosageUS: "Wound disinfection, apply", dosageDE: "Zur Wunddesinfektion auftragen. Apothekenpflichtig", precautionKR: "갑상선질환 주의(요오드). 요오드 알레르기 금기", precautionVN: "Bệnh tuyến giáp cẩn thận. Dị ứng iốt cấm", precautionUS: "Thyroid disease caution. Iodine allergy prohibited", precautionDE: "Schilddrüsenerkrankung Vorsicht (Jodaufnahme). Jodallergie kontraindiziert" },
+  
+  hoggar_de: { id: "hoggar_de", nameKR: "호가 나이트", nameVN: "Hoggar Night", nameUS: "Hoggar Night", nameDE: "Hoggar Night", nameLocal: "Hoggar Night", pronKR: "호가 나이트", pronEN: "ho-gar night", ingredient: "Doxylaminsuccinat 25mg", dosageKR: "반~1정, 취침 30분 전", dosageVN: "½~1 viên, 30 phút trước ngủ", dosageUS: "½-1 tab, 30min before bed", dosageDE: "½-1 Tablette, 30 Min. vor dem Schlafengehen. Max. 7 Tage. Apothekenpflichtig", precautionKR: "7일 이상 금지. 녹내장·전립선비대 금기. 음주 금지. 65세 이상 낙상·인지저하 위험", precautionVN: "Không quá 7 ngày. Glôcôm/tiền liệt tuyến cấm. Không rượu. 65+ ngã/suy giảm nhận thức", precautionUS: "No more than 7 days. Glaucoma/prostate contraindicated. No alcohol. 65+: fall/cognitive risk", precautionDE: "Max. 7 Tage. Glaukom/Prostatahyperplasie kontraindiziert. Kein Alkohol. 65+: Sturzgefahr/kognitive Beeinträchtigung" },
+  
+  canesten_de: { id: "canesten_de", nameKR: "카네스텐", nameVN: "Canesten", nameUS: "Canesten", nameDE: "Canesten Creme", ingredient: "Clotrimazol 1%", dosageKR: "하루 2~3회, 4주 이상", dosageVN: "2~3 lần/ngày, trên 4 tuần", dosageUS: "2-3 times/day, 4+ weeks", dosageDE: "2-3x täglich, mindestens 4 Wochen. Bayer-Produkt (deutsches Unternehmen!)", precautionKR: "증상 후 2주 더 사용(재발 방지). Bayer 본사 제품!", precautionVN: "Dùng thêm 2 tuần sau khi hết. Sản phẩm Bayer (công ty Đức!)", precautionUS: "Continue 2 weeks after symptoms clear. Bayer product (German company!)", precautionDE: "2 Wochen nach Symptomfreiheit weiter anwenden. Bayer-Produkt!" },
+  
+  lamisil_de: { id: "lamisil_de", nameKR: "라미실", nameVN: "Lamisil", nameUS: "Lamisil", nameDE: "Lamisil Creme", ingredient: "Terbinafin HCl 1%", dosageKR: "하루 1~2회, 1~2주", dosageVN: "1~2 lần/ngày, 1~2 tuần", dosageUS: "1-2 times/day, 1-2 weeks", dosageDE: "1-2x täglich, 1-2 Wochen", precautionKR: "완치 후 1주 추가 도포", precautionVN: "Dùng thêm 1 tuần sau khi khỏi", precautionUS: "Continue 1 week after cure", precautionDE: "1 Woche nach Abheilung weiter anwenden" },
+  
+  benzaknen_de: { id: "benzaknen_de", nameKR: "벤작넨", nameVN: "Benzaknen", nameUS: "Benzaknen", nameDE: "Benzaknen 5%", nameLocal: "Benzaknen", pronKR: "벤작넨", pronEN: "ben-zak-nen", ingredient: "Benzoylperoxid 5%", dosageKR: "세안 후 하루 1~2회 도포", dosageVN: "Thoa sau rửa mặt, 1~2 lần/ngày", dosageUS: "Apply after cleansing, 1-2 times/day", dosageDE: "Nach Reinigung 1-2x täglich auftragen. Apothekenpflichtig", precautionKR: "옷 탈색 주의. 눈·점막 금지. 소량 테스트 후 시작", precautionVN: "Cẩn thận tẩy màu quần áo. Tránh mắt/niêm mạc", precautionUS: "Bleaches fabrics. No eyes/mucous. Patch test first", precautionDE: "Bleicht Textilien. Nicht an Augen/Schleimhäuten. Erst mit kleiner Fläche testen" },
+  
+  nurofen_junior_de: { id: "nurofen_junior_de", nameKR: "뉴로펜 주니어 시럽 (어린이)", nameVN: "Nurofen Junior Fiebersaft (trẻ em)", nameUS: "Nurofen Junior Syrup (children)", nameDE: "Nurofen Junior Fiebersaft", ingredient: "Ibuprofen 20mg/ml (2-8yr) or 40mg/ml (6-12yr)", dosageKR: "체중 기준(3개월+, 5kg+), 6~8시간 간격", dosageVN: "Theo cân nặng (3 tháng+), cách 6~8 giờ", dosageUS: "Weight-based (3mo+, 5kg+), every 6-8hrs", dosageDE: "Gewichtsbasiert (ab 3 Monaten, min. 5kg), alle 6-8 Stunden. Apothekenpflichtig", precautionKR: "6개월 미만 금기. 어린이용 제형만 사용", precautionVN: "Cấm dưới 6 tháng. Chỉ dùng dạng trẻ em", precautionUS: "No under 6 months. Children's formulation only", precautionDE: "Unter 6 Monaten kontraindiziert. Nur Kinder-Darreichungsform verwenden" },
+  
+  ben_u_ron_de: { id: "ben_u_ron_de", nameKR: "벤유론 시럽 (어린이)", nameVN: "ben-u-ron Saft (trẻ em)", nameUS: "ben-u-ron Syrup (children)", nameDE: "ben-u-ron Saft", nameLocal: "ben-u-ron Saft", pronKR: "벤유론 잡트", pronEN: "ben-u-ron zaft", ingredient: "Paracetamol 200mg/5ml", dosageKR: "체중/연령 기준, 4~6시간 간격", dosageVN: "Theo cân nặng/tuổi, cách 4~6 giờ", dosageUS: "Weight/age based, every 4-6hrs", dosageDE: "Gewichts-/altersbasiert, alle 4-6 Stunden. Deutsches Kinder-Fiebermittel", precautionKR: "다른 파라세타몰 약 중복 금지", precautionVN: "Không dùng chung paracetamol khác", precautionUS: "No other paracetamol products", precautionDE: "Keine anderen Paracetamol-Produkte gleichzeitig" },
 };
 // === Symptom Categories ===
 
@@ -711,58 +785,58 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["tylenol_500_kr", "brufen_200_kr"], VN: ["panadol_500_vn", "efferalgan_500_vn"], US: ["tylenol_500_us", "advil_200_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["sara_th", "ibuprofen_gpo_th"], ID: ["panadol_id", "bodrex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
-          "severe": { KR: ["ezn6_kr", "geborin_kr"], VN: ["hapacol_650_vn", "panadol_extra_vn"], US: ["excedrin_us", "advil_400_us"], JP: ["loxonin_s_jp", "eve_a_jp"] , TH: ["ponstan_th", "ibuprofen_gpo_th"], ID: ["bodrex_extra_id", "paramex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
-          "child": { KR: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], VN: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], US: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], JP: ["bufferin_child_jp", "bufferin_child_jp"] , TH: ["sara_kids_th", "sara_kids_th"], ID: ["sanmol_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["tylenol_500_kr", "brufen_200_kr"], VN: ["panadol_500_vn", "efferalgan_500_vn"], US: ["tylenol_500_us", "advil_200_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["sara_th", "ibuprofen_gpo_th"], ID: ["panadol_id", "bodrex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
+          "severe": { KR: ["ezn6_kr", "geborin_kr"], VN: ["hapacol_650_vn", "panadol_extra_vn"], US: ["excedrin_us", "advil_400_us"], JP: ["loxonin_s_jp", "eve_a_jp"] , TH: ["ponstan_th", "ibuprofen_gpo_th"], ID: ["bodrex_extra_id", "paramex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
+          "child": { KR: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], VN: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], US: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], JP: ["bufferin_child_jp", "bufferin_child_jp"] , TH: ["sara_kids_th", "sara_kids_th"], ID: ["sanmol_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Headache + fever + runnyNose (cold)
       {
         comboKey: "fever+runnyNose",
         drugMatches: {
-          "default": { KR: ["pancol_a_kr", "tylenol_cold_kr"], VN: ["decolgen_forte_vn", "tiffy_vn"], US: ["dayquil_us", "tylenol_coldfl_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "tiffy_dey_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["pancol_a_kr", "tylenol_cold_kr"], VN: ["decolgen_forte_vn", "tiffy_vn"], US: ["dayquil_us", "tylenol_coldfl_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "tiffy_dey_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Headache + fever + cough (cold variant)
       {
         comboKey: "cough+fever",
         drugMatches: {
-          "default": { KR: ["pancol_a_kr", "tylenol_cold_kr"], VN: ["decolgen_forte_vn", "ameflu_vn"], US: ["dayquil_us", "tylenol_coldfl_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "coldapress_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["pancol_a_kr", "tylenol_cold_kr"], VN: ["decolgen_forte_vn", "ameflu_vn"], US: ["dayquil_us", "tylenol_coldfl_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "coldapress_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Headache + fever (just fever combo)
       {
         comboKey: "fever",
         drugMatches: {
-          "default": { KR: ["pancol_a_kr", "tylenol_cold_kr"], VN: ["decolgen_forte_vn", "tiffy_vn"], US: ["dayquil_us", "tylenol_coldfl_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "tiffy_dey_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["pancol_a_kr", "tylenol_cold_kr"], VN: ["decolgen_forte_vn", "tiffy_vn"], US: ["dayquil_us", "tylenol_coldfl_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "tiffy_dey_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Headache + nausea (migraine-like)
       {
         comboKey: "nausea",
         drugMatches: {
-          "default": { KR: ["ezn6_kr", "penzal_kr"], VN: ["panadol_extra_vn", "hapacol_650_vn"], US: ["excedrin_migraine_us", "advil_migraine_us"], JP: ["loxonin_s_jp", "eve_a_jp"] , TH: ["ponstan_th", "ibuprofen_gpo_th"], ID: ["bodrex_extra_id", "paramex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["ezn6_kr", "penzal_kr"], VN: ["panadol_extra_vn", "hapacol_650_vn"], US: ["excedrin_migraine_us", "advil_migraine_us"], JP: ["loxonin_s_jp", "eve_a_jp"] , TH: ["ponstan_th", "ibuprofen_gpo_th"], ID: ["bodrex_extra_id", "paramex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Headache + stiff neck (tension)
       {
         comboKey: "stiffNeck",
         drugMatches: {
-          "default": { KR: ["brufen_200_kr", "advil_liquigel_kr"], VN: ["ibuprofen_400_vn", "salonpas_vn"], US: ["advil_200_us", "aleve_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ibuprofen_gpo_th", "counterpain_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["brufen_200_kr", "advil_liquigel_kr"], VN: ["ibuprofen_400_vn", "salonpas_vn"], US: ["advil_200_us", "aleve_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ibuprofen_gpo_th", "counterpain_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Headache + soreThroat
       {
         comboKey: "soreThroat",
         drugMatches: {
-          "default": { KR: ["tylenol_500_kr", "strepsils_kr"], VN: ["panadol_500_vn", "efferalgan_500_vn"], US: ["tylenol_500_us", "cepacol_us"], JP: ["tylenol_a_jp", "perak_t_jp"] , TH: ["sara_th", "strepsils_th"], ID: ["panadol_id", "strepsils_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["tylenol_500_kr", "strepsils_kr"], VN: ["panadol_500_vn", "efferalgan_500_vn"], US: ["tylenol_500_us", "cepacol_us"], JP: ["tylenol_a_jp", "perak_t_jp"] , TH: ["sara_th", "strepsils_th"], ID: ["panadol_id", "strepsils_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Fallback: any other combo
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["tylenol_500_kr", "brufen_200_kr"], VN: ["panadol_500_vn", "efferalgan_500_vn"], US: ["tylenol_500_us", "advil_200_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["sara_th", "ibuprofen_gpo_th"], ID: ["panadol_id", "bodrex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["tylenol_500_kr", "brufen_200_kr"], VN: ["panadol_500_vn", "efferalgan_500_vn"], US: ["tylenol_500_us", "advil_200_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["sara_th", "ibuprofen_gpo_th"], ID: ["panadol_id", "bodrex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -797,50 +871,50 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["tylenol_500_kr", "brufen_200_kr"], VN: ["panadol_500_vn", "efferalgan_500_vn"], US: ["tylenol_500_us", "advil_200_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["sara_th", "ibuprofen_gpo_th"], ID: ["panadol_id", "bodrex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
-          "child": { KR: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], VN: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], US: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], JP: ["bufferin_child_jp", "bufferin_child_jp"] , TH: ["sara_kids_th", "sara_kids_th"], ID: ["sanmol_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["tylenol_500_kr", "brufen_200_kr"], VN: ["panadol_500_vn", "efferalgan_500_vn"], US: ["tylenol_500_us", "advil_200_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["sara_th", "ibuprofen_gpo_th"], ID: ["panadol_id", "bodrex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
+          "child": { KR: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], VN: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], US: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], JP: ["bufferin_child_jp", "bufferin_child_jp"] , TH: ["sara_kids_th", "sara_kids_th"], ID: ["sanmol_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Fever + cough + runnyNose
       {
         comboKey: "cough+runnyNose",
         drugMatches: {
-          "default": { KR: ["pancol_a_kr", "hwatu_ben_kr"], VN: ["ameflu_vn", "decolgen_forte_vn"], US: ["dayquil_us", "theraflu_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "coldapress_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["pancol_a_kr", "hwatu_ben_kr"], VN: ["ameflu_vn", "decolgen_forte_vn"], US: ["dayquil_us", "theraflu_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "coldapress_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Fever + cough
       {
         comboKey: "cough",
         drugMatches: {
-          "default": { KR: ["pancol_a_kr", "hwatu_ben_kr"], VN: ["ameflu_vn", "decolgen_forte_vn"], US: ["dayquil_us", "theraflu_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "coldapress_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["pancol_a_kr", "hwatu_ben_kr"], VN: ["ameflu_vn", "decolgen_forte_vn"], US: ["dayquil_us", "theraflu_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "coldapress_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Fever + runnyNose
       {
         comboKey: "runnyNose",
         drugMatches: {
-          "default": { KR: ["pancol_a_kr", "hwatu_ben_kr"], VN: ["decolgen_forte_vn", "ameflu_vn"], US: ["dayquil_us", "theraflu_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "tiffy_dey_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["pancol_a_kr", "hwatu_ben_kr"], VN: ["decolgen_forte_vn", "ameflu_vn"], US: ["dayquil_us", "theraflu_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "tiffy_dey_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Fever + bodyAche (flu-like)
       {
         comboKey: "bodyAche",
         drugMatches: {
-          "default": { KR: ["pancol_a_kr", "tylenol_cold_kr"], VN: ["tiffy_vn", "new_ameflu_vn"], US: ["nyquil_us", "tylenol_coldsevere_us"], JP: ["pabron_gold_jp", "benza_block_jp"] , TH: ["tiffy_th", "sara_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["pancol_a_kr", "tylenol_cold_kr"], VN: ["tiffy_vn", "new_ameflu_vn"], US: ["nyquil_us", "tylenol_coldsevere_us"], JP: ["pabron_gold_jp", "benza_block_jp"] , TH: ["tiffy_th", "sara_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Fever + soreThroat
       {
         comboKey: "soreThroat",
         drugMatches: {
-          "default": { KR: ["pancol_a_kr", "strepsils_kr"], VN: ["decolgen_forte_vn", "tiffy_vn"], US: ["dayquil_us", "cepacol_us"], JP: ["pabron_gold_jp", "perak_t_jp"] , TH: ["sara_th", "strepsils_th"], ID: ["panadol_id", "strepsils_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["pancol_a_kr", "strepsils_kr"], VN: ["decolgen_forte_vn", "tiffy_vn"], US: ["dayquil_us", "cepacol_us"], JP: ["pabron_gold_jp", "perak_t_jp"] , TH: ["sara_th", "strepsils_th"], ID: ["panadol_id", "strepsils_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Fever + stomachDiarrhea
       {
         comboKey: "stomachDiarrhea",
         drugMatches: {
-          "default": { KR: ["tylenol_500_kr", "jungrowhan_kr"], VN: ["panadol_500_vn", "berberin_vn"], US: ["tylenol_500_us", "pepto_us"], JP: ["tylenol_a_jp", "seirogan_jp"] , TH: ["sara_th", "ors_th"], ID: ["panadol_id", "diatabs_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["tylenol_500_kr", "jungrowhan_kr"], VN: ["panadol_500_vn", "berberin_vn"], US: ["tylenol_500_us", "pepto_us"], JP: ["tylenol_a_jp", "seirogan_jp"] , TH: ["sara_th", "ors_th"], ID: ["panadol_id", "diatabs_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Fever + rash → HOSPITAL
@@ -856,7 +930,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["tylenol_500_kr", "brufen_200_kr"], VN: ["panadol_500_vn", "efferalgan_500_vn"], US: ["tylenol_500_us", "advil_200_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["sara_th", "ibuprofen_gpo_th"], ID: ["panadol_id", "bodrex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["tylenol_500_kr", "brufen_200_kr"], VN: ["panadol_500_vn", "efferalgan_500_vn"], US: ["tylenol_500_us", "advil_200_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["sara_th", "ibuprofen_gpo_th"], ID: ["panadol_id", "bodrex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -895,37 +969,37 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["copus_syrup_kr", "tushira_kr"], VN: ["bophe_vn", "prospan_vn"], US: ["delsym_us", "robitussin_dm_us"], JP: ["ryukakusan_jp", "aneton_jp"] , TH: ["woods_cough_th", "benadryl_cough_th"], ID: ["obh_combi_id", "woods_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
-          "severe": { KR: ["copus_syrup_kr", "tushira_kr"], VN: ["bophe_vn", "prospan_vn"], US: ["delsym_us", "robitussin_dm_us"], JP: ["ryukakusan_jp", "aneton_jp"] , TH: ["woods_cough_th", "benadryl_cough_th"], ID: ["obh_combi_id", "woods_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
-          "child": { KR: ["child_cough_syrup_kr", "child_cough2_kr"], VN: ["child_cough_syrup_kr", "child_cough2_kr"], US: ["child_cough_syrup_kr", "child_cough2_kr"], JP: ["pabron_kids_jp", "pabron_kids_jp"] , TH: ["sara_kids_th", "sara_kids_th"], ID: ["sanmol_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["copus_syrup_kr", "tushira_kr"], VN: ["bophe_vn", "prospan_vn"], US: ["delsym_us", "robitussin_dm_us"], JP: ["ryukakusan_jp", "aneton_jp"] , TH: ["woods_cough_th", "benadryl_cough_th"], ID: ["obh_combi_id", "woods_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
+          "severe": { KR: ["copus_syrup_kr", "tushira_kr"], VN: ["bophe_vn", "prospan_vn"], US: ["delsym_us", "robitussin_dm_us"], JP: ["ryukakusan_jp", "aneton_jp"] , TH: ["woods_cough_th", "benadryl_cough_th"], ID: ["obh_combi_id", "woods_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
+          "child": { KR: ["child_cough_syrup_kr", "child_cough2_kr"], VN: ["child_cough_syrup_kr", "child_cough2_kr"], US: ["child_cough_syrup_kr", "child_cough2_kr"], JP: ["pabron_kids_jp", "pabron_kids_jp"] , TH: ["sara_kids_th", "sara_kids_th"], ID: ["sanmol_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Cough + phlegm
       {
         comboKey: "phlegm",
         drugMatches: {
-          "default": { KR: ["mucopect_kr", "copus_kr"], VN: ["acc200_vn", "mucosolvan_vn"], US: ["mucinex_us", "robitussin_chest_us"], JP: ["ryukakusan_jp", "ryukakusan_direct_jp"] , TH: ["mucosolvan_th", "woods_cough_th"], ID: ["obh_combi_id", "woods_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["mucopect_kr", "copus_kr"], VN: ["acc200_vn", "mucosolvan_vn"], US: ["mucinex_us", "robitussin_chest_us"], JP: ["ryukakusan_jp", "ryukakusan_direct_jp"] , TH: ["mucosolvan_th", "woods_cough_th"], ID: ["obh_combi_id", "woods_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Cough + fever + runnyNose → cold
       {
         comboKey: "fever+runnyNose",
         drugMatches: {
-          "default": { KR: ["pancol_a_kr", "hwatu_ben_kr"], VN: ["new_ameflu_vn", "decolgen_forte_vn"], US: ["dayquil_us", "theraflu_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "coldapress_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["pancol_a_kr", "hwatu_ben_kr"], VN: ["new_ameflu_vn", "decolgen_forte_vn"], US: ["dayquil_us", "theraflu_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "coldapress_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Cough + fever
       {
         comboKey: "fever",
         drugMatches: {
-          "default": { KR: ["pancol_a_kr", "hwatu_ben_kr"], VN: ["new_ameflu_vn", "decolgen_forte_vn"], US: ["dayquil_us", "theraflu_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "coldapress_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["pancol_a_kr", "hwatu_ben_kr"], VN: ["new_ameflu_vn", "decolgen_forte_vn"], US: ["dayquil_us", "theraflu_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "coldapress_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Cough + soreThroat
       {
         comboKey: "soreThroat",
         drugMatches: {
-          "default": { KR: ["strepsils_kr", "copus_syrup_kr"], VN: ["strepsils_kr", "bophe_vn"], US: ["cepacol_us", "delsym_us"], JP: ["harenace_jp", "ryukakusan_jp"] , TH: ["strepsils_th", "woods_cough_th"], ID: ["strepsils_id", "obh_combi_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["strepsils_kr", "copus_syrup_kr"], VN: ["strepsils_kr", "bophe_vn"], US: ["cepacol_us", "delsym_us"], JP: ["harenace_jp", "ryukakusan_jp"] , TH: ["strepsils_th", "woods_cough_th"], ID: ["strepsils_id", "obh_combi_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Cough + breathless → HOSPITAL
@@ -941,7 +1015,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["copus_syrup_kr", "tushira_kr"], VN: ["bophe_vn", "prospan_vn"], US: ["delsym_us", "robitussin_dm_us"], JP: ["ryukakusan_jp", "aneton_jp"] , TH: ["woods_cough_th", "benadryl_cough_th"], ID: ["obh_combi_id", "woods_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["copus_syrup_kr", "tushira_kr"], VN: ["bophe_vn", "prospan_vn"], US: ["delsym_us", "robitussin_dm_us"], JP: ["ryukakusan_jp", "aneton_jp"] , TH: ["woods_cough_th", "benadryl_cough_th"], ID: ["obh_combi_id", "woods_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -981,42 +1055,42 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["contac600_kr", "otrivin_kr"], VN: ["otrivin_vn", "coldib_vn"], US: ["sudafed_us", "afrin_us"], JP: ["pabron_nasal_jp", "nazal_spray_jp"] , TH: ["iliadin_th", "poysian_th"], ID: ["actifed_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["contac600_kr", "otrivin_kr"], VN: ["otrivin_vn", "coldib_vn"], US: ["sudafed_us", "afrin_us"], JP: ["pabron_nasal_jp", "nazal_spray_jp"] , TH: ["iliadin_th", "poysian_th"], ID: ["actifed_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Nose + sneeze → allergy
       {
         comboKey: "sneeze",
         drugMatches: {
-          "default": { KR: ["zyrtec_kr", "claritin_kr"], VN: ["cetirizine_vn", "loratadine_vn"], US: ["zyrtec_us", "claritin_us"], JP: ["allegra_fx_jp", "allegra_fx_jp"] , TH: ["clarityne_th", "zyrtec_th"], ID: ["cetirizine_id", "loratadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["zyrtec_kr", "claritin_kr"], VN: ["cetirizine_vn", "loratadine_vn"], US: ["zyrtec_us", "claritin_us"], JP: ["allegra_fx_jp", "allegra_fx_jp"] , TH: ["clarityne_th", "zyrtec_th"], ID: ["cetirizine_id", "loratadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Nose + fever + cough → cold
       {
         comboKey: "cough+fever",
         drugMatches: {
-          "default": { KR: ["pancol_a_kr", "tylenol_cold_kr"], VN: ["decolgen_forte_vn", "ameflu_vn"], US: ["dayquil_us", "tylenol_coldfl_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "coldapress_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["pancol_a_kr", "tylenol_cold_kr"], VN: ["decolgen_forte_vn", "ameflu_vn"], US: ["dayquil_us", "tylenol_coldfl_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "coldapress_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Nose + fever
       {
         comboKey: "fever",
         drugMatches: {
-          "default": { KR: ["pancol_a_kr", "tylenol_cold_kr"], VN: ["decolgen_forte_vn", "ameflu_vn"], US: ["dayquil_us", "tylenol_coldfl_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "tiffy_dey_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["pancol_a_kr", "tylenol_cold_kr"], VN: ["decolgen_forte_vn", "ameflu_vn"], US: ["dayquil_us", "tylenol_coldfl_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "tiffy_dey_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Nose + facePressure → sinusitis
       {
         comboKey: "facePressure",
         drugMatches: {
-          "default": { KR: ["contac600_kr", "sinechura_kr"], VN: ["otrivin_vn", "decolgen_forte_vn"], US: ["advil_sinus_us", "sudafed_us"], JP: ["pabron_nasal_jp", "eve_a_jp"] , TH: ["iliadin_th", "sara_th"], ID: ["actifed_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["contac600_kr", "sinechura_kr"], VN: ["otrivin_vn", "decolgen_forte_vn"], US: ["advil_sinus_us", "sudafed_us"], JP: ["pabron_nasal_jp", "eve_a_jp"] , TH: ["iliadin_th", "sara_th"], ID: ["actifed_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Fallback
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["contac600_kr", "otrivin_kr"], VN: ["otrivin_vn", "coldib_vn"], US: ["sudafed_us", "afrin_us"], JP: ["pabron_nasal_jp", "nazal_spray_jp"] , TH: ["iliadin_th", "poysian_th"], ID: ["actifed_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["contac600_kr", "otrivin_kr"], VN: ["otrivin_vn", "coldib_vn"], US: ["sudafed_us", "afrin_us"], JP: ["pabron_nasal_jp", "nazal_spray_jp"] , TH: ["iliadin_th", "poysian_th"], ID: ["actifed_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -1052,21 +1126,21 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["strepsils_kr", "mokan_kr"], VN: ["strepsils_kr", "eugica_vn"], US: ["cepacol_us", "chloraseptic_us"], JP: ["harenace_jp", "perak_t_jp"] , TH: ["strepsils_th", "difflam_th"], ID: ["strepsils_id", "fg_troches_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["strepsils_kr", "mokan_kr"], VN: ["strepsils_kr", "eugica_vn"], US: ["cepacol_us", "chloraseptic_us"], JP: ["harenace_jp", "perak_t_jp"] , TH: ["strepsils_th", "difflam_th"], ID: ["strepsils_id", "fg_troches_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Sore throat + fever
       {
         comboKey: "fever",
         drugMatches: {
-          "default": { KR: ["tylenol_500_kr", "strepsils_kr"], VN: ["panadol_500_vn", "strepsils_kr"], US: ["tylenol_500_us", "cepacol_us"], JP: ["tylenol_a_jp", "perak_t_jp"] , TH: ["sara_th", "strepsils_th"], ID: ["panadol_id", "strepsils_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["tylenol_500_kr", "strepsils_kr"], VN: ["panadol_500_vn", "strepsils_kr"], US: ["tylenol_500_us", "cepacol_us"], JP: ["tylenol_a_jp", "perak_t_jp"] , TH: ["sara_th", "strepsils_th"], ID: ["panadol_id", "strepsils_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Sore throat + cough
       {
         comboKey: "cough",
         drugMatches: {
-          "default": { KR: ["strepsils_kr", "copus_syrup_kr"], VN: ["strepsils_kr", "bophe_vn"], US: ["cepacol_us", "delsym_us"], JP: ["harenace_jp", "ryukakusan_jp"] , TH: ["strepsils_th", "woods_cough_th"], ID: ["strepsils_id", "obh_combi_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["strepsils_kr", "copus_syrup_kr"], VN: ["strepsils_kr", "bophe_vn"], US: ["cepacol_us", "delsym_us"], JP: ["harenace_jp", "ryukakusan_jp"] , TH: ["strepsils_th", "woods_cough_th"], ID: ["strepsils_id", "obh_combi_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Sore throat + swallow + high fever → HOSPITAL
@@ -1082,7 +1156,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["strepsils_kr", "mokan_kr"], VN: ["strepsils_kr", "eugica_vn"], US: ["cepacol_us", "chloraseptic_us"], JP: ["harenace_jp", "perak_t_jp"] , TH: ["strepsils_th", "difflam_th"], ID: ["strepsils_id", "fg_troches_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["strepsils_kr", "mokan_kr"], VN: ["strepsils_kr", "eugica_vn"], US: ["cepacol_us", "chloraseptic_us"], JP: ["harenace_jp", "perak_t_jp"] , TH: ["strepsils_th", "difflam_th"], ID: ["strepsils_id", "fg_troches_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -1119,49 +1193,49 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["buscopan_kr", "doctorbear_kr"], VN: ["buscopan_vn", "nospa_vn"], US: ["pepto_us", "gasx_us"], JP: ["ohta_isan_jp", "cabagin_jp"] , TH: ["sara_th", "eno_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["buscopan_kr", "doctorbear_kr"], VN: ["buscopan_vn", "nospa_vn"], US: ["pepto_us", "gasx_us"], JP: ["ohta_isan_jp", "cabagin_jp"] , TH: ["sara_th", "eno_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Stomach + diarrhea
       {
         comboKey: "diarrhea",
         drugMatches: {
-          "default": { KR: ["jungrowhan_kr", "smecta_kr"], VN: ["berberin_vn", "smecta_vn"], US: ["imodium_us", "pepto_us"], JP: ["seirogan_jp", "stoppa_jp"] , TH: ["imodium_th", "smecta_th"], ID: ["diatabs_id", "oralit_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["jungrowhan_kr", "smecta_kr"], VN: ["berberin_vn", "smecta_vn"], US: ["imodium_us", "pepto_us"], JP: ["seirogan_jp", "stoppa_jp"] , TH: ["imodium_th", "smecta_th"], ID: ["diatabs_id", "oralit_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Stomach + nausea
       {
         comboKey: "nausea",
         drugMatches: {
-          "default": { KR: ["buscopan_kr", "doctorbear_kr"], VN: ["buscopan_vn", "motilium_vn"], US: ["pepto_us", "dramamine_us"], JP: ["ohta_isan_jp", "aneron_jp"] , TH: ["domperidone_th", "eno_th"], ID: ["antimo_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["buscopan_kr", "doctorbear_kr"], VN: ["buscopan_vn", "motilium_vn"], US: ["pepto_us", "dramamine_us"], JP: ["ohta_isan_jp", "aneron_jp"] , TH: ["domperidone_th", "eno_th"], ID: ["antimo_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Stomach + heartburn
       {
         comboKey: "heartburn",
         drugMatches: {
-          "default": { KR: ["gelpos_kr", "almagel_kr"], VN: ["phosphalugel_vn", "yumangel_vn"], US: ["tums_us", "pepcid_us"], JP: ["gaster_10_jp", "ohta_isan_jp"] , TH: ["eno_th", "gaviscon_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["gelpos_kr", "almagel_kr"], VN: ["phosphalugel_vn", "yumangel_vn"], US: ["tums_us", "pepcid_us"], JP: ["gaster_10_jp", "ohta_isan_jp"] , TH: ["eno_th", "gaviscon_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Stomach + bloating
       {
         comboKey: "bloating",
         drugMatches: {
-          "default": { KR: ["gashualmyeongsu_kr", "doctorbear_kr"], VN: ["activated_charcoal_vn", "airx_vn"], US: ["gasx_us", "beano_us"], JP: ["ohta_isan_jp", "wakamoto_jp"] , TH: ["eno_th", "airx_th"], ID: ["promag_id", "enzyplex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["gashualmyeongsu_kr", "doctorbear_kr"], VN: ["activated_charcoal_vn", "airx_vn"], US: ["gasx_us", "beano_us"], JP: ["ohta_isan_jp", "wakamoto_jp"] , TH: ["eno_th", "airx_th"], ID: ["promag_id", "enzyplex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Stomach + fever (right lower + fever → hospital for appendicitis is handled by the hospital combo below)
       {
         comboKey: "fever",
         drugMatches: {
-          "default": { KR: ["buscopan_kr", "tylenol_500_kr"], VN: ["buscopan_vn", "panadol_500_vn"], US: ["pepto_us", "tylenol_500_us"], JP: ["ohta_isan_jp", "tylenol_a_jp"] , TH: ["sara_th", "eno_th"], ID: ["promag_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["buscopan_kr", "tylenol_500_kr"], VN: ["buscopan_vn", "panadol_500_vn"], US: ["pepto_us", "tylenol_500_us"], JP: ["ohta_isan_jp", "tylenol_a_jp"] , TH: ["sara_th", "eno_th"], ID: ["promag_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Fallback
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["buscopan_kr", "doctorbear_kr"], VN: ["buscopan_vn", "nospa_vn"], US: ["pepto_us", "gasx_us"], JP: ["ohta_isan_jp", "cabagin_jp"] , TH: ["sara_th", "eno_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["buscopan_kr", "doctorbear_kr"], VN: ["buscopan_vn", "nospa_vn"], US: ["pepto_us", "gasx_us"], JP: ["ohta_isan_jp", "cabagin_jp"] , TH: ["sara_th", "eno_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -1195,23 +1269,23 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["jungrowhan_kr", "smecta_kr"], VN: ["berberin_vn", "smecta_vn"], US: ["imodium_us", "pepto_us"], JP: ["seirogan_jp", "stoppa_jp"] , TH: ["imodium_th", "smecta_th"], ID: ["diatabs_id", "oralit_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
-          "severe": { KR: ["ors_kr", "pocari_kr"], VN: ["oresol_vn", "hydrite_vn"], US: ["pedialyte_us", "dripdrop_us"], JP: ["biofermin_jp", "stoppa_jp"] , TH: ["ors_th", "smecta_th"], ID: ["oralit_id", "diatabs_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
-          "child": { KR: ["child_ors_kr", "child_smecta_kr"], VN: ["child_ors_kr", "child_smecta_kr"], US: ["child_ors_kr", "child_smecta_kr"], JP: ["biofermin_jp", "biofermin_jp"] , TH: ["ors_th", "smecta_th"], ID: ["oralit_id", "diatabs_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["jungrowhan_kr", "smecta_kr"], VN: ["berberin_vn", "smecta_vn"], US: ["imodium_us", "pepto_us"], JP: ["seirogan_jp", "stoppa_jp"] , TH: ["imodium_th", "smecta_th"], ID: ["diatabs_id", "oralit_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
+          "severe": { KR: ["ors_kr", "pocari_kr"], VN: ["oresol_vn", "hydrite_vn"], US: ["pedialyte_us", "dripdrop_us"], JP: ["biofermin_jp", "stoppa_jp"] , TH: ["ors_th", "smecta_th"], ID: ["oralit_id", "diatabs_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
+          "child": { KR: ["child_ors_kr", "child_smecta_kr"], VN: ["child_ors_kr", "child_smecta_kr"], US: ["child_ors_kr", "child_smecta_kr"], JP: ["biofermin_jp", "biofermin_jp"] , TH: ["ors_th", "smecta_th"], ID: ["oralit_id", "diatabs_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Diarrhea + nausea → dehydration risk
       {
         comboKey: "nausea",
         drugMatches: {
-          "default": { KR: ["jungrowhan_kr", "ors_kr"], VN: ["berberin_vn", "oresol_vn"], US: ["imodium_us", "pedialyte_us"], JP: ["seirogan_jp", "biofermin_jp"] , TH: ["ors_th", "imodium_th"], ID: ["diatabs_id", "oralit_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["jungrowhan_kr", "ors_kr"], VN: ["berberin_vn", "oresol_vn"], US: ["imodium_us", "pedialyte_us"], JP: ["seirogan_jp", "biofermin_jp"] , TH: ["ors_th", "imodium_th"], ID: ["diatabs_id", "oralit_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Diarrhea + fever → infectious
       {
         comboKey: "fever",
         drugMatches: {
-          "default": { KR: ["jungrowhan_kr", "tylenol_500_kr"], VN: ["berberin_vn", "panadol_500_vn"], US: ["imodium_us", "tylenol_500_us"], JP: ["seirogan_jp", "tylenol_a_jp"] , TH: ["imodium_th", "sara_th"], ID: ["diatabs_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["jungrowhan_kr", "tylenol_500_kr"], VN: ["berberin_vn", "panadol_500_vn"], US: ["imodium_us", "tylenol_500_us"], JP: ["seirogan_jp", "tylenol_a_jp"] , TH: ["imodium_th", "sara_th"], ID: ["diatabs_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Diarrhea + bloody stool → HOSPITAL
@@ -1227,7 +1301,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["jungrowhan_kr", "smecta_kr"], VN: ["berberin_vn", "smecta_vn"], US: ["imodium_us", "pepto_us"], JP: ["seirogan_jp", "stoppa_jp"] , TH: ["imodium_th", "smecta_th"], ID: ["diatabs_id", "oralit_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["jungrowhan_kr", "smecta_kr"], VN: ["berberin_vn", "smecta_vn"], US: ["imodium_us", "pepto_us"], JP: ["seirogan_jp", "stoppa_jp"] , TH: ["imodium_th", "smecta_th"], ID: ["diatabs_id", "oralit_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -1261,28 +1335,28 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["beaze_kr", "gashualmyeongsu_kr"], VN: ["domperidone_vn", "motilium_vn"], US: ["gasx_us", "beano_us"], JP: ["ohta_isan_jp", "wakamoto_jp"] , TH: ["eno_th", "domperidone_th"], ID: ["promag_id", "enzyplex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["beaze_kr", "gashualmyeongsu_kr"], VN: ["domperidone_vn", "motilium_vn"], US: ["gasx_us", "beano_us"], JP: ["ohta_isan_jp", "wakamoto_jp"] , TH: ["eno_th", "domperidone_th"], ID: ["promag_id", "enzyplex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Indigestion + heartburn
       {
         comboKey: "heartburn",
         drugMatches: {
-          "default": { KR: ["gelpos_kr", "famotidine_kr"], VN: ["phosphalugel_vn", "yumangel_vn"], US: ["tums_us", "pepcid_us"], JP: ["gaster_10_jp", "ohta_isan_jp"] , TH: ["gaviscon_th", "omeprazole_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["gelpos_kr", "famotidine_kr"], VN: ["phosphalugel_vn", "yumangel_vn"], US: ["tums_us", "pepcid_us"], JP: ["gaster_10_jp", "ohta_isan_jp"] , TH: ["gaviscon_th", "omeprazole_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Indigestion + bloating
       {
         comboKey: "bloating",
         drugMatches: {
-          "default": { KR: ["gashualmyeongsu_kr", "doctorbear_kr"], VN: ["activated_charcoal_vn", "airx_vn"], US: ["gasx_us", "phazyme_us"], JP: ["ohta_isan_jp", "wakamoto_jp"] , TH: ["eno_th", "airx_th"], ID: ["promag_id", "enzyplex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["gashualmyeongsu_kr", "doctorbear_kr"], VN: ["activated_charcoal_vn", "airx_vn"], US: ["gasx_us", "phazyme_us"], JP: ["ohta_isan_jp", "wakamoto_jp"] , TH: ["eno_th", "airx_th"], ID: ["promag_id", "enzyplex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Fallback
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["beaze_kr", "gashualmyeongsu_kr"], VN: ["domperidone_vn", "motilium_vn"], US: ["gasx_us", "beano_us"], JP: ["ohta_isan_jp", "wakamoto_jp"] , TH: ["eno_th", "domperidone_th"], ID: ["promag_id", "enzyplex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["beaze_kr", "gashualmyeongsu_kr"], VN: ["domperidone_vn", "motilium_vn"], US: ["gasx_us", "beano_us"], JP: ["ohta_isan_jp", "wakamoto_jp"] , TH: ["eno_th", "domperidone_th"], ID: ["promag_id", "enzyplex_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -1316,28 +1390,28 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["doctorbear_kr", "gashualmyeongsu_kr"], VN: ["domperidone_vn", "motilium_vn"], US: ["dramamine_us", "emetrol_us"], JP: ["aneron_jp", "travelmin_jp"] , TH: ["domperidone_th", "eno_th"], ID: ["antimo_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["doctorbear_kr", "gashualmyeongsu_kr"], VN: ["domperidone_vn", "motilium_vn"], US: ["dramamine_us", "emetrol_us"], JP: ["aneron_jp", "travelmin_jp"] , TH: ["domperidone_th", "eno_th"], ID: ["antimo_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Motion sickness (detected via follow-up answer "멀미")
       {
         comboKey: "motionSickness",
         drugMatches: {
-          "default": { KR: ["kimite_kr", "bonaring_kr"], VN: ["nautamine_vn", "dimenhydrinate_vn"], US: ["dramamine_us", "bonine_us"], JP: ["aneron_jp", "travelmin_jp"] , TH: ["navamed_th", "stugeron_th"], ID: ["antimo_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["kimite_kr", "bonaring_kr"], VN: ["nautamine_vn", "dimenhydrinate_vn"], US: ["dramamine_us", "bonine_us"], JP: ["aneron_jp", "travelmin_jp"] , TH: ["navamed_th", "stugeron_th"], ID: ["antimo_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Nausea + diarrhea+pain → food poisoning
       {
         comboKey: "diarrheaPain",
         drugMatches: {
-          "default": { KR: ["jungrowhan_kr", "doctorbear_kr"], VN: ["berberin_vn", "motilium_vn"], US: ["pepto_us", "dramamine_us"], JP: ["seirogan_jp", "aneron_jp"] , TH: ["ors_th", "domperidone_th"], ID: ["diatabs_id", "oralit_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["jungrowhan_kr", "doctorbear_kr"], VN: ["berberin_vn", "motilium_vn"], US: ["pepto_us", "dramamine_us"], JP: ["seirogan_jp", "aneron_jp"] , TH: ["ors_th", "domperidone_th"], ID: ["diatabs_id", "oralit_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Nausea + fever
       {
         comboKey: "fever",
         drugMatches: {
-          "default": { KR: ["doctorbear_kr", "tylenol_500_kr"], VN: ["domperidone_vn", "panadol_500_vn"], US: ["dramamine_us", "tylenol_500_us"], JP: ["aneron_jp", "tylenol_a_jp"] , TH: ["domperidone_th", "sara_th"], ID: ["antimo_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["doctorbear_kr", "tylenol_500_kr"], VN: ["domperidone_vn", "panadol_500_vn"], US: ["dramamine_us", "tylenol_500_us"], JP: ["aneron_jp", "tylenol_a_jp"] , TH: ["domperidone_th", "sara_th"], ID: ["antimo_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Nausea + pregnancy → consult doctor
@@ -1353,7 +1427,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["doctorbear_kr", "gashualmyeongsu_kr"], VN: ["domperidone_vn", "motilium_vn"], US: ["dramamine_us", "emetrol_us"], JP: ["aneron_jp", "travelmin_jp"] , TH: ["domperidone_th", "eno_th"], ID: ["antimo_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["doctorbear_kr", "gashualmyeongsu_kr"], VN: ["domperidone_vn", "motilium_vn"], US: ["dramamine_us", "emetrol_us"], JP: ["aneron_jp", "travelmin_jp"] , TH: ["domperidone_th", "eno_th"], ID: ["antimo_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -1391,36 +1465,36 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["ibuprofen_200_kr", "advil_liquigel_kr"], VN: ["ibuprofen_400_vn", "panadol_500_vn"], US: ["advil_200_us", "aleve_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
-          "severe": { KR: ["ketotop_kr", "airpas_kr"], VN: ["salonpas_vn", "tigerbalm_vn"], US: ["icyhot_us", "bengay_us"], JP: ["salonpas_jp", "feitas_jp"] , TH: ["counterpain_th", "salonpas_th"], ID: ["bodrex_extra_id", "counterpain_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["ibuprofen_200_kr", "advil_liquigel_kr"], VN: ["ibuprofen_400_vn", "panadol_500_vn"], US: ["advil_200_us", "aleve_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
+          "severe": { KR: ["ketotop_kr", "airpas_kr"], VN: ["salonpas_vn", "tigerbalm_vn"], US: ["icyhot_us", "bengay_us"], JP: ["salonpas_jp", "feitas_jp"] , TH: ["counterpain_th", "salonpas_th"], ID: ["bodrex_extra_id", "counterpain_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Muscle pain + fever + chills → flu
       {
         comboKey: "feverChills",
         drugMatches: {
-          "default": { KR: ["pancol_a_kr", "tylenol_cold_kr"], VN: ["decolgen_forte_vn", "tiffy_vn"], US: ["dayquil_us", "nyquil_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "sara_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["pancol_a_kr", "tylenol_cold_kr"], VN: ["decolgen_forte_vn", "tiffy_vn"], US: ["dayquil_us", "nyquil_us"], JP: ["pabron_gold_jp", "lulu_attack_jp"] , TH: ["tiffy_th", "sara_th"], ID: ["procold_id", "decolgen_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Muscle pain + headache
       {
         comboKey: "headache",
         drugMatches: {
-          "default": { KR: ["ibuprofen_200_kr", "tylenol_500_kr"], VN: ["ibuprofen_400_vn", "panadol_500_vn"], US: ["advil_200_us", "tylenol_500_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["salonpas_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["ibuprofen_200_kr", "tylenol_500_kr"], VN: ["ibuprofen_400_vn", "panadol_500_vn"], US: ["advil_200_us", "tylenol_500_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["salonpas_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Muscle pain + jointPain
       {
         comboKey: "jointPain",
         drugMatches: {
-          "default": { KR: ["ibuprofen_200_kr", "ketotop_kr"], VN: ["ibuprofen_400_vn", "salonpas_vn"], US: ["advil_200_us", "aleve_us"], JP: ["eve_a_jp", "salonpas_jp"] , TH: ["ibuprofen_gpo_th", "counterpain_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["ibuprofen_200_kr", "ketotop_kr"], VN: ["ibuprofen_400_vn", "salonpas_vn"], US: ["advil_200_us", "aleve_us"], JP: ["eve_a_jp", "salonpas_jp"] , TH: ["ibuprofen_gpo_th", "counterpain_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Fallback
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["ibuprofen_200_kr", "advil_liquigel_kr"], VN: ["ibuprofen_400_vn", "panadol_500_vn"], US: ["advil_200_us", "aleve_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["ibuprofen_200_kr", "advil_liquigel_kr"], VN: ["ibuprofen_400_vn", "panadol_500_vn"], US: ["advil_200_us", "aleve_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -1457,14 +1531,14 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["ibuprofen_200_kr", "tylenol_500_kr"], VN: ["ibuprofen_400_vn", "panadol_500_vn"], US: ["advil_200_us", "tylenol_500_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
-          "severe": { KR: ["ezn6_kr", "nacsen_kr"], VN: ["celebrex_vn", "arcoxia_vn"], US: ["aleve_us", "advil_400_us"], JP: ["loxonin_s_jp", "voltaren_gel_jp"] , TH: ["counterpain_th", "salonpas_th"], ID: ["bodrex_extra_id", "counterpain_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["ibuprofen_200_kr", "tylenol_500_kr"], VN: ["ibuprofen_400_vn", "panadol_500_vn"], US: ["advil_200_us", "tylenol_500_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
+          "severe": { KR: ["ezn6_kr", "nacsen_kr"], VN: ["celebrex_vn", "arcoxia_vn"], US: ["aleve_us", "advil_400_us"], JP: ["loxonin_s_jp", "voltaren_gel_jp"] , TH: ["counterpain_th", "salonpas_th"], ID: ["bodrex_extra_id", "counterpain_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       { comboKey: "legNumb", hospitalWarning: true, warningKR: "허리 통증과 다리 저림이 함께 나타나면 디스크(추간판 탈출증)의 가능성이 있습니다. 정형외과 또는 신경외과를 방문하세요.", warningEN: "Back pain with leg numbness may indicate a herniated disc. Please visit an orthopedic or neurosurgery clinic.", warningVI: "Đau lưng kèm tê chân có thể là thoát vị đĩa đệm. Vui lòng đến khoa chỉnh hình hoặc thần kinh.", drugMatches: {} },
       { comboKey: "urineIssue", hospitalWarning: true, warningKR: "허리 통증과 소변 이상이 함께 나타나면 신장 결석이나 요로 감염의 가능성이 있습니다. 비뇨기과를 방문하세요.", warningEN: "Back pain with urinary problems may indicate kidney stones or UTI. Please visit a urologist.", warningVI: "Đau lưng kèm vấn đề tiểu tiện có thể là sỏi thận hoặc nhiễm trùng đường tiết niệu. Vui lòng đến khoa tiết niệu.", drugMatches: {} },
       { comboKey: "fever", hospitalWarning: true, warningKR: "허리 통증과 발열이 함께 나타나면 감염의 가능성이 있습니다. 병원을 방문하세요.", warningEN: "Back pain with fever may indicate an infection. Please visit a hospital.", warningVI: "Đau lưng kèm sốt có thể là nhiễm trùng. Vui lòng đến bệnh viện.", drugMatches: {} },
-      { comboKey: "_fallback", drugMatches: { "default": { KR: ["ibuprofen_200_kr", "ketotop_kr"], VN: ["ibuprofen_400_vn", "salonpas_vn"], US: ["advil_200_us", "aleve_us"], JP: ["eve_a_jp", "salonpas_jp"] , TH: ["counterpain_th", "salonpas_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      { comboKey: "_fallback", drugMatches: { "default": { KR: ["ibuprofen_200_kr", "ketotop_kr"], VN: ["ibuprofen_400_vn", "salonpas_vn"], US: ["advil_200_us", "aleve_us"], JP: ["eve_a_jp", "salonpas_jp"] , TH: ["counterpain_th", "salonpas_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
     ],
   },
   // === 12. Allergy ===
@@ -1492,12 +1566,12 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           { labelKR: "음식", labelEN: "Food", labelVI: "Thức ăn" },
           { labelKR: "모름", labelEN: "Unknown", labelVI: "Không rõ" },
         ]},
-      ], drugMatches: { "default": { KR: ["zyrtec_kr", "claritin_kr"], VN: ["cetirizine_vn", "loratadine_vn"], US: ["zyrtec_us", "claritin_us"], JP: ["allegra_fx_jp", "allegra_fx_jp"] , TH: ["clarityne_th", "zyrtec_th"], ID: ["cetirizine_id", "loratadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] }, "child": { KR: ["child_zyrtec_kr", "child_claritin_kr"], VN: ["child_zyrtec_kr", "child_claritin_kr"], US: ["child_zyrtec_kr", "child_claritin_kr"], JP: ["allegra_fx_jp", "allegra_fx_jp"] , TH: ["clarityne_th", "zyrtec_th"], ID: ["cetirizine_id", "loratadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
-      { comboKey: "nasalSneeze", drugMatches: { "default": { KR: ["zyrtec_kr", "claritin_kr"], VN: ["cetirizine_vn", "loratadine_vn"], US: ["zyrtec_us", "claritin_us"], JP: ["allegra_fx_jp", "allegra_fx_jp"] , TH: ["clarityne_th", "zyrtec_th"], ID: ["cetirizine_id", "loratadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] }, "child": { KR: ["child_zyrtec_kr", "child_claritin_kr"], VN: ["child_zyrtec_kr", "child_claritin_kr"], US: ["child_zyrtec_kr", "child_claritin_kr"], JP: ["allegra_fx_jp", "allegra_fx_jp"] , TH: ["clarityne_th", "zyrtec_th"], ID: ["cetirizine_id", "loratadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
-      { comboKey: "eyeItch", drugMatches: { "default": { KR: ["cromolin_kr", "zyrtec_kr"], VN: ["cromolin_vn", "cetirizine_vn"], US: ["zaditor_us", "pataday_us"], JP: ["allegra_fx_jp", "rohto_v_jp"] , TH: ["zyrtec_th", "telfast_th"], ID: ["insto_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
-      { comboKey: "skinRash", drugMatches: { "default": { KR: ["zyrtec_kr", "hydrocortisone_kr"], VN: ["cetirizine_vn", "phenergan_vn"], US: ["benadryl_us", "cortisone10_us"], JP: ["allegra_fx_jp", "muhi_alpha_jp"] , TH: ["zyrtec_th", "hydrocortisone_th"], ID: ["caladine_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      ], drugMatches: { "default": { KR: ["zyrtec_kr", "claritin_kr"], VN: ["cetirizine_vn", "loratadine_vn"], US: ["zyrtec_us", "claritin_us"], JP: ["allegra_fx_jp", "allegra_fx_jp"] , TH: ["clarityne_th", "zyrtec_th"], ID: ["cetirizine_id", "loratadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] }, "child": { KR: ["child_zyrtec_kr", "child_claritin_kr"], VN: ["child_zyrtec_kr", "child_claritin_kr"], US: ["child_zyrtec_kr", "child_claritin_kr"], JP: ["allegra_fx_jp", "allegra_fx_jp"] , TH: ["clarityne_th", "zyrtec_th"], ID: ["cetirizine_id", "loratadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
+      { comboKey: "nasalSneeze", drugMatches: { "default": { KR: ["zyrtec_kr", "claritin_kr"], VN: ["cetirizine_vn", "loratadine_vn"], US: ["zyrtec_us", "claritin_us"], JP: ["allegra_fx_jp", "allegra_fx_jp"] , TH: ["clarityne_th", "zyrtec_th"], ID: ["cetirizine_id", "loratadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] }, "child": { KR: ["child_zyrtec_kr", "child_claritin_kr"], VN: ["child_zyrtec_kr", "child_claritin_kr"], US: ["child_zyrtec_kr", "child_claritin_kr"], JP: ["allegra_fx_jp", "allegra_fx_jp"] , TH: ["clarityne_th", "zyrtec_th"], ID: ["cetirizine_id", "loratadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
+      { comboKey: "eyeItch", drugMatches: { "default": { KR: ["cromolin_kr", "zyrtec_kr"], VN: ["cromolin_vn", "cetirizine_vn"], US: ["zaditor_us", "pataday_us"], JP: ["allegra_fx_jp", "rohto_v_jp"] , TH: ["zyrtec_th", "telfast_th"], ID: ["insto_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
+      { comboKey: "skinRash", drugMatches: { "default": { KR: ["zyrtec_kr", "hydrocortisone_kr"], VN: ["cetirizine_vn", "phenergan_vn"], US: ["benadryl_us", "cortisone10_us"], JP: ["allegra_fx_jp", "muhi_alpha_jp"] , TH: ["zyrtec_th", "hydrocortisone_th"], ID: ["caladine_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
       { comboKey: "coughBreathless", hospitalWarning: true, warningKR: "알레르기와 함께 기침이나 숨참이 나타나면 천식의 가능성이 있습니다. 호흡기내과를 방문하세요.", warningEN: "Allergy with cough or shortness of breath may indicate asthma. Please visit a pulmonologist.", warningVI: "Dị ứng kèm ho hoặc khó thở có thể là hen suyễn. Vui lòng đến khoa hô hấp.", drugMatches: {} },
-      { comboKey: "_fallback", drugMatches: { "default": { KR: ["zyrtec_kr", "claritin_kr"], VN: ["cetirizine_vn", "loratadine_vn"], US: ["zyrtec_us", "claritin_us"], JP: ["allegra_fx_jp", "allegra_fx_jp"] , TH: ["clarityne_th", "zyrtec_th"], ID: ["cetirizine_id", "loratadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      { comboKey: "_fallback", drugMatches: { "default": { KR: ["zyrtec_kr", "claritin_kr"], VN: ["cetirizine_vn", "loratadine_vn"], US: ["zyrtec_us", "claritin_us"], JP: ["allegra_fx_jp", "allegra_fx_jp"] , TH: ["clarityne_th", "zyrtec_th"], ID: ["cetirizine_id", "loratadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
     ],
   },
   // === 13. Skin Rash/Itching ===
@@ -1523,11 +1597,11 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           { labelKR: "있음", labelEN: "Yes", labelVI: "Có" },
           { labelKR: "없음", labelEN: "No", labelVI: "Không" },
         ]},
-      ], drugMatches: { "default": { KR: ["mullindi_kr", "bumugli_kr"], VN: ["tigerbalm_vn", "salonpas_vn"], US: ["benadryl_cream_us", "cortisone10_us"], JP: ["muhi_s_jp", "unakowa_jp"] , TH: ["siang_pure_th", "tiger_balm_th"], ID: ["caladine_id", "kayu_putih_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      ], drugMatches: { "default": { KR: ["mullindi_kr", "bumugli_kr"], VN: ["tigerbalm_vn", "salonpas_vn"], US: ["benadryl_cream_us", "cortisone10_us"], JP: ["muhi_s_jp", "unakowa_jp"] , TH: ["siang_pure_th", "tiger_balm_th"], ID: ["caladine_id", "kayu_putih_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
       { comboKey: "fever", hospitalWarning: true, warningKR: "피부 발진과 발열이 함께 나타나면 감염성 질환의 가능성이 있습니다. 병원을 방문하세요.", warningEN: "Skin rash with fever may indicate an infectious disease. Please visit a hospital.", warningVI: "Phát ban kèm sốt có thể là bệnh truyền nhiễm. Vui lòng đến bệnh viện.", drugMatches: {} },
       { comboKey: "swellingBreathless", hospitalWarning: true, warningKR: "피부 발진과 함께 부종이나 숨참이 나타나면 아나필락시스(심한 알레르기 응급반응)의 가능성이 있습니다. 즉시 119 또는 현지 응급번호로 전화하세요.", warningEN: "Skin rash with swelling or breathing difficulty may indicate anaphylaxis (severe allergic emergency). Call 911 or local emergency number IMMEDIATELY.", warningVI: "Phát ban kèm sưng hoặc khó thở có thể là sốc phản vệ (cấp cứu dị ứng nặng). Gọi 115 hoặc số cấp cứu địa phương NGAY LẬP TỨC.", drugMatches: {} },
-      { comboKey: "sneeze", drugMatches: { "default": { KR: ["zyrtec_kr", "claritin_kr"], VN: ["cetirizine_vn", "loratadine_vn"], US: ["zyrtec_us", "claritin_us"], JP: ["allegra_fx_jp", "allegra_fx_jp"] , TH: ["clarityne_th", "zyrtec_th"], ID: ["cetirizine_id", "loratadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
-      { comboKey: "_fallback", drugMatches: { "default": { KR: ["zyrtec_kr", "hydrocortisone_kr"], VN: ["cetirizine_vn", "phenergan_vn"], US: ["benadryl_us", "cortisone10_us"], JP: ["allegra_fx_jp", "muhi_alpha_jp"] , TH: ["calamine_th", "hydrocortisone_th"], ID: ["caladine_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      { comboKey: "sneeze", drugMatches: { "default": { KR: ["zyrtec_kr", "claritin_kr"], VN: ["cetirizine_vn", "loratadine_vn"], US: ["zyrtec_us", "claritin_us"], JP: ["allegra_fx_jp", "allegra_fx_jp"] , TH: ["clarityne_th", "zyrtec_th"], ID: ["cetirizine_id", "loratadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
+      { comboKey: "_fallback", drugMatches: { "default": { KR: ["zyrtec_kr", "hydrocortisone_kr"], VN: ["cetirizine_vn", "phenergan_vn"], US: ["benadryl_us", "cortisone10_us"], JP: ["allegra_fx_jp", "muhi_alpha_jp"] , TH: ["calamine_th", "hydrocortisone_th"], ID: ["caladine_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
     ],
   },
   // === 14. Menstrual Pain ===
@@ -1555,12 +1629,12 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           { labelKR: "둘 다", labelEN: "Both", labelVI: "Cả hai" },
         ]},
       ], drugMatches: {
-        "default": { KR: ["eve_kr", "ezn6_kr"], VN: ["ibuprofen_400_vn", "panadol_extra_vn"], US: ["midol_us", "advil_200_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ponstan_th", "ibuprofen_gpo_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+        "default": { KR: ["eve_kr", "ezn6_kr"], VN: ["ibuprofen_400_vn", "panadol_extra_vn"], US: ["midol_us", "advil_200_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ponstan_th", "ibuprofen_gpo_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
       } },
-      { comboKey: "headache", drugMatches: { "default": { KR: ["eve_kr", "geborin_kr"], VN: ["ibuprofen_400_vn", "hapacol_650_vn"], US: ["midol_us", "excedrin_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ponstan_th", "ibuprofen_gpo_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
-      { comboKey: "backPain", drugMatches: { "default": { KR: ["eve_kr", "ketotop_kr"], VN: ["ibuprofen_400_vn", "salonpas_vn"], US: ["midol_us", "thermacare_us"], JP: ["eve_a_jp", "salonpas_jp"] , TH: ["ponstan_th", "counterpain_th"], ID: ["bodrex_extra_id", "salonpas_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      { comboKey: "headache", drugMatches: { "default": { KR: ["eve_kr", "geborin_kr"], VN: ["ibuprofen_400_vn", "hapacol_650_vn"], US: ["midol_us", "excedrin_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ponstan_th", "ibuprofen_gpo_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
+      { comboKey: "backPain", drugMatches: { "default": { KR: ["eve_kr", "ketotop_kr"], VN: ["ibuprofen_400_vn", "salonpas_vn"], US: ["midol_us", "thermacare_us"], JP: ["eve_a_jp", "salonpas_jp"] , TH: ["ponstan_th", "counterpain_th"], ID: ["bodrex_extra_id", "salonpas_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
       { comboKey: "heavyBleeding", hospitalWarning: true, warningKR: "생리통과 함께 출혈량이 비정상적으로 많은 경우 자궁근종이나 호르몬 이상의 가능성이 있습니다. 산부인과를 방문하세요.", warningEN: "Severe menstrual pain with abnormally heavy bleeding may indicate fibroids or hormonal issues. Please visit a gynecologist.", warningVI: "Đau bụng kinh kèm ra máu nhiều bất thường có thể là u xơ tử cung hoặc rối loạn hormone. Vui lòng đến khoa phụ khoa.", drugMatches: {} },
-      { comboKey: "_fallback", drugMatches: { "default": { KR: ["eve_kr", "ezn6_kr"], VN: ["ibuprofen_400_vn", "panadol_extra_vn"], US: ["midol_us", "advil_200_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ponstan_th", "ibuprofen_gpo_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      { comboKey: "_fallback", drugMatches: { "default": { KR: ["eve_kr", "ezn6_kr"], VN: ["ibuprofen_400_vn", "panadol_extra_vn"], US: ["midol_us", "advil_200_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ponstan_th", "ibuprofen_gpo_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
     ],
   },
   // === 15. Toothache ===
@@ -1586,11 +1660,11 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           { labelKR: "차가운/뜨거운 것에", labelEN: "With hot/cold", labelVI: "Với nóng/lạnh" },
           { labelKR: "항상", labelEN: "All the time", labelVI: "Luôn luôn" },
         ]},
-      ], drugMatches: { "default": { KR: ["ibuprofen_200_kr", "tylenol_500_kr"], VN: ["ibuprofen_400_vn", "panadol_500_vn"], US: ["advil_200_us", "orajel_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
-      { comboKey: "gumSwollen", drugMatches: { "default": { KR: ["ibuprofen_200_kr", "tantum_kr"], VN: ["ibuprofen_400_vn", "betadine_gargle_vn"], US: ["advil_200_us", "anbesol_us"], JP: ["loxonin_s_jp", "eve_a_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      ], drugMatches: { "default": { KR: ["ibuprofen_200_kr", "tylenol_500_kr"], VN: ["ibuprofen_400_vn", "panadol_500_vn"], US: ["advil_200_us", "orajel_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
+      { comboKey: "gumSwollen", drugMatches: { "default": { KR: ["ibuprofen_200_kr", "tantum_kr"], VN: ["ibuprofen_400_vn", "betadine_gargle_vn"], US: ["advil_200_us", "anbesol_us"], JP: ["loxonin_s_jp", "eve_a_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
       { comboKey: "fever", hospitalWarning: true, warningKR: "치통과 발열이 함께 나타나면 치아 감염의 가능성이 있습니다. 가능한 빨리 치과를 방문하세요.", warningEN: "Toothache with fever may indicate a dental infection. Please visit a dentist as soon as possible.", warningVI: "Đau răng kèm sốt có thể là nhiễm trùng răng. Vui lòng đến nha khoa sớm nhất có thể.", drugMatches: {} },
       { comboKey: "faceSwelling", hospitalWarning: true, warningKR: "치통과 얼굴 부종이 함께 나타나면 치아 농양의 가능성이 있습니다. 즉시 치과를 방문하세요. 농양은 항생제 치료가 필요합니다.", warningEN: "Toothache with facial swelling may indicate a dental abscess. Visit a dentist immediately. Abscess requires antibiotic treatment.", warningVI: "Đau răng kèm sưng mặt có thể là áp xe răng. Đến nha khoa ngay. Áp xe cần điều trị kháng sinh.", drugMatches: {} },
-      { comboKey: "_fallback", drugMatches: { "default": { KR: ["ibuprofen_200_kr", "tylenol_500_kr"], VN: ["ibuprofen_400_vn", "panadol_500_vn"], US: ["advil_200_us", "orajel_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      { comboKey: "_fallback", drugMatches: { "default": { KR: ["ibuprofen_200_kr", "tylenol_500_kr"], VN: ["ibuprofen_400_vn", "panadol_500_vn"], US: ["advil_200_us", "orajel_us"], JP: ["eve_a_jp", "loxonin_s_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
     ],
   },
   // === 16. Eye Strain/Redness ===
@@ -1618,11 +1692,11 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           { labelKR: "렌즈 착용", labelEN: "Contact lenses", labelVI: "Đeo kính áp tròng" },
           { labelKR: "모름", labelEN: "Unknown", labelVI: "Không rõ" },
         ]},
-      ], drugMatches: { "default": { KR: ["refresh_kr", "hyaluronate_kr"], VN: ["systane_vn", "vrohto_vn"], US: ["visine_dry_us", "visine_us"], JP: ["rohto_v_jp", "smile_40_jp"] , TH: ["systane_th", "visine_th"], ID: ["insto_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
-      { comboKey: "allergyNose", drugMatches: { "default": { KR: ["cromolin_kr", "zyrtec_kr"], VN: ["cromolin_vn", "cetirizine_vn"], US: ["zaditor_us", "pataday_us"], JP: ["allegra_fx_jp", "rohto_v_jp"] , TH: ["zyrtec_th", "telfast_th"], ID: ["insto_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      ], drugMatches: { "default": { KR: ["refresh_kr", "hyaluronate_kr"], VN: ["systane_vn", "vrohto_vn"], US: ["visine_dry_us", "visine_us"], JP: ["rohto_v_jp", "smile_40_jp"] , TH: ["systane_th", "visine_th"], ID: ["insto_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
+      { comboKey: "allergyNose", drugMatches: { "default": { KR: ["cromolin_kr", "zyrtec_kr"], VN: ["cromolin_vn", "cetirizine_vn"], US: ["zaditor_us", "pataday_us"], JP: ["allegra_fx_jp", "rohto_v_jp"] , TH: ["zyrtec_th", "telfast_th"], ID: ["insto_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
       { comboKey: "discharge", hospitalWarning: true, warningKR: "눈곱이 많이 나오면 결막염의 가능성이 있습니다. 안과를 방문하여 적절한 안약을 처방받으세요. 다른 사람에게 전염될 수 있으니 수건/베개를 구분하세요.", warningEN: "Excessive eye discharge may indicate conjunctivitis. Please visit an eye doctor. It can be contagious - use separate towels.", warningVI: "Nhiều ghèn mắt có thể là viêm kết mạc. Vui lòng đến bác sĩ mắt. Có thể lây - dùng khăn riêng.", drugMatches: {} },
       { comboKey: "visionChange", hospitalWarning: true, warningKR: "갑작스러운 시력 변화는 즉시 안과를 방문하세요.", warningEN: "Sudden vision changes require immediate eye doctor visit.", warningVI: "Thay đổi thị lực đột ngột cần đến bác sĩ mắt ngay.", drugMatches: {} },
-      { comboKey: "_fallback", drugMatches: { "default": { KR: ["refresh_kr", "vizuclear_kr"], VN: ["systane_vn", "vrohto_vn"], US: ["visine_dry_us", "cleareyes_us"], JP: ["rohto_v_jp", "soft_santia_jp"] , TH: ["visine_th", "systane_th"], ID: ["insto_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      { comboKey: "_fallback", drugMatches: { "default": { KR: ["refresh_kr", "vizuclear_kr"], VN: ["systane_vn", "vrohto_vn"], US: ["visine_dry_us", "cleareyes_us"], JP: ["rohto_v_jp", "soft_santia_jp"] , TH: ["visine_th", "systane_th"], ID: ["insto_id", "cetirizine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
     ],
   },
   // === 17. Heartburn/Acid Reflux ===
@@ -1649,13 +1723,13 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           { labelKR: "매일", labelEN: "Daily", labelVI: "Hàng ngày" },
         ]},
       ], drugMatches: {
-        "default": { KR: ["gelpos_kr", "gaviscon_kr"], VN: ["phosphalugel_vn", "gaviscon_vn"], US: ["tums_us", "gaviscon_us"], JP: ["ohta_isan_jp", "gaster_10_jp"] , TH: ["eno_th", "gaviscon_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
-        "severe": { KR: ["famotidine_kr", "lansoprazole_kr"], VN: ["famotidine_kr", "omeprazole_vn"], US: ["pepcid_us", "prilosec_us"], JP: ["gaster_10_jp", "gaviscon_jp"] , TH: ["omeprazole_th", "gaviscon_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+        "default": { KR: ["gelpos_kr", "gaviscon_kr"], VN: ["phosphalugel_vn", "gaviscon_vn"], US: ["tums_us", "gaviscon_us"], JP: ["ohta_isan_jp", "gaster_10_jp"] , TH: ["eno_th", "gaviscon_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
+        "severe": { KR: ["famotidine_kr", "lansoprazole_kr"], VN: ["famotidine_kr", "omeprazole_vn"], US: ["pepcid_us", "prilosec_us"], JP: ["gaster_10_jp", "gaviscon_jp"] , TH: ["omeprazole_th", "gaviscon_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
       } },
-      { comboKey: "stomachPain", drugMatches: { "default": { KR: ["gelpos_kr", "almagel_kr"], VN: ["phosphalugel_vn", "yumangel_vn"], US: ["tums_us", "pepcid_us"], JP: ["gaster_10_jp", "ohta_isan_jp"] , TH: ["eno_th", "gaviscon_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
-      { comboKey: "nausea", drugMatches: { "default": { KR: ["gaviscon_kr", "doctorbear_kr"], VN: ["gaviscon_vn", "motilium_vn"], US: ["gaviscon_us", "pepto_us"], JP: ["ohta_isan_jp", "aneron_jp"] , TH: ["gaviscon_th", "domperidone_th"], ID: ["antimo_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      { comboKey: "stomachPain", drugMatches: { "default": { KR: ["gelpos_kr", "almagel_kr"], VN: ["phosphalugel_vn", "yumangel_vn"], US: ["tums_us", "pepcid_us"], JP: ["gaster_10_jp", "ohta_isan_jp"] , TH: ["eno_th", "gaviscon_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
+      { comboKey: "nausea", drugMatches: { "default": { KR: ["gaviscon_kr", "doctorbear_kr"], VN: ["gaviscon_vn", "motilium_vn"], US: ["gaviscon_us", "pepto_us"], JP: ["ohta_isan_jp", "aneron_jp"] , TH: ["gaviscon_th", "domperidone_th"], ID: ["antimo_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
       { comboKey: "chestPain", hospitalWarning: true, warningKR: "속쓰림과 함께 심한 가슴 통증이 나타나면 심장 질환과 구별이 필요합니다. 특히 운동 시 악화, 왼팔 저림, 식은땀이 동반되면 즉시 응급실을 방문하세요.", warningEN: "Heartburn with severe chest pain needs to be distinguished from heart disease. If it worsens with exercise, includes left arm numbness, or cold sweats, call emergency services immediately.", warningVI: "Ợ nóng kèm đau ngực nặng cần phân biệt với bệnh tim. Nếu nặng hơn khi vận động, tê cánh tay trái, hoặc đổ mồ hôi lạnh, gọi cấp cứu ngay.", drugMatches: {} },
-      { comboKey: "_fallback", drugMatches: { "default": { KR: ["gelpos_kr", "gaviscon_kr"], VN: ["phosphalugel_vn", "gaviscon_vn"], US: ["tums_us", "gaviscon_us"], JP: ["ohta_isan_jp", "gaster_10_jp"] , TH: ["eno_th", "gaviscon_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      { comboKey: "_fallback", drugMatches: { "default": { KR: ["gelpos_kr", "gaviscon_kr"], VN: ["phosphalugel_vn", "gaviscon_vn"], US: ["tums_us", "gaviscon_us"], JP: ["ohta_isan_jp", "gaster_10_jp"] , TH: ["eno_th", "gaviscon_th"], ID: ["promag_id", "mylanta_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
     ],
   },
   // === 18. Constipation ===
@@ -1682,12 +1756,12 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           { labelKR: "심함 (전혀 안 나옴)", labelEN: "Severe (no bowel movement)", labelVI: "Nặng (không đi được)" },
         ]},
       ], drugMatches: {
-        "default": { KR: ["magmil_kr", "dulcolax_kr"], VN: ["duphalac_vn", "forlax_vn"], US: ["miralax_us", "metamucil_us"], JP: ["colac_jp", "biofermin_constip_jp"] , TH: ["lactulose_th", "dulcolax_th"], ID: ["dulcolax_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
-        "severe": { KR: ["dulcolax_kr", "bicogreen_kr"], VN: ["duphalac_vn", "forlax_vn"], US: ["miralax_us", "metamucil_us"], JP: ["colac_jp", "biofermin_constip_jp"] , TH: ["dulcolax_th", "lactulose_th"], ID: ["dulcolax_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+        "default": { KR: ["magmil_kr", "dulcolax_kr"], VN: ["duphalac_vn", "forlax_vn"], US: ["miralax_us", "metamucil_us"], JP: ["colac_jp", "biofermin_constip_jp"] , TH: ["lactulose_th", "dulcolax_th"], ID: ["dulcolax_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
+        "severe": { KR: ["dulcolax_kr", "bicogreen_kr"], VN: ["duphalac_vn", "forlax_vn"], US: ["miralax_us", "metamucil_us"], JP: ["colac_jp", "biofermin_constip_jp"] , TH: ["dulcolax_th", "lactulose_th"], ID: ["dulcolax_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
       } },
-      { comboKey: "bloatingPain", drugMatches: { "default": { KR: ["magmil_kr", "gashualmyeongsu_kr"], VN: ["duphalac_vn", "airx_vn"], US: ["miralax_us", "gasx_us"], JP: ["colac_jp", "ohta_isan_jp"] , TH: ["lactulose_th", "airx_th"], ID: ["dulcolax_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      { comboKey: "bloatingPain", drugMatches: { "default": { KR: ["magmil_kr", "gashualmyeongsu_kr"], VN: ["duphalac_vn", "airx_vn"], US: ["miralax_us", "gasx_us"], JP: ["colac_jp", "ohta_isan_jp"] , TH: ["lactulose_th", "airx_th"], ID: ["dulcolax_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
       { comboKey: "bloodyStool", hospitalWarning: true, warningKR: "변비와 함께 출혈이 있으면 치질 또는 다른 질환의 가능성이 있습니다. 소화기내과 또는 외과를 방문하세요.", warningEN: "Constipation with bleeding may indicate hemorrhoids or other conditions. Please visit a gastroenterologist or surgeon.", warningVI: "Táo bón kèm chảy máu có thể là trĩ hoặc bệnh khác. Vui lòng đến khoa tiêu hóa hoặc ngoại khoa.", drugMatches: {} },
-      { comboKey: "_fallback", drugMatches: { "default": { KR: ["magmil_kr", "dulcolax_kr"], VN: ["duphalac_vn", "forlax_vn"], US: ["miralax_us", "metamucil_us"], JP: ["colac_jp", "biofermin_constip_jp"] , TH: ["lactulose_th", "dulcolax_th"], ID: ["dulcolax_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      { comboKey: "_fallback", drugMatches: { "default": { KR: ["magmil_kr", "dulcolax_kr"], VN: ["duphalac_vn", "forlax_vn"], US: ["miralax_us", "metamucil_us"], JP: ["colac_jp", "biofermin_constip_jp"] , TH: ["lactulose_th", "dulcolax_th"], ID: ["dulcolax_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
     ],
   },
   // === 19. Insomnia ===
@@ -1752,13 +1826,13 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           { labelKR: "만성 (몇 달 이상)", labelEN: "Chronic (months+)", labelVI: "Mãn tính (nhiều tháng)" },
         ]},
       ], drugMatches: {
-        "default": { KR: ["ibuprofen_200_kr", "tylenol_500_kr"], VN: ["ibuprofen_400_vn", "panadol_500_vn"], US: ["advil_200_us", "aleve_us"], JP: ["eve_a_jp", "voltaren_gel_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
-        "severe": { KR: ["nacsen_kr", "glucosamine_kr"], VN: ["aleve_vn", "voltaren_vn"], US: ["aleve_us", "voltaren_us"], JP: ["loxonin_s_jp", "voltaren_gel_jp"] , TH: ["voltaren_gel_th", "counterpain_th"], ID: ["bodrex_extra_id", "counterpain_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+        "default": { KR: ["ibuprofen_200_kr", "tylenol_500_kr"], VN: ["ibuprofen_400_vn", "panadol_500_vn"], US: ["advil_200_us", "aleve_us"], JP: ["eve_a_jp", "voltaren_gel_jp"] , TH: ["ibuprofen_gpo_th", "sara_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
+        "severe": { KR: ["nacsen_kr", "glucosamine_kr"], VN: ["aleve_vn", "voltaren_vn"], US: ["aleve_us", "voltaren_us"], JP: ["loxonin_s_jp", "voltaren_gel_jp"] , TH: ["voltaren_gel_th", "counterpain_th"], ID: ["bodrex_extra_id", "counterpain_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
       } },
-      { comboKey: "musclePain", drugMatches: { "default": { KR: ["ibuprofen_200_kr", "ketotop_kr"], VN: ["ibuprofen_400_vn", "salonpas_vn"], US: ["advil_200_us", "aleve_us"], JP: ["eve_a_jp", "salonpas_jp"] , TH: ["ibuprofen_gpo_th", "counterpain_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      { comboKey: "musclePain", drugMatches: { "default": { KR: ["ibuprofen_200_kr", "ketotop_kr"], VN: ["ibuprofen_400_vn", "salonpas_vn"], US: ["advil_200_us", "aleve_us"], JP: ["eve_a_jp", "salonpas_jp"] , TH: ["ibuprofen_gpo_th", "counterpain_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
       { comboKey: "swellingRedness", hospitalWarning: true, warningKR: "관절이 붓고 빨갛게 변한 경우 통풍이나 관절염의 가능성이 있습니다. 정형외과 또는 류마티스내과를 방문하세요.", warningEN: "Swollen, red joints may indicate gout or arthritis. Please visit an orthopedic or rheumatology clinic.", warningVI: "Khớp sưng đỏ có thể là gout hoặc viêm khớp. Vui lòng đến khoa chỉnh hình hoặc thấp khớp.", drugMatches: {} },
       { comboKey: "fever", hospitalWarning: true, warningKR: "관절통과 발열이 함께 나타나면 감염성 관절염의 가능성이 있습니다. 즉시 병원을 방문하세요.", warningEN: "Joint pain with fever may indicate septic arthritis. Please visit a hospital immediately.", warningVI: "Đau khớp kèm sốt có thể là viêm khớp nhiễm khuẩn. Vui lòng đến bệnh viện ngay.", drugMatches: {} },
-      { comboKey: "_fallback", drugMatches: { "default": { KR: ["ibuprofen_200_kr", "ketotop_kr"], VN: ["ibuprofen_400_vn", "voltaren_vn"], US: ["advil_200_us", "voltaren_us"], JP: ["eve_a_jp", "voltaren_gel_jp"] , TH: ["voltaren_gel_th", "counterpain_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] } } },
+      { comboKey: "_fallback", drugMatches: { "default": { KR: ["ibuprofen_200_kr", "ketotop_kr"], VN: ["ibuprofen_400_vn", "voltaren_vn"], US: ["advil_200_us", "voltaren_us"], JP: ["eve_a_jp", "voltaren_gel_jp"] , TH: ["voltaren_gel_th", "counterpain_th"], ID: ["salonpas_id", "voltaren_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] } } },
     ],
   },
   // === 21. Dizziness ===
@@ -1794,19 +1868,19 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["meniere_kr", "bonaring_kr"], VN: ["betaserc_vn", "stugeron_vn"], US: ["dramamine_us", "bonine_us"], JP: ["travelmin_jp", "aneron_jp"] , TH: ["stugeron_th", "navamed_th"], ID: ["antimo_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["meniere_kr", "bonaring_kr"], VN: ["betaserc_vn", "stugeron_vn"], US: ["dramamine_us", "bonine_us"], JP: ["travelmin_jp", "aneron_jp"] , TH: ["stugeron_th", "navamed_th"], ID: ["antimo_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       {
         comboKey: "nauseaVomit",
         drugMatches: {
-          "default": { KR: ["bonaring_kr", "kimite_kr"], VN: ["stugeron_vn", "nautamine_vn"], US: ["dramamine_us", "bonine_us"], JP: ["travelmin_jp", "aneron_jp"] , TH: ["stugeron_th", "navamed_th"], ID: ["antimo_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["bonaring_kr", "kimite_kr"], VN: ["stugeron_vn", "nautamine_vn"], US: ["dramamine_us", "bonine_us"], JP: ["travelmin_jp", "aneron_jp"] , TH: ["stugeron_th", "navamed_th"], ID: ["antimo_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       {
         comboKey: "headache",
         drugMatches: {
-          "default": { KR: ["bonaring_kr", "tylenol_500_kr"], VN: ["stugeron_vn", "panadol_500_vn"], US: ["bonine_us", "tylenol_500_us"], JP: ["travelmin_jp", "eve_a_jp"] , TH: ["stugeron_th", "sara_th"], ID: ["antimo_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["bonaring_kr", "tylenol_500_kr"], VN: ["stugeron_vn", "panadol_500_vn"], US: ["bonine_us", "tylenol_500_us"], JP: ["travelmin_jp", "eve_a_jp"] , TH: ["stugeron_th", "sara_th"], ID: ["antimo_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       {
@@ -1828,7 +1902,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["meniere_kr", "bonaring_kr"], VN: ["betaserc_vn", "stugeron_vn"], US: ["dramamine_us", "bonine_us"], JP: ["travelmin_jp", "aneron_jp"] , TH: ["stugeron_th", "navamed_th"], ID: ["antimo_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["meniere_kr", "bonaring_kr"], VN: ["betaserc_vn", "stugeron_vn"], US: ["dramamine_us", "bonine_us"], JP: ["travelmin_jp", "aneron_jp"] , TH: ["stugeron_th", "navamed_th"], ID: ["antimo_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -1864,7 +1938,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["ginkgo_kr", "meniere_kr"], VN: ["tanakan_vn", "betaserc_vn"], US: ["lipoflavonoid_us", "dramamine_us"], JP: ["travelmin_jp", "aneron_jp"] , TH: ["stugeron_th", "sara_th"], ID: ["antimo_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["ginkgo_kr", "meniere_kr"], VN: ["tanakan_vn", "betaserc_vn"], US: ["lipoflavonoid_us", "dramamine_us"], JP: ["travelmin_jp", "aneron_jp"] , TH: ["stugeron_th", "sara_th"], ID: ["antimo_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       {
@@ -1886,7 +1960,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["ginkgo_kr", "meniere_kr"], VN: ["tanakan_vn", "betaserc_vn"], US: ["lipoflavonoid_us", "dramamine_us"], JP: ["travelmin_jp", "aneron_jp"] , TH: ["stugeron_th", "sara_th"], ID: ["antimo_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["ginkgo_kr", "meniere_kr"], VN: ["tanakan_vn", "betaserc_vn"], US: ["lipoflavonoid_us", "dramamine_us"], JP: ["travelmin_jp", "aneron_jp"] , TH: ["stugeron_th", "sara_th"], ID: ["antimo_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -1921,7 +1995,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["vaseline_kr", "saline_spray_kr"], VN: ["vaseline_kr", "saline_spray_kr"], US: ["saline_spray_kr", "vaseline_kr"], JP: ["oronine_jp", "oronine_jp"] , TH: ["sara_th", "ors_th"], ID: ["betadine_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["vaseline_kr", "saline_spray_kr"], VN: ["vaseline_kr", "saline_spray_kr"], US: ["saline_spray_kr", "vaseline_kr"], JP: ["oronine_jp", "oronine_jp"] , TH: ["sara_th", "ors_th"], ID: ["betadine_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       {
@@ -1943,7 +2017,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["vaseline_kr", "saline_spray_kr"], VN: ["vaseline_kr", "saline_spray_kr"], US: ["saline_spray_kr", "vaseline_kr"], JP: ["oronine_jp", "oronine_jp"] , TH: ["sara_th", "ors_th"], ID: ["betadine_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["vaseline_kr", "saline_spray_kr"], VN: ["vaseline_kr", "saline_spray_kr"], US: ["saline_spray_kr", "vaseline_kr"], JP: ["oronine_jp", "oronine_jp"] , TH: ["sara_th", "ors_th"], ID: ["betadine_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -1981,7 +2055,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["oramedi_kr", "albocil_kr"], VN: ["kamistad_vn", "albocil_kr"], US: ["orajel_mouth_us", "albocil_kr"], JP: ["traful_direct_jp", "chocola_bb_jp"] , TH: ["kamistad_th", "oramed_th"], ID: ["kamillosan_id", "albothyl_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["oramedi_kr", "albocil_kr"], VN: ["kamistad_vn", "albocil_kr"], US: ["orajel_mouth_us", "albocil_kr"], JP: ["traful_direct_jp", "chocola_bb_jp"] , TH: ["kamistad_th", "oramed_th"], ID: ["kamillosan_id", "albothyl_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       {
@@ -1995,7 +2069,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["oramedi_kr", "albocil_kr"], VN: ["kamistad_vn", "albocil_kr"], US: ["orajel_mouth_us", "albocil_kr"], JP: ["traful_direct_jp", "chocola_bb_jp"] , TH: ["kamistad_th", "oramed_th"], ID: ["kamillosan_id", "albothyl_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["oramedi_kr", "albocil_kr"], VN: ["kamistad_vn", "albocil_kr"], US: ["orajel_mouth_us", "albocil_kr"], JP: ["traful_direct_jp", "chocola_bb_jp"] , TH: ["kamistad_th", "oramed_th"], ID: ["kamillosan_id", "albothyl_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -2033,7 +2107,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["fucidin_kr", "silvadene_kr"], VN: ["biafine_vn", "silvadene_kr"], US: ["neosporin_burn_us", "silvadene_kr"], JP: ["oronine_jp", "oronine_jp"] , TH: ["betadine_th", "fucidin_th"], ID: ["betadine_id", "bioplacenton_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["fucidin_kr", "silvadene_kr"], VN: ["biafine_vn", "silvadene_kr"], US: ["neosporin_burn_us", "silvadene_kr"], JP: ["oronine_jp", "oronine_jp"] , TH: ["betadine_th", "fucidin_th"], ID: ["betadine_id", "bioplacenton_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       {
@@ -2042,7 +2116,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
         warningEN: "Do not pop the blister. There is a risk of infection.",
         warningVI: "Không được chọc vỡ phỏng nước. Có nguy cơ nhiễm trùng.",
         drugMatches: {
-          "default": { KR: ["silvadene_kr", "fucidin_kr"], VN: ["silvadene_kr", "biafine_vn"], US: ["neosporin_burn_us", "silvadene_kr"], JP: ["oronine_jp", "oronine_jp"] , TH: ["betadine_th", "fucidin_th"], ID: ["betadine_id", "bioplacenton_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["silvadene_kr", "fucidin_kr"], VN: ["silvadene_kr", "biafine_vn"], US: ["neosporin_burn_us", "silvadene_kr"], JP: ["oronine_jp", "oronine_jp"] , TH: ["betadine_th", "fucidin_th"], ID: ["betadine_id", "bioplacenton_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       {
@@ -2064,7 +2138,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["fucidin_kr", "silvadene_kr"], VN: ["biafine_vn", "silvadene_kr"], US: ["neosporin_burn_us", "silvadene_kr"], JP: ["oronine_jp", "oronine_jp"] , TH: ["betadine_th", "fucidin_th"], ID: ["betadine_id", "bioplacenton_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["fucidin_kr", "silvadene_kr"], VN: ["biafine_vn", "silvadene_kr"], US: ["neosporin_burn_us", "silvadene_kr"], JP: ["oronine_jp", "oronine_jp"] , TH: ["betadine_th", "fucidin_th"], ID: ["betadine_id", "bioplacenton_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -2101,7 +2175,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["fucidin_kr", "madecassol_kr"], VN: ["betadine_vn", "fucidin_vn"], US: ["neosporin_us2", "bandaid_us"], JP: ["oronine_jp", "oronine_jp"] , TH: ["betadine_th", "fucidin_th"], ID: ["betadine_id", "bioplacenton_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["fucidin_kr", "madecassol_kr"], VN: ["betadine_vn", "fucidin_vn"], US: ["neosporin_us2", "bandaid_us"], JP: ["oronine_jp", "oronine_jp"] , TH: ["betadine_th", "fucidin_th"], ID: ["betadine_id", "bioplacenton_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       {
@@ -2131,7 +2205,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["fucidin_kr", "madecassol_kr"], VN: ["betadine_vn", "fucidin_vn"], US: ["neosporin_us2", "bandaid_us"], JP: ["oronine_jp", "oronine_jp"] , TH: ["betadine_th", "fucidin_th"], ID: ["betadine_id", "bioplacenton_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["fucidin_kr", "madecassol_kr"], VN: ["betadine_vn", "fucidin_vn"], US: ["neosporin_us2", "bandaid_us"], JP: ["oronine_jp", "oronine_jp"] , TH: ["betadine_th", "fucidin_th"], ID: ["betadine_id", "bioplacenton_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -2169,7 +2243,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["brufen_200_kr", "brufen_200_kr"], VN: ["daflon_vn", "antistax_vn"], US: ["advil_200_us", "advil_200_us"], JP: ["eve_a_jp", "eve_a_jp"] , TH: ["daflon_th", "ibuprofen_gpo_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["brufen_200_kr", "brufen_200_kr"], VN: ["daflon_vn", "antistax_vn"], US: ["advil_200_us", "advil_200_us"], JP: ["eve_a_jp", "eve_a_jp"] , TH: ["daflon_th", "ibuprofen_gpo_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       {
@@ -2191,7 +2265,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["brufen_200_kr", "brufen_200_kr"], VN: ["daflon_vn", "antistax_vn"], US: ["advil_200_us", "advil_200_us"], JP: ["eve_a_jp", "eve_a_jp"] , TH: ["daflon_th", "ibuprofen_gpo_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["brufen_200_kr", "brufen_200_kr"], VN: ["daflon_vn", "antistax_vn"], US: ["advil_200_us", "advil_200_us"], JP: ["eve_a_jp", "eve_a_jp"] , TH: ["daflon_th", "ibuprofen_gpo_th"], ID: ["bodrex_extra_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -2227,13 +2301,13 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["noscarna_kr", "pairacne_kr"], VN: ["benzac_vn", "pairacne_kr"], US: ["differin_us", "noscarna_kr"], JP: ["pair_acne_jp", "clearasil_jp"] , TH: ["benzac_th", "clinda_m_th"], ID: ["acnes_id", "benzolac_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["noscarna_kr", "pairacne_kr"], VN: ["benzac_vn", "pairacne_kr"], US: ["differin_us", "noscarna_kr"], JP: ["pair_acne_jp", "clearasil_jp"] , TH: ["benzac_th", "clinda_m_th"], ID: ["acnes_id", "benzolac_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       {
         comboKey: "inflamed",
         drugMatches: {
-          "default": { KR: ["pairacne_kr", "fucidin_kr"], VN: ["pairacne_kr", "benzac_vn"], US: ["differin_us", "noscarna_kr"], JP: ["pair_acne_jp", "clearasil_jp"] , TH: ["benzac_th", "clinda_m_th"], ID: ["acnes_id", "benzolac_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["pairacne_kr", "fucidin_kr"], VN: ["pairacne_kr", "benzac_vn"], US: ["differin_us", "noscarna_kr"], JP: ["pair_acne_jp", "clearasil_jp"] , TH: ["benzac_th", "clinda_m_th"], ID: ["acnes_id", "benzolac_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       {
@@ -2247,7 +2321,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["noscarna_kr", "pairacne_kr"], VN: ["benzac_vn", "pairacne_kr"], US: ["differin_us", "noscarna_kr"], JP: ["pair_acne_jp", "clearasil_jp"] , TH: ["benzac_th", "clinda_m_th"], ID: ["acnes_id", "benzolac_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["noscarna_kr", "pairacne_kr"], VN: ["benzac_vn", "pairacne_kr"], US: ["differin_us", "noscarna_kr"], JP: ["pair_acne_jp", "clearasil_jp"] , TH: ["benzac_th", "clinda_m_th"], ID: ["acnes_id", "benzolac_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -2285,7 +2359,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["lamisil_kr", "canesten_kr"], VN: ["lamisil_kr", "canesten_kr"], US: ["lamisil_kr", "canesten_kr"], JP: ["butenafine_jp", "lamisil_at_jp"] , TH: ["canesten_th", "lamisil_th"], ID: ["canesten_id", "kalpanax_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["lamisil_kr", "canesten_kr"], VN: ["lamisil_kr", "canesten_kr"], US: ["lamisil_kr", "canesten_kr"], JP: ["butenafine_jp", "lamisil_at_jp"] , TH: ["canesten_th", "lamisil_th"], ID: ["canesten_id", "kalpanax_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       {
@@ -2299,7 +2373,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["lamisil_kr", "canesten_kr"], VN: ["lamisil_kr", "canesten_kr"], US: ["lamisil_kr", "canesten_kr"], JP: ["butenafine_jp", "lamisil_at_jp"] , TH: ["canesten_th", "lamisil_th"], ID: ["canesten_id", "kalpanax_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["lamisil_kr", "canesten_kr"], VN: ["lamisil_kr", "canesten_kr"], US: ["lamisil_kr", "canesten_kr"], JP: ["butenafine_jp", "lamisil_at_jp"] , TH: ["canesten_th", "lamisil_th"], ID: ["canesten_id", "kalpanax_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -2334,7 +2408,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["terramycin_kr", "warm_compress"], VN: ["tobrex_vn", "warm_compress"], US: ["terramycin_kr", "warm_compress"], JP: ["rohto_antibac_jp", "rohto_antibac_jp"] , TH: ["chloramphenicol_eye_th", "systane_th"], ID: ["insto_id", "betadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["terramycin_kr", "warm_compress"], VN: ["tobrex_vn", "warm_compress"], US: ["terramycin_kr", "warm_compress"], JP: ["rohto_antibac_jp", "rohto_antibac_jp"] , TH: ["chloramphenicol_eye_th", "systane_th"], ID: ["insto_id", "betadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       {
@@ -2364,7 +2438,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["terramycin_kr", "warm_compress"], VN: ["tobrex_vn", "warm_compress"], US: ["terramycin_kr", "warm_compress"], JP: ["rohto_antibac_jp", "rohto_antibac_jp"] , TH: ["chloramphenicol_eye_th", "systane_th"], ID: ["insto_id", "betadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["terramycin_kr", "warm_compress"], VN: ["tobrex_vn", "warm_compress"], US: ["terramycin_kr", "warm_compress"], JP: ["rohto_antibac_jp", "rohto_antibac_jp"] , TH: ["chloramphenicol_eye_th", "systane_th"], ID: ["insto_id", "betadine_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],
@@ -2399,43 +2473,43 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          "default": { KR: ["condition_kr", "brufen_hangover_kr"], VN: ["condition_kr", "brufen_hangover_kr"], US: ["hangover_ors_kr", "brufen_hangover_kr"], JP: ["heparize_jp", "ukon_jp"] , TH: ["ors_th", "ibuprofen_gpo_th"], ID: ["oralit_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
-          "severe": { KR: ["hangover_combo_kr", "hangover_ors_kr"], VN: ["hangover_combo_kr", "hangover_ors_kr"], US: ["hangover_combo_kr", "hangover_ors_kr"], JP: ["heparize_jp", "solmac_jp"] , TH: ["ors_th", "ibuprofen_gpo_th"], ID: ["oralit_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["condition_kr", "brufen_hangover_kr"], VN: ["condition_kr", "brufen_hangover_kr"], US: ["hangover_ors_kr", "brufen_hangover_kr"], JP: ["heparize_jp", "ukon_jp"] , TH: ["ors_th", "ibuprofen_gpo_th"], ID: ["oralit_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
+          "severe": { KR: ["hangover_combo_kr", "hangover_ors_kr"], VN: ["hangover_combo_kr", "hangover_ors_kr"], US: ["hangover_combo_kr", "hangover_ors_kr"], JP: ["heparize_jp", "solmac_jp"] , TH: ["ors_th", "ibuprofen_gpo_th"], ID: ["oralit_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Hangover + headache
       {
         comboKey: "headache",
         drugMatches: {
-          "default": { KR: ["brufen_hangover_kr", "condition_kr"], VN: ["brufen_hangover_kr", "condition_kr"], US: ["brufen_hangover_kr", "hangover_ors_kr"], JP: ["heparize_jp", "eve_a_jp"] , TH: ["ibuprofen_gpo_th", "ors_th"], ID: ["oralit_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["brufen_hangover_kr", "condition_kr"], VN: ["brufen_hangover_kr", "condition_kr"], US: ["brufen_hangover_kr", "hangover_ors_kr"], JP: ["heparize_jp", "eve_a_jp"] , TH: ["ibuprofen_gpo_th", "ors_th"], ID: ["oralit_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Hangover + nausea
       {
         comboKey: "nausea",
         drugMatches: {
-          "default": { KR: ["gashualmyeongsu_kr", "doctorbear_kr"], VN: ["motilium_vn", "condition_kr"], US: ["pepto_us", "dramamine_us"], JP: ["solmac_jp", "aneron_jp"] , TH: ["eno_th", "domperidone_th"], ID: ["antimo_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["gashualmyeongsu_kr", "doctorbear_kr"], VN: ["motilium_vn", "condition_kr"], US: ["pepto_us", "dramamine_us"], JP: ["solmac_jp", "aneron_jp"] , TH: ["eno_th", "domperidone_th"], ID: ["antimo_id", "promag_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Hangover + thirst (dehydration)
       {
         comboKey: "thirst",
         drugMatches: {
-          "default": { KR: ["hangover_ors_kr", "hangover_pocari_kr"], VN: ["hangover_ors_kr", "hangover_pocari_kr"], US: ["hangover_ors_kr", "hangover_pocari_kr"], JP: ["ukon_jp", "heparize_jp"] , TH: ["ors_th", "eno_th"], ID: ["oralit_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["hangover_ors_kr", "hangover_pocari_kr"], VN: ["hangover_ors_kr", "hangover_pocari_kr"], US: ["hangover_ors_kr", "hangover_pocari_kr"], JP: ["ukon_jp", "heparize_jp"] , TH: ["ors_th", "eno_th"], ID: ["oralit_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Hangover + diarrhea
       {
         comboKey: "diarrhea",
         drugMatches: {
-          "default": { KR: ["jungrowhan_kr", "hangover_ors_kr"], VN: ["berberin_vn", "hangover_ors_kr"], US: ["pepto_us", "hangover_ors_kr"], JP: ["seirogan_jp", "heparize_jp"] , TH: ["ors_th", "imodium_th"], ID: ["oralit_id", "diatabs_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["jungrowhan_kr", "hangover_ors_kr"], VN: ["berberin_vn", "hangover_ors_kr"], US: ["pepto_us", "hangover_ors_kr"], JP: ["seirogan_jp", "heparize_jp"] , TH: ["ors_th", "imodium_th"], ID: ["oralit_id", "diatabs_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
       // Fallback
       {
         comboKey: "_fallback",
         drugMatches: {
-          "default": { KR: ["hangover_combo_kr", "hangover_ors_kr"], VN: ["hangover_combo_kr", "hangover_ors_kr"], US: ["hangover_combo_kr", "hangover_ors_kr"], JP: ["heparize_jp", "solmac_jp"] , TH: ["ors_th", "ibuprofen_gpo_th"], ID: ["oralit_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"] },
+          "default": { KR: ["hangover_combo_kr", "hangover_ors_kr"], VN: ["hangover_combo_kr", "hangover_ors_kr"], US: ["hangover_combo_kr", "hangover_ors_kr"], JP: ["heparize_jp", "solmac_jp"] , TH: ["ors_th", "ibuprofen_gpo_th"], ID: ["oralit_id", "panadol_id"], GB: ["paracetamol_gb", "nurofen_gb"], AU: ["panadol_au", "nurofen_au"], DE: ["paracetamol_de", "ibuprofen_400_de"] },
         },
       },
     ],

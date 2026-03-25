@@ -19,7 +19,7 @@ export const SUPPORTED_COUNTRIES: CountryInfo[] = [
   { code: "ID", nameLocal: "Indonesia", nameEn: "Indonesia", flag: "\u{1F1EE}\u{1F1E9}", language: "id", languageLabel: "Bahasa", emergencyNumber: "118", hasDB: true },
   { code: "GB", nameLocal: "United Kingdom", nameEn: "United Kingdom", flag: "\u{1F1EC}\u{1F1E7}", language: "en", languageLabel: "English", emergencyNumber: "999", hasDB: true },
   { code: "AU", nameLocal: "Australia", nameEn: "Australia", flag: "\u{1F1E6}\u{1F1FA}", language: "en", languageLabel: "English", emergencyNumber: "000", hasDB: true },
-  { code: "DE", nameLocal: "Deutschland", nameEn: "Germany", flag: "\u{1F1E9}\u{1F1EA}", language: "de", languageLabel: "Deutsch", emergencyNumber: "112", hasDB: false },
+  { code: "DE", nameLocal: "Deutschland", nameEn: "Germany", flag: "\u{1F1E9}\u{1F1EA}", language: "de", languageLabel: "Deutsch", emergencyNumber: "112", hasDB: true },
   { code: "IN", nameLocal: "India", nameEn: "India", flag: "\u{1F1EE}\u{1F1F3}", language: "en", languageLabel: "English", emergencyNumber: "112", hasDB: false },
   { code: "CN", nameLocal: "中国", nameEn: "China", flag: "\u{1F1E8}\u{1F1F3}", language: "zh", languageLabel: "中文", emergencyNumber: "120", hasDB: false },
   { code: "ES", nameLocal: "España", nameEn: "Spain", flag: "\u{1F1EA}\u{1F1F8}", language: "es", languageLabel: "Español", emergencyNumber: "112", hasDB: false },
