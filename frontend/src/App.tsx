@@ -333,6 +333,7 @@ function App() {
       <SymptomFlow
         category={matchedCategory}
         countryCode={getDrugCountryCode(countryCode)}
+        inputText={searchValue}
         onReset={handleReset}
       />
     );

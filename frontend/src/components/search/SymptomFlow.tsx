@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import {
   getCategory,
@@ -10,6 +10,7 @@ import {
 } from "../../services/symptomData";
 import { getCountryInfo, getEmergencyNumber } from "../../services/countryDetect";
 import { getCategorySpecialty, getSpecialtyName, getMapsUrl } from "../../services/hospitalData";
+import { parseSymptomInput, type ParsedInput } from "../../services/inputParser";
 import CompanionCheckStep from "./CompanionCheckStep";
 import NewDrugCard from "../drug/NewDrugCard";
 import HospitalWarning from "../common/HospitalWarning";
@@ -18,6 +19,7 @@ import AnalyzingScreen from "./AnalyzingScreen";
 interface SymptomFlowProps {
   category: string;
   countryCode: string;
+  inputText?: string;
   onReset: () => void;
 }
 
@@ -341,12 +343,16 @@ function getMedicalWarnings(profile: MedicalProfile, lang: string): string[] {
 
 // --- Component ---
 
-export default function SymptomFlow({ category, countryCode, onReset }: SymptomFlowProps) {
+export default function SymptomFlow({ category, countryCode, inputText, onReset }: SymptomFlowProps) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const cat = getCategory(category);
   const country = getCountryInfo(countryCode);
   const countryName = country?.nameLocal || countryCode;
+
+  // Parse input text for auto-detection
+  const parsed = useMemo<ParsedInput>(() => inputText ? parseSymptomInput(inputText) : {}, [inputText]);
+  const [autoDetected, setAutoDetected] = useState<Record<string, { label: string; source: string }>>({});
 
   const [step, setStep] = useState<FlowStep>("companion");
   const [combo, setCombo] = useState<SymptomComboResult | null>(null);
@@ -490,15 +496,41 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
     setMedicalProfile((prev) => ({ ...prev, [field]: value }));
   };
 
+  // Check if a medical question can be auto-answered from parsed input
+  const tryAutoAnswer = (nextIdx: number): boolean => {
+    if (nextIdx >= MEDICAL_Q_COUNT) return false;
+    const q = MEDICAL_QUESTIONS[nextIdx];
+
+    // Auto-fill duration
+    if (q.id === "duration" && parsed.duration) {
+      updateProfile("duration", parsed.duration.value);
+      setAutoDetected(prev => ({ ...prev, duration: { label: parsed.duration!.label, source: parsed.duration!.source } }));
+      return true;
+    }
+    // Auto-fill severity
+    if (q.id === "severity" && parsed.severity) {
+      updateProfile("severity", parsed.severity.value);
+      setAutoDetected(prev => ({ ...prev, severity: { label: parsed.severity!.label, source: parsed.severity!.source } }));
+      return true;
+    }
+    return false;
+  };
+
   const advanceMedicalQ = () => {
-    if (medicalQIndex + 1 < MEDICAL_Q_COUNT) {
-      setMedicalQIndex(medicalQIndex + 1);
+    let nextIdx = medicalQIndex + 1;
+
+    // Skip auto-detected questions
+    while (nextIdx < MEDICAL_Q_COUNT && tryAutoAnswer(nextIdx)) {
+      nextIdx++;
+    }
+
+    if (nextIdx < MEDICAL_Q_COUNT) {
+      setMedicalQIndex(nextIdx);
       setMedSubStep(false);
       setMultiSelectTemp([]);
-      pushState(`medicalQ-${medicalQIndex + 1}`);
+      pushState(`medicalQ-${nextIdx}`);
       scrollTop();
     } else {
-      // All medical questions done → resolve drugs and show analyzing
       resolveDrugsAndAnalyze();
     }
   };
@@ -1036,7 +1068,10 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
           <p className="text-sm font-semibold text-gray-700 mb-2">{summaryTitle}</p>
           <div className="text-xs text-gray-500 space-y-1">
             <p>
-              {summary.age} | {summary.gender} | {summary.durationTitle}: {summary.duration} | {summary.severityTitle}: {summary.severity}
+              {summary.age} | {summary.gender} | {summary.durationTitle}: {summary.duration}
+              {autoDetected.duration && <span className="ml-1 text-emerald-500">(✓ {lang === "ko" ? "자동감지" : "auto"})</span>}
+              {" | "}{summary.severityTitle}: {summary.severity}
+              {autoDetected.severity && <span className="ml-1 text-emerald-500">(✓ {lang === "ko" ? "자동감지" : "auto"})</span>}
             </p>
             <p>
               {summary.medsTitle}: {summary.medsLabel} | {summary.allergyTitle}: {summary.allergyLabel}
@@ -1045,6 +1080,11 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
               <p>{summary.condTitle}: {summary.conditionsLabel}</p>
             )}
           </div>
+          {Object.keys(autoDetected).length > 0 && (
+            <p className="text-[10px] text-emerald-400 mt-2">
+              {lang === "ko" ? "✓ 입력에서 자동 감지된 항목이 있습니다" : lang === "vi" ? "✓ Một số mục được tự động nhận diện" : "✓ Some fields were auto-detected from your input"}
+            </p>
+          )}
         </div>
 
         {/* Medical warnings */}
