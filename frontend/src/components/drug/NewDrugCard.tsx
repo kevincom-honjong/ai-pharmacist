@@ -27,6 +27,21 @@ function getName(drug: DrugEntry, countryCode: string) {
   return drug.nameKR;
 }
 
+function getLocalName(drug: DrugEntry, countryCode: string, lang: string): string | null {
+  // Show local script name when user's language differs from drug's country
+  if (countryCode === "JP" && lang !== "ja") return drug.nameLocal || null;
+  if (countryCode === "KR" && !["ko"].includes(lang)) return drug.nameKR;
+  if (countryCode === "VN" && lang !== "vi") return drug.nameVN;
+  return null;
+}
+
+function getPronunciation(drug: DrugEntry, lang: string): string | null {
+  if (["ko"].includes(lang)) return drug.pronKR || null;
+  if (["en", "en-GB", "en-AU"].includes(lang) || lang.startsWith("en")) return drug.pronEN || null;
+  // For other languages, try English pronunciation
+  return drug.pronEN || drug.pronKR || null;
+}
+
 function getDosage(drug: DrugEntry, lang: string) {
   if (lang === "ja") return drug.dosageJP || drug.dosageUS;
   if (lang === "vi") return drug.dosageVN;
@@ -44,6 +59,8 @@ function getPrecaution(drug: DrugEntry, lang: string) {
 export default function NewDrugCard({ drug, rank, countryCode, lang, countryName }: NewDrugCardProps) {
   const [expanded, setExpanded] = useState(false);
   const name = getName(drug, countryCode);
+  const localName = getLocalName(drug, countryCode, lang);
+  const pronunciation = getPronunciation(drug, lang);
 
   return (
     <div className="bg-white rounded-3xl overflow-hidden shadow-sm">
@@ -53,6 +70,12 @@ export default function NewDrugCard({ drug, rank, countryCode, lang, countryName
         </span>
         <div className="flex-1 min-w-0">
           <h3 className="font-bold text-gray-800 text-base leading-tight">{name}</h3>
+          {localName && (
+            <p className="text-sm font-semibold text-gray-600 mt-1 bg-gray-50 inline-block px-2 py-0.5 rounded-lg">
+              {localName}
+              {pronunciation && <span className="text-xs text-gray-400 font-normal ml-1.5">({pronunciation})</span>}
+            </p>
+          )}
           <p className="text-xs text-emerald-600 mt-1">{drug.ingredient}</p>
         </div>
       </div>
