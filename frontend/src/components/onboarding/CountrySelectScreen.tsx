@@ -24,36 +24,58 @@ const TITLE: Record<string, string> = {
   ko: "어떤 나라의 약 정보를 원하시나요?",
   en: "Which country's drug info do you need?",
   vi: "Bạn cần thông tin thuốc của quốc gia nào?",
+  ja: "どの国の薬情報が必要ですか？",
+  th: "คุณต้องการข้อมูลยาของประเทศไหน?",
+  fil: "Aling bansa ang kailangan mong impormasyon sa gamot?",
+  id: "Informasi obat negara mana yang Anda butuhkan?",
+  de: "Welches Land benötigen Sie Arzneimittelinformationen?",
+  hi: "आपको किस देश की दवा जानकारी चाहिए?",
+  zh: "您需要哪个国家的药品信息？",
+  es: "¿De qué país necesitas información sobre medicamentos?",
 };
 
 const SUBTITLE: Record<string, string> = {
   ko: "해당 국가에서 판매되는 약을 안내합니다",
   en: "We'll show drugs available in your selected country",
   vi: "Chúng tôi sẽ hiển thị thuốc có bán tại quốc gia bạn chọn",
+  ja: "選択した国で販売されている薬をご案内します",
+  th: "เราจะแสดงยาที่มีจำหน่ายในประเทศที่คุณเลือก",
+  fil: "Ipapakita namin ang mga gamot na available sa napiling bansa",
+  id: "Kami akan menampilkan obat yang tersedia di negara pilihan Anda",
+  de: "Wir zeigen Ihnen Medikamente, die in Ihrem Land erhältlich sind",
+  hi: "हम आपके चुने हुए देश में उपलब्ध दवाइयाँ दिखाएंगे",
+  zh: "我们将展示您所选国家可购买的药品",
+  es: "Te mostraremos los medicamentos disponibles en el país seleccionado",
 };
 
 const PREPARING: Record<string, string> = {
   ko: "준비중", en: "Coming soon", vi: "Sắp có",
+  ja: "準備中", th: "กำลังเตรียม", fil: "Malapit na",
+  id: "Segera hadir", de: "Demnächst", hi: "जल्द आ रहा है",
+  zh: "即将推出", es: "Próximamente",
 };
 
 const SEARCH_PH: Record<string, string> = {
   ko: "국가 검색...", en: "Search country...", vi: "Tìm quốc gia...",
+  ja: "国を検索...", th: "ค้นหาประเทศ...", fil: "Maghanap ng bansa...",
+  id: "Cari negara...", de: "Land suchen...", hi: "देश खोजें...",
+  zh: "搜索国家...", es: "Buscar país...",
 };
 
 const COUNTRY_NAMES: Record<string, Record<string, string>> = {
-  KR: { ko: "한국", en: "South Korea", vi: "Hàn Quốc" },
-  VN: { ko: "베트남", en: "Vietnam", vi: "Việt Nam" },
-  US: { ko: "미국", en: "United States", vi: "Hoa Kỳ" },
-  JP: { ko: "일본", en: "Japan", vi: "Nhật Bản" },
-  TH: { ko: "태국", en: "Thailand", vi: "Thái Lan" },
-  PH: { ko: "필리핀", en: "Philippines", vi: "Philippines" },
-  ID: { ko: "인도네시아", en: "Indonesia", vi: "Indonesia" },
-  GB: { ko: "영국", en: "United Kingdom", vi: "Vương quốc Anh" },
-  AU: { ko: "호주", en: "Australia", vi: "Úc" },
-  DE: { ko: "독일", en: "Germany", vi: "Đức" },
-  IN: { ko: "인도", en: "India", vi: "Ấn Độ" },
-  CN: { ko: "중국", en: "China", vi: "Trung Quốc" },
-  ES: { ko: "스페인", en: "Spain", vi: "Tây Ban Nha" },
+  KR: { ko: "한국", en: "South Korea", vi: "Hàn Quốc", ja: "韓国", th: "เกาหลีใต้", fil: "South Korea", id: "Korea Selatan", de: "Südkorea", hi: "दक्षिण कोरिया", zh: "韩国", es: "Corea del Sur" },
+  VN: { ko: "베트남", en: "Vietnam", vi: "Việt Nam", ja: "ベトナム", th: "เวียดนาม", fil: "Vietnam", id: "Vietnam", de: "Vietnam", hi: "वियतनाम", zh: "越南", es: "Vietnam" },
+  US: { ko: "미국", en: "United States", vi: "Hoa Kỳ", ja: "アメリカ", th: "สหรัฐอเมริกา", fil: "Estados Unidos", id: "Amerika Serikat", de: "USA", hi: "अमेरिका", zh: "美国", es: "Estados Unidos" },
+  JP: { ko: "일본", en: "Japan", vi: "Nhật Bản", ja: "日本", th: "ญี่ปุ่น", fil: "Japan", id: "Jepang", de: "Japan", hi: "जापान", zh: "日本", es: "Japón" },
+  TH: { ko: "태국", en: "Thailand", vi: "Thái Lan", ja: "タイ", th: "ไทย", fil: "Thailand", id: "Thailand", de: "Thailand", hi: "थाईलैंड", zh: "泰国", es: "Tailandia" },
+  PH: { ko: "필리핀", en: "Philippines", vi: "Philippines", ja: "フィリピン", th: "ฟิลิปปินส์", fil: "Pilipinas", id: "Filipina", de: "Philippinen", hi: "फ़िलीपींस", zh: "菲律宾", es: "Filipinas" },
+  ID: { ko: "인도네시아", en: "Indonesia", vi: "Indonesia", ja: "インドネシア", th: "อินโดนีเซีย", fil: "Indonesia", id: "Indonesia", de: "Indonesien", hi: "इंडोनेशिया", zh: "印度尼西亚", es: "Indonesia" },
+  GB: { ko: "영국", en: "United Kingdom", vi: "Vương quốc Anh", ja: "イギリス", th: "สหราชอาณาจักร", fil: "United Kingdom", id: "Inggris", de: "Vereinigtes Königreich", hi: "यूनाइटेड किंगडम", zh: "英国", es: "Reino Unido" },
+  AU: { ko: "호주", en: "Australia", vi: "Úc", ja: "オーストラリア", th: "ออสเตรเลีย", fil: "Australia", id: "Australia", de: "Australien", hi: "ऑस्ट्रेलिया", zh: "澳大利亚", es: "Australia" },
+  DE: { ko: "독일", en: "Germany", vi: "Đức", ja: "ドイツ", th: "เยอรมนี", fil: "Germany", id: "Jerman", de: "Deutschland", hi: "जर्मनी", zh: "德国", es: "Alemania" },
+  IN: { ko: "인도", en: "India", vi: "Ấn Độ", ja: "インド", th: "อินเดีย", fil: "India", id: "India", de: "Indien", hi: "भारत", zh: "印度", es: "India" },
+  CN: { ko: "중국", en: "China", vi: "Trung Quốc", ja: "中国", th: "จีน", fil: "China", id: "Tiongkok", de: "China", hi: "चीन", zh: "中国", es: "China" },
+  ES: { ko: "스페인", en: "Spain", vi: "Tây Ban Nha", ja: "スペイン", th: "สเปน", fil: "Spain", id: "Spanyol", de: "Spanien", hi: "स्पेन", zh: "西班牙", es: "España" },
 };
 
 const CODE_COLORS: Record<string, string> = {
