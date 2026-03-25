@@ -365,8 +365,10 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
     allergies: [],
     healthConditions: [],
   });
-  const [medSubStep, setMedSubStep] = useState(false); // sub-step for conditional questions (med tags / allergy tags)
-  const [multiSelectTemp, setMultiSelectTemp] = useState<string[]>([]); // temp state for multi/sub-select
+  const [medSubStep, setMedSubStep] = useState(false);
+  const [multiSelectTemp, setMultiSelectTemp] = useState<string[]>([]);
+  const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
+  const [ageWarning, setAgeWarning] = useState<"child" | "elderly" | null>(null);
 
   if (!cat) {
     return (
@@ -460,22 +462,26 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
   // Step 2: Specific follow-up questions
   const handleFollowUpAnswer = (answerIndex: number) => {
     if (!combo?.followUpQuestions) return;
+    setSelectedIdx(answerIndex);
 
-    const newAnswers = [...followUpAnswers, answerIndex];
-    setFollowUpAnswers(newAnswers);
+    setTimeout(() => {
+      setSelectedIdx(null);
+      const newAnswers = [...followUpAnswers, answerIndex];
+      setFollowUpAnswers(newAnswers);
 
-    if (followUpIndex + 1 < combo.followUpQuestions.length) {
-      setFollowUpIndex(followUpIndex + 1);
-      pushState(`followUp-${followUpIndex + 1}`);
-      scrollTop();
-    } else {
-      setMedicalQIndex(0);
-      setMedSubStep(false);
-      setMultiSelectTemp([]);
-      setStep("medicalQ");
-      pushState("medicalQ-0");
-      scrollTop();
-    }
+      if (followUpIndex + 1 < combo.followUpQuestions.length) {
+        setFollowUpIndex(followUpIndex + 1);
+        pushState(`followUp-${followUpIndex + 1}`);
+        scrollTop();
+      } else {
+        setMedicalQIndex(0);
+        setMedSubStep(false);
+        setMultiSelectTemp([]);
+        setStep("medicalQ");
+        pushState("medicalQ-0");
+        scrollTop();
+      }
+    }, 500);
   };
 
   // Step 3: Medical questionnaire answer handlers
@@ -502,27 +508,32 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
     advanceMedicalQ();
   };
 
-  const handleMedicalSingleAnswer = (question: MedicalQuestion, opt: MedicalOption) => {
+  const handleMedicalSingleAnswer = (question: MedicalQuestion, opt: MedicalOption, optIdx: number) => {
     if (question.type === "conditional") {
-      if (opt.value === question.triggerValue) {
-        // Show sub-select step
-        updateProfile(question.id, []);
-        setMultiSelectTemp([]);
-        setMedSubStep(true);
-        setStep("medSubSelect");
-        pushState(`medSubSelect-${question.id}`);
-        scrollTop();
-        return;
-      } else {
-        // "없음" or "모름" → store empty array and advance
-        updateProfile(question.id, []);
-        advanceMedicalQ();
-        return;
-      }
+      setSelectedIdx(optIdx);
+      setTimeout(() => {
+        setSelectedIdx(null);
+        if (opt.value === question.triggerValue) {
+          updateProfile(question.id, []);
+          setMultiSelectTemp([]);
+          setMedSubStep(true);
+          setStep("medSubSelect");
+          pushState(`medSubSelect-${question.id}`);
+          scrollTop();
+        } else {
+          updateProfile(question.id, []);
+          advanceMedicalQ();
+        }
+      }, 500);
+      return;
     }
-    // Normal single select
-    updateProfile(question.id, opt.value);
-    advanceMedicalQ();
+    // Normal single select with highlight delay
+    setSelectedIdx(optIdx);
+    setTimeout(() => {
+      setSelectedIdx(null);
+      updateProfile(question.id, opt.value);
+      advanceMedicalQ();
+    }, 500);
   };
 
   const handleMultiSelectToggle = (value: string, question: MedicalQuestion) => {
@@ -558,11 +569,28 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
       const lastAnswer = followUpAnswers[followUpAnswers.length - 1];
       const severityVal = medicalProfile.severity;
       const isSevere = severityVal === "severe" || severityVal === "very_severe";
-      const matchKey = (lastAnswer === 2 || isSevere) ? "severe" : "default";
+      const age = medicalProfile.ageGroup;
+      const isChild = age === "infant" || age === "child";
+
+      // Age-based drug matching: infant/child get children's drugs
+      let matchKey = (lastAnswer === 2 || isSevere) ? "severe" : "default";
+      if (isChild && combo.drugMatches["child"]) {
+        matchKey = "child";
+      }
+
       const drugMatch = combo.drugMatches[matchKey] || combo.drugMatches["default"];
       if (drugMatch) {
         const entries = getDrugEntries(drugMatch, countryCode);
         setDrugs(entries);
+
+        // Set age warning flag for result display
+        if (isChild) {
+          setAgeWarning("child");
+        } else if (age === "elderly") {
+          setAgeWarning("elderly");
+        } else {
+          setAgeWarning(null);
+        }
       }
     }
     setStep("analyzing");
@@ -672,15 +700,23 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
             {getQuestionLabel(question, lang)}
           </h2>
           <div className="space-y-3">
-            {question.options.map((opt, idx) => (
+            {question.options.map((opt, idx) => {
+              const isSelected = selectedIdx === idx;
+              return (
               <button
                 key={idx}
-                onClick={() => handleFollowUpAnswer(idx)}
-                className="w-full text-left px-5 py-4 bg-white rounded-2xl text-base text-gray-700 hover:shadow-md active:scale-[0.98] transition-all shadow-sm"
+                onClick={() => selectedIdx === null && handleFollowUpAnswer(idx)}
+                className={`w-full text-left px-5 py-4 rounded-2xl text-base transition-all duration-300 shadow-sm flex items-center justify-between ${
+                  isSelected
+                    ? "bg-emerald-50 border-2 border-emerald-400 text-emerald-700 scale-[1.02] shadow-md"
+                    : "bg-white text-gray-700 border-2 border-transparent hover:shadow-md active:scale-[0.98]"
+                }`}
               >
-                {getOptionLabel(opt, lang)}
+                <span>{getOptionLabel(opt, lang)}</span>
+                {isSelected && <span className="text-emerald-500 text-lg">✓</span>}
               </button>
-            ))}
+              );
+            })}
           </div>
         </main>
 
@@ -821,15 +857,23 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
           )}
           {!hint && <div className="mb-6" />}
           <div className="space-y-3">
-            {question.options.map((opt) => (
+            {question.options.map((opt, idx) => {
+              const isSelected = selectedIdx === idx;
+              return (
               <button
                 key={opt.value}
-                onClick={() => handleMedicalSingleAnswer(question, opt)}
-                className="w-full text-left px-5 py-4 bg-white rounded-2xl text-base text-gray-700 hover:shadow-md active:scale-[0.98] transition-all shadow-sm"
+                onClick={() => selectedIdx === null && handleMedicalSingleAnswer(question, opt, idx)}
+                className={`w-full text-left px-5 py-4 rounded-2xl text-base transition-all duration-300 shadow-sm flex items-center justify-between ${
+                  isSelected
+                    ? "bg-emerald-50 border-2 border-emerald-400 text-emerald-700 scale-[1.02] shadow-md"
+                    : "bg-white text-gray-700 border-2 border-transparent hover:shadow-md active:scale-[0.98]"
+                }`}
               >
-                {getMedOptionLabel(opt, lang)}
+                <span>{getMedOptionLabel(opt, lang)}</span>
+                {isSelected && <span className="text-emerald-500 text-lg">✓</span>}
               </button>
-            ))}
+              );
+            })}
           </div>
 
           <button
@@ -950,6 +994,17 @@ export default function SymptomFlow({ category, countryCode, onReset }: SymptomF
   const categoryDesc = getCategoryDesc(cat, lang);
   const summary = buildMedicalSummary(medicalProfile, lang);
   const warnings = getMedicalWarnings(medicalProfile, lang);
+
+  // Add age-specific warnings
+  if (ageWarning === "child") {
+    const ll = lang === "vi" ? "vi" : lang.startsWith("en") ? "en" : "kr";
+    const childMsg = { kr: "어린이용 약이 추천되었습니다. 반드시 체중 기준 용량을 확인하고 약사와 상담하세요.", en: "Children's medications recommended. Always verify weight-based dosing with a pharmacist.", vi: "Thuốc dành cho trẻ em. Luôn xác nhận liều theo cân nặng với dược sĩ." };
+    warnings.unshift(childMsg[ll]);
+  } else if (ageWarning === "elderly") {
+    const ll = lang === "vi" ? "vi" : lang.startsWith("en") ? "en" : "kr";
+    const elderlyMsg = { kr: "고령자는 간/신장 기능 저하 가능성이 있으므로 최소 용량부터 시작하세요.", en: "Elderly patients: start with minimum dosage due to possible reduced liver/kidney function.", vi: "Người cao tuổi: bắt đầu với liều tối thiểu do chức năng gan/thận có thể giảm." };
+    warnings.unshift(elderlyMsg[ll]);
+  }
   const summaryTitle = lang === "vi" ? "Tóm tắt khảo sát" : lang === "en" ? "Questionnaire Summary" : "문진 요약";
 
   return (

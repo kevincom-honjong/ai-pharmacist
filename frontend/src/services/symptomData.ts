@@ -347,6 +347,17 @@ export const DRUGS: Record<string, DrugEntry> = {
   terramycin_kr: { id: "terramycin_kr", nameKR: "테라마이신 안연고", nameVN: "Tobrex eye drops", nameUS: "Stye Eye Ointment", ingredient: "Oxytetracycline+Polymyxin B / Tobramycin / OTC stye formula", dosageKR: "눈꺼풀에 소량 도포, 하루 2~3회", dosageVN: "1-2 giọt, 4-6 lần/ngày", dosageUS: "Apply to eyelid, 1-2 times/day", precautionKR: "눈 안에 넣지 말 것", precautionVN: "Thuốc kháng sinh nhỏ mắt", precautionUS: "OTC use only" },
   warm_compress: { id: "warm_compress", nameKR: "온찜질", nameVN: "Chườm ấm", nameUS: "Warm compress", ingredient: "Warm towel / Warm compress", dosageKR: "따뜻한 수건으로 10~15분, 하루 3~4회", dosageVN: "Khăn ấm 10-15 phút, 3-4 lần/ngày", dosageUS: "Warm towel 10-15 min, 4 times/day", precautionKR: "가장 효과적인 초기 치료", precautionVN: "Phương pháp hiệu quả nhất", precautionUS: "Most effective initial treatment" },
   tobrex_vn: { id: "tobrex_vn", nameKR: "토브렉스 안약", nameVN: "Tobrex eye drops", nameUS: "Tobrex", ingredient: "Tobramycin 0.3%", dosageKR: "1~2방울, 하루 4~6회", dosageVN: "1-2 giọt, 4-6 lần/ngày", dosageUS: "1-2 drops, 4-6 times/day", precautionKR: "항생제 안약", precautionVN: "Thuốc kháng sinh nhỏ mắt", precautionUS: "Antibiotic eye drops" },
+
+  // === Children's drugs (영유아/어린이용) ===
+  child_tylenol_syrup_kr: { id: "child_tylenol_syrup_kr", nameKR: "어린이 타이레놀 시럽", nameVN: "Panadol Children Syrup", nameUS: "Infant's Tylenol Drops", ingredient: "Acetaminophen 32mg/ml (KR) / 120mg/5ml (VN) / 160mg/5ml (US)", dosageKR: "체중 기준 10~15mg/kg, 4~6시간 간격", dosageVN: "Theo cân nặng, cách 4-6 giờ", dosageUS: "By weight, every 4-6 hours", precautionKR: "하루 최대 5회, 동봉 계량컵 사용", precautionVN: "Tối đa 5 lần/ngày, dùng cốc đo", precautionUS: "Max 5 doses/day, use included syringe" },
+  child_brufen_syrup_kr: { id: "child_brufen_syrup_kr", nameKR: "챔프 시럽", nameVN: "Nurofen for Children", nameUS: "Children's Advil", ingredient: "Ibuprofen 20mg/ml (KR) / 100mg/5ml (VN,US)", dosageKR: "체중 기준 5~10mg/kg, 6~8시간 간격", dosageVN: "Theo cân nặng, cách 6-8 giờ", dosageUS: "By weight, every 6-8 hours", precautionKR: "6개월 이상부터 사용 가능", precautionVN: "Dùng từ 6 tháng tuổi", precautionUS: "6 months and older" },
+  child_tylenol_chew_kr: { id: "child_tylenol_chew_kr", nameKR: "어린이 타이레놀 츄어블", nameVN: "Panadol Children Chewable", nameUS: "Children's Tylenol Chewable", ingredient: "Acetaminophen 160mg chewable", dosageKR: "연령 기준 1~2정, 4~6시간 간격", dosageVN: "1-2 viên theo tuổi, cách 4-6 giờ", dosageUS: "1-2 tablets by age, every 4-6 hours", precautionKR: "씹어서 복용", precautionVN: "Nhai rồi nuốt", precautionUS: "Chew before swallowing" },
+  child_cough_syrup_kr: { id: "child_cough_syrup_kr", nameKR: "어린이 코푸시럽", nameVN: "Prospan for Children", nameUS: "Zarbee's Children's Cough", ingredient: "Guaifenesin(KR) / Ivy leaf(VN) / Honey+Ivy(US)", dosageKR: "연령별 용량, 하루 3회", dosageVN: "Theo tuổi, 3 lần/ngày", dosageUS: "By age, as directed", precautionKR: "어린이 전용", precautionVN: "Dành cho trẻ em", precautionUS: "No honey for under 1 year" },
+  child_cough2_kr: { id: "child_cough2_kr", nameKR: "어린이 코데날 시럽", nameVN: "Bổ Phế Nam Hà (trẻ em)", nameUS: "Children's Delsym", ingredient: "Dextromethorphan children's formula", dosageKR: "연령별 용량, 하루 3회", dosageVN: "Theo tuổi, 3 lần/ngày", dosageUS: "By age, every 12 hours", precautionKR: "6세 이상", precautionVN: "Trẻ từ 6 tuổi", precautionUS: "Ages 6+" },
+  child_ors_kr: { id: "child_ors_kr", nameKR: "ORS 경구수액 (소아용)", nameVN: "Oresol (trẻ em)", nameUS: "Pedialyte", ingredient: "Electrolyte complex (pediatric)", dosageKR: "소량씩 자주, 체중 기준", dosageVN: "Từng ít một, thường xuyên", dosageUS: "Small sips frequently", precautionKR: "탈수 방지가 가장 중요", precautionVN: "Chống mất nước là quan trọng nhất", precautionUS: "Preventing dehydration is priority" },
+  child_smecta_kr: { id: "child_smecta_kr", nameKR: "스멕타 (반포)", nameVN: "Smecta (trẻ em)", nameUS: "Pepto Kids", ingredient: "Diosmectite(KR,VN) / Calcium carbonate(US)", dosageKR: "1포의 절반, 하루 3회 (물에 녹여)", dosageVN: "Nửa gói, 3 lần/ngày", dosageUS: "1 tablet chewed, by age", precautionKR: "수분 보충 병행", precautionVN: "Kèm bổ sung nước", precautionUS: "Stay hydrated" },
+  child_zyrtec_kr: { id: "child_zyrtec_kr", nameKR: "지르텍 시럽 (소아용)", nameVN: "Cetirizine syrup (trẻ em)", nameUS: "Children's Zyrtec Syrup", ingredient: "Cetirizine 1mg/ml syrup", dosageKR: "2.5ml, 하루 1회 (2~5세) / 5ml (6세 이상)", dosageVN: "2.5ml, 1 lần/ngày (2-5 tuổi)", dosageUS: "2.5ml once daily (2-5yr) / 5ml (6+)", precautionKR: "졸음 가능, 취침 전 권장", precautionVN: "Có thể gây buồn ngủ", precautionUS: "May cause drowsiness" },
+  child_claritin_kr: { id: "child_claritin_kr", nameKR: "클라리틴 시럽 (소아용)", nameVN: "Loratadine syrup (trẻ em)", nameUS: "Children's Claritin", ingredient: "Loratadine 1mg/ml syrup", dosageKR: "5ml, 하루 1회 (6세 이상)", dosageVN: "5ml, 1 lần/ngày (từ 6 tuổi)", dosageUS: "5ml once daily (6+)", precautionKR: "졸음 적음", precautionVN: "Ít gây buồn ngủ", precautionUS: "Non-drowsy" },
 };
 
 // === Symptom Categories ===
@@ -389,9 +400,9 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           ]},
         ],
         drugMatches: {
-          // severity mild/moderate (option index 0 or 1 at Q3)
           "default": { KR: ["tylenol_500_kr", "brufen_200_kr"], VN: ["panadol_500_vn", "efferalgan_500_vn"], US: ["tylenol_500_us", "advil_200_us"] },
           "severe": { KR: ["ezn6_kr", "geborin_kr"], VN: ["hapacol_650_vn", "panadol_extra_vn"], US: ["excedrin_us", "advil_400_us"] },
+          "child": { KR: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], VN: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], US: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"] },
         },
       },
       // Headache + fever + runnyNose (cold)
@@ -476,6 +487,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
         ],
         drugMatches: {
           "default": { KR: ["tylenol_500_kr", "brufen_200_kr"], VN: ["panadol_500_vn", "efferalgan_500_vn"], US: ["tylenol_500_us", "advil_200_us"] },
+          "child": { KR: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], VN: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"], US: ["child_tylenol_syrup_kr", "child_brufen_syrup_kr"] },
         },
       },
       // Fever + cough + runnyNose
@@ -574,6 +586,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
         drugMatches: {
           "default": { KR: ["codenal_kr", "tushira_kr"], VN: ["bophe_vn", "prospan_vn"], US: ["delsym_us", "robitussin_dm_us"] },
           "severe": { KR: ["codenal_kr", "tushira_kr"], VN: ["bophe_vn", "prospan_vn"], US: ["delsym_us", "robitussin_dm_us"] },
+          "child": { KR: ["child_cough_syrup_kr", "child_cough2_kr"], VN: ["child_cough_syrup_kr", "child_cough2_kr"], US: ["child_cough_syrup_kr", "child_cough2_kr"] },
         },
       },
       // Cough + phlegm
@@ -873,6 +886,7 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
         drugMatches: {
           "default": { KR: ["jungrowhan_kr", "smecta_kr"], VN: ["berberin_vn", "smecta_vn"], US: ["imodium_us", "pepto_us"] },
           "severe": { KR: ["ors_kr", "pocari_kr"], VN: ["oresol_vn", "hydrite_vn"], US: ["pedialyte_us", "dripdrop_us"] },
+          "child": { KR: ["child_ors_kr", "child_smecta_kr"], VN: ["child_ors_kr", "child_smecta_kr"], US: ["child_ors_kr", "child_smecta_kr"] },
         },
       },
       // Diarrhea + nausea → dehydration risk
@@ -1167,8 +1181,8 @@ export const SYMPTOM_CATEGORIES: SymptomCategory[] = [
           { labelKR: "음식", labelEN: "Food", labelVI: "Thức ăn" },
           { labelKR: "모름", labelEN: "Unknown", labelVI: "Không rõ" },
         ]},
-      ], drugMatches: { "default": { KR: ["zyrtec_kr", "claritin_kr"], VN: ["cetirizine_vn", "loratadine_vn"], US: ["zyrtec_us", "claritin_us"] } } },
-      { comboKey: "nasalSneeze", drugMatches: { "default": { KR: ["zyrtec_kr", "claritin_kr"], VN: ["cetirizine_vn", "loratadine_vn"], US: ["zyrtec_us", "claritin_us"] } } },
+      ], drugMatches: { "default": { KR: ["zyrtec_kr", "claritin_kr"], VN: ["cetirizine_vn", "loratadine_vn"], US: ["zyrtec_us", "claritin_us"] }, "child": { KR: ["child_zyrtec_kr", "child_claritin_kr"], VN: ["child_zyrtec_kr", "child_claritin_kr"], US: ["child_zyrtec_kr", "child_claritin_kr"] } } },
+      { comboKey: "nasalSneeze", drugMatches: { "default": { KR: ["zyrtec_kr", "claritin_kr"], VN: ["cetirizine_vn", "loratadine_vn"], US: ["zyrtec_us", "claritin_us"] }, "child": { KR: ["child_zyrtec_kr", "child_claritin_kr"], VN: ["child_zyrtec_kr", "child_claritin_kr"], US: ["child_zyrtec_kr", "child_claritin_kr"] } } },
       { comboKey: "eyeItch", drugMatches: { "default": { KR: ["cromolin_kr", "zyrtec_kr"], VN: ["cromolin_vn", "cetirizine_vn"], US: ["zaditor_us", "pataday_us"] } } },
       { comboKey: "skinRash", drugMatches: { "default": { KR: ["zyrtec_kr", "hydrocortisone_kr"], VN: ["cetirizine_vn", "phenergan_vn"], US: ["benadryl_us", "cortisone10_us"] } } },
       { comboKey: "coughBreathless", hospitalWarning: true, warningKR: "알레르기와 함께 기침이나 숨참이 나타나면 천식의 가능성이 있습니다. 호흡기내과를 방문하세요.", warningEN: "Allergy with cough or shortness of breath may indicate asthma. Please visit a pulmonologist.", warningVI: "Dị ứng kèm ho hoặc khó thở có thể là hen suyễn. Vui lòng đến khoa hô hấp.", drugMatches: {} },

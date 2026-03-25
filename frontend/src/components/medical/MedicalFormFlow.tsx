@@ -128,6 +128,7 @@ export default function MedicalFormFlow({
   const [subStep, setSubStep] = useState(0);
   const [tempText, setTempText] = useState("");
   const [tempNumber, setTempNumber] = useState("");
+  const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
 
   const isFemale = formData.gender === "female";
 
@@ -269,11 +270,12 @@ export default function MedicalFormFlow({
 
   const autoAdvance = useCallback(() => {
     setTimeout(() => {
+      setSelectedIdx(null);
       setSubStep(0);
       setTempText("");
       setTempNumber("");
       setCurrentStep((s) => s + 1);
-    }, 200);
+    }, 500);
   }, []);
 
   const severityColor = (val: number): string => {
@@ -338,19 +340,24 @@ export default function MedicalFormFlow({
     onSelect: (v: string) => void;
   }) => (
     <div className="px-4 flex flex-col gap-2">
-      {options.map((o) => {
-        const active = selected === o.value;
+      {options.map((o, idx) => {
+        const active = selected === o.value || selectedIdx === idx;
         return (
           <button
             key={o.value}
-            onClick={() => onSelect(o.value)}
-            className={`w-full text-left px-4 py-3.5 rounded-2xl shadow-sm text-sm font-medium transition-all active:scale-[0.98] ${
+            onClick={() => {
+              if (selectedIdx !== null) return;
+              setSelectedIdx(idx);
+              onSelect(o.value);
+            }}
+            className={`w-full text-left px-4 py-3.5 rounded-2xl shadow-sm text-sm font-medium transition-all duration-300 flex items-center justify-between ${
               active
-                ? "bg-emerald-50 border-2 border-emerald-400 text-emerald-700"
-                : "bg-white border-2 border-transparent text-gray-700"
+                ? "bg-emerald-50 border-2 border-emerald-400 text-emerald-700 scale-[1.02] shadow-md"
+                : "bg-white border-2 border-transparent text-gray-700 active:scale-[0.98]"
             }`}
           >
-            {o.label}
+            <span>{o.label}</span>
+            {active && <span className="text-emerald-500 text-lg">✓</span>}
           </button>
         );
       })}
