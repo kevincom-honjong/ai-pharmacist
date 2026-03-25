@@ -40,10 +40,9 @@ export default function LanguageSelectScreen({ onSelect }: LanguageSelectScreenP
       <div className="px-6 pt-12 pb-4 text-center">
         <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-3xl flex items-center justify-center mx-auto mb-5 shadow-md">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3" y="8" width="8" height="8" rx="4" fill="white" />
-            <rect x="11" y="8" width="8" height="8" rx="4" fill="rgba(255,255,255,0.5)" />
-            <rect x="5.5" y="11" width="3" height="2" rx="0.5" fill="#14b8a6" />
-            <rect x="6" y="9.5" width="2" height="5" rx="0.5" fill="#14b8a6" />
+            <rect x="3" y="7" width="18" height="10" rx="5" fill="white" />
+            <rect x="12" y="7" width="9" height="10" rx="5" fill="rgba(255,255,255,0.55)" />
+            <line x1="12" y1="8" x2="12" y2="16" stroke="rgba(20,184,166,0.3)" strokeWidth="0.5" />
           </svg>
         </div>
         <h1 className="text-2xl font-bold text-gray-800 mb-1">
