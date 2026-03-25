@@ -1,0 +1,132 @@
+{
+  "app": {
+    "title": "AI Pharmacist",
+    "subtitle": "Your AI-Powered Pharmacist",
+    "slogan": "Selalu peduli kesehatan Anda"
+  },
+  "home": {
+    "greeting": "Apa keluhan Anda?",
+    "searchPlaceholder": "Jelaskan gejala Anda dengan bebas",
+    "examples": "Contoh: Kepala pusing, batuk",
+    "popularSymptoms": "Gejala Populer",
+    "showMore": "Lihat lebih",
+    "showLess": "Sembunyikan",
+    "noMatch": "Gejala tidak ditemukan. Coba gunakan kata lain."
+  },
+  "symptoms": {
+    "headache": "Sakit Kepala",
+    "cold": "Flu",
+    "stomachache": "Sakit Perut",
+    "fever": "Demam",
+    "allergy": "Alergi",
+    "musclePain": "Nyeri Otot",
+    "cough": "Batuk",
+    "runnyNose": "Pilek/Hidung Tersumbat",
+    "soreThroat": "Sakit Tenggorokan",
+    "indigestion": "Gangguan Pencernaan",
+    "diarrhea": "Diare",
+    "nausea": "Mual/Muntah",
+    "backPain": "Sakit Punggung",
+    "allergy2": "Alergi",
+    "skinRash": "Ruam Kulit",
+    "menstrualPain": "Nyeri Haid",
+    "toothache": "Sakit Gigi",
+    "eyeStrain": "Mata Lelah",
+    "heartburn2": "Maag",
+    "constipation": "Sembelit",
+    "insomnia": "Insomnia",
+    "jointPain": "Nyeri Sendi",
+    "dizziness": "Pusing",
+    "tinnitus": "Telinga Berdenging",
+    "nosebleed": "Mimisan",
+    "mouthUlcer": "Sariawan",
+    "burn": "Luka Bakar",
+    "wound": "Luka",
+    "swelling": "Bengkak",
+    "acne": "Jerawat",
+    "athletesFoot": "Kutu Air",
+    "stye": "Bintitan"
+  },
+  "flow": {
+    "headache": {
+      "q1": "Jenis sakit kepala seperti apa?",
+      "q1_a1": "Berdenyut (nyeri berdenyut)",
+      "q1_a2": "Menusuk (nyeri tajam)",
+      "q1_a3": "Berat (terasa ditekan)",
+      "q1_a4": "Seluruh kepala sakit",
+      "q2_throbbing": "Bagian mana yang paling sakit?",
+      "q2_t_a1": "Satu sisi saja (migrain)",
+      "q2_t_a2": "Dahi/bagian depan",
+      "q2_t_a3": "Belakang kepala/leher",
+      "q3_severity": "Seberapa parah sakitnya?",
+      "q3_s_a1": "Ringan (masih bisa beraktivitas)",
+      "q3_s_a2": "Sedang (sulit berkonsentrasi)",
+      "q3_s_a3": "Berat (sulit beraktivitas)",
+      "q2_sharp": "Kapan biasanya sakit?",
+      "q2_sh_a1": "Saat stres",
+      "q2_sh_a2": "Setelah duduk lama",
+      "q2_sh_a3": "Saat kurang tidur",
+      "q2_dull": "Sudah berapa lama sakit?",
+      "q2_d_a1": "Baru mulai (kurang dari 1 jam)",
+      "q2_d_a2": "Sepanjang hari ini",
+      "q2_d_a3": "Beberapa hari"
+    },
+    "cold": {
+      "q1": "Gejala mana yang paling mengganggu?",
+      "q1_a1": "Demam dan badan pegal",
+      "q1_a2": "Batuk parah",
+      "q1_a3": "Hidung tersumbat dan pilek",
+      "q1_a4": "Sakit tenggorokan"
+    },
+    "stomach": {
+      "q1": "Apa gejala Anda?",
+      "q1_a1": "Perut perih dan kembung",
+      "q1_a2": "Diare",
+      "q1_a3": "Tidak bisa mencerna makanan"
+    }
+  },
+  "result": {
+    "title": "Informasi Obat",
+    "subtitle": "Informasi ini hanya sebagai referensi. Konsultasikan dengan apoteker sebelum minum obat.",
+    "matchedCategory": "Gejala yang teridentifikasi",
+    "details": "Lihat detail",
+    "precautions": "Peringatan",
+    "sideEffects": "Efek Samping",
+    "searchAgain": "Cari Lagi",
+    "consultPharmacist": "Konsultasi Apoteker",
+    "findPharmacy": "Cari apotek terdekat",
+    "otcAvailable": "Obat ini tersedia tanpa resep di {{country}}",
+    "ingredientFallback": "Merek tidak ditemukan di negara ini. Tanyakan apoteker tentang obat yang mengandung bahan ini."
+  },
+  "country": {
+    "current": "Lokasi",
+    "change": "Ubah",
+    "detecting": "Mendeteksi lokasi..."
+  },
+  "onboarding": {
+    "intro": "Temukan informasi obat OTC yang tepat untuk gejala Anda dengan cepat.",
+    "introSub": "Informasi obat yang aman, kapan saja, di mana saja.",
+    "disclaimerTitle": "⚠️ Pemberitahuan Penting",
+    "items": [
+      "Layanan ini tidak memberikan diagnosis medis atau resep obat.",
+      "Informasi yang diberikan adalah informasi umum tentang obat OTC dan mungkin tidak sesuai untuk kondisi kesehatan Anda.",
+      "Silakan konsultasikan dengan apoteker atau dokter sebelum minum obat apa pun.",
+      "Jika Anda sedang minum obat lain atau memiliki penyakit kronis, silakan konsultasikan dengan dokter.",
+      "Jika gejala berlangsung lebih dari 3 hari atau memburuk, segera kunjungi rumah sakit.",
+      "Penyedia layanan tidak bertanggung jawab secara hukum atas segala konsekuensi yang timbul dari penggunaan informasi ini.",
+      "Dalam keadaan darurat, segera hubungi {{emergencyNumber}}."
+    ],
+    "agreeCheck": "Saya telah membaca dan menyetujui ketentuan di atas",
+    "agreeButton": "Setuju dan Mulai"
+  },
+  "disclaimer": {
+    "short": "Layanan ini memberikan informasi obat OTC, bukan diagnosis medis.",
+    "full": "⚠️ Layanan ini tidak memberikan diagnosis medis atau resep. Konsultasikan dengan apoteker sebelum minum obat. Jika sedang minum obat lain atau memiliki penyakit kronis, konsultasikan dengan dokter. Jika gejala berlangsung 3+ hari, kunjungi rumah sakit. Dalam keadaan darurat, hubungi {{emergencyNumber}}."
+  },
+  "common": {
+    "search": "Cari",
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "noResults": "Tidak ada hasil"
+  }
+}

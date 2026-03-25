@@ -40,7 +40,7 @@ export const SUPPORTED_LANGUAGES: LanguageOption[] = [
   { code: "en", label: "English", flag: "\u{1F1FA}\u{1F1F8}", countryHint: "US" },
   { code: "ja", label: "日本語", flag: "\u{1F1EF}\u{1F1F5}", countryHint: "JP" },
   { code: "th", label: "ภาษาไทย", flag: "\u{1F1F9}\u{1F1ED}", countryHint: "TH" },
-  { code: "tl", label: "Filipino", flag: "\u{1F1F5}\u{1F1ED}", countryHint: "PH" },
+  { code: "fil", label: "Filipino", flag: "\u{1F1F5}\u{1F1ED}", countryHint: "PH" },
   { code: "id", label: "Bahasa Indonesia", flag: "\u{1F1EE}\u{1F1E9}", countryHint: "ID" },
   { code: "en-GB", label: "English (UK)", flag: "\u{1F1EC}\u{1F1E7}", countryHint: "GB" },
   { code: "en-AU", label: "English (AU)", flag: "\u{1F1E6}\u{1F1FA}", countryHint: "AU" },
@@ -52,9 +52,10 @@ export const SUPPORTED_LANGUAGES: LanguageOption[] = [
 
 // Map non-supported i18n codes to supported ones
 export function getI18nLang(langCode: string): string {
-  if (["ko", "en", "vi"].includes(langCode)) return langCode;
+  const supported = ["ko", "en", "vi", "ja", "th", "fil", "id", "de", "hi", "zh", "es", "en-GB", "en-AU"];
+  if (supported.includes(langCode)) return langCode;
   if (langCode.startsWith("en")) return "en";
-  return "en"; // fallback
+  return "en";
 }
 
 const STORAGE_KEY = "otc_selected_country";

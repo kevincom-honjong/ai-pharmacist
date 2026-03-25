@@ -1,0 +1,132 @@
+{
+  "app": {
+    "title": "AI Pharmacist",
+    "subtitle": "Your AI-Powered Pharmacist",
+    "slogan": "时刻守护您的健康"
+  },
+  "home": {
+    "greeting": "您哪里不舒服？",
+    "searchPlaceholder": "描述一下您的症状",
+    "examples": "例如：头疼、咳嗽",
+    "popularSymptoms": "常见症状",
+    "showMore": "查看更多",
+    "showLess": "收起",
+    "noMatch": "未能识别您的症状，请换个说法试试。"
+  },
+  "symptoms": {
+    "headache": "头痛",
+    "cold": "感冒",
+    "stomachache": "胃痛",
+    "fever": "发烧",
+    "allergy": "过敏",
+    "musclePain": "肌肉酸痛",
+    "cough": "咳嗽",
+    "runnyNose": "流鼻涕",
+    "soreThroat": "喉咙痛",
+    "indigestion": "消化不良",
+    "diarrhea": "腹泻",
+    "nausea": "恶心",
+    "backPain": "腰痛",
+    "allergy2": "过敏",
+    "skinRash": "皮疹",
+    "menstrualPain": "痛经",
+    "toothache": "牙痛",
+    "eyeStrain": "眼疲劳",
+    "heartburn2": "烧心",
+    "constipation": "便秘",
+    "insomnia": "失眠",
+    "jointPain": "关节痛",
+    "dizziness": "头晕",
+    "tinnitus": "耳鸣",
+    "nosebleed": "流鼻血",
+    "mouthUlcer": "口腔溃疡",
+    "burn": "烧伤",
+    "wound": "外伤",
+    "swelling": "肿胀",
+    "acne": "痘痘",
+    "athletesFoot": "脚气",
+    "stye": "麦粒肿"
+  },
+  "flow": {
+    "headache": {
+      "q1": "您是哪种头痛？",
+      "q1_a1": "搏动性（一跳一跳地痛）",
+      "q1_a2": "刺痛（针扎般的痛）",
+      "q1_a3": "闷痛（有压迫感）",
+      "q1_a4": "整个头都痛",
+      "q2_throbbing": "最痛的部位在哪里？",
+      "q2_t_a1": "只痛一边（偏头痛）",
+      "q2_t_a2": "前额 / 前部",
+      "q2_t_a3": "后脑勺 / 颈部",
+      "q3_severity": "疼痛程度如何？",
+      "q3_s_a1": "轻微（不影响日常活动）",
+      "q3_s_a2": "中度（难以集中注意力）",
+      "q3_s_a3": "严重（几乎无法正常活动）",
+      "q2_sharp": "一般什么时候会痛？",
+      "q2_sh_a1": "压力大的时候",
+      "q2_sh_a2": "久坐之后",
+      "q2_sh_a3": "没睡好的时候",
+      "q2_dull": "头痛持续多久了？",
+      "q2_d_a1": "刚开始（1小时内）",
+      "q2_d_a2": "今天一整天",
+      "q2_d_a3": "好几天了"
+    },
+    "cold": {
+      "q1": "最困扰您的症状是什么？",
+      "q1_a1": "发烧和全身酸痛",
+      "q1_a2": "咳嗽严重",
+      "q1_a3": "鼻塞、流鼻涕",
+      "q1_a4": "喉咙痛"
+    },
+    "stomach": {
+      "q1": "您有哪些症状？",
+      "q1_a1": "烧心和腹胀",
+      "q1_a2": "腹泻",
+      "q1_a3": "消化不良"
+    }
+  },
+  "result": {
+    "title": "药品信息查询结果",
+    "subtitle": "以下信息仅供参考，服药前请咨询药剂师。",
+    "matchedCategory": "识别到的症状",
+    "details": "查看详情",
+    "precautions": "注意事项",
+    "sideEffects": "副作用",
+    "searchAgain": "重新搜索",
+    "consultPharmacist": "咨询药剂师",
+    "findPharmacy": "查找附近药店",
+    "otcAvailable": "该药品在{{country}}无需处方即可购买",
+    "ingredientFallback": "未找到该国家的注册品牌。请向药剂师咨询含有该成分的产品。"
+  },
+  "country": {
+    "current": "所在地区",
+    "change": "更改",
+    "detecting": "正在定位..."
+  },
+  "onboarding": {
+    "intro": "根据症状快速查找合适的非处方药信息。",
+    "introSub": "安全的药品信息，随时随地可查。",
+    "disclaimerTitle": "⚠️ 重要提示",
+    "items": [
+      "本服务不提供医疗诊断或处方。",
+      "提供的信息为一般性非处方药信息，可能不适合您的个人健康状况。",
+      "服药前请咨询药剂师或医生。",
+      "如果您正在服用其他药物或患有慢性疾病，请咨询专业人士。",
+      "如果症状持续超过3天或加重，请立即就医。",
+      "服务提供方不对因使用本服务信息而产生的任何后果承担法律责任。",
+      "如遇紧急情况，请立即拨打{{emergencyNumber}}。"
+    ],
+    "agreeCheck": "我已阅读并同意以上内容",
+    "agreeButton": "同意并开始"
+  },
+  "disclaimer": {
+    "short": "本服务提供非处方药信息，不提供医疗诊断。",
+    "full": "⚠️ 本服务不提供医疗诊断或处方。服药前请咨询药剂师。如正在服用其他药物或患有慢性疾病，请咨询专业人士。症状持续3天以上请就医。紧急情况请拨打{{emergencyNumber}}。"
+  },
+  "common": {
+    "search": "搜索",
+    "loading": "加载中...",
+    "error": "出现错误",
+    "noResults": "未找到结果"
+  }
+}

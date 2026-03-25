@@ -1,0 +1,132 @@
+{
+  "app": {
+    "title": "AI Pharmacist",
+    "subtitle": "Your AI-Powered Pharmacist",
+    "slogan": "Immer für Ihre Gesundheit da"
+  },
+  "home": {
+    "greeting": "Was fehlt Ihnen?",
+    "searchPlaceholder": "Beschreiben Sie Ihre Symptome",
+    "examples": "z. B. Ich habe Kopfschmerzen, Ich huste",
+    "popularSymptoms": "Häufige Symptome",
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen",
+    "noMatch": "Symptom konnte nicht erkannt werden. Bitte versuchen Sie es mit anderen Worten."
+  },
+  "symptoms": {
+    "headache": "Kopfschmerzen",
+    "cold": "Erkältung",
+    "stomachache": "Bauchschmerzen",
+    "fever": "Fieber",
+    "allergy": "Allergie",
+    "musclePain": "Muskelschmerzen",
+    "cough": "Husten",
+    "runnyNose": "Schnupfen",
+    "soreThroat": "Halsschmerzen",
+    "indigestion": "Verdauungsstörung",
+    "diarrhea": "Durchfall",
+    "nausea": "Übelkeit",
+    "backPain": "Rückenschmerzen",
+    "allergy2": "Allergie",
+    "skinRash": "Hautausschlag",
+    "menstrualPain": "Regelschmerzen",
+    "toothache": "Zahnschmerzen",
+    "eyeStrain": "Augenermüdung",
+    "heartburn2": "Sodbrennen",
+    "constipation": "Verstopfung",
+    "insomnia": "Schlaflosigkeit",
+    "jointPain": "Gelenkschmerzen",
+    "dizziness": "Schwindel",
+    "tinnitus": "Tinnitus",
+    "nosebleed": "Nasenbluten",
+    "mouthUlcer": "Mundgeschwür",
+    "burn": "Verbrennung",
+    "wound": "Wunde",
+    "swelling": "Schwellung",
+    "acne": "Akne",
+    "athletesFoot": "Fußpilz",
+    "stye": "Gerstenkorn"
+  },
+  "flow": {
+    "headache": {
+      "q1": "Was für Kopfschmerzen haben Sie?",
+      "q1_a1": "Pochend (pulsierender Schmerz)",
+      "q1_a2": "Stechend (stichartiger Schmerz)",
+      "q1_a3": "Dumpf (drückendes Gefühl)",
+      "q1_a4": "Ganzer Kopf schmerzt",
+      "q2_throbbing": "Wo tut es am meisten weh?",
+      "q2_t_a1": "Nur eine Seite (Migräne)",
+      "q2_t_a2": "Stirn / vorne",
+      "q2_t_a3": "Hinterkopf / Nacken",
+      "q3_severity": "Wie stark sind die Schmerzen?",
+      "q3_s_a1": "Leicht (Alltag ist möglich)",
+      "q3_s_a2": "Mittel (schwer, sich zu konzentrieren)",
+      "q3_s_a3": "Stark (Alltag kaum möglich)",
+      "q2_sharp": "Wann treten die Schmerzen auf?",
+      "q2_sh_a1": "Bei Stress",
+      "q2_sh_a2": "Nach langem Sitzen",
+      "q2_sh_a3": "Bei Schlafmangel",
+      "q2_dull": "Wie lange haben Sie schon Kopfschmerzen?",
+      "q2_d_a1": "Gerade erst angefangen (innerhalb 1 Stunde)",
+      "q2_d_a2": "Den ganzen Tag heute",
+      "q2_d_a3": "Seit mehreren Tagen"
+    },
+    "cold": {
+      "q1": "Welches Symptom belastet Sie am meisten?",
+      "q1_a1": "Fieber und Gliederschmerzen",
+      "q1_a2": "Starker Husten",
+      "q1_a3": "Verstopfte und laufende Nase",
+      "q1_a4": "Halsschmerzen"
+    },
+    "stomach": {
+      "q1": "Welche Beschwerden haben Sie?",
+      "q1_a1": "Sodbrennen und Blähungen",
+      "q1_a2": "Durchfall",
+      "q1_a3": "Verdauungsprobleme"
+    }
+  },
+  "result": {
+    "title": "Arzneimittel-Informationen",
+    "subtitle": "Diese Informationen dienen nur als Orientierung. Bitte fragen Sie Ihren Apotheker, bevor Sie ein Medikament einnehmen.",
+    "matchedCategory": "Erkanntes Symptom",
+    "details": "Details anzeigen",
+    "precautions": "Hinweise",
+    "sideEffects": "Nebenwirkungen",
+    "searchAgain": "Erneut suchen",
+    "consultPharmacist": "Apotheker kontaktieren",
+    "findPharmacy": "Apotheke in der Nähe finden",
+    "otcAvailable": "Dieses Medikament ist in {{country}} rezeptfrei erhältlich",
+    "ingredientFallback": "Kein registriertes Markenprodukt für dieses Land gefunden. Fragen Sie Ihren Apotheker nach einem Produkt mit diesem Wirkstoff."
+  },
+  "country": {
+    "current": "Standort",
+    "change": "Ändern",
+    "detecting": "Standort wird ermittelt..."
+  },
+  "onboarding": {
+    "intro": "Finden Sie schnell die passenden OTC-Arzneimittelinformationen für Ihre Symptome.",
+    "introSub": "Sichere Arzneimittelinformationen – jederzeit und überall.",
+    "disclaimerTitle": "⚠️ Wichtiger Hinweis",
+    "items": [
+      "Dieser Service bietet keine ärztliche Diagnose oder Verschreibung.",
+      "Die bereitgestellten Informationen sind allgemeine OTC-Arzneimittelinformationen und sind möglicherweise nicht für Ihre individuelle Gesundheitssituation geeignet.",
+      "Bitte konsultieren Sie einen Apotheker oder Arzt, bevor Sie ein Medikament einnehmen.",
+      "Falls Sie derzeit andere Medikamente einnehmen oder chronische Erkrankungen haben, wenden Sie sich an einen Fachmann.",
+      "Wenn die Symptome länger als 3 Tage anhalten oder sich verschlimmern, suchen Sie umgehend einen Arzt auf.",
+      "Der Dienstanbieter übernimmt keine Haftung für Folgen, die aus der Nutzung der bereitgestellten Informationen entstehen.",
+      "Im Notfall rufen Sie sofort {{emergencyNumber}} an."
+    ],
+    "agreeCheck": "Ich habe die obigen Hinweise gelesen und stimme zu",
+    "agreeButton": "Zustimmen und starten"
+  },
+  "disclaimer": {
+    "short": "Dieser Service bietet OTC-Arzneimittelinformationen, keine ärztliche Diagnose.",
+    "full": "⚠️ Dieser Service bietet keine ärztliche Diagnose oder Verschreibung. Konsultieren Sie einen Apotheker, bevor Sie Medikamente einnehmen. Falls Sie andere Medikamente einnehmen oder chronische Erkrankungen haben, wenden Sie sich an einen Fachmann. Bei Symptomen, die länger als 3 Tage anhalten, suchen Sie einen Arzt auf. Im Notfall rufen Sie {{emergencyNumber}} an."
+  },
+  "common": {
+    "search": "Suchen",
+    "loading": "Wird geladen...",
+    "error": "Ein Fehler ist aufgetreten",
+    "noResults": "Keine Ergebnisse gefunden"
+  }
+}

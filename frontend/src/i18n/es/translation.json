@@ -1,0 +1,132 @@
+{
+  "app": {
+    "title": "AI Pharmacist",
+    "subtitle": "Your AI-Powered Pharmacist",
+    "slogan": "Siempre cuidando tu salud"
+  },
+  "home": {
+    "greeting": "¿Qué te molesta?",
+    "searchPlaceholder": "Describe tus síntomas libremente",
+    "examples": "p. ej. Me duele la cabeza, tengo tos",
+    "popularSymptoms": "Síntomas frecuentes",
+    "showMore": "Ver más",
+    "showLess": "Ver menos",
+    "noMatch": "No pudimos identificar tu síntoma. Intenta describirlo de otra manera."
+  },
+  "symptoms": {
+    "headache": "Dolor de cabeza",
+    "cold": "Resfriado",
+    "stomachache": "Dolor de estómago",
+    "fever": "Fiebre",
+    "allergy": "Alergia",
+    "musclePain": "Dolor muscular",
+    "cough": "Tos",
+    "runnyNose": "Goteo nasal",
+    "soreThroat": "Dolor de garganta",
+    "indigestion": "Indigestión",
+    "diarrhea": "Diarrea",
+    "nausea": "Náuseas",
+    "backPain": "Dolor de espalda",
+    "allergy2": "Alergia",
+    "skinRash": "Sarpullido",
+    "menstrualPain": "Dolor menstrual",
+    "toothache": "Dolor de muelas",
+    "eyeStrain": "Fatiga visual",
+    "heartburn2": "Acidez estomacal",
+    "constipation": "Estreñimiento",
+    "insomnia": "Insomnio",
+    "jointPain": "Dolor articular",
+    "dizziness": "Mareos",
+    "tinnitus": "Zumbido en los oídos",
+    "nosebleed": "Sangrado nasal",
+    "mouthUlcer": "Llaga bucal",
+    "burn": "Quemadura",
+    "wound": "Herida",
+    "swelling": "Hinchazón",
+    "acne": "Acné",
+    "athletesFoot": "Pie de atleta",
+    "stye": "Orzuelo"
+  },
+  "flow": {
+    "headache": {
+      "q1": "¿Qué tipo de dolor de cabeza tienes?",
+      "q1_a1": "Pulsátil (dolor que late)",
+      "q1_a2": "Punzante (como pinchazos)",
+      "q1_a3": "Sordo (sensación de presión)",
+      "q1_a4": "Dolor en toda la cabeza",
+      "q2_throbbing": "¿Dónde te duele más?",
+      "q2_t_a1": "Solo un lado (migraña)",
+      "q2_t_a2": "Frente / parte delantera",
+      "q2_t_a3": "Nuca / cuello",
+      "q3_severity": "¿Qué tan fuerte es el dolor?",
+      "q3_s_a1": "Leve (puedo seguir con mis actividades)",
+      "q3_s_a2": "Moderado (me cuesta concentrarme)",
+      "q3_s_a3": "Intenso (casi no puedo funcionar)",
+      "q2_sharp": "¿Cuándo suele dolerte?",
+      "q2_sh_a1": "Cuando estoy estresado/a",
+      "q2_sh_a2": "Después de estar sentado/a mucho rato",
+      "q2_sh_a3": "Cuando no duermo bien",
+      "q2_dull": "¿Desde cuándo tienes el dolor de cabeza?",
+      "q2_d_a1": "Acaba de empezar (menos de 1 hora)",
+      "q2_d_a2": "Todo el día de hoy",
+      "q2_d_a3": "Varios días"
+    },
+    "cold": {
+      "q1": "¿Qué síntoma te molesta más?",
+      "q1_a1": "Fiebre y dolor de cuerpo",
+      "q1_a2": "Tos fuerte",
+      "q1_a3": "Nariz tapada y goteo nasal",
+      "q1_a4": "Dolor de garganta"
+    },
+    "stomach": {
+      "q1": "¿Qué síntomas tienes?",
+      "q1_a1": "Acidez e hinchazón",
+      "q1_a2": "Diarrea",
+      "q1_a3": "Indigestión"
+    }
+  },
+  "result": {
+    "title": "Resultados de información del medicamento",
+    "subtitle": "Esta información es solo de referencia. Consulta con un farmacéutico antes de tomar cualquier medicamento.",
+    "matchedCategory": "Síntoma identificado",
+    "details": "Ver detalles",
+    "precautions": "Precauciones",
+    "sideEffects": "Efectos secundarios",
+    "searchAgain": "Buscar de nuevo",
+    "consultPharmacist": "Consultar farmacéutico",
+    "findPharmacy": "Buscar farmacia cercana",
+    "otcAvailable": "Este medicamento se puede comprar sin receta en {{country}}",
+    "ingredientFallback": "No se encontró una marca registrada para este país. Consulta con tu farmacéutico por un producto que contenga este ingrediente."
+  },
+  "country": {
+    "current": "Ubicación",
+    "change": "Cambiar",
+    "detecting": "Detectando ubicación..."
+  },
+  "onboarding": {
+    "intro": "Encuentra rápidamente la información adecuada sobre medicamentos de venta libre para tus síntomas.",
+    "introSub": "Información segura sobre medicamentos, en cualquier momento y lugar.",
+    "disclaimerTitle": "⚠️ Aviso importante",
+    "items": [
+      "Este servicio no ofrece diagnóstico médico ni recetas.",
+      "La información proporcionada es general sobre medicamentos de venta libre y puede no ser adecuada para tu situación de salud particular.",
+      "Consulta con un farmacéutico o profesional de la salud antes de tomar cualquier medicamento.",
+      "Si estás tomando otros medicamentos o tienes enfermedades crónicas, consulta con un profesional.",
+      "Si los síntomas persisten más de 3 días o empeoran, acude al hospital de inmediato.",
+      "El proveedor del servicio no asume responsabilidad legal por las consecuencias derivadas del uso de la información proporcionada.",
+      "En caso de emergencia, llama al {{emergencyNumber}} de inmediato."
+    ],
+    "agreeCheck": "He leído y acepto lo anterior",
+    "agreeButton": "Aceptar y comenzar"
+  },
+  "disclaimer": {
+    "short": "Este servicio ofrece información sobre medicamentos de venta libre, no diagnóstico médico.",
+    "full": "⚠️ Este servicio no ofrece diagnóstico médico ni recetas. Consulta con un farmacéutico antes de tomar medicamentos. Si tomas otros medicamentos o tienes enfermedades crónicas, consulta con un profesional. Si los síntomas persisten más de 3 días, acude al hospital. En emergencias, llama al {{emergencyNumber}}."
+  },
+  "common": {
+    "search": "Buscar",
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "noResults": "No se encontraron resultados"
+  }
+}

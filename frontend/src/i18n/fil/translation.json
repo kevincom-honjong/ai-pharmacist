@@ -1,0 +1,132 @@
+{
+  "app": {
+    "title": "AI Pharmacist",
+    "subtitle": "Your AI-Powered Pharmacist",
+    "slogan": "Laging nag-aalaga sa iyong kalusugan"
+  },
+  "home": {
+    "greeting": "Ano ang nararamdaman mo?",
+    "searchPlaceholder": "Ilarawan ang iyong sintomas",
+    "examples": "Hal: Masakit ang ulo ko, umuubo ako",
+    "popularSymptoms": "Mga Karaniwang Sintomas",
+    "showMore": "Tingnan pa",
+    "showLess": "Bawasan",
+    "noMatch": "Hindi matukoy ang iyong sintomas. Subukan ang ibang salita."
+  },
+  "symptoms": {
+    "headache": "Sakit ng ulo",
+    "cold": "Sipon",
+    "stomachache": "Sakit ng tiyan",
+    "fever": "Lagnat",
+    "allergy": "Allergy",
+    "musclePain": "Sakit ng kalamnan",
+    "cough": "Ubo",
+    "runnyNose": "Sipon/Baradong ilong",
+    "soreThroat": "Sakit ng lalamunan",
+    "indigestion": "Hindi pagtunaw",
+    "diarrhea": "Pagtatae",
+    "nausea": "Pagduduwal/Pagsusuka",
+    "backPain": "Sakit ng likod",
+    "allergy2": "Allergy",
+    "skinRash": "Pantal sa balat",
+    "menstrualPain": "Dysmenorrhea",
+    "toothache": "Sakit ng ngipin",
+    "eyeStrain": "Pagkapagod ng mata",
+    "heartburn2": "Heartburn",
+    "constipation": "Constipation",
+    "insomnia": "Hindi makatulog",
+    "jointPain": "Sakit ng kasukasuan",
+    "dizziness": "Pagkahilo",
+    "tinnitus": "Pagtunog ng tainga",
+    "nosebleed": "Pagdurugo ng ilong",
+    "mouthUlcer": "Singaw",
+    "burn": "Paso",
+    "wound": "Sugat",
+    "swelling": "Pamamaga",
+    "acne": "Tigyawat",
+    "athletesFoot": "Alipunga",
+    "stye": "Kuliti"
+  },
+  "flow": {
+    "headache": {
+      "q1": "Anong klase ng sakit ng ulo?",
+      "q1_a1": "Tumitibok-tibok (pumipintig)",
+      "q1_a2": "Matutusok-tusok (matalim)",
+      "q1_a3": "Mabigat (parang may pumipindot)",
+      "q1_a4": "Buong ulo ang masakit",
+      "q2_throbbing": "Saan pinaka-masakit?",
+      "q2_t_a1": "Isang gilid lang (migraine)",
+      "q2_t_a2": "Noo/harapan",
+      "q2_t_a3": "Batok/leeg",
+      "q3_severity": "Gaano katindi ang sakit?",
+      "q3_s_a1": "Magaan (kaya pa ang araw-araw)",
+      "q3_s_a2": "Katamtaman (mahirap mag-focus)",
+      "q3_s_a3": "Matindi (hindi na makagalaw)",
+      "q2_sharp": "Kailan madalas sumakit?",
+      "q2_sh_a1": "Kapag stressed",
+      "q2_sh_a2": "Pagkatapos ng matagal na pagkaupo",
+      "q2_sh_a3": "Kapag kulang sa tulog",
+      "q2_dull": "Gaano na katagal sumasakit?",
+      "q2_d_a1": "Kakaumpisa lang (1 oras pa lang)",
+      "q2_d_a2": "Buong araw na",
+      "q2_d_a3": "Ilang araw na"
+    },
+    "cold": {
+      "q1": "Alin ang pinaka-nakakaabala na sintomas?",
+      "q1_a1": "May lagnat at pananakit ng katawan",
+      "q1_a2": "Malakas na ubo",
+      "q1_a3": "Baradong ilong at sipon",
+      "q1_a4": "Masakit ang lalamunan"
+    },
+    "stomach": {
+      "q1": "Ano ang nararamdaman mo?",
+      "q1_a1": "Masakit ang sikmura at bloated",
+      "q1_a2": "Pagtatae",
+      "q1_a3": "Hindi matunaw ang kinain"
+    }
+  },
+  "result": {
+    "title": "Impormasyon ng Gamot",
+    "subtitle": "Ang impormasyong ito ay para sa sanggunian lamang. Kumonsulta sa pharmacist bago uminom ng gamot.",
+    "matchedCategory": "Natukoy na sintomas",
+    "details": "Tingnan ang detalye",
+    "precautions": "Mga Pag-iingat",
+    "sideEffects": "Side Effects",
+    "searchAgain": "Maghanap Muli",
+    "consultPharmacist": "Kumonsulta sa Pharmacist",
+    "findPharmacy": "Hanapin ang malapit na botika",
+    "otcAvailable": "Ang gamot na ito ay mabibili nang walang reseta sa {{country}}",
+    "ingredientFallback": "Walang nahanap na brand sa bansang ito. Magtanong sa pharmacist ng gamot na may ganitong sangkap."
+  },
+  "country": {
+    "current": "Lokasyon",
+    "change": "Palitan",
+    "detecting": "Tinutukoy ang lokasyon..."
+  },
+  "onboarding": {
+    "intro": "Mabilis na maghanap ng tamang OTC na gamot para sa iyong sintomas.",
+    "introSub": "Ligtas na impormasyon ng gamot, kahit saan, kahit kailan.",
+    "disclaimerTitle": "⚠️ Mahalagang Paalala",
+    "items": [
+      "Ang serbisyong ito ay hindi nagbibigay ng medical diagnosis o reseta.",
+      "Ang impormasyong ibinibigay ay pangkalahatang impormasyon tungkol sa OTC na gamot at maaaring hindi angkop sa iyong kondisyon.",
+      "Kumonsulta sa pharmacist o doktor bago uminom ng anumang gamot.",
+      "Kung umiinom ka ng ibang gamot o may chronic na sakit, kumonsulta sa doktor.",
+      "Kung ang sintomas ay tumagal ng higit sa 3 araw o lumala, pumunta agad sa ospital.",
+      "Ang service provider ay walang legal na pananagutan sa anumang resulta na dulot ng paggamit ng impormasyong ito.",
+      "Sa emergency, tumawag agad sa {{emergencyNumber}}."
+    ],
+    "agreeCheck": "Nabasa ko at sumasang-ayon ako sa mga nabanggit",
+    "agreeButton": "Sang-ayon at Magsimula"
+  },
+  "disclaimer": {
+    "short": "Ang serbisyong ito ay nagbibigay ng impormasyon ng OTC na gamot, hindi medical diagnosis.",
+    "full": "⚠️ Hindi ito nagbibigay ng medical diagnosis o reseta. Kumonsulta sa pharmacist bago uminom ng gamot. Kung may iniinom na ibang gamot o may chronic na sakit, kumonsulta sa doktor. Kung tumagal ang sintomas ng 3+ araw, pumunta sa ospital. Sa emergency, tumawag sa {{emergencyNumber}}."
+  },
+  "common": {
+    "search": "Maghanap",
+    "loading": "Naglo-load...",
+    "error": "May naganap na error",
+    "noResults": "Walang nahanap na resulta"
+  }
+}
