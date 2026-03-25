@@ -55,12 +55,43 @@ function getSymptomLabel(key: string, lang: string): string {
   return m.kr;
 }
 
+const LANG_OPTIONS = [
+  { code: "ko", flag: "🇰🇷", name: "한국어" },
+  { code: "vi", flag: "🇻🇳", name: "Tiếng Việt" },
+  { code: "en", flag: "🇺🇸", name: "English" },
+  { code: "ja", flag: "🇯🇵", name: "日本語" },
+  { code: "th", flag: "🇹🇭", name: "ภาษาไทย" },
+  { code: "fil", flag: "🇵🇭", name: "Filipino" },
+  { code: "id", flag: "🇮🇩", name: "Bahasa Indonesia" },
+  { code: "en-GB", flag: "🇬🇧", name: "English (UK)" },
+  { code: "en-AU", flag: "🇦🇺", name: "English (AU)" },
+  { code: "de", flag: "🇩🇪", name: "Deutsch" },
+  { code: "hi", flag: "🇮🇳", name: "हिन्दी" },
+  { code: "zh", flag: "🇨🇳", name: "中文" },
+  { code: "es", flag: "🇪🇸", name: "Español" },
+];
+
 export default function MedicalFormPreview({ data, lang, onBack, onReset }: Props) {
   const printRef = useRef<HTMLDivElement>(null);
   const [downloading, setDownloading] = useState(false);
+  const [showLangModal, setShowLangModal] = useState(false);
+  const [downloadLang, setDownloadLang] = useState(lang);
+  const [downloadLang2, setDownloadLang2] = useState("");
+  const [isDual, setIsDual] = useState(false);
 
-  const handleDownload = async () => {
+  // Render language for the preview (always use current UI lang)
+  const renderLang = lang;
+
+  const handleDownloadClick = () => {
+    setDownloadLang(lang);
+    setDownloadLang2("");
+    setIsDual(false);
+    setShowLangModal(true);
+  };
+
+  const executeDownload = async () => {
     if (!printRef.current) return;
+    setShowLangModal(false);
     setDownloading(true);
 
     try {
@@ -77,7 +108,6 @@ export default function MedicalFormPreview({ data, lang, onBack, onReset }: Prop
       link.href = canvas.toDataURL("image/png");
       link.click();
     } catch {
-      // Fallback: print
       window.print();
     } finally {
       setDownloading(false);
@@ -116,6 +146,32 @@ export default function MedicalFormPreview({ data, lang, onBack, onReset }: Prop
 
   const severityColor = data.severity <= 3 ? "text-green-600" : data.severity <= 6 ? "text-yellow-600" : "text-red-600";
 
+  // When downloading, use selected language; otherwise use UI lang
+  const formLang = downloading ? downloadLang : renderLang;
+  const formLang2 = (downloading && isDual) ? downloadLang2 : "";
+
+  // Dual-language row helper
+  const DualRow = ({ label1, label2, value }: { label1: string; label2: string; value: string | undefined }) => {
+    if (!value) return null;
+    return (
+      <div className="flex border-b border-gray-100 py-2">
+        <div className="w-[140px] shrink-0">
+          <span className="text-sm text-gray-500 font-medium">{label1}</span>
+          {label2 && <span className="text-xs text-gray-300 block">{label2}</span>}
+        </div>
+        <span className="text-sm text-gray-800 flex-1">{value}</span>
+      </div>
+    );
+  };
+
+  // Get label in formLang, and optional second label
+  const fl = (kr: string, en: string, vi: string) => {
+    const primary = tl(formLang, kr, en, vi);
+    if (!formLang2) return { l1: primary, l2: "" };
+    const secondary = tl(formLang2, kr, en, vi);
+    return { l1: primary, l2: secondary !== primary ? secondary : "" };
+  };
+
   return (
     <div className="min-h-screen bg-[#FAFAF8] max-w-[480px] mx-auto flex flex-col">
       <header className="flex items-center gap-3 px-5 py-3.5 bg-white/80 backdrop-blur-sm sticky top-0 z-10">
@@ -143,79 +199,69 @@ export default function MedicalFormPreview({ data, lang, onBack, onReset }: Prop
             <div>
               <h2 className="text-lg font-bold">AI Pharmacist</h2>
               <p className="text-xs opacity-80">
-                {tl(lang, "건강 문진표", "Medical Questionnaire", "Phiếu khám sức khỏe")}
+                {tl(formLang, "건강 문진표", "Medical Questionnaire", "Phiếu khám sức khỏe")}
+                {formLang2 && ` / ${tl(formLang2, "건강 문진표", "Medical Questionnaire", "Phiếu khám sức khỏe")}`}
               </p>
             </div>
           </div>
-          <p className="text-xs opacity-70">{tl(lang, "작성일", "Date", "Ngày")}: {data.date}</p>
+          <p className="text-xs opacity-70">{tl(formLang, "작성일", "Date", "Ngày")}: {data.date}</p>
         </div>
 
         <div className="px-6 py-4">
-          <Section title={tl(lang, "📋 기본 정보", "📋 Basic Info", "📋 Thông tin cơ bản")}>
-            <Row label={tl(lang, "성별", "Gender", "Giới tính")} value={data.gender} />
-            <Row label={tl(lang, "연령대", "Age", "Tuổi")} value={data.ageGroup} />
-            {data.height && <Row label={tl(lang, "키", "Height", "Chiều cao")} value={`${data.height} cm`} />}
-            {data.weight && <Row label={tl(lang, "몸무게", "Weight", "Cân nặng")} value={`${data.weight} kg`} />}
-          </Section>
+          {(() => { const h = fl("📋 기본 정보", "📋 Basic Info", "📋 Thông tin cơ bản"); return <Section title={h.l2 ? `${h.l1} / ${h.l2}` : h.l1}>
+            <DualRow label1={fl("성별","Gender","Giới tính").l1} label2={fl("성별","Gender","Giới tính").l2} value={data.gender} />
+            <DualRow label1={fl("연령대","Age","Tuổi").l1} label2={fl("연령대","Age","Tuổi").l2} value={data.ageGroup} />
+            {data.height && <DualRow label1={fl("키","Height","Chiều cao").l1} label2={fl("키","Height","Chiều cao").l2} value={`${data.height} cm`} />}
+            {data.weight && <DualRow label1={fl("몸무게","Weight","Cân nặng").l1} label2={fl("몸무게","Weight","Cân nặng").l2} value={`${data.weight} kg`} />}
+          </Section>; })()}
 
-          <Section title={tl(lang, "🩺 현재 증상", "🩺 Current Symptoms", "🩺 Triệu chứng hiện tại")}>
-            <Row
-              label={tl(lang, "증상", "Symptoms", "Triệu chứng")}
-              value={data.symptoms.map(s => getSymptomLabel(s, lang)).join(", ")}
-            />
-            <Row
-              label={tl(lang, "주요 증상", "Main", "Chính")}
-              value={getSymptomLabel(data.mainSymptom, lang)}
-            />
-            <Row label={tl(lang, "시작 시점", "Onset", "Khởi phát")} value={data.onsetTime} />
+          {(() => { const h = fl("🩺 현재 증상", "🩺 Current Symptoms", "🩺 Triệu chứng hiện tại"); return <Section title={h.l2 ? `${h.l1} / ${h.l2}` : h.l1}>
+            <DualRow label1={fl("증상","Symptoms","Triệu chứng").l1} label2={fl("증상","Symptoms","Triệu chứng").l2}
+              value={data.symptoms.map(s => getSymptomLabel(s, formLang)).join(", ")} />
+            <DualRow label1={fl("주요 증상","Main","Chính").l1} label2={fl("주요 증상","Main","Chính").l2}
+              value={getSymptomLabel(data.mainSymptom, formLang)} />
+            <DualRow label1={fl("시작 시점","Onset","Khởi phát").l1} label2={fl("시작 시점","Onset","Khởi phát").l2} value={data.onsetTime} />
             <div className="flex border-b border-gray-100 py-2">
-              <span className="w-[140px] text-sm text-gray-500 font-medium shrink-0">
-                {tl(lang, "강도", "Severity", "Mức độ")}
-              </span>
+              <div className="w-[140px] shrink-0">
+                <span className="text-sm text-gray-500 font-medium">{fl("강도","Severity","Mức độ").l1}</span>
+                {fl("강도","Severity","Mức độ").l2 && <span className="text-xs text-gray-300 block">{fl("강도","Severity","Mức độ").l2}</span>}
+              </div>
               <span className={`text-sm font-bold ${severityColor}`}>{data.severity} / 10</span>
             </div>
-            {data.worseTime.length > 0 && (
-              <Row label={tl(lang, "악화 시점", "Worse when", "Nặng hơn khi")} value={data.worseTime.join(", ")} />
-            )}
-            {data.betterTime.length > 0 && (
-              <Row label={tl(lang, "호전 시점", "Better when", "Tốt hơn khi")} value={data.betterTime.join(", ")} />
-            )}
-          </Section>
+            {data.worseTime.length > 0 && <DualRow label1={fl("악화 시점","Worse when","Nặng hơn khi").l1} label2={fl("악화 시점","Worse when","Nặng hơn khi").l2} value={data.worseTime.join(", ")} />}
+            {data.betterTime.length > 0 && <DualRow label1={fl("호전 시점","Better when","Tốt hơn khi").l1} label2={fl("호전 시점","Better when","Tốt hơn khi").l2} value={data.betterTime.join(", ")} />}
+          </Section>; })()}
 
-          <Section title={tl(lang, "📁 병력", "📁 Medical History", "📁 Tiền sử bệnh")}>
-            <Row label={tl(lang, "진단 질환", "Diseases", "Bệnh")} value={data.diseases.join(", ") || tl(lang, "없음", "None", "Không")} />
-            <Row label={tl(lang, "수술 경험", "Surgery", "Phẫu thuật")} value={data.surgeryHistory || tl(lang, "없음", "None", "Không")} />
-            <Row label={tl(lang, "가족력", "Family", "Gia đình")} value={data.familyDiseases.join(", ") || tl(lang, "없음", "None", "Không")} />
-          </Section>
+          {(() => { const h = fl("📁 병력", "📁 Medical History", "📁 Tiền sử bệnh"); const none = tl(formLang, "없음", "None", "Không"); return <Section title={h.l2 ? `${h.l1} / ${h.l2}` : h.l1}>
+            <DualRow label1={fl("진단 질환","Diseases","Bệnh").l1} label2={fl("진단 질환","Diseases","Bệnh").l2} value={data.diseases.join(", ") || none} />
+            <DualRow label1={fl("수술 경험","Surgery","Phẫu thuật").l1} label2={fl("수술 경험","Surgery","Phẫu thuật").l2} value={data.surgeryHistory || none} />
+            <DualRow label1={fl("가족력","Family","Gia đình").l1} label2={fl("가족력","Family","Gia đình").l2} value={data.familyDiseases.join(", ") || none} />
+          </Section>; })()}
 
-          <Section title={tl(lang, "💊 복용 약물", "💊 Medications", "💊 Thuốc đang dùng")}>
-            <Row label={tl(lang, "복용 약", "Current", "Đang dùng")} value={data.currentMeds.join(", ") || tl(lang, "없음", "None", "Không")} />
-            <Row label={tl(lang, "약 알레르기", "Drug allergy", "Dị ứng thuốc")} value={data.drugAllergies.join(", ") || tl(lang, "없음", "None", "Không")} />
-            <Row label={tl(lang, "음식 알레르기", "Food allergy", "Dị ứng thực phẩm")} value={data.foodAllergies || tl(lang, "없음", "None", "Không")} />
-          </Section>
+          {(() => { const h = fl("💊 복용 약물", "💊 Medications", "💊 Thuốc đang dùng"); const none = tl(formLang, "없음", "None", "Không"); return <Section title={h.l2 ? `${h.l1} / ${h.l2}` : h.l1}>
+            <DualRow label1={fl("복용 약","Current","Đang dùng").l1} label2={fl("복용 약","Current","Đang dùng").l2} value={data.currentMeds.join(", ") || none} />
+            <DualRow label1={fl("약 알레르기","Drug allergy","Dị ứng thuốc").l1} label2={fl("약 알레르기","Drug allergy","Dị ứng thuốc").l2} value={data.drugAllergies.join(", ") || none} />
+            <DualRow label1={fl("음식 알레르기","Food allergy","Dị ứng thực phẩm").l1} label2={fl("음식 알레르기","Food allergy","Dị ứng thực phẩm").l2} value={data.foodAllergies || none} />
+          </Section>; })()}
 
-          {data.gender === "female" && (
-            <Section title={tl(lang, "👩 여성 건강", "👩 Women's Health", "👩 Sức khỏe phụ nữ")}>
-              {data.pregnant && <Row label={tl(lang, "임신", "Pregnancy", "Mang thai")} value={data.pregnant} />}
-              {data.breastfeeding && <Row label={tl(lang, "수유", "Breastfeeding", "Cho con bú")} value={data.breastfeeding} />}
-              {data.lastPeriod && <Row label={tl(lang, "마지막 생리", "Last period", "Kỳ kinh cuối")} value={data.lastPeriod} />}
-            </Section>
-          )}
+          {data.gender === "female" && (() => { const h = fl("👩 여성 건강", "👩 Women's Health", "👩 Sức khỏe phụ nữ"); return <Section title={h.l2 ? `${h.l1} / ${h.l2}` : h.l1}>
+            {data.pregnant && <DualRow label1={fl("임신","Pregnancy","Mang thai").l1} label2={fl("임신","Pregnancy","Mang thai").l2} value={data.pregnant} />}
+            {data.breastfeeding && <DualRow label1={fl("수유","Breastfeeding","Cho con bú").l1} label2={fl("수유","Breastfeeding","Cho con bú").l2} value={data.breastfeeding} />}
+            {data.lastPeriod && <DualRow label1={fl("마지막 생리","Last period","Kỳ kinh cuối").l1} label2={fl("마지막 생리","Last period","Kỳ kinh cuối").l2} value={data.lastPeriod} />}
+          </Section>; })()}
 
-          <Section title={tl(lang, "🏃 생활 습관", "🏃 Lifestyle", "🏃 Lối sống")}>
-            <Row label={tl(lang, "음주", "Alcohol", "Rượu bia")} value={data.alcohol} />
-            <Row label={tl(lang, "흡연", "Smoking", "Hút thuốc")} value={data.smoking} />
-          </Section>
+          {(() => { const h = fl("🏃 생활 습관", "🏃 Lifestyle", "🏃 Lối sống"); return <Section title={h.l2 ? `${h.l1} / ${h.l2}` : h.l1}>
+            <DualRow label1={fl("음주","Alcohol","Rượu bia").l1} label2={fl("음주","Alcohol","Rượu bia").l2} value={data.alcohol} />
+            <DualRow label1={fl("흡연","Smoking","Hút thuốc").l1} label2={fl("흡연","Smoking","Hút thuốc").l2} value={data.smoking} />
+          </Section>; })()}
 
-          {data.memo && (
-            <Section title={tl(lang, "📝 추가 메모", "📝 Notes", "📝 Ghi chú")}>
-              <p className="text-sm text-gray-700 leading-relaxed">{data.memo}</p>
-            </Section>
-          )}
+          {data.memo && (() => { const h = fl("📝 추가 메모", "📝 Notes", "📝 Ghi chú"); return <Section title={h.l2 ? `${h.l1} / ${h.l2}` : h.l1}>
+            <p className="text-sm text-gray-700 leading-relaxed">{data.memo}</p>
+          </Section>; })()}
 
           <div className="text-center pt-2 pb-1 border-t border-gray-100">
             <p className="text-[10px] text-gray-300">
-              Generated by AI Pharmacist · {tl(lang, "참고용 문진표", "For reference only", "Chỉ để tham khảo")}
+              Generated by AI Pharmacist · {tl(formLang, "참고용 문진표", "For reference only", "Chỉ để tham khảo")}
             </p>
           </div>
         </div>
@@ -224,7 +270,7 @@ export default function MedicalFormPreview({ data, lang, onBack, onReset }: Prop
       {/* Action buttons */}
       <div className="px-4 py-5 space-y-3">
         <button
-          onClick={handleDownload}
+          onClick={handleDownloadClick}
           disabled={downloading}
           className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl text-sm font-bold bg-gradient-to-r from-emerald-400 to-teal-500 text-white hover:shadow-md active:scale-[0.98] transition-all shadow-sm disabled:opacity-50"
         >
@@ -255,6 +301,93 @@ export default function MedicalFormPreview({ data, lang, onBack, onReset }: Prop
           {tl(lang, "처음으로", "Start over", "Làm lại")}
         </button>
       </div>
+
+      {/* Language selection modal */}
+      {showLangModal && (
+        <div className="fixed inset-0 bg-black/40 z-50 flex items-end justify-center" onClick={() => setShowLangModal(false)}>
+          <div
+            className="bg-white w-full max-w-[480px] rounded-t-3xl p-5 pb-8 max-h-[85vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="w-10 h-1 bg-gray-200 rounded-full mx-auto mb-4" />
+            <h3 className="text-base font-bold text-gray-800 mb-1 text-center">
+              {tl(lang, "문진표를 어떤 언어로 저장할까요?", "Which language for the form?", "Lưu phiếu bằng ngôn ngữ nào?")}
+            </h3>
+
+            {/* Dual language toggle */}
+            <div className="flex items-center justify-center gap-3 my-4">
+              <span className="text-xs text-gray-500">{tl(lang, "이중 언어", "Dual language", "Song ngữ")}</span>
+              <button
+                onClick={() => setIsDual(!isDual)}
+                className={`w-12 h-6 rounded-full transition-colors ${isDual ? "bg-emerald-400" : "bg-gray-200"}`}
+              >
+                <div className={`w-5 h-5 bg-white rounded-full shadow-sm transition-transform ${isDual ? "translate-x-6" : "translate-x-0.5"}`} />
+              </button>
+            </div>
+
+            {/* Language 1 */}
+            <p className="text-xs text-gray-400 font-medium mb-2">
+              {isDual ? tl(lang, "첫 번째 언어", "Primary language", "Ngôn ngữ chính") : tl(lang, "언어 선택", "Select language", "Chọn ngôn ngữ")}
+            </p>
+            <div className="space-y-1.5 mb-4">
+              {LANG_OPTIONS.map((lo) => (
+                <button
+                  key={lo.code}
+                  onClick={() => setDownloadLang(lo.code)}
+                  className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-all ${
+                    downloadLang === lo.code
+                      ? "bg-emerald-50 border-2 border-emerald-400 text-emerald-700 font-semibold"
+                      : "bg-gray-50 border-2 border-transparent text-gray-600"
+                  }`}
+                >
+                  <span className="text-lg">{lo.flag}</span>
+                  <span>{lo.name}</span>
+                  {downloadLang === lo.code && <span className="ml-auto text-emerald-500">✓</span>}
+                </button>
+              ))}
+            </div>
+
+            {/* Language 2 (dual mode) */}
+            {isDual && (
+              <>
+                <p className="text-xs text-gray-400 font-medium mb-2">
+                  {tl(lang, "두 번째 언어", "Secondary language", "Ngôn ngữ phụ")}
+                </p>
+                <div className="space-y-1.5 mb-4">
+                  {LANG_OPTIONS.filter(lo => lo.code !== downloadLang).map((lo) => (
+                    <button
+                      key={lo.code}
+                      onClick={() => setDownloadLang2(lo.code)}
+                      className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-all ${
+                        downloadLang2 === lo.code
+                          ? "bg-emerald-50 border-2 border-emerald-400 text-emerald-700 font-semibold"
+                          : "bg-gray-50 border-2 border-transparent text-gray-600"
+                      }`}
+                    >
+                      <span className="text-lg">{lo.flag}</span>
+                      <span>{lo.name}</span>
+                      {downloadLang2 === lo.code && <span className="ml-auto text-emerald-500">✓</span>}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* Download button */}
+            <button
+              onClick={executeDownload}
+              disabled={isDual && !downloadLang2}
+              className="w-full py-4 rounded-2xl text-sm font-bold bg-gradient-to-r from-emerald-400 to-teal-500 text-white hover:shadow-md active:scale-[0.98] transition-all shadow-sm disabled:opacity-40"
+            >
+              {isDual
+                ? `📋 ${LANG_OPTIONS.find(l => l.code === downloadLang)?.name || ""} + ${LANG_OPTIONS.find(l => l.code === downloadLang2)?.name || "..."}`
+                : `📋 ${LANG_OPTIONS.find(l => l.code === downloadLang)?.name || ""}`
+              }
+              {" "}{tl(lang, "다운로드", "Download", "Tải xuống")}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
