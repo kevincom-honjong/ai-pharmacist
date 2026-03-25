@@ -10,10 +10,10 @@ interface NewDrugCardProps {
 }
 
 const LABELS: Record<string, Record<string, string>> = {
-  details: { ko: "상세 정보 보기", en: "View details", vi: "Xem chi tiết" },
-  precautions: { ko: "주의사항", en: "Precautions", vi: "Lưu ý" },
-  otcMsg: { ko: "이 약은 {{c}}에서 처방전 없이 구매 가능한 일반의약품입니다", en: "Available over-the-counter without prescription in {{c}}", vi: "Có thể mua không cần đơn tại {{c}}" },
-  altMsg: { ko: "이 약을 찾을 수 없다면 약사에게 다음 성분이 포함된 약을 요청하세요", en: "If unavailable, ask your pharmacist for a product containing", vi: "Nếu không tìm thấy, hãy hỏi dược sĩ về sản phẩm chứa" },
+  details: { ko: "상세 정보 보기", en: "View details", vi: "Xem chi tiết", ja: "詳細を見る" },
+  precautions: { ko: "주의사항", en: "Precautions", vi: "Lưu ý", ja: "注意事項" },
+  otcMsg: { ko: "이 약은 {{c}}에서 처방전 없이 구매 가능한 일반의약품입니다", en: "Available over-the-counter without prescription in {{c}}", vi: "Có thể mua không cần đơn tại {{c}}", ja: "この薬は{{c}}で処方箋なしで購入できる一般用医薬品です" },
+  altMsg: { ko: "이 약을 찾을 수 없다면 약사에게 다음 성분이 포함된 약을 요청하세요", en: "If unavailable, ask your pharmacist for a product containing", vi: "Nếu không tìm thấy, hãy hỏi dược sĩ về sản phẩm chứa", ja: "この薬が見つからない場合は、薬剤師に以下の成分を含む薬を尋ねてください" },
 };
 
 function l(key: string, lang: string) {
@@ -21,18 +21,21 @@ function l(key: string, lang: string) {
 }
 
 function getName(drug: DrugEntry, countryCode: string) {
+  if (countryCode === "JP") return drug.nameJP || drug.nameUS;
   if (countryCode === "VN") return drug.nameVN;
   if (countryCode === "US") return drug.nameUS;
   return drug.nameKR;
 }
 
 function getDosage(drug: DrugEntry, lang: string) {
+  if (lang === "ja") return drug.dosageJP || drug.dosageUS;
   if (lang === "vi") return drug.dosageVN;
   if (lang === "en") return drug.dosageUS;
   return drug.dosageKR;
 }
 
 function getPrecaution(drug: DrugEntry, lang: string) {
+  if (lang === "ja") return drug.precautionJP || drug.precautionUS;
   if (lang === "vi") return drug.precautionVN;
   if (lang === "en") return drug.precautionUS;
   return drug.precautionKR;
