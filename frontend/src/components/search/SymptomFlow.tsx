@@ -353,6 +353,7 @@ export default function SymptomFlow({ category, countryCode, inputText, onReset 
   // Parse input text for auto-detection
   const parsed = useMemo<ParsedInput>(() => inputText ? parseSymptomInput(inputText) : {}, [inputText]);
   const [autoDetected, setAutoDetected] = useState<Record<string, { label: string; source: string }>>({});
+  const [editedFields, setEditedFields] = useState<Set<string>>(new Set()); // fields user manually edited after auto-detect
 
   const [step, setStep] = useState<FlowStep>("companion");
   const [combo, setCombo] = useState<SymptomComboResult | null>(null);
@@ -500,6 +501,9 @@ export default function SymptomFlow({ category, countryCode, inputText, onReset 
   const tryAutoAnswer = (nextIdx: number): boolean => {
     if (nextIdx >= MEDICAL_Q_COUNT) return false;
     const q = MEDICAL_QUESTIONS[nextIdx];
+
+    // Don't auto-skip fields the user already manually edited
+    if (editedFields.has(q.id)) return false;
 
     // Auto-fill duration
     if (q.id === "duration" && parsed.duration) {
@@ -1081,9 +1085,33 @@ export default function SymptomFlow({ category, countryCode, inputText, onReset 
             )}
           </div>
           {Object.keys(autoDetected).length > 0 && (
-            <p className="text-[10px] text-emerald-400 mt-2">
-              {lang === "ko" ? "✓ 입력에서 자동 감지된 항목이 있습니다" : lang === "vi" ? "✓ Một số mục được tự động nhận diện" : "✓ Some fields were auto-detected from your input"}
-            </p>
+            <div className="flex items-center justify-between mt-2">
+              <p className="text-[10px] text-emerald-400">
+                {lang === "ko" ? "✓ 입력에서 자동 감지된 항목이 있습니다" : lang === "vi" ? "✓ Một số mục được tự động nhận diện" : "✓ Some fields were auto-detected from your input"}
+              </p>
+              <button
+                onClick={() => {
+                  const durationIdx = MEDICAL_QUESTIONS.findIndex(q => q.id === "duration");
+                  const severityIdx = MEDICAL_QUESTIONS.findIndex(q => q.id === "severity");
+                  const targetIdx = autoDetected.duration ? durationIdx : severityIdx;
+                  if (targetIdx >= 0) {
+                    // Mark all auto-detected fields as edited so they won't be skipped again
+                    const newEdited = new Set(editedFields);
+                    if (autoDetected.duration) newEdited.add("duration");
+                    if (autoDetected.severity) newEdited.add("severity");
+                    setEditedFields(newEdited);
+                    setAutoDetected({});
+                    setMedicalQIndex(targetIdx);
+                    setStep("medicalQ");
+                    pushState(`medicalQ-${targetIdx}`);
+                    scrollTop();
+                  }
+                }}
+                className="text-[10px] text-emerald-500 underline font-medium"
+              >
+                {lang === "ko" ? "수정하기" : lang === "vi" ? "Chỉnh sửa" : "Edit"}
+              </button>
+            </div>
           )}
         </div>
 
