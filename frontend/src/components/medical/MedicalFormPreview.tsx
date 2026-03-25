@@ -75,19 +75,36 @@ export default function MedicalFormPreview({ data, lang, onBack, onReset }: Prop
   const printRef = useRef<HTMLDivElement>(null);
   const [downloading, setDownloading] = useState(false);
   const [showLangModal, setShowLangModal] = useState(false);
-  const [downloadLang, setDownloadLang] = useState(lang);
-  const [downloadLang2, setDownloadLang2] = useState("");
-  const [isDual, setIsDual] = useState(false);
+  const [selectedLangs, setSelectedLangs] = useState<string[]>([lang]);
 
   // Render language for the preview (always use current UI lang)
   const renderLang = lang;
 
   const handleDownloadClick = () => {
-    setDownloadLang(lang);
-    setDownloadLang2("");
-    setIsDual(false);
+    setSelectedLangs([lang]);
     setShowLangModal(true);
   };
+
+  const toggleLang = (code: string) => {
+    setSelectedLangs((prev) => {
+      if (prev.includes(code)) {
+        // Deselect: must keep at least 1
+        if (prev.length <= 1) return prev;
+        return prev.filter((c) => c !== code);
+      } else {
+        // Select: max 2
+        if (prev.length >= 2) {
+          // Replace second with new
+          return [prev[0], code];
+        }
+        return [...prev, code];
+      }
+    });
+  };
+
+  const downloadLang = selectedLangs[0] || lang;
+  const downloadLang2 = selectedLangs[1] || "";
+  const isDual = selectedLangs.length === 2;
 
   const executeDownload = async () => {
     if (!printRef.current) return;
@@ -313,75 +330,64 @@ export default function MedicalFormPreview({ data, lang, onBack, onReset }: Prop
             <h3 className="text-base font-bold text-gray-800 mb-1 text-center">
               {tl(lang, "문진표를 어떤 언어로 저장할까요?", "Which language for the form?", "Lưu phiếu bằng ngôn ngữ nào?")}
             </h3>
-
-            {/* Dual language toggle */}
-            <div className="flex items-center justify-center gap-3 my-4">
-              <span className="text-xs text-gray-500">{tl(lang, "이중 언어", "Dual language", "Song ngữ")}</span>
-              <button
-                onClick={() => setIsDual(!isDual)}
-                className={`w-12 h-6 rounded-full transition-colors ${isDual ? "bg-emerald-400" : "bg-gray-200"}`}
-              >
-                <div className={`w-5 h-5 bg-white rounded-full shadow-sm transition-transform ${isDual ? "translate-x-6" : "translate-x-0.5"}`} />
-              </button>
-            </div>
-
-            {/* Language 1 */}
-            <p className="text-xs text-gray-400 font-medium mb-2">
-              {isDual ? tl(lang, "첫 번째 언어", "Primary language", "Ngôn ngữ chính") : tl(lang, "언어 선택", "Select language", "Chọn ngôn ngữ")}
+            <p className="text-xs text-gray-400 text-center mb-4">
+              {tl(lang, "1~2개 선택 가능 (이중 언어)", "Select 1-2 languages (bilingual)", "Chọn 1-2 ngôn ngữ (song ngữ)")}
             </p>
-            <div className="space-y-1.5 mb-4">
-              {LANG_OPTIONS.map((lo) => (
-                <button
-                  key={lo.code}
-                  onClick={() => setDownloadLang(lo.code)}
-                  className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-all ${
-                    downloadLang === lo.code
-                      ? "bg-emerald-50 border-2 border-emerald-400 text-emerald-700 font-semibold"
-                      : "bg-gray-50 border-2 border-transparent text-gray-600"
-                  }`}
-                >
-                  <span className="text-lg">{lo.flag}</span>
-                  <span>{lo.name}</span>
-                  {downloadLang === lo.code && <span className="ml-auto text-emerald-500">✓</span>}
-                </button>
-              ))}
+
+            {/* Selected indicator */}
+            <div className="flex items-center justify-center gap-2 mb-3">
+              {selectedLangs.map((code, i) => {
+                const lo = LANG_OPTIONS.find(l => l.code === code);
+                return lo ? (
+                  <span key={code} className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 border border-emerald-300 rounded-full text-xs font-semibold text-emerald-700">
+                    {lo.flag} {lo.name}
+                    {selectedLangs.length > 1 && (
+                      <button onClick={() => toggleLang(code)} className="ml-0.5 text-emerald-400 hover:text-emerald-600">×</button>
+                    )}
+                  </span>
+                ) : null;
+              })}
+              {selectedLangs.length === 1 && (
+                <span className="text-xs text-gray-300">+ {tl(lang, "2번째 선택 가능", "select 2nd", "chọn thêm")}</span>
+              )}
             </div>
 
-            {/* Language 2 (dual mode) */}
-            {isDual && (
-              <>
-                <p className="text-xs text-gray-400 font-medium mb-2">
-                  {tl(lang, "두 번째 언어", "Secondary language", "Ngôn ngữ phụ")}
-                </p>
-                <div className="space-y-1.5 mb-4">
-                  {LANG_OPTIONS.filter(lo => lo.code !== downloadLang).map((lo) => (
-                    <button
-                      key={lo.code}
-                      onClick={() => setDownloadLang2(lo.code)}
-                      className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-all ${
-                        downloadLang2 === lo.code
-                          ? "bg-emerald-50 border-2 border-emerald-400 text-emerald-700 font-semibold"
-                          : "bg-gray-50 border-2 border-transparent text-gray-600"
-                      }`}
-                    >
-                      <span className="text-lg">{lo.flag}</span>
-                      <span>{lo.name}</span>
-                      {downloadLang2 === lo.code && <span className="ml-auto text-emerald-500">✓</span>}
-                    </button>
-                  ))}
-                </div>
-              </>
-            )}
+            {/* Single language list - tap to select/deselect (max 2) */}
+            <div className="space-y-1.5 mb-4">
+              {LANG_OPTIONS.map((lo) => {
+                const isSelected = selectedLangs.includes(lo.code);
+                const order = selectedLangs.indexOf(lo.code);
+                return (
+                  <button
+                    key={lo.code}
+                    onClick={() => toggleLang(lo.code)}
+                    className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-all ${
+                      isSelected
+                        ? "bg-emerald-50 border-2 border-emerald-400 text-emerald-700 font-semibold"
+                        : "bg-gray-50 border-2 border-transparent text-gray-600"
+                    }`}
+                  >
+                    {isSelected ? (
+                      <span className="w-5 h-5 flex items-center justify-center bg-emerald-400 text-white rounded-md text-xs font-bold">{order + 1}</span>
+                    ) : (
+                      <span className="w-5 h-5 flex items-center justify-center border-2 border-gray-200 rounded-md" />
+                    )}
+                    <span className="text-lg">{lo.flag}</span>
+                    <span>{lo.name}</span>
+                    {isSelected && <span className="ml-auto text-emerald-500">✓</span>}
+                  </button>
+                );
+              })}
+            </div>
 
             {/* Download button */}
             <button
               onClick={executeDownload}
-              disabled={isDual && !downloadLang2}
-              className="w-full py-4 rounded-2xl text-sm font-bold bg-gradient-to-r from-emerald-400 to-teal-500 text-white hover:shadow-md active:scale-[0.98] transition-all shadow-sm disabled:opacity-40"
+              className="w-full py-4 rounded-2xl text-sm font-bold bg-gradient-to-r from-emerald-400 to-teal-500 text-white hover:shadow-md active:scale-[0.98] transition-all shadow-sm"
             >
-              {isDual
-                ? `📋 ${LANG_OPTIONS.find(l => l.code === downloadLang)?.name || ""} + ${LANG_OPTIONS.find(l => l.code === downloadLang2)?.name || "..."}`
-                : `📋 ${LANG_OPTIONS.find(l => l.code === downloadLang)?.name || ""}`
+              {selectedLangs.length === 2
+                ? `📋 ${LANG_OPTIONS.find(l => l.code === selectedLangs[0])?.name || ""} + ${LANG_OPTIONS.find(l => l.code === selectedLangs[1])?.name || ""}`
+                : `📋 ${LANG_OPTIONS.find(l => l.code === selectedLangs[0])?.name || ""}`
               }
               {" "}{tl(lang, "다운로드", "Download", "Tải xuống")}
             </button>
