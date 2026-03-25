@@ -13,7 +13,7 @@ export const SUPPORTED_COUNTRIES: CountryInfo[] = [
   { code: "KR", nameLocal: "한국", nameEn: "South Korea", flag: "\u{1F1F0}\u{1F1F7}", language: "ko", languageLabel: "한국어", emergencyNumber: "119", hasDB: true },
   { code: "VN", nameLocal: "Việt Nam", nameEn: "Vietnam", flag: "\u{1F1FB}\u{1F1F3}", language: "vi", languageLabel: "Tiếng Việt", emergencyNumber: "115", hasDB: true },
   { code: "US", nameLocal: "United States", nameEn: "United States", flag: "\u{1F1FA}\u{1F1F8}", language: "en", languageLabel: "English", emergencyNumber: "911", hasDB: true },
-  { code: "JP", nameLocal: "日本", nameEn: "Japan", flag: "\u{1F1EF}\u{1F1F5}", language: "ja", languageLabel: "日本語", emergencyNumber: "119", hasDB: false },
+  { code: "JP", nameLocal: "日本", nameEn: "Japan", flag: "\u{1F1EF}\u{1F1F5}", language: "ja", languageLabel: "日本語", emergencyNumber: "119", hasDB: true },
   { code: "TH", nameLocal: "ประเทศไทย", nameEn: "Thailand", flag: "\u{1F1F9}\u{1F1ED}", language: "th", languageLabel: "ไทย", emergencyNumber: "1669", hasDB: false },
   { code: "PH", nameLocal: "Philippines", nameEn: "Philippines", flag: "\u{1F1F5}\u{1F1ED}", language: "en", languageLabel: "English", emergencyNumber: "911", hasDB: false },
   { code: "ID", nameLocal: "Indonesia", nameEn: "Indonesia", flag: "\u{1F1EE}\u{1F1E9}", language: "id", languageLabel: "Bahasa", emergencyNumber: "118", hasDB: false },
@@ -25,7 +25,7 @@ export const SUPPORTED_COUNTRIES: CountryInfo[] = [
   { code: "ES", nameLocal: "España", nameEn: "Spain", flag: "\u{1F1EA}\u{1F1F8}", language: "es", languageLabel: "Español", emergencyNumber: "112", hasDB: false },
 ];
 
-export const DB_COUNTRY_CODES = ["KR", "VN", "US"];
+export const DB_COUNTRY_CODES = ["KR", "VN", "US", "JP"];
 
 export interface LanguageOption {
   code: string;       // i18n language code (ko, en, vi)
