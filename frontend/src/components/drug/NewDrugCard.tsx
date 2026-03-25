@@ -69,13 +69,10 @@ export default function NewDrugCard({ drug, rank, countryCode, lang, countryName
           {rank}
         </span>
         <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-gray-800 text-base leading-tight">{name}</h3>
-          {localName && (
-            <p className="text-sm font-semibold text-gray-600 mt-1 bg-gray-50 inline-block px-2 py-0.5 rounded-lg">
-              {localName}
-              {pronunciation && <span className="text-xs text-gray-400 font-normal ml-1.5">({pronunciation})</span>}
-            </p>
-          )}
+          <h3 className="font-bold text-gray-800 text-base leading-tight">
+            {name}
+            {pronunciation && <span className="text-sm text-gray-400 font-normal ml-1.5">({pronunciation})</span>}
+          </h3>
           <p className="text-xs text-emerald-600 mt-1">{drug.ingredient}</p>
         </div>
       </div>
