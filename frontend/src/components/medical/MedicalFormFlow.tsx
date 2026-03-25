@@ -348,6 +348,9 @@ export default function MedicalFormFlow({
             onClick={() => {
               if (selectedIdx !== null) return;
               setSelectedIdx(idx);
+              setTimeout(() => {
+                setSelectedIdx(null);
+              }, 500);
               onSelect(o.value);
             }}
             className={`w-full text-left px-4 py-3.5 rounded-2xl shadow-sm text-sm font-medium transition-all duration-300 flex items-center justify-between ${
