@@ -12,6 +12,9 @@ import MatchCandidates from "./components/search/MatchCandidates";
 import AllCategorySelector from "./components/search/AllCategorySelector";
 import LanguageSelectScreen from "./components/onboarding/LanguageSelectScreen";
 import CountrySelectScreen from "./components/onboarding/CountrySelectScreen";
+import MedicalFormFlow from "./components/medical/MedicalFormFlow";
+import MedicalFormPreview from "./components/medical/MedicalFormPreview";
+import type { MedicalFormData } from "./components/medical/MedicalFormFlow";
 import {
   matchSymptomScored,
   getMatchCandidates,
@@ -30,7 +33,7 @@ import {
 
 const DISCLAIMER_KEY = "otc_disclaimer_agreed";
 
-type Screen = "home" | "flow" | "allCategories";
+type Screen = "home" | "flow" | "allCategories" | "medicalForm" | "medicalPreview";
 type OnboardingStep = "language" | "country" | "disclaimer" | "done";
 
 // TODO: 개발 완료 후 localStorage 기반 온보딩 스킵 복원
@@ -61,6 +64,7 @@ function App() {
   const [noMatch, setNoMatch] = useState(false);
   const [countryCode, setCountryCode] = useState<string>(() => getSavedCountry() || "VN");
   const [searchFocused, setSearchFocused] = useState(false);
+  const [medicalFormData, setMedicalFormData] = useState<MedicalFormData | null>(null);
 
   // Restore language
   if (onboardingStep === "done" || onboardingStep === "country" || onboardingStep === "disclaimer") {
@@ -126,6 +130,16 @@ function App() {
       }
       if (screen === "allCategories") {
         setScreen("home");
+        scrollTop();
+        return;
+      }
+      if (screen === "medicalForm") {
+        setScreen("home");
+        scrollTop();
+        return;
+      }
+      if (screen === "medicalPreview") {
+        setScreen("medicalForm");
         scrollTop();
         return;
       }
@@ -278,6 +292,33 @@ function App() {
 
   // === Render: Main app ===
 
+  if (screen === "medicalForm") {
+    return (
+      <MedicalFormFlow
+        lang={i18n.language}
+        countryCode={countryCode}
+        onComplete={(data) => {
+          setMedicalFormData(data);
+          setScreen("medicalPreview");
+          pushState("medicalPreview");
+          scrollTop();
+        }}
+        onBack={() => { setScreen("home"); pushState("home"); scrollTop(); }}
+      />
+    );
+  }
+
+  if (screen === "medicalPreview" && medicalFormData) {
+    return (
+      <MedicalFormPreview
+        data={medicalFormData}
+        lang={i18n.language}
+        onBack={() => { setScreen("medicalForm"); scrollTop(); }}
+        onReset={() => { setMedicalFormData(null); setScreen("home"); pushState("home"); scrollTop(); }}
+      />
+    );
+  }
+
   if (screen === "allCategories") {
     return (
       <AllCategorySelector
@@ -377,6 +418,31 @@ function App() {
 
         {!showCandidates && !noMatch && (
           <SymptomTags onSelect={handleTagSelect} />
+        )}
+
+        {/* Medical Form Button */}
+        {!searchFocused && !showCandidates && !noMatch && (
+          <div className="mt-6 mb-4">
+            <button
+              onClick={() => { setScreen("medicalForm"); pushState("medicalForm"); scrollTop(); }}
+              className="w-full flex items-center gap-4 px-5 py-4 bg-white rounded-2xl shadow-sm hover:shadow-md active:scale-[0.98] transition-all border border-gray-50"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl flex items-center justify-center text-2xl shrink-0">
+                📋
+              </div>
+              <div className="text-left flex-1">
+                <p className="text-sm font-bold text-gray-800">
+                  {i18n.language === "ko" ? "문진표 작성하기" : i18n.language === "vi" ? "Tạo phiếu khám" : "Create Medical Form"}
+                </p>
+                <p className="text-xs text-gray-400 mt-0.5">
+                  {i18n.language === "ko" ? "병원/약국 방문 시 보여줄 문진표를 만들어보세요" : i18n.language === "vi" ? "Tạo phiếu khám để đưa cho bác sĩ/dược sĩ" : "Create a form to show your doctor or pharmacist"}
+                </p>
+              </div>
+              <svg className="w-5 h-5 text-gray-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+          </div>
         )}
       </main>
 
